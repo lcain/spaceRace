@@ -76,6 +76,7 @@ app.collisionHandler = function(bullet, alien) {
 
         //the "click to restart" handler
         app.game.input.onTap.addOnce(app.restart,this);
+
     }
 
 }
