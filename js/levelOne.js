@@ -57,7 +57,7 @@ app.collisionHandler = function(bullet, alien) {
     alien.kill();
 
     //  Increase the score
-    app.score += 20;
+    app.score += 1000;
     app.scoreText.text = app.scoreString + app.score;
 
     //  And create an explosion :)
@@ -71,7 +71,7 @@ app.collisionHandler = function(bullet, alien) {
         app.scoreText.text = app.scoreString + app.score;
 
         app.enemyBullets.callAll('kill',this);
-        app.stateText.text = " You Won, \n Click to restart";
+        app.stateText.text = " It's dangerous \n  to go alone. \n   Try these: \n     ⍃   ⍄ !";
         app.stateText.visible = true;
 
         //the "click to restart" handler
