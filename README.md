@@ -1,3 +1,9 @@
-A spaceRace game that evolves as you play....
+# SpaceRace
 
-Under construction...
+With mind altering visual affects comes the critically acclaimed SPACE RACE.  
+
+  - Watch the environment change as you progress
+  - Changing gameplay mechanics
+  - Bosses to battle
+
+In construction ... 
