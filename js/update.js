@@ -10,14 +10,18 @@ app.update = function() {
         //  Reset the app.player, then check for movement keys
         app.player.body.velocity.setTo(0, 0);
 
-        if (app.cursors.left.isDown)
-        {
-            app.player.body.velocity.x = -200;
-        }
-        else if (app.cursors.right.isDown)
-        {
-            app.player.body.velocity.x = 200;
-        }
+
+        //THIS ALLOWS THE PLAYER TO MOVE FROM LEFT TO RIGHT
+
+        // if (app.cursors.left.isDown)
+        // {
+        //     app.player.body.velocity.x = -200;
+        // }
+        // else if (app.cursors.right.isDown)
+        // {
+        //     app.player.body.velocity.x = 200;
+        // }
+
 
         //  Firing?
         if (app.fireButton.isDown)
@@ -25,10 +29,14 @@ app.update = function() {
             app.fireBullet();
         }
 
-        if (app.game.time.now > app.firingTimer)
-        {
-            app.enemyFires();
-        }
+
+        // THIS STARTS THE ENEMY FIRING    
+
+        // if (app.game.time.now > app.firingTimer)
+        // {
+        //     app.enemyFires();
+        // }
+
 
         //  Run collision
         app.game.physics.arcade.overlap(app.bullets, app.aliens, app.collisionHandler, null, this);
