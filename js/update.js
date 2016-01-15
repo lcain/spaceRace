@@ -32,16 +32,22 @@ app.update = function() {
 
         // THIS STARTS THE ENEMY FIRING    
 
-        // if (app.game.time.now > app.firingTimer)
-        // {
-        //     app.enemyFires();
-        // }
+        if (app.game.time.now > app.firingTimer)
+        {
+            app.enemyFires();
+        }
 
 
         //  Run collision
         app.game.physics.arcade.overlap(app.bullets, app.aliens, app.collisionHandler, null, this);
         app.game.physics.arcade.overlap(app.enemyBullets, app.player, app.enemyHitsPlayer, null, this);
-       
+
+
+        // SCORES AND LIVES: -KANE
+
+        $('.gameLives').text( "Lives: "+lifeCalculator() );
+        $('.gameScore').text("Score: "+app.score)
+
     }
 
 }
