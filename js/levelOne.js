@@ -67,7 +67,7 @@ app.collisionHandler = function(bullet, alien) {
 
     if (app.aliens.countLiving() == 0)
     {
-        app.score += 1000;
+        app.score += 20;
         app.scoreText.text = app.scoreString + app.score;
 
         app.enemyBullets.callAll('kill',this);
