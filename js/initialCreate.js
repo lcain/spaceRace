@@ -39,13 +39,15 @@ app.create = function() {
 
     app.createAliens();
 
-    //  The score
-    app.scoreString = 'Score : ';
-    app.scoreText = app.game.add.text(10, 705, app.scoreString + app.score, { font: '25px Georgia', fill: '#fff' });
 
-    //  Lives
+    // ADDED TRANSPARENCY TO REMOVE FROM VIEW BUT LEAVE ACCESS TO DATA. -KANE
+    // //  The score
+    app.scoreString = 'Score : ';
+    app.scoreText = app.game.add.text(10, 705, app.scoreString + app.score, { font: '25px Georgia', fill: 'transparent' });
+
+    // //  Lives
     app.lives = app.game.add.group();
-    app.game.add.text(app.game.world.width - 200, 705, 'Lives : ', { font: '25px Georgia', fill: '#fff' });
+    app.game.add.text(app.game.world.width - 200, 705, 'Lives : ', { font: '25px Georgia', fill: 'transparent' });
 
     //  Text
     app.stateText = app.game.add.text(app.game.world.centerX,app.game.world.centerY,' ', { font: '84px Gerogia', fill: '#fff' });
@@ -57,7 +59,7 @@ app.create = function() {
         var ship = app.lives.create(app.game.world.width - 100 + (30 * i), 720, 'ship');
         ship.anchor.setTo(0.5, 0.5);
         ship.angle = 90;
-        ship.alpha = 1;
+        ship.alpha = 0;
     }
 
     //  An explosion pool
