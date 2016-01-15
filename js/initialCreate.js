@@ -5,7 +5,7 @@ app.create = function() {
     app.game.physics.startSystem(Phaser.Physics.ARCADE);
 
     //  The scrolling starfield background
-    app.starfield = app.game.add.tileSprite(0, 0, 800, 600, 'starfield');
+    app.starfield = app.game.add.tileSprite(0, 0, 800, 750, 'starfield');
 
     //  Our bullet group
     app.bullets = app.game.add.group();
@@ -41,20 +41,20 @@ app.create = function() {
 
     //  The score
     app.scoreString = 'Score : ';
-    app.scoreText = app.game.add.text(10, 10, app.scoreString + app.score, { font: '34px Arial', fill: '#fff' });
+    app.scoreText = app.game.add.text(10, 705, app.scoreString + app.score, { font: '25px Georgia', fill: '#fff' });
 
     //  Lives
     app.lives = app.game.add.group();
-    app.game.add.text(app.game.world.width - 100, 10, 'Lives : ', { font: '34px Arial', fill: '#fff' });
+    app.game.add.text(app.game.world.width - 200, 705, 'Lives : ', { font: '25px Georgia', fill: '#fff' });
 
     //  Text
-    app.stateText = app.game.add.text(app.game.world.centerX,app.game.world.centerY,' ', { font: '84px Arial', fill: '#fff' });
+    app.stateText = app.game.add.text(app.game.world.centerX,app.game.world.centerY,' ', { font: '84px Gerogia', fill: '#fff' });
     app.stateText.anchor.setTo(0.5, 0.5);
     app.stateText.visible = false;
 
     for (var i = 0; i < 3; i++) 
     {
-        var ship = app.lives.create(app.game.world.width - 100 + (30 * i), 60, 'ship');
+        var ship = app.lives.create(app.game.world.width - 100 + (30 * i), 720, 'ship');
         ship.anchor.setTo(0.5, 0.5);
         ship.angle = 90;
         ship.alpha = 0.4;

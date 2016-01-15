@@ -90,7 +90,7 @@ app.enemyHitsPlayer = function(player,bullet) {
         app.player.kill();
         app.enemyBullets.callAll('kill');
 
-        app.stateText.text=" GAME OVER \n Click to restart";
+        app.stateText.text="  GAME OVER \n Click to restart";
         app.stateText.visible = true;
 
         //the "click to restart" handler
