@@ -5,7 +5,7 @@ app.create = function() {
     app.game.physics.startSystem(Phaser.Physics.ARCADE);
 
     //  The scrolling starfield background
-    app.starfield = app.game.add.tileSprite(0, 0, 800, 750, 'starfield');
+    app.starfield = app.game.add.tileSprite(0, 0, 800, 700, 'starfield');
 
     //  Our bullet group
     app.bullets = app.game.add.group();
@@ -57,7 +57,7 @@ app.create = function() {
         var ship = app.lives.create(app.game.world.width - 100 + (30 * i), 720, 'ship');
         ship.anchor.setTo(0.5, 0.5);
         ship.angle = 90;
-        ship.alpha = 0.4;
+        ship.alpha = 1;
     }
 
     //  An explosion pool

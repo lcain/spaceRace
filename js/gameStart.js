@@ -2,7 +2,7 @@ var app = app || {};
 
 $(document).ready(function(){
 
-  app.game = new Phaser.Game(800, 600, Phaser.AUTO, 'phaser-example', { preload: app.preload, create: app.create, update: app.update, render: app.render });
+  app.game = new Phaser.Game(800, 750, Phaser.AUTO, 'phaser-example', { preload: app.preload, create: app.create, update: app.update, render: app.render });
 
 });
 
@@ -15,6 +15,8 @@ app.preload = function() {
     app.game.load.spritesheet('kaboom', 'assets/explode.png', 128, 128);
     app.game.load.image('starfield', 'assets/starfield.png');
    
+    // LEAVE THIS AT THE END - IT ASSIGNS THE CLASS FOR CSS AFTER EVERYTHING IS CREATED ON PAGE.
+    $('body canvas').addClass("gameWindow");
 
 }
 
