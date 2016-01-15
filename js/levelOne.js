@@ -22,8 +22,9 @@ app.createAliens = function() {
     // // //  When the tween loops it calls descend
     // tween.onLoop.add(app.descend, this);
 
-    // app.game.time.events.loop(Phaser.Timer.SECOND * .3, app.descend, this); 
-    app.game.time.events.loop(Phaser.Timer.SECOND * .01, app.descend, this); 
+    
+    app.game.time.events.loop(Phaser.Timer.SECOND * .3, app.descend, this); 
+   
 }
 
 app.setupInvader = function(invader) {
@@ -81,7 +82,9 @@ app.collisionHandler = function(bullet, alien) {
 
 app.enemyHitsPlayer = function(player,bullet) {
     
+
     bullet.kill();
+
 
     live = app.lives.getFirstAlive();
 

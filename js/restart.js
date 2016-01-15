@@ -18,6 +18,7 @@ app.restart = function() {
     app.score = 0;
     app.scoreText.destroy();
     app.scoreText = app.game.add.text(10, 705, app.scoreString + app.score, { font: '25px Georgia', fill: '#fff' });
+    app.game.time.events.stop();
 }
 
 

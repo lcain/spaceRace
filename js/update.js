@@ -7,6 +7,7 @@ app.update = function() {
 
     if (app.player.alive)
     {
+        app.descend();
         //  Reset the app.player, then check for movement keys
         app.player.body.velocity.setTo(0, 0);
 
@@ -41,6 +42,7 @@ app.update = function() {
         //  Run collision
         app.game.physics.arcade.overlap(app.bullets, app.aliens, app.collisionHandler, null, this);
         app.game.physics.arcade.overlap(app.enemyBullets, app.player, app.enemyHitsPlayer, null, this);
+        app.game.physics.arcade.overlap(app.aliens, app.player, app.enemyHitsPlayer, null, this);
 
 
         // SCORES AND LIVES: -KANE
