@@ -18,10 +18,13 @@ app.createAliens = function() {
     app.aliens.y = 50;
 
     //  All this does is basically start the invaders moving. Notice we're moving the Group they belong to, rather than the invaders directly.
-    var tween = app.game.add.tween(app.aliens).to( { x: 200 }, 2000, Phaser.Easing.Linear.None, true, 0, 1000, true);
+    // var tween = app.game.add.tween(app.aliens).to( { y: 200 }, 2000, Phaser.Easing.Linear.None, true, 0, 1000, true);
 
-    //  When the tween loops it calls descend
-    tween.onLoop.add(app.descend, this);
+    // // //  When the tween loops it calls descend
+    // tween.onLoop.add(app.descend, this);
+
+    app.createAliens.onLoop.add(app.descend());
+
 }
 
 app.setupInvader = function(invader) {
@@ -90,7 +93,7 @@ app.enemyHitsPlayer = function(player,bullet) {
         app.player.kill();
         app.enemyBullets.callAll('kill');
 
-        app.stateText.text=" GAME OVER \n Click to restart";
+        app.stateText.text="  GAME OVER \n Click to restart";
         app.stateText.visible = true;
 
         //the "click to restart" handler
