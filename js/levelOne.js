@@ -7,8 +7,8 @@ app.createAliens = function() {
        
             var alien = app.aliens.create(0, y * 100, 'invader');
             alien.anchor.setTo(0.5, 0.5);
-            alien.animations.add('fly', [ 0, 1, 2, 3 ], 20, true);
-            alien.play('fly');
+            // alien.animations.add('fly', [ 0, 1, 2, 3 ], 20, true);
+            // alien.play('fly');
             alien.body.moves = false;
         
     }
@@ -37,6 +37,8 @@ app.setupInvader = function(invader) {
 app.descend = function() {
 
     app.aliens.y += 1;
+
+  
     
     _.each(app.aliens.children, function(alien) {
         if (alien.world.y > app.game.world.bounds.bottom) {
@@ -149,24 +151,24 @@ app.fireBullet = function() {
         if (bullet)
         {
             //  And fire it
-            bullet.reset(app.player.x, app.player.y + 8);
-            bullet.body.velocity.y = -400;
-            app.bulletTime = app.game.time.now + 200;
+            bullet.reset(app.player.x, app.player.y);
+            bullet.body.velocity.y = -200;
+            app.bulletTime = app.game.time.now + 1000;
         }
     }
    
 }
 
-app.resetBullet = function(bullet) {
+// app.resetBullet = function(bullet) {
 
-    //  Called if the bullet goes out of the screen
-    _.each(app.bullets.children, function(bullet) {
-        if (bullet.world.y > app.game.world.bounds.top) {
-            bullet.kill();
-        }
-    });
+//     //  Called if the bullet goes out of the screen
+//     _.each(app.bullets.children, function(bullet) {
+//         if (bullet.world.y > app.game.world.bounds.top) {
+//             bullet.kill();
+//         }
+//     });
    
 
-}
+// }
 
 

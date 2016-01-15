@@ -3,7 +3,7 @@ var app = app || {};
 app.update = function() {
   
     //  Scroll the background
-    app.starfield.tilePosition.y += 2;
+    // app.starfield.tilePosition.y += 2;
 
     if (app.player.alive)
     {
@@ -32,10 +32,10 @@ app.update = function() {
 
         // THIS STARTS THE ENEMY FIRING    
 
-        if (app.game.time.now > app.firingTimer)
-        {
-            app.enemyFires();
-        }
+        // if (app.game.time.now > app.firingTimer)
+        // {
+        //     app.enemyFires();
+        // }
 
 
         //  Run collision

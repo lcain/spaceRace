@@ -8,12 +8,12 @@ $(document).ready(function(){
 
 app.preload = function() {
 
-    app.game.load.image('bullet', 'assets/bullet.png');
+    app.game.load.image('bullet', 'assets/LevelOne/bullet.png');
     app.game.load.image('enemyBullet', 'assets/enemy-bullet.png');
-    app.game.load.spritesheet('invader', 'assets/invader32x32x4.png', 32, 32);
-    app.game.load.image('ship', 'assets/player.png');
+    app.game.load.spritesheet('invader', 'assets/LevelOne/asteroid.png');
+    app.game.load.image('ship', 'assets/LevelOne/ship.png');
     app.game.load.spritesheet('kaboom', 'assets/explode.png', 128, 128);
-    app.game.load.image('starfield', 'assets/starfield.png');
+    app.game.load.image('starfield', 'assets/LevelOne/background.png');
    
     // LEAVE THIS AT THE END - IT ASSIGNS THE CLASS FOR CSS AFTER EVERYTHING IS CREATED ON PAGE. - KANE
     $('body canvas').addClass("gameWindow");
