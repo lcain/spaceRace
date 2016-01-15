@@ -56,6 +56,12 @@ app.collisionHandler = function(bullet, alien) {
     bullet.kill();
     alien.kill();
 
+    //AUDIO enemy is hit by bullet -K
+
+    soundCall = new Howl({
+    urls: [playSound("enemyHit")]
+    }).play();
+
     //  Increase the score
     app.score += 20;
     app.scoreText.text = app.scoreString + app.score;
@@ -71,11 +77,12 @@ app.collisionHandler = function(bullet, alien) {
         app.scoreText.text = app.scoreString + app.score;
 
         app.enemyBullets.callAll('kill',this);
-        app.stateText.text = " You Won, \n Click to restart";
+        app.stateText.text = " It's dangerous \n  to go alone. \n   Try these: \n     ⍃   ⍄";
         app.stateText.visible = true;
 
         //the "click to restart" handler
         app.game.input.onTap.addOnce(app.restart,this);
+
     }
 
 }
@@ -84,6 +91,11 @@ app.enemyHitsPlayer = function(player,bullet) {
     
 
     bullet.kill();
+
+    //AUDIO Player is hit sound
+    soundCall = new Howl({
+    urls: [playSound("playerHit")]
+    }).play();
 
 
     live = app.lives.getFirstAlive();
@@ -109,6 +121,12 @@ app.enemyHitsPlayer = function(player,bullet) {
 
         //the "click to restart" handler
         app.game.input.onTap.addOnce(app.restart,this);
+
+        //AUDIO - Game over -k
+
+        soundCall = new Howl({
+        urls: [playSound("gameOver")]
+        }).play();
     }
 
 }
@@ -157,6 +175,11 @@ app.fireBullet = function() {
             bullet.reset(app.player.x, app.player.y);
             bullet.body.velocity.y = -200;
             app.bulletTime = app.game.time.now + 1000;
+
+            //AUDIO Player PEWPEWPEW sounds etc. -K
+            soundCall = new Howl({
+            urls: [playSound("playerShot")]
+            }).play();
         }
     }
    

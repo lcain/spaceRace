@@ -12,7 +12,7 @@ app.preload = function() {
     app.game.load.image('enemyBullet', 'assets/enemy-bullet.png');
     app.game.load.spritesheet('invader', 'assets/LevelOne/asteroid.png');
     app.game.load.image('ship', 'assets/LevelOne/ship.png');
-    app.game.load.spritesheet('kaboom', 'assets/explode.png', 128, 128);
+    app.game.load.spritesheet('kaboom', 'assets/LevelOne/explode.png', 128, 128);
     app.game.load.image('starfield', 'assets/LevelOne/background.png');
    
     // LEAVE THIS AT THE END - IT ASSIGNS THE CLASS FOR CSS AFTER EVERYTHING IS CREATED ON PAGE. - KANE

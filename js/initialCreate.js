@@ -28,7 +28,7 @@ app.create = function() {
     app.enemyBullets.setAll('checkWorldBounds', true);
 
     //  The hero!
-    app.player = app.game.add.sprite(400, 500, 'ship');
+    app.player = app.game.add.sprite(400, 650, 'ship');
     app.player.anchor.setTo(0.5, 0.5);
     app.game.physics.enable(app.player, Phaser.Physics.ARCADE);
 
@@ -50,8 +50,8 @@ app.create = function() {
     app.lives = app.game.add.group();
     app.game.add.text(app.game.world.width - 200, 705, 'Lives : ', { font: '25px Georgia', fill: 'transparent' });
 
-    //  Text
-    app.stateText = app.game.add.text(app.game.world.centerX,app.game.world.centerY,' ', { font: '84px Gerogia', fill: '#fff' });
+    //  Text -- THE FUNCTIONS IN FONTS HERE CAN BE FOUND IN GUI - THEY EVALUATE THE LEVEL AND PASS RETURN VALUES BASED ON IT. -KANE
+    app.stateText = app.game.add.text(app.game.world.centerX,app.game.world.centerY,' ', { font: '84px '+gameLevelFontSelect()+'', fill: gameLevelFontColor()});
     app.stateText.anchor.setTo(0.5, 0.5);
     app.stateText.visible = false;
 
