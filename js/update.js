@@ -1,7 +1,7 @@
 var app = app || {};
 
 app.update = function() {
-
+  
     //  Scroll the background
     app.starfield.tilePosition.y += 2;
 
@@ -41,6 +41,7 @@ app.update = function() {
         //  Run collision
         app.game.physics.arcade.overlap(app.bullets, app.aliens, app.collisionHandler, null, this);
         app.game.physics.arcade.overlap(app.enemyBullets, app.player, app.enemyHitsPlayer, null, this);
+       
     }
 
 }

@@ -2,29 +2,28 @@ var app = app || {};
 
 app.createAliens = function() {
 
-    for (var y = 0; y < 4; y++)
+    for (var y = 0; y < 5; y++)
     {
-        for (var x = 0; x < 10; x++)
-        {
-            var alien = app.aliens.create(x * 48, y * 50, 'invader');
+       
+            var alien = app.aliens.create(0, y * 100, 'invader');
             alien.anchor.setTo(0.5, 0.5);
             alien.animations.add('fly', [ 0, 1, 2, 3 ], 20, true);
             alien.play('fly');
             alien.body.moves = false;
-        }
+        
     }
 
-    app.aliens.x = 100;
-    app.aliens.y = 50;
+    app.aliens.x = 400;
+    app.aliens.y = -500;
 
     //  All this does is basically start the invaders moving. Notice we're moving the Group they belong to, rather than the invaders directly.
-    var tween = app.game.add.tween(app.aliens).to( { x: 200 }, 2000, Phaser.Easing.Linear.None, true, 0, 1000, true);
+    // var tween = app.game.add.tween(app.aliens).to( { y: 200 }, 2000, Phaser.Easing.Linear.None, true, 0, 1000, true);
 
     // // //  When the tween loops it calls descend
-    tween.onLoop.add(app.descend, this);
+    // tween.onLoop.add(app.descend, this);
 
-
-
+    // app.game.time.events.loop(Phaser.Timer.SECOND * .3, app.descend, this); 
+    app.game.time.events.loop(Phaser.Timer.SECOND * .01, app.descend, this); 
 }
 
 app.setupInvader = function(invader) {
@@ -37,9 +36,16 @@ app.setupInvader = function(invader) {
 
 app.descend = function() {
 
-    app.aliens.y += 10;
-
+    app.aliens.y += 1;
+    
+    _.each(app.aliens.children, function(alien) {
+        if (alien.world.y > app.game.world.bounds.bottom) {
+            alien.kill();
+        }
+    });
+    
 }
+
 
 app.collisionHandler = function(bullet, alien) {
 
@@ -154,6 +160,13 @@ app.fireBullet = function() {
 app.resetBullet = function(bullet) {
 
     //  Called if the bullet goes out of the screen
-    bullet.kill();
+    _.each(app.bullets.children, function(bullet) {
+        if (bullet.world.y > app.game.world.bounds.top) {
+            bullet.kill();
+        }
+    });
+   
 
 }
+
+
