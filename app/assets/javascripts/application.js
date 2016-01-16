@@ -12,11 +12,11 @@
 //= require ./phaser.min
 //= require jquery
 //= require jquery_ujs
+//= require bootstrap.min
 //= require ./underscore
 //= require ./globalVariables
 //= require ./gui
 //= require ./initialCreate
 //= require ./howler
 //= require ./audio
-//= require turbolinks
 //= require_tree .
