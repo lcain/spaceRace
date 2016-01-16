@@ -19,7 +19,7 @@ app.livingEnemies = [];
 
 
 //----- Use this to count every level transition, this will be what any Jquery dynamic styles will base themselves on. -Kane
-app.levelCounter = 0;
+app.levelCounter = 1;
 
 // --- This will keep track of the total amount of enemies killed.
 app.totalKillcount = 0;

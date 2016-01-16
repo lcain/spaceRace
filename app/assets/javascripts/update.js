@@ -19,7 +19,7 @@ app.update = function() {
 
         //THIS ALLOWS THE PLAYER TO MOVE FROM LEFT TO RIGHT
 
-        if ( app.totalKillcount >= 5) {
+        if ( app.levelCounter >= 2) {
 
             if (app.cursors.left.isDown)
             {
@@ -43,11 +43,24 @@ app.update = function() {
 
 
         //  Run collision
+
+    if ( app.levelCounter === 1 ) {
+
         app.game.physics.arcade.overlap(app.bullets, app.aliens, app.collisionHandlerLevelOne, null, this);
+
+     }
         app.game.physics.arcade.overlap(app.enemyBullets, app.player, app.enemyHitsPlayerLevelOne, null, this);
         app.game.physics.arcade.overlap(app.aliens, app.player, app.enemyHitsPlayerLevelOne, null, this);
+        
         // Run collision for level two
+    if ( app.levelCounter === 2 ) {
+
         app.game.physics.arcade.overlap(app.bullets, app.aliens, app.collisionHandlerLevelTwo, null, this);
+        // app.game.physics.arcade.overlap(app.game.world.bounds, app.aliens, app.collisionHandlerLevelTwo, null, this);
+        console.log("Loggingcollision Handler Two")
+
+    }
+
         // Run collision for level three
         // app.game.physics.arcade.overlap(app.bullets, app.aliens, app.collisionHandlerLevelThree, null, this);
 

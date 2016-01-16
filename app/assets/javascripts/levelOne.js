@@ -55,7 +55,7 @@ app.descendLevelOne = function() {
 
 
 app.collisionHandlerLevelOne = function(bullet, alien) {
-
+   console.log("collisionHandlerLevelOne")
 
     //  When a bullet hits an alien we kill them both
     bullet.kill();
@@ -76,10 +76,12 @@ app.collisionHandlerLevelOne = function(bullet, alien) {
     explosion.reset(alien.body.x, alien.body.y);
     explosion.play('kaboom', 30, false, true);
 
-    if (app.aliens.countLiving() == 0)
+    if (app.aliens.countLiving() === 0)
     {
         app.score += 1000;
         app.scoreText.text = app.scoreString + app.score;
+        app.levelCounter ++;
+
 
         app.enemyBullets.callAll('kill',this);
         app.stateText.text = " It's dangerous \n  to go alone. \n   Try these: \n     ⍃   ⍄";
@@ -93,6 +95,7 @@ app.collisionHandlerLevelOne = function(bullet, alien) {
         //the "click to restart" handler
         app.game.time.events.events.pop();
         app.game.input.onTap.addOnce(app.createLevelTwo, this);
+
 
     }
 

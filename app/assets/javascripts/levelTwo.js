@@ -51,7 +51,6 @@ app.descendLevelTwo = function() {
 
 app.collisionHandlerLevelTwo = function(bullet, alien) {
 
-
     //  When a bullet hits an alien we kill them both
     bullet.kill();
     alien.kill();
@@ -71,7 +70,7 @@ app.collisionHandlerLevelTwo = function(bullet, alien) {
     explosion.reset(alien.body.x, alien.body.y);
     explosion.play('kaboom', 30, false, true);
 
-    if (app.aliens.countLiving() == 0)
+    if (app.aliens.countLiving() === 0)
     {
         app.score += 1000;
         app.scoreText.text = app.scoreString + app.score;

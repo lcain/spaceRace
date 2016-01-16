@@ -1,7 +1,6 @@
 var app = app || {};
 
 $(document).ready(function() {
-    console.log("<%= image_path('LevelOne/bullet.png') %>");
 
   app.game = new Phaser.Game(800, 650   , Phaser.AUTO, 'container', { preload: app.preload, create: app.create, update: app.update, render: app.render });
 
