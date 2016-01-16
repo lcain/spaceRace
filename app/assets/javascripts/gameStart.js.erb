@@ -1,0 +1,32 @@
+var app = app || {};
+
+$(document).ready(function() {
+    console.log("<%= image_path('LevelOne/bullet.png') %>");
+
+  app.game = new Phaser.Game(800, 700   , Phaser.AUTO, 'phaser-example', { preload: app.preload, create: app.create, update: app.update, render: app.render });
+
+});
+
+app.preload = function() {
+
+    app.game.load.image('bullet', '<%= image_path("LevelOne/bullet.png") %>');
+    app.game.load.image('enemyBullet', '<%= image_path("LevelOne/enemy-bullet.png") %>');
+    app.game.load.spritesheet('invader', '<%= image_path("LevelOne/asteroid.png") %>');
+    app.game.load.image('ship', '<%= image_path("LevelOne/ship.png") %>');
+    app.game.load.spritesheet('kaboom', '<%= image_path("LevelOne/explode.png") %>', 128, 128);
+    app.game.load.image('starfield', '<%= image_path("LevelOne/background.png") %>');
+   
+    // LEAVE THIS AT THE END - IT ASSIGNS THE CLASS FOR CSS AFTER EVERYTHING IS CREATED ON PAGE. - KANE
+    $('body canvas').addClass("gameWindow");
+    $('<div class="gameStatus">'+'<p class="scoreText gameScore">'+app.score+'</p>'+'<p class="scoreText gameLives"> 3 </p>'+'</div>').appendTo('body');
+
+}
+
+app.render = function() {
+
+    // for (var i = 0; i < aliens.length; i++)
+    // {
+    //     game.debug.body(aliens.children[i]);
+    // }
+
+}
