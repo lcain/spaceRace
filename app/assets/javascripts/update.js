@@ -19,7 +19,7 @@ app.update = function() {
 
         //THIS ALLOWS THE PLAYER TO MOVE FROM LEFT TO RIGHT
 
-        if ( app.aliens.countDead() >= 5) {
+        if ( app.totalKillcount >= 5) {
 
             if (app.cursors.left.isDown)
             {
