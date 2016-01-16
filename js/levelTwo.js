@@ -1,5 +1,10 @@
 var app = app || {};
 
+app.createLevelTwo = function() {
+
+    
+}
+
 app.createAliensLevelTwo = function() {
 
     for (var y = 0; y < 5; y++)
