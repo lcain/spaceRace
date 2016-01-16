@@ -1,0 +1,22 @@
+
+
+
+var playSound = function(play){
+  switch (play){
+    case "playerShot":
+    return '<%= asset_path("playerShot.wav") %>'
+
+    case "playerHit":
+    return '<%= asset_path("playerHit.wav") %>'
+
+    case "enemyHit":
+    return '<%= asset_path("enemyHit.wav") %>'
+
+    case "gameOver":
+    return '<%= asset_path("gameOver") %>'
+  }
+
+}
+
+var soundCall = new Howl({})
+
