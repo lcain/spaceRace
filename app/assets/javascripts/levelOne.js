@@ -30,7 +30,7 @@ app.createAliensLevelOne = function() {
 app.setupInvaderLevelOne = function(invader) {
 
 
-    invader.anchor.x = 0.4;
+    invader.anchor.x = 0.45;
     invader.anchor.y = 0.5;
     invader.animations.add('kaboom');
 
