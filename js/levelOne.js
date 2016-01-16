@@ -22,11 +22,13 @@ app.createAliens = function() {
     // // //  When the tween loops it calls descend
     // tween.onLoop.add(app.descend, this);
 
-    
+    // THIS CALLS DESCEND ON A LOOP 
     app.game.time.events.loop(Phaser.Timer.SECOND * .3, app.descend, this); 
    
 }
 
+
+// KILL ANIMATION FOR INVADERS
 app.setupInvader = function(invader) {
 
     invader.anchor.x = 0.5;
@@ -35,6 +37,7 @@ app.setupInvader = function(invader) {
 
 }
 
+// SPEED INVADERS DESCEND
 app.descend = function() {
 
     app.aliens.y += 1;
@@ -50,6 +53,7 @@ app.descend = function() {
 }
 
 
+// KILLS ALIEN/PLAYER BULLET AND PLAYER/ALIEN ON COLLISION
 app.collisionHandler = function(bullet, alien) {
 
     //  When a bullet hits an alien we kill them both
@@ -87,6 +91,7 @@ app.collisionHandler = function(bullet, alien) {
 
 }
 
+// KILLS ENEMYBULLET/TAKES PLAYER LIFE AWAY ON COLLISION
 app.enemyHitsPlayer = function(player,bullet) {
     
 
@@ -131,6 +136,7 @@ app.enemyHitsPlayer = function(player,bullet) {
 
 }
 
+// ENEMY FIRE 
 app.enemyFires = function() {
 
     //  Grab the first bullet we can from the pool
@@ -161,6 +167,7 @@ app.enemyFires = function() {
 
 }
 
+// PLAYER FIRE
 app.fireBullet = function() {
 
     //  To avoid them being allowed to fire too fast we set a time limit
