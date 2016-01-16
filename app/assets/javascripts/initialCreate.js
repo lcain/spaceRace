@@ -5,7 +5,7 @@ app.create = function() {
     app.game.physics.startSystem(Phaser.Physics.ARCADE);
 
     //  The scrolling starfield background
-    app.starfield = app.game.add.tileSprite(0, 0, 800, 700, 'starfield');
+    app.starfield = app.game.add.tileSprite(0, 0, 800, 650, 'starfield');
 
     //  Our bullet group
     app.bullets = app.game.add.group();
@@ -28,7 +28,7 @@ app.create = function() {
     app.enemyBullets.setAll('checkWorldBounds', true);
 
     //  The hero!
-    app.player = app.game.add.sprite(400, 650, 'ship');
+    app.player = app.game.add.sprite(400, 600, 'ship');
     app.player.anchor.setTo(0.5, 0.5);
     app.game.physics.enable(app.player, Phaser.Physics.ARCADE);
 
