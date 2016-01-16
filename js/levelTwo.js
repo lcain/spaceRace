@@ -1,6 +1,6 @@
 var app = app || {};
 
-app.createAliensLevelOne = function() {
+app.createAliensLevelTwo = function() {
 
     for (var y = 0; y < 5; y++)
     {
@@ -27,7 +27,7 @@ app.createAliensLevelOne = function() {
 
 }
 
-app.setupInvaderLevelOne = function(invader) {
+app.setupInvaderLevelTwo = function(invader) {
 
 
     invader.anchor.x = 0.4;
@@ -36,7 +36,7 @@ app.setupInvaderLevelOne = function(invader) {
 
 }
 
-app.descendLevelOne = function() {
+app.descendLevelTwo = function() {
 
 
     app.aliens.y += 1;
@@ -53,7 +53,7 @@ app.descendLevelOne = function() {
 
 
 
-app.collisionHandlerLevelOne = function(bullet, alien) {
+app.collisionHandlerLevelTwo = function(bullet, alien) {
 
 
     //  When a bullet hits an alien we kill them both
@@ -74,7 +74,7 @@ app.collisionHandlerLevelOne = function(bullet, alien) {
     var explosion = app.explosions.getFirstExists(false);
     explosion.reset(alien.body.x, alien.body.y);
     explosion.play('kaboom', 30, false, true);
-   
+
     if (app.aliens.countLiving() == 0)
     {
         app.score += 1000;
@@ -92,7 +92,7 @@ app.collisionHandlerLevelOne = function(bullet, alien) {
 }
 
 
-app.enemyHitsPlayerLevelOne = function(player,bullet) {
+app.enemyHitsPlayerLevelTwo= function(player,bullet) {
 
 
     bullet.kill();
@@ -137,7 +137,7 @@ app.enemyHitsPlayerLevelOne = function(player,bullet) {
 }
 
 
-app.enemyFiresLevelOne = function() {
+app.enemyFiresLevelTwo = function() {
 
     //  Grab the first bullet we can from the pool
     app.enemyBullet = app.enemyBullets.getFirstExists(false);
@@ -168,7 +168,7 @@ app.enemyFiresLevelOne = function() {
 }
 
 
-app.fireBulletLevelOne = function() {
+app.fireBulletLevelTwo = function() {
 
     //  To avoid them being allowed to fire too fast we set a time limit
     if (app.game.time.now > app.bulletTime)
@@ -192,7 +192,7 @@ app.fireBulletLevelOne = function() {
 
 }
 
-// app.resetBulletLevelOne = function(bullet) {
+// app.resetBulletLevelTwo = function(bullet) {
 
 //     //  Called if the bullet goes out of the screen
 //     _.each(app.bullets.children, function(bullet) {
@@ -203,5 +203,3 @@ app.fireBulletLevelOne = function() {
 
 
 // }
-
-
