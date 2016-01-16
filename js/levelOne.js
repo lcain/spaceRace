@@ -85,7 +85,7 @@ app.collisionHandlerLevelOne = function(bullet, alien) {
         app.stateText.visible = true;
 
         //the "click to restart" handler
-        app.game.input.onTap.addOnce(app.restart,this);
+        app.game.input.onTap.addOnce(app.createAliensLevelOne,this);
 
     }
 
