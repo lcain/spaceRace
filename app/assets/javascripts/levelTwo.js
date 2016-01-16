@@ -28,7 +28,7 @@ app.createAliensLevelTwo = function() {
     // tween.onLoop.add(app.descendLevelOne, this);
 
 
-    app.game.time.events.loop(Phaser.Timer.SECOND * .01, app.descendLevelOne, this);
+    app.game.time.events.loop(Phaser.Timer.SECOND * .01, app.descendLevelTwo, this);
 
 }
 

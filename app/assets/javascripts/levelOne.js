@@ -25,6 +25,7 @@ app.createAliensLevelOne = function() {
 
     app.game.time.events.loop(Phaser.Timer.SECOND * .01, app.descendLevelOne, this);
 
+
 }
 
 app.setupInvaderLevelOne = function(invader) {
@@ -85,7 +86,8 @@ app.collisionHandlerLevelOne = function(bullet, alien) {
         app.stateText.visible = true;
 
         //the "click to restart" handler
-        app.game.input.onTap.addOnce(app.restart,this);
+        app.game.time.events.events.pop();
+        app.game.input.onTap.addOnce(app.createAliensLevelTwo,this);
 
     }
 
