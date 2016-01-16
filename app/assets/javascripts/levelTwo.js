@@ -53,7 +53,7 @@ app.createAliensLevelTwo = function() {
 
 
 
-
+randomizer(-370,370)
 
 
 
