@@ -23,34 +23,33 @@ app.createAliensLevelTwo = function() {
 
 // }, 3000);
 
-    for (var y = 0; y < 1; y++)
+    // for (var y = 0; y < 10; y++)
+    // {
+    //         var alien = app.aliens.create(x * 100, 0, 'invader');
+    //         alien.anchor.setTo(0.5, 0.5);
+    //         alien.body.moves = false;   
+    // }
+
+    // app.aliens.x = 100;
+    // app.aliens.y = -500;
+
+
+
+
+  for (var y = 0; y < 1; y++)
     {
-            var alien = app.aliens.create(0, y * 100, 'invader');
+        for (var x = 0; x < 1; x++) {
+        
+            var alien = app.aliens.create(x * 150, y * 100, 'invader');
             alien.anchor.setTo(0.5, 0.5);
-            alien.body.moves = false;   
-            alien.x = 600;
-            alien.y = -500;
+            // alien.animations.add('fly', [ 0, 1, 2, 3 ], 20, true);
+            // alien.play('fly');
+            alien.body.moves = false;
+        };
     }
 
-   
-
-
-
-
-  // for (var y = 0; y < 5; y++)
-  //   {
-  //       for (var x = 0; x < 5; x++) {
-        
-  //           var alien = app.aliens.create(x * 150, y * 100, 'invader');
-  //           alien.anchor.setTo(0.5, 0.5);
-  //           // alien.animations.add('fly', [ 0, 1, 2, 3 ], 20, true);
-  //           // alien.play('fly');
-  //           alien.body.moves = false;
-  //       };
-  //   }
-
-  //   app.aliens.x = 100;
-  //   app.aliens.y = -500;
+    app.aliens.x = 100;
+    app.aliens.y = -100;
 
 
 
