@@ -85,9 +85,14 @@ app.collisionHandlerLevelOne = function(bullet, alien) {
         app.stateText.text = " It's dangerous \n  to go alone. \n   Try these: \n     ⍃   ⍄";
         app.stateText.visible = true;
 
+        //Adds enemies killed to global kill count.
+        app.totalKillcount = app.totalKillcount + app.aliens.countDead();
+        //Destroys killed sprites from our count.
+        app.aliens.children = [];
+        
         //the "click to restart" handler
         app.game.time.events.events.pop();
-        app.game.input.onTap.addOnce(app.createLevelTwo,this);
+        app.game.input.onTap.addOnce(app.createLevelTwo, this);
 
     }
 
