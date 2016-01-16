@@ -19,5 +19,4 @@
 //= require ./initialCreate
 //= require ./howler
 //= require ./audio
-//= require turbolinks
 //= require_tree .
