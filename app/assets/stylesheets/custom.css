@@ -1,11 +1,19 @@
+/*Universal/Main elements*/
+
+#container {
+  border: 1px solid red;
+  min-width: 1400px;
+}
+
 
 /*Forms*/
 
 .formContain {
-  margin: 2px 1px 1px 2px;
+  /*margin: 2px 1px 1px 1100px;*/
   width: 300px;
-  position: absolute;
+  /*position: absolute;*/
   text-align: center;
+  display: inline-block;
 }
 
 

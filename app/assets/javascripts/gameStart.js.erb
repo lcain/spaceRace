@@ -3,7 +3,7 @@ var app = app || {};
 $(document).ready(function() {
     console.log("<%= image_path('LevelOne/bullet.png') %>");
 
-  app.game = new Phaser.Game(800, 650   , Phaser.AUTO, 'phaser-example', { preload: app.preload, create: app.create, update: app.update, render: app.render });
+  app.game = new Phaser.Game(800, 650   , Phaser.AUTO, 'container', { preload: app.preload, create: app.create, update: app.update, render: app.render });
 
 });
 
@@ -18,7 +18,7 @@ app.preload = function() {
    
     // LEAVE THIS AT THE END - IT ASSIGNS THE CLASS FOR CSS AFTER EVERYTHING IS CREATED ON PAGE. - KANE
     $('body canvas').addClass("gameWindow");
-    $('<div class="gameStatus">'+'<p class="scoreText gameScore">'+app.score+'</p>'+'<p class="scoreText gameLives"> 3 </p>'+'</div>').appendTo('body');
+    $('<div class="gameStatus">'+'<p class="scoreText gameScore">'+app.score+'</p>'+'<p class="scoreText gameLives"> 3 </p>'+'</div>').appendTo('#container');
     $('<div class="optionsBar"><div class="toggleSound"><p>Mute</p></div></div>').appendTo('.gameStatus');
 
 }
