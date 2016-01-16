@@ -74,7 +74,7 @@ app.collisionHandlerLevelOne = function(bullet, alien) {
     var explosion = app.explosions.getFirstExists(false);
     explosion.reset(alien.body.x, alien.body.y);
     explosion.play('kaboom', 30, false, true);
-
+   
     if (app.aliens.countLiving() == 0)
     {
         app.score += 1000;
