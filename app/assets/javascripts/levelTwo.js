@@ -4,7 +4,6 @@ app.createLevelTwo = function() {
     app.createAliensLevelTwo();
     app.stateText.visible = false;
     app.levelCounter ++;
-    app.preloadLevelThree();
     
 }
 
@@ -67,11 +66,11 @@ app.collisionHandlerLevelTwo = function(bullet, alien) {
 
 }
 
-app.preloadLevelThree = function(){
-console.log("PRELOAD LEVEL THREE")
-    app.game.load.spritesheet('asteroidLarge', '<%= image_path("LevelThree/asteroidLarge.png") %>');
-    app.game.load.spritesheet('asteroidSmall', '<%= image_path("LevelThree/asteroidSmall.png") %>');
-    app.game.load.spritesheet('largeAsteroidExplode', '<%= image_path("LevelThree/explode.png") %>', 128, 128);
-   
+// app.preloadLevelThree = function(){
+// console.log("PRELOAD LEVEL THREE")
+//     app.game.load.spritesheet('asteroidLarge', '<%= image_path("../LevelThree/asteroidLarge.png") %>');
+//     app.game.load.spritesheet('asteroidSmall', '<%= image_path("../LevelThree/asteroidSmall.png") %>');
+//     app.game.load.spritesheet('largeAsteroidExplode', '<%= image_path("../LevelThree/explode.png") %>', 128, 128);
+//     app.game.load.start();
 
-};
+// };

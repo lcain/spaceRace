@@ -13,7 +13,7 @@ app.createAliensLevelThree = function() {
     {
         for (var x = 0; x < 5; x++) {
         
-            var alien = app.aliens.create(x * 150, y * 200, 'asteroidLarge');
+            var alien = app.aliens.create(x * 150, y * 200, 'invader');
             alien.anchor.setTo(0.5, 0.5);
             // alien.animations.add('fly', [ 0, 1, 2, 3 ], 20, true);
             // alien.play('fly');
@@ -65,11 +65,3 @@ app.collisionHandlerLevelThree = function(bullet, alien) {
 
 }
 
-app.preloadLevelFour = function(){
-
-    app.game.load.spritesheet('asteroidLarge', '<%= image_path("LevelThree/asteroidLarge.png") %>');
-    app.game.load.spritesheet('asteroidSmall', '<%= image_path("LevelThree/asteroidSmall.png") %>');
-    app.game.load.spritesheet('largeAsteroidExplode', '<%= image_path("LevelThree/explode.png") %>', 128, 128);
-   
-
-};
