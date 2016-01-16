@@ -1,17 +1,17 @@
 var app = app || {};
 
-app.createLevelTwo = function() {
-    app.createAliensLevelTwo();
+app.createLevelFive = function() {
+    app.createAliensLevelThree();
     app.stateText.visible = false;
     app.levelCounter ++;
     
 }
 
-app.createAliensLevelTwo = function() {
+app.createAliensLevelFive = function() {
 
   for (var y = 0; y < 2; y++)
     {
-        for (var x = 0; x < 3; x++) {
+        for (var x = 0; x < 5; x++) {
         
             var alien = app.aliens.create(x * 150, y * 200, 'invader');
             alien.anchor.setTo(0.5, 0.5);
@@ -24,13 +24,18 @@ app.createAliensLevelTwo = function() {
     app.aliens.x = 250;
     app.aliens.y = -300;
 
-    app.game.time.events.loop(Phaser.Timer.SECOND * .01, app.descendLevelTwo, this);
+
+
+    app.game.time.events.loop(Phaser.Timer.SECOND * .01, app.descendLevelFive, this);
 
 }
 
-app.descendLevelTwo = function() {
+app.descendLevelFive = function() {
+
 
     app.aliens.y += 1;
+
+
 
     _.each(app.aliens.children, function(alien) {
         if (alien.world.y > app.game.world.bounds.bottom) {
@@ -40,7 +45,8 @@ app.descendLevelTwo = function() {
 
 }
 
-app.collisionHandlerLevelTwo = function(bullet, alien) {
+app.collisionHandlerLevelFive = function(bullet, alien) {
+
 
     //  When a bullet hits an alien we kill them both
     bullet.kill();
@@ -61,8 +67,6 @@ app.collisionHandlerLevelTwo = function(bullet, alien) {
     explosion.reset(alien.body.x, alien.body.y);
     explosion.play('kaboom', 30, false, true);
 
-
-    app.toNextLevel(app.createLevelThree);
+    app.toNextLevel(app.createLevelFive);
 
 }
-

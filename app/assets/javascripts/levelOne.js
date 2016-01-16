@@ -14,14 +14,7 @@ app.createAliensLevelOne = function() {
     }
 
     app.aliens.x = 400;
-    app.aliens.y = -500;
-
-    //  All this does is basically start the invaders moving. Notice we're moving the Group they belong to, rather than the invaders directly.
-    // var tween = app.game.add.tween(app.aliens).to( { y: 200 }, 2000, Phaser.Easing.Linear.None, true, 0, 1000, true);
-
-    // // //  When the tween loops it calls descend
-    // tween.onLoop.add(app.descendLevelOne, this);
-
+    app.aliens.y = -200;
 
     app.game.time.events.loop(Phaser.Timer.SECOND * .01, app.descendLevelOne, this);
 
@@ -39,10 +32,7 @@ app.setupInvaderLevelOne = function(invader) {
 
 app.descendLevelOne = function() {
 
-
     app.aliens.y += 1;
-
-
 
     _.each(app.aliens.children, function(alien) {
         if (alien.world.y > app.game.world.bounds.bottom) {
@@ -51,8 +41,6 @@ app.descendLevelOne = function() {
     });
 
 }
-
-
 
 app.collisionHandlerLevelOne = function(bullet, alien) {
    console.log("collisionHandlerLevelOne")
@@ -76,31 +64,9 @@ app.collisionHandlerLevelOne = function(bullet, alien) {
     explosion.reset(alien.body.x, alien.body.y);
     explosion.play('kaboom', 30, false, true);
 
-    if (app.aliens.countLiving() === 0)
-    {
-        app.score += 1000;
-        app.scoreText.text = app.scoreString + app.score;
-        app.levelCounter ++;
-
-
-        app.enemyBullets.callAll('kill',this);
-        app.stateText.text = " It's dangerous \n  to go alone. \n   Try these: \n     ⍃   ⍄";
-        app.stateText.visible = true;
-
-        //Adds enemies killed to global kill count.
-        app.totalKillcount = app.totalKillcount + app.aliens.countDead();
-        //Destroys killed sprites from our count.
-        app.aliens.children = [];
-        
-        //the "click to restart" handler
-        app.game.time.events.events.pop();
-        app.game.input.onTap.addOnce(app.createLevelTwo, this);
-
-
-    }
+    app.toNextLevel(app.createLevelTwo);
 
 }
-
 
 app.enemyHitsPlayerLevelOne = function(player,bullet) {
 
@@ -201,17 +167,5 @@ app.fireBulletLevelOne = function() {
     }
 
 }
-
-// app.resetBulletLevelOne = function(bullet) {
-
-//     //  Called if the bullet goes out of the screen
-//     _.each(app.bullets.children, function(bullet) {
-//         if (bullet.world.y > app.game.world.bounds.top) {
-//             bullet.kill();
-//         }
-//     });
-
-
-// }
 
 

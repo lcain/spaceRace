@@ -3,3 +3,43 @@ app.randomizer = function(x,y){
     app.aliens.children[i].position.x = _.random(x,y);
   }
 }
+
+
+app.toNextLevel = function(createLevel){
+
+  if (app.aliens.countLiving() === 0)
+      {
+          // app.score += 1000;
+          app.scoreText.text = app.scoreString + app.score;
+
+          app.enemyBullets.callAll('kill',this);
+
+          if ( app.levelCounter === 1 ) {
+            app.stateText.text = " It's dangerous \n  to go alone. \n   Try these: \n     ⍃   ⍄";
+            app.stateText.visible = true;
+          } else if ( app.levelCounter === 2 ) {
+            app.stateText.text = " Level Two ";
+            app.stateText.visible = true;
+          } else if ( app.levelCounter === 3 ) {
+            app.stateText.text = " Level Three ";
+            app.stateText.visible = true;
+          } else if ( app.levelCounter === 4 ) {
+            app.stateText.text = " Level Four ";
+            app.stateText.visible = true;
+          } else if ( app.levelCounter === 5 ) {
+            app.stateText.text = " Level Five ";
+            app.stateText.visible = true;
+          };
+
+          //Adds enemies killed to global kill count.
+          app.totalKillcount = app.totalKillcount + app.aliens.countDead();
+          //Destroys killed sprites from our count.
+          app.aliens.children = [];
+          
+          //the "click to restart" handler
+          app.game.time.events.events.pop();
+          app.game.input.onTap.addOnce(createLevel, this);
+
+  }
+
+};
