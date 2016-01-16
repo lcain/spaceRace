@@ -8,37 +8,9 @@ app.createLevelTwo = function() {
 
 app.createAliensLevelTwo = function() {
 
-// setInterval(function(){  
-
-//     for (var y = 0; y < 5; y++)
-//     {
-//             var alien = app.aliens.create(0, y * 100, 'invader');
-//             alien.anchor.setTo(0.5, 0.5);
-//             alien.body.moves = false;   
-//     }
-//     var randomise = _.random(100, 700);
-//     // console.log(randomise)
-//     app.aliens.x = randomise
-//     app.aliens.y = -500;
-
-// }, 3000);
-
-    // for (var y = 0; y < 10; y++)
-    // {
-    //         var alien = app.aliens.create(x * 100, 0, 'invader');
-    //         alien.anchor.setTo(0.5, 0.5);
-    //         alien.body.moves = false;   
-    // }
-
-    // app.aliens.x = 100;
-    // app.aliens.y = -500;
-
-
-
-
-  for (var y = 0; y < 1; y++)
+  for (var y = 0; y < 2; y++)
     {
-        for (var x = 0; x < 1; x++) {
+        for (var x = 0; x < 3; x++) {
         
             var alien = app.aliens.create(x * 150, y * 100, 'invader');
             alien.anchor.setTo(0.5, 0.5);
@@ -48,16 +20,11 @@ app.createAliensLevelTwo = function() {
         };
     }
 
-    app.aliens.x = 100;
-    app.aliens.y = -100;
+    app.aliens.x = 250;
+    app.aliens.y = -500;
 
 
-
-randomizer(-370,370)
-
-
-
-
+   
 
 
 
