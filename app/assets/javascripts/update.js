@@ -11,24 +11,27 @@ app.update = function() {
         //  Reset the app.player, then check for movement keys
         app.player.body.velocity.setTo(0, 0);
 
-
-        //THIS ALLOWS THE PLAYER TO MOVE FROM LEFT TO RIGHT
-
-        // if (app.cursors.left.isDown)
-        // {
-        //     app.player.body.velocity.x = -200;
-        // }
-        // else if (app.cursors.right.isDown)
-        // {
-        //     app.player.body.velocity.x = 200;
-        // }
-
-
         //  Firing?
         if (app.fireButton.isDown)
         {
             app.fireBulletLevelOne();
         }
+
+        //THIS ALLOWS THE PLAYER TO MOVE FROM LEFT TO RIGHT
+
+        if ( app.aliens.countDead() >= 5) {
+
+            if (app.cursors.left.isDown)
+            {
+                app.player.body.velocity.x = -200;
+            }
+            else if (app.cursors.right.isDown)
+            {
+                app.player.body.velocity.x = 200;
+            }
+
+        }
+    
 
 
         // THIS STARTS THE ENEMY FIRING
