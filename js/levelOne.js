@@ -31,7 +31,7 @@ app.createAliens = function() {
 // KILL ANIMATION FOR INVADERS
 app.setupInvader = function(invader) {
 
-    invader.anchor.x = 0.5;
+    invader.anchor.x = 0.4;
     invader.anchor.y = 0.5;
     invader.animations.add('kaboom');
 
