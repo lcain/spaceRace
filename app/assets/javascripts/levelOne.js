@@ -87,7 +87,7 @@ app.collisionHandlerLevelOne = function(bullet, alien) {
 
         //the "click to restart" handler
         app.game.time.events.events.pop();
-        app.game.input.onTap.addOnce(app.createAliensLevelTwo,this);
+        app.game.input.onTap.addOnce(app.createLevelTwo,this);
 
     }
 

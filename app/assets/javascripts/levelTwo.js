@@ -1,7 +1,8 @@
 var app = app || {};
 
 app.createLevelTwo = function() {
-
+    app.createAliensLevelTwo();
+    app.stateText.visible = false;
     
 }
 
@@ -9,16 +10,19 @@ app.createAliensLevelTwo = function() {
 
     for (var y = 0; y < 5; y++)
     {
-
-            var alien = app.aliens.create(0, y * 100, 'invader');
+        for (var x = 0; x < 5; x++) {
+        
+            var alien = app.aliens.create(x * 150, y * 100, 'invader');
             alien.anchor.setTo(0.5, 0.5);
             // alien.animations.add('fly', [ 0, 1, 2, 3 ], 20, true);
             // alien.play('fly');
             alien.body.moves = false;
-
+        };
     }
 
-    app.aliens.x = 400;
+
+
+    app.aliens.x = 100;
     app.aliens.y = -500;
 
     //  All this does is basically start the invaders moving. Notice we're moving the Group they belong to, rather than the invaders directly.
