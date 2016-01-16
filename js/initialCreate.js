@@ -38,7 +38,7 @@ app.create = function() {
     app.aliens.physicsBodyType = Phaser.Physics.ARCADE;
 
 
-    app.createAliens();
+    app.createAliensLevelOne();
 
 
     // ADDED TRANSPARENCY TO REMOVE FROM VIEW BUT LEAVE ACCESS TO DATA. -KANE
@@ -68,7 +68,7 @@ app.create = function() {
     //  An explosion pool
     app.explosions = app.game.add.group();
     app.explosions.createMultiple(30, 'kaboom');
-    app.explosions.forEach(app.setupInvader, this);
+    app.explosions.forEach(app.setupInvaderLevelOne, this);
 
     //  And some controls to play the game with
     app.cursors = app.game.input.keyboard.createCursorKeys();

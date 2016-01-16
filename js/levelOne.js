@@ -1,16 +1,16 @@
 var app = app || {};
 
-app.createAliens = function() {
+app.createAliensLevelOne = function() {
 
     for (var y = 0; y < 5; y++)
     {
-       
+
             var alien = app.aliens.create(0, y * 100, 'invader');
             alien.anchor.setTo(0.5, 0.5);
             // alien.animations.add('fly', [ 0, 1, 2, 3 ], 20, true);
             // alien.play('fly');
             alien.body.moves = false;
-        
+
     }
 
     app.aliens.x = 400;
@@ -20,14 +20,14 @@ app.createAliens = function() {
     // var tween = app.game.add.tween(app.aliens).to( { y: 200 }, 2000, Phaser.Easing.Linear.None, true, 0, 1000, true);
 
     // // //  When the tween loops it calls descend
-    // tween.onLoop.add(app.descend, this);
+    // tween.onLoop.add(app.descendLevelOne, this);
 
-    
-    app.game.time.events.loop(Phaser.Timer.SECOND * .3, app.descend, this); 
-   
+
+    app.game.time.events.loop(Phaser.Timer.SECOND * .01, app.descendLevelOne, this);
+
 }
 
-app.setupInvader = function(invader) {
+app.setupInvaderLevelOne = function(invader) {
 
     invader.anchor.x = 0.5;
     invader.anchor.y = 0.5;
@@ -35,22 +35,22 @@ app.setupInvader = function(invader) {
 
 }
 
-app.descend = function() {
+app.descendLevelOne = function() {
 
     app.aliens.y += 1;
 
-  
-    
+
+
     _.each(app.aliens.children, function(alien) {
         if (alien.world.y > app.game.world.bounds.bottom) {
             alien.kill();
         }
     });
-    
+
 }
 
 
-app.collisionHandler = function(bullet, alien) {
+app.collisionHandlerLevelOne = function(bullet, alien) {
 
     //  When a bullet hits an alien we kill them both
     bullet.kill();
@@ -87,8 +87,8 @@ app.collisionHandler = function(bullet, alien) {
 
 }
 
-app.enemyHitsPlayer = function(player,bullet) {
-    
+app.enemyHitsPlayerLevelOne = function(player,bullet) {
+
 
     bullet.kill();
 
@@ -131,7 +131,7 @@ app.enemyHitsPlayer = function(player,bullet) {
 
 }
 
-app.enemyFires = function() {
+app.enemyFiresLevelOne = function() {
 
     //  Grab the first bullet we can from the pool
     app.enemyBullet = app.enemyBullets.getFirstExists(false);
@@ -147,7 +147,7 @@ app.enemyFires = function() {
 
     if (app.enemyBullet && app.livingEnemies.length > 0)
     {
-        
+
         var random=app.game.rnd.integerInRange(0,app.livingEnemies.length-1);
 
         // randomly select one of them
@@ -161,7 +161,7 @@ app.enemyFires = function() {
 
 }
 
-app.fireBullet = function() {
+app.fireBulletLevelOne = function() {
 
     //  To avoid them being allowed to fire too fast we set a time limit
     if (app.game.time.now > app.bulletTime)
@@ -182,10 +182,10 @@ app.fireBullet = function() {
             }).play();
         }
     }
-   
+
 }
 
-// app.resetBullet = function(bullet) {
+// app.resetBulletLevelOne = function(bullet) {
 
 //     //  Called if the bullet goes out of the screen
 //     _.each(app.bullets.children, function(bullet) {
@@ -193,7 +193,7 @@ app.fireBullet = function() {
 //             bullet.kill();
 //         }
 //     });
-   
+
 
 // }
 
