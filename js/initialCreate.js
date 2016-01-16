@@ -55,7 +55,9 @@ app.create = function() {
     app.stateText.anchor.setTo(0.5, 0.5);
     app.stateText.visible = false;
 
-    for (var i = 0; i < 3; i++) 
+
+    // SHIP LIVES GRAPHIC CHANGED TO RENDER OUT OF GAME WORLD BOUNDS AND MADE TRANSPARENT -ALEX
+    for (var i = 0; i < 3; i++)
     {
         var ship = app.lives.create(app.game.world.width - 100 + (30 * i), 720, 'ship');
         ship.anchor.setTo(0.5, 0.5);
@@ -71,5 +73,5 @@ app.create = function() {
     //  And some controls to play the game with
     app.cursors = app.game.input.keyboard.createCursorKeys();
     app.fireButton = app.game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
-    
+
 }
