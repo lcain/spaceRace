@@ -46,6 +46,10 @@ app.update = function() {
         app.game.physics.arcade.overlap(app.bullets, app.aliens, app.collisionHandlerLevelOne, null, this);
         app.game.physics.arcade.overlap(app.enemyBullets, app.player, app.enemyHitsPlayerLevelOne, null, this);
         app.game.physics.arcade.overlap(app.aliens, app.player, app.enemyHitsPlayerLevelOne, null, this);
+        // Run collision for level two
+        app.game.physics.arcade.overlap(app.bullets, app.aliens, app.collisionHandlerLevelTwo, null, this);
+        // Run collision for level three
+        // app.game.physics.arcade.overlap(app.bullets, app.aliens, app.collisionHandlerLevelThree, null, this);
 
 
         // SCORES AND LIVES: -KANE

@@ -2,7 +2,7 @@ var app = app || {};
 
 app.createAliensLevelOne = function() {
 
-    for (var y = 0; y < 5; y++)
+    for (var y = 0; y < 1; y++)
     {
 
             var alien = app.aliens.create(0, y * 100, 'invader');
