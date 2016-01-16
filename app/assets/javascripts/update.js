@@ -7,7 +7,7 @@ app.update = function() {
 
     if (app.player.alive)
     {
-        //app.descendLevelOne();
+        // app.descendLevelOne();
         //  Reset the app.player, then check for movement keys
         app.player.body.velocity.setTo(0, 0);
 
