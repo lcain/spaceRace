@@ -7,6 +7,25 @@ var lifeCalculator = function(){
   }
   return livesRemaining;
 }
+
+
+var isMuted = false;
+$(document).ready(function(){
+  $('body').on('click','.toggleSound',function(){
+
+    if (isMuted === true){
+      $('.toggleSound').removeClass("muted")
+      Howler.unmute();
+      isMuted = false;
+    } else {
+      $('.toggleSound').addClass("muted")
+      Howler.mute();
+      isMuted = true;
+    }
+  })
+});
+
+
 //----------------------------------------------------------
 // LEVEL STYLE MODIFIERS
 //----------------------------------------------------------
@@ -22,3 +41,4 @@ var gameLevelFontSelect = function(){
       return '"Courier new"'
   } else { return 'Georgia'}
 }
+

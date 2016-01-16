@@ -1,3 +1,5 @@
+
+
 .gameWindow {
   margin: auto;
   border: 1px solid black;
@@ -19,4 +21,27 @@
 
 .gameLives{
   float: right;
+}
+
+/*Settings*/
+
+.toggleSound {
+  width: 48px;
+  text-align: center;
+  background-color: darkgreen
+}
+
+.muted {
+  background-color: red;
+  color: white;
+}
+
+.toggleSound p {
+  cursor: pointer;
+  font-weight: bold;
+  font-family: "Courier new";
+}
+
+.toggleSound p:hover {
+  color: white;
 }

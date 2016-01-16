@@ -18,6 +18,7 @@ app.preload = function() {
     // LEAVE THIS AT THE END - IT ASSIGNS THE CLASS FOR CSS AFTER EVERYTHING IS CREATED ON PAGE. - KANE
     $('body canvas').addClass("gameWindow");
     $('<div class="gameStatus">'+'<p class="scoreText gameScore">'+app.score+'</p>'+'<p class="scoreText gameLives"> 3 </p>'+'</div>').appendTo('body');
+    $('<div class="settings"><div class="toggleSound"><p>Mute</p></div></div>').appendTo('.gameStatus');
 
 }
 
