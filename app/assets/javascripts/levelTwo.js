@@ -68,7 +68,8 @@ app.collisionHandlerLevelTwo = function(bullet, alien) {
 }
 
 app.preloadLevelThree = function(){
-console.log("PRELOAD LEVEL THREE")
+console.log('<%= image_path("LevelThree/asteroidLarge.png"')
+
     app.game.load.spritesheet('asteroidLarge', '<%= image_path("LevelThree/asteroidLarge.png") %>');
     app.game.load.spritesheet('asteroidSmall', '<%= image_path("LevelThree/asteroidSmall.png") %>');
     app.game.load.spritesheet('largeAsteroidExplode', '<%= image_path("LevelThree/explode.png") %>', 128, 128);
