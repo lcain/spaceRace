@@ -29,6 +29,9 @@ app.toNextLevel = function(createLevel){
           } else if ( app.levelCounter === 5 ) {
             app.stateText.text = " Lvl Five Done";
             app.stateText.visible = true;
+          } else if ( app.levelCounter === 6 ) {
+            app.stateText.text = " Lvl Six Done";
+            app.stateText.visible = true;
           };
 
           //Adds enemies killed to global kill count.
