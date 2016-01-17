@@ -13,6 +13,19 @@ app.restart = function() {
 
     //revives the player
     app.player.revive();
+
+    // reposition the player
+    app.player.position.x = 400;
+    app.player.position.y = 600;
+
+    //reset ship texture
+    app.player.loadTexture("ship", 0, false);
+
+    // reset bullet texture
+    /*
+        insert reset bullet function(s)/code here
+    */
+
     //hides the text
     app.stateText.visible = false;
 

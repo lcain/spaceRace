@@ -157,7 +157,7 @@ app.fireBulletLevelOne = function() {
             //  And fire it
             bullet.reset(app.player.x, app.player.y);
             bullet.body.velocity.y = -200;
-            app.bulletTime = app.game.time.now + 1000;
+            app.bulletTime = app.game.time.now + 100;
 
             //AUDIO Player PEWPEWPEW sounds etc. -K
             soundCall = new Howl({

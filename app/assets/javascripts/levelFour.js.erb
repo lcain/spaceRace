@@ -1,48 +1,112 @@
 var app = app || {};
 
 app.createLevelFour = function() {
-    app.createAliensLevelThree();
+
+    app.player.loadTexture("shipLevel4", 0, false);
+
+    app.createAliensLevelFour();
     app.stateText.visible = false;
     app.levelCounter ++;
     // app.preloadLevelFive();
-    
+
 }
+
+app.createAlienGroup = function(x1, y1, x2, y2, alienGroup) {
+
+    for (var i = 0; i < 3; i++) {
+        var alien = alienGroup.create(i * x1, i * y1, 'asteroidLargeLevelFour');
+        alien.anchor.setTo(0.5, 0.5);
+        // alien.animations.add('fly', [ 0, 1, 2, 3 ], 20, true);
+        // alien.play('fly');
+        alien.body.moves = false;
+    }
+
+    alienGroup.x = x2;
+    alienGroup.y = y2;
+
+    app.aliens.add(alienGroup);
+}
+
 
 app.createAliensLevelFour = function() {
 
-  for (var y = 0; y < 2; y++)
-    {
-        for (var x = 0; x < 5; x++) {
-        
-            var alien = app.aliens.create(x * 150, y * 200, 'invader');
-            alien.anchor.setTo(0.5, 0.5);
-            // alien.animations.add('fly', [ 0, 1, 2, 3 ], 20, true);
-            // alien.play('fly');
-            alien.body.moves = false;
-        };
-    }
+    // Reset aliens position
+    app.aliens.x = 0;
+    app.aliens.y = 0;
 
-    app.aliens.x = 250;
-    app.aliens.y = -300;
+    // Create a new Phaser Group for each group of asteriods coming from the top and bottom of the screen
 
+    // Asteroid group moving from top to bottom
+    var alienGroup1 = app.game.add.group();
+    alienGroup1.enableBody = true;
+    alienGroup1.physicsBodyType = Phaser.Physics.ARCADE;
+    app.createAlienGroup(150, 0, 400, -300, alienGroup1);
 
+    app.game.time.events.loop(Phaser.Timer.SECOND * .01, app.descendLevelFour, this, alienGroup1);
 
-    app.game.time.events.loop(Phaser.Timer.SECOND * .01, app.descendLevelFour, this);
+    // Asteroid group moving from left to right
+    var alienGroup2 = app.game.add.group();
+    alienGroup2.enableBody = true;
+    alienGroup2.physicsBodyType = Phaser.Physics.ARCADE;
+    app.createAlienGroup(0, 150, -300, 325, alienGroup2);
+
+    app.game.time.events.loop(Phaser.Timer.SECOND * .01, app.moveRightLevelFour, this, alienGroup2);
+
+    // Asteroid group moving from right to left
+    var alienGroup3 = app.game.add.group();
+    alienGroup3.enableBody = true;
+    alienGroup3.physicsBodyType = Phaser.Physics.ARCADE;
+    app.createAlienGroup(0, 150, 1200, 325, alienGroup3);
+
+    app.game.time.events.loop(Phaser.Timer.SECOND * .01, app.moveLeftLevelFour, this, alienGroup3);
 
 }
 
-app.descendLevelFour = function() {
+app.descendLevelFour = function(aliens) {
 
+    aliens.y += 1;
 
-    app.aliens.y += 1;
-
-
-
-    _.each(app.aliens.children, function(alien) {
+    _.each(aliens.children, function(alien) {
         if (alien.world.y > app.game.world.bounds.bottom) {
             alien.kill();
         }
     });
+
+    if (aliens.countLiving() === 0) {
+        aliens.alive = false;
+    }
+
+}
+
+app.moveRightLevelFour = function(aliens) {
+
+    aliens.x += 1;
+
+    _.each(aliens.children, function(alien) {
+        if (alien.worldPosition.x > app.game.world.bounds.right) {
+            alien.kill();
+        }
+    });
+
+    if (aliens.countLiving() === 0) {
+        aliens.alive = false;
+    }
+
+}
+
+app.moveLeftLevelFour = function(aliens) {
+
+    aliens.x -= 1;
+
+    _.each(aliens.children, function(alien) {
+        if (alien.worldPosition.x < app.game.world.bounds.left) {
+            alien.kill();
+        }
+    });
+
+    if (aliens.countLiving() === 0) {
+        aliens.alive = false;
+    }
 
 }
 
