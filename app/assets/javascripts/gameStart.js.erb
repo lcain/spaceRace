@@ -7,7 +7,7 @@ $(document).ready(function() {
 });
 
 app.preload = function() {
- 
+
     app.game.load.image('bullet', '<%= image_path("LevelOne/bullet.png") %>');
     app.game.load.image('enemyBullet', '<%= image_path("LevelOne/enemy-bullet.png") %>');
     app.game.load.spritesheet('invader', '<%= image_path("LevelOne/asteroid.png") %>');
@@ -24,7 +24,9 @@ app.preload = function() {
 
     // Preloaded images for level 4:
     app.game.load.spritesheet('shipLevel4', '<%= image_path("LevelFour/ship.png") %>');
-   
+
+    app.game.load.spritesheet('asteroidLargeLevelFour', '<%= image_path("LevelFour/asteroidLarge.png") %>');
+
     // LEAVE THIS AT THE END - IT ASSIGNS THE CLASS FOR CSS AFTER EVERYTHING IS CREATED ON PAGE. - KANE
     $('body canvas').addClass("gameWindow");
     $('<div class="gameStatus">'+'<p class="scoreText gameScore">'+app.score+'</p>'+'<p class="scoreText gameLives"> 3 </p>'+'</div>').appendTo('#container');
@@ -32,7 +34,7 @@ app.preload = function() {
 
       // Temporarily start muted.
     Howler.mute();
-    $('.toggleSound').addClass("muted")   
+    $('.toggleSound').addClass("muted")
 
 }
 
