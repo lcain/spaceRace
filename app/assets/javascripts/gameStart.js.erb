@@ -30,6 +30,10 @@ app.preload = function() {
     $('<div class="gameStatus">'+'<p class="scoreText gameScore">'+app.score+'</p>'+'<p class="scoreText gameLives"> 3 </p>'+'</div>').appendTo('#container');
     $('<div class="optionsBar"><div class="toggleSound"><p>Mute</p></div></div>').appendTo('.gameStatus');
 
+      // Temporarily start muted.
+    Howler.mute();
+    $('.toggleSound').addClass("muted")   
+
 }
 
 app.render = function() {

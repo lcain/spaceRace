@@ -8,9 +8,11 @@ var lifeCalculator = function(){
   return livesRemaining;
 }
 
+// Temporary mute
 
 var isMuted = false;
 $(document).ready(function(){
+
   $('body').on('click','.toggleSound',function(){
 
     if (isMuted === true){
