@@ -2,13 +2,8 @@ var app = app || {};
 
 app.restart = function() {
 
-// ---- LIFE CHECKER - NO ADVANCE IN COUNT IF DEAD. - K
-    if (app.player.alive === true){
-        app.levelCounter ++;
-        console.log("Level counter: "+ app.levelCounter );
-    }
-
     //  A new level starts
+    app.levelCounter = 0;
 
     //resets the life count
     app.lives.callAll('revive');
