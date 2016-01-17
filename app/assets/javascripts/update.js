@@ -31,7 +31,7 @@ app.update = function() {
 
         }
 
-        if ( app.levelCounter >= 4) {
+        if ( app.levelCounter >= 4 && !app.cursors.left.isDown && !app.cursors.right.isDown ) {
             if (app.cursors.up.isDown)
             {
                 app.player.body.velocity.y = -200;
