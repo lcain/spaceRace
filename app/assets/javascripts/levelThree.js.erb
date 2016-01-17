@@ -4,6 +4,7 @@ app.createLevelThree = function() {
     app.createAliensLevelThree();
     app.stateText.visible = false;
     app.levelCounter ++;
+    app.preloadLevelFour();
     
 }
 
@@ -65,3 +66,10 @@ app.collisionHandlerLevelThree = function(bullet, alien) {
 
 }
 
+
+app.preloadLevelFour = function(){
+
+    app.game.load.spritesheet('shipLevelFour', '<%= image_path("LevelFour/ship.png") %>');
+    app.game.load.start();
+
+};
