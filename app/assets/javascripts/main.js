@@ -18,16 +18,16 @@ app.toNextLevel = function(createLevel){
             app.stateText.text = " It's dangerous \n  to go alone. \n   Try these: \n     ⍃   ⍄";
             app.stateText.visible = true;
           } else if ( app.levelCounter === 2 ) {
-            app.stateText.text = " Level Two ";
+            app.stateText.text = " Lvl Two Done";
             app.stateText.visible = true;
           } else if ( app.levelCounter === 3 ) {
-            app.stateText.text = " Level Three ";
+            app.stateText.text = " Lvl Three Done ";
             app.stateText.visible = true;
           } else if ( app.levelCounter === 4 ) {
-            app.stateText.text = " Level Four ";
+            app.stateText.text = " Lvl Four Done";
             app.stateText.visible = true;
           } else if ( app.levelCounter === 5 ) {
-            app.stateText.text = " Level Five ";
+            app.stateText.text = " Lvl Five Done";
             app.stateText.visible = true;
           };
 
