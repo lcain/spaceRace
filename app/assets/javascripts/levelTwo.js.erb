@@ -43,6 +43,9 @@ app.descendLevelTwo = function() {
 
 app.collisionHandlerLevelTwo = function(bullet, alien) {
 
+    console.log("bullet pos " + bullet.position)
+    
+    
     //  When a bullet hits an alien we kill them both
     bullet.kill();
     alien.kill();

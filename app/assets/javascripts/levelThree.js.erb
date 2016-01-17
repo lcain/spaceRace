@@ -51,6 +51,7 @@ app.collisionHandlerLevelThree = function(bullet, alien) {
     bullet.kill();
     alien.kill();
 
+
     //AUDIO enemy is hit by bullet -K
 
     soundCall = new Howl({
@@ -66,7 +67,7 @@ app.collisionHandlerLevelThree = function(bullet, alien) {
     explosion.reset(alien.body.x, alien.body.y);
     explosion.play('kaboom', 30, false, true);
 
-    app.toNextLevel(app.createLevelThree);
+    app.toNextLevel(app.createLevelFour);
 
 }
 
