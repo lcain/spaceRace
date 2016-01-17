@@ -15,8 +15,8 @@
 //= require bootstrap.min
 //= require ./underscore
 //= require ./globalVariables
-//= require ./gui
 //= require ./initialCreate
 //= require ./howler
 //= require ./audio
+//= require ./gui
 //= require_tree .

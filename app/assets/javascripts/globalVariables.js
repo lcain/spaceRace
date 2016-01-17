@@ -22,4 +22,4 @@ app.livingEnemies = [];
 app.levelCounter = 1;
 
 // --- This will keep track of the total amount of enemies killed.
-app.totalKillcount = 0;
+app.totalKillCount = 0;
