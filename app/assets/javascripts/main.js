@@ -35,7 +35,7 @@ app.toNextLevel = function(createLevel){
           app.totalKillcount = app.totalKillcount + app.aliens.countDead();
           //Destroys killed sprites from our count.
           app.aliens.children = [];
-          
+
           //the "click to restart" handler
           app.game.time.events.events.pop();
           app.game.input.onTap.addOnce(createLevel, this);

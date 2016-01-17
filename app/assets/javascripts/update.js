@@ -30,7 +30,18 @@ app.update = function() {
             }
 
         }
-    
+
+        if ( app.levelCounter >= 4 && !app.cursors.left.isDown && !app.cursors.right.isDown ) {
+            if (app.cursors.up.isDown)
+            {
+                app.player.body.velocity.y = -200;
+            }
+            else if (app.cursors.down.isDown)
+            {
+                app.player.body.velocity.y = 200;
+            }
+        }
+
 
 
         // THIS STARTS THE ENEMY FIRING
@@ -48,7 +59,7 @@ app.update = function() {
             app.game.physics.arcade.overlap(app.bullets, app.aliens, app.collisionHandlerLevelOne, null, this);
 
         }
-            
+
             // Run collision for level two
         if ( app.levelCounter === 2 ) {
 
@@ -63,7 +74,7 @@ app.update = function() {
         if ( app.levelCounter === 3 ) {
 
             app.game.physics.arcade.overlap(app.bullets, app.aliens, app.collisionHandlerLevelThree, null, this);
-            
+
             if ( app.aliens.countLiving() === 0 ) {
                 app.toNextLevel(app.createLevelFour);
             }
@@ -72,8 +83,8 @@ app.update = function() {
               // Run collision for level four
         if ( app.levelCounter === 4 ) {
 
-            app.game.physics.arcade.overlap(app.bullets, app.aliens, app.collisionHandlerLevelFour, null, this);
-            
+            app.game.physics.arcade.overlap(app.bullets, app.aliens.children, app.collisionHandlerLevelFour, null, this);
+
             if ( app.aliens.countLiving() === 0 ) {
                 app.toNextLevel(app.createLevelFive);
             }
@@ -83,18 +94,23 @@ app.update = function() {
         if ( app.levelCounter === 5 ) {
 
             app.game.physics.arcade.overlap(app.bullets, app.aliens, app.collisionHandlerLevelFive, null, this);
-            
+
             if ( app.aliens.countLiving() === 0 ) {
                 app.toNextLevel(app.createLevelFive);
             }
         }
 
 
+        if (app.levelCounter < 4) {
+            app.game.physics.arcade.overlap(app.enemyBullets, app.player, app.enemyHitsPlayerLevelOne, null, this);
+            app.game.physics.arcade.overlap(app.aliens, app.player, app.enemyHitsPlayerLevelOne, null, this);
+        }
+        else {
+            app.game.physics.arcade.overlap(app.enemyBullets, app.player, app.enemyHitsPlayerLevelOne, null, this);
+            app.game.physics.arcade.overlap(app.aliens.children, app.player, app.enemyHitsPlayerLevelOne, null, this);
+        }
 
-        app.game.physics.arcade.overlap(app.enemyBullets, app.player, app.enemyHitsPlayerLevelOne, null, this);
-        app.game.physics.arcade.overlap(app.aliens, app.player, app.enemyHitsPlayerLevelOne, null, this);
 
-    
 
 
         // SCORES AND LIVES: -KANE
