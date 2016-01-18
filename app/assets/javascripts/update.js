@@ -22,11 +22,11 @@ app.update = function() {
 
             if (app.cursors.left.isDown)
             {
-                app.player.body.velocity.x = -200;
+                app.player.body.velocity.x = -app.playerVelocity;
             }
             else if (app.cursors.right.isDown)
             {
-                app.player.body.velocity.x = 200;
+                app.player.body.velocity.x = app.playerVelocity;
             }
 
         }
@@ -34,57 +34,57 @@ app.update = function() {
         if ( app.levelCounter === 4 && !app.cursors.left.isDown && !app.cursors.right.isDown ) {
             if (app.cursors.up.isDown)
             {
-                app.player.body.velocity.y = -200;
+                app.player.body.velocity.y = -app.playerVelocity;
             }
             else if (app.cursors.down.isDown)
             {
-                app.player.body.velocity.y = 200;
+                app.player.body.velocity.y = app.playerVelocity;
             }
         }
 
         if (app.levelCounter >= 5 ) {
             if (app.cursors.down.isDown && app.cursors.left.isDown) {
                 // Diagonal down left movememnt
-                app.player.body.velocity.x = -150;
-                app.player.body.velocity.y = 150;
+                app.player.body.velocity.x = -app.playerVelocity * 0.75;
+                app.player.body.velocity.y = app.playerVelocity;
                 app.player.angle = 225;
             }
             else if (app.cursors.down.isDown && app.cursors.right.isDown) {
                 // Diagonal down right movement
-                app.player.body.velocity.x = 150;
-                app.player.body.velocity.y = 150;
+                app.player.body.velocity.x = app.playerVelocity * 0.75;
+                app.player.body.velocity.y = app.playerVelocity * 0.75;
                 app.player.angle = 135;
             }
             else if (app.cursors.up.isDown && app.cursors.left.isDown) {
                 // Diagonal up left movement
-                app.player.body.velocity.x = -150;
-                app.player.body.velocity.y = -150;
+                app.player.body.velocity.x = -app.playerVelocity * 0.75;
+                app.player.body.velocity.y = -app.playerVelocity * 0.75;
                 app.player.angle = 315;
             }
             else if (app.cursors.up.isDown && app.cursors.right.isDown) {
                 // Diagonal up right movement
-                app.player.body.velocity.x = 150;
-                app.player.body.velocity.y = -150;
+                app.player.body.velocity.x = app.playerVelocity * 0.75;
+                app.player.body.velocity.y = -app.playerVelocity * 0.75;
                 app.player.angle = 45;
             }
             else if (app.cursors.up.isDown) {
                 // Up movement
-                app.player.body.velocity.y = -200;
+                app.player.body.velocity.y = -app.playerVelocity;
                 app.player.angle = 0;
             }
             else if (app.cursors.down.isDown) {
                 // Down movement
-                app.player.body.velocity.y = 200;
+                app.player.body.velocity.y = app.playerVelocity;
                 app.player.angle = 180;
             }
             else if (app.cursors.left.isDown) {
                 // Left movement
-                app.player.body.velocity.x = -200
+                app.player.body.velocity.x = -app.playerVelocity
                 app.player.angle = 270;
             }
             else if (app.cursors.right.isDown) {
                 // Right movement
-                app.player.body.velocity.x = 200
+                app.player.body.velocity.x = app.playerVelocity
                 app.player.angle = 90;
             }
         }
@@ -104,6 +104,9 @@ app.update = function() {
         if ( app.levelCounter === 1 ) {
 
             app.game.physics.arcade.overlap(app.bullets, app.aliens, app.collisionHandlerLevelOne, null, this);
+            if ( app.aliens.countLiving() === 0 ) {
+                app.toNextLevel(app.createLevelTwo);
+            }
 
         }
 
@@ -122,6 +125,12 @@ app.update = function() {
 
             app.game.physics.arcade.overlap(app.bullets, app.aliens, app.collisionHandlerLevelThree, null, this);
 
+             for(i = 0; i < app.smallAliens.length; i++){
+
+                app.game.physics.arcade.overlap(app.bullets, app.smallAliens[i], app.collisionHandlerLevelThreeSmall, null, this);
+                app.game.physics.arcade.overlap(app.smallAliens[i], app.player, app.enemyHitsPlayerLevelOne, null, this);
+            }
+
             if ( app.aliens.countLiving() === 0 ) {
                 app.toNextLevel(app.createLevelFour);
             }
@@ -130,7 +139,7 @@ app.update = function() {
               // Run collision for level four
         if ( app.levelCounter === 4 ) {
 
-            app.game.physics.arcade.overlap(app.bullets, app.aliens.children, app.collisionHandlerLevelFour, null, this);
+            app.game.physics.arcade.overlap(app.bullets, app.aliens, app.collisionHandlerLevelFour, null, this);
 
             if ( app.aliens.countLiving() === 0 ) {
                 app.toNextLevel(app.createLevelFive);
@@ -156,17 +165,8 @@ app.update = function() {
             }
         }
 
-
-        if (app.levelCounter < 4) {
             app.game.physics.arcade.overlap(app.enemyBullets, app.player, app.enemyHitsPlayerLevelOne, null, this);
             app.game.physics.arcade.overlap(app.aliens, app.player, app.enemyHitsPlayerLevelOne, null, this);
-        }
-        else {
-            app.game.physics.arcade.overlap(app.enemyBullets, app.player, app.enemyHitsPlayerLevelOne, null, this);
-            app.game.physics.arcade.overlap(app.aliens.children, app.player, app.enemyHitsPlayerLevelOne, null, this);
-        }
-
-
 
 
         // SCORES AND LIVES: -KANE
