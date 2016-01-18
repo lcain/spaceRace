@@ -7,6 +7,7 @@
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  highscore  :string
+#  name       :string
 #
 
 class Highscore < ActiveRecord::Base
