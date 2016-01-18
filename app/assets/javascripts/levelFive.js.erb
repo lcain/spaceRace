@@ -11,54 +11,6 @@ app.createLevelFive = function() {
 
 }
 
-app.createAlienGroupTopBottom = function(x, y, num, alienMove) {
-
-    var alienArray = [];
-
-    for (var i = 0; i < num; i++) {
-
-        var alien = app.aliens.create(_.random(100, x), y, 'asteroidLargeLevelFour');
-        alien.anchor.setTo(0.5, 0.5);
-        // alien.animations.add('fly', [ 0, 1, 2, 3 ], 20, true);
-        // alien.play('fly');
-        alien.body.moves = false;
-        alienArray.push(alien);
-    }
-
-    _.each(alienArray, function(alien){
-
-        setTimeout(function() {
-            app.game.time.events.loop(Phaser.Timer.SECOND * .01, alienMove, this, alien);
-        }, _.random(1000, app.aliensSpawnTime) );
-
-    });
-
-}
-
-app.createAlienGroupLeftRight = function(x, y, num, alienMove) {
-
-    var alienArray = [];
-
-    for (var i = 0; i < num; i++) {
-
-        var alien = app.aliens.create(x, _.random(100, y), 'asteroidLargeLevelFour');
-        alien.anchor.setTo(0.5, 0.5);
-        // alien.animations.add('fly', [ 0, 1, 2, 3 ], 20, true);
-        // alien.play('fly');
-        alien.body.moves = false;
-        alienArray.push(alien);
-    }
-
-    _.each(alienArray, function(alien){
-
-        setTimeout(function() {
-            app.game.time.events.loop(Phaser.Timer.SECOND * .01, alienMove, this, alien);
-        }, _.random(1000, app.aliensSpawnTime) );
-
-    });
-
-}
-
 app.createAliensLevelFive = function() {
 
     // Reset aliens position

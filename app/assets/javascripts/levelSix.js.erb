@@ -21,7 +21,7 @@ app.createLevelSix = function() {
 
 }
 
-app.createAlienGroupTopBottom = function(x, y, num, alienMove) {
+app.createAlienGroupTopBottomLevelSix = function(x, y, num, alienMove) {
 
     var alienArray = [];
 
@@ -45,7 +45,7 @@ app.createAlienGroupTopBottom = function(x, y, num, alienMove) {
 
 }
 
-app.createAlienGroupLeftRight = function(x, y, num, alienMove) {
+app.createAlienGroupLeftRightLevelSix = function(x, y, num, alienMove) {
 
     var alienArray = [];
 
@@ -79,13 +79,13 @@ app.createAliensLevelSix = function() {
     num = asteroidNum / 3;
 
     // Asteroid group moving from top to bottom
-    app.createAlienGroupTopBottom(700, -300, num, app.descendLevelFive);
+    app.createAlienGroupTopBottomLevelSix(700, -300, num, app.descendLevelSix);
 
     // Asteroid group moving from left to right
-    app.createAlienGroupLeftRight(-300, 550, num, app.moveRightLevelFive);
+    app.createAlienGroupLeftRightLevelSix(-300, 550, num, app.moveRightLevelSix);
 
     // Asteroid group moving from right to left
-    app.createAlienGroupLeftRight(1200, 550, num, app.moveLeftLevelFive);
+    app.createAlienGroupLeftRightSix(1200, 550, num, app.moveLeftLevelSix);
 
 }
 
