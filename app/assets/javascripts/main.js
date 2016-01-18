@@ -294,7 +294,7 @@ app.levelSixBulletDirection = function(bullet) {
       bullet.body.velocity.x = -app.bulletVelocity;
       bullet.body.velocity.y = -app.bulletVelocity;
   }
-
+}
 
 app.areSmallAliensDead = function(){
   var deathTest = 0;
