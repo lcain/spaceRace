@@ -34,9 +34,6 @@ app.toNextLevel = function(createLevel){
             app.stateText.visible = true;
           };
 
-       
-
-
           //Destroys killed sprites from our count.
           app.aliens.children = [];
 
