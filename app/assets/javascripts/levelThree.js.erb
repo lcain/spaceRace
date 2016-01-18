@@ -13,7 +13,7 @@ app.createAliensLevelThree = function() {
 
   for (var y = 0; y < 2; y++)
     {
-        for (var x = 0; x < 5; x++) {
+        for (var x = 0; x < 4; x++) {
 
         
 
@@ -26,7 +26,7 @@ app.createAliensLevelThree = function() {
         };
     }
 
-    app.aliens.x = 250;
+    app.aliens.x = 150;
     app.aliens.y = -300;
 
     app.game.time.events.loop(Phaser.Timer.SECOND * .01, app.descendLevelThree, this);
@@ -43,14 +43,65 @@ app.descendLevelThree = function() {
         }
     });
 
+
+    for(i = 0; i < app.smallAliens.length; i++){
+        // console.log(app.smallAliens[i])
+        app.smallAliens[i].y += 1;
+
+        for(j = 0; j < app.smallAliens[i].children.length; j++){
+            // console.log(app.smallAliens[i].children)
+            // app.smallAliens[i].children.y += 1;
+
+        }
+    }
+
+
+    // app.smallAliens.y += 1;
+
+    // _.each(app.smallAliens, function(alien) {
+    //     if (alien.world.y > app.game.world.bounds.bottom) {
+    //         alien.kill();
+    //     }
+    // });
 }
 
 app.collisionHandlerLevelThree = function(bullet, alien) {
+
+    app.totalKillCount += 1;
+
+    smallAsteroidSpawn(app.smallAlienGroupCounter);
+    createTwo(alien);
 
     //  When a bullet hits an alien we kill them both
     bullet.kill();
     alien.kill();
 
+
+    //AUDIO enemy is hit by bullet -K
+
+    soundCall = new Howl({
+    urls: [playSound("enemyHit")]
+    }).play();
+
+    //  Increase the score
+    app.score += 20;
+    app.scoreText.text = app.scoreString + app.score;
+
+    //  And create an explosion :)
+    var explosion = app.explosions.getFirstExists(false);
+    explosion.reset(alien.body.x, alien.body.y);
+    explosion.play('kaboom', 30, false, true);
+
+}
+
+app.collisionHandlerLevelThreeSmall = function(bullet, alien) {
+
+    app.totalKillCount += 1;
+          
+
+    //  When a bullet hits an alien we kill them both
+    bullet.kill();
+    alien.kill();
 
     //AUDIO enemy is hit by bullet -K
 
@@ -78,3 +129,58 @@ app.preloadLevelFour = function(){
     app.game.load.start();
 
 };
+
+
+///////// TEST CODE BELOW //////////////
+
+// var smallAliens = [];
+// var smallAlienGroupCounter = 1;
+
+// *****ADD TO COLLISION HANDLER ******
+
+//     smallAsteroidSpawn(smallAlienGroupCounter);
+//     createTwo(alien);
+
+// **************************************
+
+function createTwo (lastAlien) {
+
+    var currentXPos = lastAlien.previousPosition.x
+    var currentYPos = lastAlien.previousPosition.y
+    var alienName = _.last(app.smallAliens);
+    var alienIndex = app.smallAliens.indexOf(alienName);
+    var alienInfo = app.game.add.group();
+        alienInfo.enableBody = true;
+        alienInfo.physicsBodyType = Phaser.Physics.ARCADE;
+        app.smallAliens[ alienIndex ] = alienInfo;
+        // alien.anchor.setTo(0.5, 0.5);
+
+    for (var y = 0; y < 1; y++)
+    {
+        for (var x = 0; x < 2; x++)
+        {
+            // console.log(alienInfo)
+            alienInfo.create(x * 50, 0, 'invader');
+         
+            // alien.animations.add('fly', [ 0, 1, 2, 3 ], 20, true);
+            // alien.play('fly');
+            // alien.body.moves = false;
+        }
+    }
+    alienInfo.x = currentXPos - 40;
+    alienInfo.y = currentYPos;
+}
+
+var smallAsteroidSpawn = function(num){
+
+     var alienObj = {alienGroup: 'smallAliens'}
+    app.smallAliens.push(alienObj['alienGroup']+num)
+    // smallAliens = game.add.group();
+    // smallAliens.enableBody = true;
+    // smallAliens.physicsBodyType = Phaser.Physics.ARCADE;
+    app.smallAlienGroupCounter ++;
+
+    // console.log(alienObj['alienGroup']+num)
+}
+
+///////TEST CODE ABOVE///////////

@@ -34,8 +34,10 @@ app.toNextLevel = function(createLevel){
             app.stateText.visible = true;
           };
 
-          //Adds enemies killed to global kill count.
-          app.totalKillCount = app.totalKillCount + app.aliens.countDead();
+
+       
+
+
           //Destroys killed sprites from our count.
           app.aliens.children = [];
 
@@ -46,3 +48,6 @@ app.toNextLevel = function(createLevel){
   }
 
 };
+
+
+// app.smallAliens[1].countDead()
