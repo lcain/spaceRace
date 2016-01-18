@@ -51,7 +51,7 @@ app.create = function() {
     app.game.add.text(app.game.world.width - 200, 705, 'Lives : ', { font: '25px Georgia', fill: 'transparent' });
 
     //  Text -- THE FUNCTIONS IN FONTS HERE CAN BE FOUND IN GUI - THEY EVALUATE THE LEVEL AND PASS RETURN VALUES BASED ON IT. -KANE
-    app.stateText = app.game.add.text(app.game.world.centerX,app.game.world.centerY,' ', { font: '84px '+gameLevelFontSelect()+'', fill: '#000'});
+    app.stateText = app.game.add.text(app.game.world.centerX,app.game.world.centerY,' ', { font: '84px '+gameLevelFontSelect()+'', fill: 'gameLevelFontColor()'});
     app.stateText.anchor.setTo(0.5, 0.5);
     app.stateText.visible = false;
 
