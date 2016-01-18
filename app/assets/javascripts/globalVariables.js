@@ -24,3 +24,8 @@ app.levelCounter = 1;
 
 // --- This will keep track of the total amount of enemies killed.
 app.totalKillCount = 0;
+
+// --- These are for the split of asterids on collision -- Loretta
+
+app.smallAliens = [];
+app.smallAlienGroupCounter = 1;

@@ -48,6 +48,7 @@ app.descendLevelFive = function() {
 }
 
 app.collisionHandlerLevelFive = function(bullet, alien) {
+    app.totalKillCount += 1;
 
 
     //  When a bullet hits an alien we kill them both
@@ -69,7 +70,6 @@ app.collisionHandlerLevelFive = function(bullet, alien) {
     explosion.reset(alien.body.x, alien.body.y);
     explosion.play('kaboom', 30, false, true);
 
-    app.toNextLevel(app.createLevelSix);
 
 }
 
