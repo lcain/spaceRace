@@ -163,7 +163,6 @@ app.fireBulletLevelOne = function() {
             }
 
             else if (app.levelCounter < 5) {
-                app.bulletVelocity = 400;
                 bullet.body.velocity.y = -app.bulletVelocity;
             }
 
@@ -275,7 +274,7 @@ app.fireBulletLevelOne = function() {
                 }
             }
 
-            app.bulletTime = app.game.time.now + 1000;
+            app.bulletTime = app.game.time.now + app.bulletFireRate;
 
             //AUDIO Player PEWPEWPEW sounds etc. -K
             soundCall = new Howl({

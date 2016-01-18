@@ -3,6 +3,7 @@ var app = app || {};
 app.createLevelFour = function() {
 
     app.player.loadTexture("shipLevel4", 0, false);
+    app.bulletVelocity = 400;
 
     app.createAliensLevelFour();
     app.stateText.visible = false;

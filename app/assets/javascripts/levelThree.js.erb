@@ -1,9 +1,11 @@
 var app = app || {};
 
 app.createLevelThree = function() {
+    app.bulletFireRate = 500;
+
     app.createAliensLevelThree();
     app.stateText.visible = false;
-    app.levelCounter ++;
+    app.levelCounter++;
 
     // app.preloadLevelFour();
 
@@ -15,7 +17,7 @@ app.createAliensLevelThree = function() {
     {
         for (var x = 0; x < 4; x++) {
 
-        
+
 
 
             var alien = app.aliens.create(x * 150, y * 200, 'asteroidLargeLevelThree');
@@ -29,7 +31,7 @@ app.createAliensLevelThree = function() {
     app.aliens.x = 150;
     app.aliens.y = -300;
 
-    app.game.time.events.loop(Phaser.Timer.SECOND * .01, app.descendLevelThree, this);
+    app.game.time.events.loop(Phaser.Timer.SECOND * .03, app.descendLevelThree, this);
 
 }
 
@@ -97,7 +99,7 @@ app.collisionHandlerLevelThree = function(bullet, alien) {
 app.collisionHandlerLevelThreeSmall = function(bullet, alien) {
 
     app.totalKillCount += 1;
-          
+
 
     //  When a bullet hits an alien we kill them both
     bullet.kill();
@@ -161,7 +163,7 @@ function createTwo (lastAlien) {
         {
             // console.log(alienInfo)
             alienInfo.create(x * 50, 0, 'invader');
-         
+
             // alien.animations.add('fly', [ 0, 1, 2, 3 ], 20, true);
             // alien.play('fly');
             // alien.body.moves = false;

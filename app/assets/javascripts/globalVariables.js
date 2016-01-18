@@ -1,10 +1,12 @@
 var app = app || {};
 
 app.player;
+app.playerVelocity = 200;
 app.aliens;
 app.bullets;
 app.bulletTime = 0;
 app.bulletVelocity = 0;
+app.bulletFireRate = 1000;
 app.cursors;
 app.fireButton;
 app.explosions;
