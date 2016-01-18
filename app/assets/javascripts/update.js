@@ -168,13 +168,6 @@ app.update = function() {
             app.game.physics.arcade.overlap(app.enemyBullets, app.player, app.enemyHitsPlayerLevelOne, null, this);
             app.game.physics.arcade.overlap(app.aliens, app.player, app.enemyHitsPlayerLevelOne, null, this);
         
-     
-            app.game.physics.arcade.overlap(app.enemyBullets, app.player, app.enemyHitsPlayerLevelOne, null, this);
-            app.game.physics.arcade.overlap(app.aliens.children, app.player, app.enemyHitsPlayerLevelOne, null, this);
-        
-
-
-
 
         // SCORES AND LIVES: -KANE
 

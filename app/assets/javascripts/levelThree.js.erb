@@ -46,24 +46,16 @@ app.descendLevelThree = function() {
 
     for(i = 0; i < app.smallAliens.length; i++){
         // console.log(app.smallAliens[i])
-        app.smallAliens[i].y += 1;
+        app.smallAliens[i].y += 1.3;
+        app.smallAliens[i].children[0].x += -0.07
+        app.smallAliens[i].children[1].x += 0.07
 
-        for(j = 0; j < app.smallAliens[i].children.length; j++){
-            // console.log(app.smallAliens[i].children)
-            // app.smallAliens[i].children.y += 1;
+        
+    
 
-        }
     }
-
-
-    // app.smallAliens.y += 1;
-
-    // _.each(app.smallAliens, function(alien) {
-    //     if (alien.world.y > app.game.world.bounds.bottom) {
-    //         alien.kill();
-    //     }
-    // });
 }
+
 
 app.collisionHandlerLevelThree = function(bullet, alien) {
 
