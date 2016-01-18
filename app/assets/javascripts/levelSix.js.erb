@@ -1,49 +1,121 @@
 var app = app || {};
 
 app.createLevelSix = function() {
-    app.createAliensLevelThree();
+    app.starfield.loadTexture("levelSixBackground", 0, false);
+    app.player.loadTexture("levelSixShip", 0, false);
+
+    _.each(app.bullets.children, function(bullet) {
+        bullet.loadTexture("levelSixBullet", 0, false);
+    });
+
+    _.each(app.explosions.children, function(explosion) {
+        explosion.loadTexture("levelSixKaboom", 0, false);
+    });
+
+    app.aliensSpawnTime = 30000;
+
+    app.createAliensLevelSix();
     app.stateText.visible = false;
     app.levelCounter ++;
     // app.preloadLevelSeven();
 
 }
 
-app.createAliensLevelSix = function() {
+app.createAlienGroupTopBottomLevelSix = function(x, y, num, alienMove) {
 
-  for (var y = 0; y < 2; y++)
-    {
-        for (var x = 0; x < 5; x++) {
+    var alienArray = [];
 
-            var alien = app.aliens.create(x * 150, y * 200, 'invader');
-            alien.anchor.setTo(0.5, 0.5);
-            // alien.animations.add('fly', [ 0, 1, 2, 3 ], 20, true);
-            // alien.play('fly');
-            alien.body.moves = false;
-        };
+    for (var i = 0; i < num; i++) {
+
+        var alien = app.aliens.create(_.random(100, x), y, 'levelSixAsteroidLarge');
+        alien.anchor.setTo(0.5, 0.5);
+        // alien.animations.add('fly', [ 0, 1, 2, 3 ], 20, true);
+        // alien.play('fly');
+        alien.body.moves = false;
+        alienArray.push(alien);
     }
 
-    app.aliens.x = 250;
-    app.aliens.y = -300;
+    _.each(alienArray, function(alien){
 
+        setTimeout(function() {
+            app.game.time.events.loop(Phaser.Timer.SECOND * .01, alienMove, this, alien);
+        }, _.random(1000, app.aliensSpawnTime) );
 
-
-    app.game.time.events.loop(Phaser.Timer.SECOND * .01, app.descendLevelSix, this);
+    });
 
 }
 
-app.descendLevelSix = function() {
+app.createAlienGroupLeftRightLevelSix = function(x, y, num, alienMove) {
 
+    var alienArray = [];
 
-    app.aliens.y += 1;
+    for (var i = 0; i < num; i++) {
 
+        var alien = app.aliens.create(x, _.random(100, y), 'levelSixAsteroidLarge');
+        alien.anchor.setTo(0.5, 0.5);
+        // alien.animations.add('fly', [ 0, 1, 2, 3 ], 20, true);
+        // alien.play('fly');
+        alien.body.moves = false;
+        alienArray.push(alien);
+    }
 
+    _.each(alienArray, function(alien){
 
-    _.each(app.aliens.children, function(alien) {
-        if (alien.world.y > app.game.world.bounds.bottom) {
-            alien.kill();
-        }
+        setTimeout(function() {
+            app.game.time.events.loop(Phaser.Timer.SECOND * .01, alienMove, this, alien);
+        }, _.random(1000, app.aliensSpawnTime) );
+
     });
 
+}
+
+app.createAliensLevelSix = function() {
+
+    // Reset aliens position
+    app.aliens.x = 0;
+    app.aliens.y = 0;
+
+    asteroidNum = 54;
+    num = asteroidNum / 3;
+
+    // Asteroid group moving from top to bottom
+    app.createAlienGroupTopBottomLevelSix(700, -300, num, app.descendLevelSix);
+
+    // Asteroid group moving from left to right
+    app.createAlienGroupLeftRightLevelSix(-300, 550, num, app.moveRightLevelSix);
+
+    // Asteroid group moving from right to left
+    app.createAlienGroupLeftRightLevelSix(1200, 550, num, app.moveLeftLevelSix);
+
+}
+
+app.descendLevelSix = function(alien) {
+
+    alien.position.y += app.aliensVelocity;
+
+    if (alien.worldPosition.y > app.game.world.bounds.bottom) {
+        alien.kill();
+    }
+
+}
+
+app.moveRightLevelSix = function(alien) {
+
+    alien.position.x += app.aliensVelocity;
+
+    if (alien.worldPosition.x > app.game.world.bounds.right) {
+        alien.kill();
+    }
+
+}
+
+app.moveLeftLevelSix = function(alien) {
+
+    alien.position.x -= app.aliensVelocity;
+
+    if (alien.worldPosition.x < app.game.world.bounds.left) {
+        alien.kill();
+    }
 }
 
 app.collisionHandlerLevelSix = function(bullet, alien) {
@@ -74,7 +146,7 @@ app.collisionHandlerLevelSix = function(bullet, alien) {
 
 app.preloadLevelSeven = function(){
 
-   
+
     app.game.load.start();
 
 };

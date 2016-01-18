@@ -17,9 +17,6 @@ app.createAliensLevelThree = function() {
     {
         for (var x = 0; x < 4; x++) {
 
-
-
-
             var alien = app.aliens.create(x * 150, y * 200, 'asteroidLargeLevelThree');
             alien.anchor.setTo(0.5, 0.5);
             // alien.animations.add('fly', [ 0, 1, 2, 3 ], 20, true);
@@ -31,7 +28,7 @@ app.createAliensLevelThree = function() {
     app.aliens.x = 150;
     app.aliens.y = -300;
 
-    app.game.time.events.loop(Phaser.Timer.SECOND * .03, app.descendLevelThree, this);
+    app.game.time.events.loop(Phaser.Timer.SECOND * .02, app.descendLevelThree, this);
 
 }
 
@@ -48,6 +45,7 @@ app.descendLevelThree = function() {
 
     for(i = 0; i < app.smallAliens.length; i++){
         // console.log(app.smallAliens[i])
+
         app.smallAliens[i].y += 1.3;
         app.smallAliens[i].children[0].x += -0.07
         app.smallAliens[i].children[1].x += 0.07
@@ -60,21 +58,18 @@ app.descendLevelThree = function() {
             }
         };
 
-        // if (app.smallAliens.y > app.game.world.bounds.bottom) {
-        //     app.smallAliens.kill();
-        // }        
-
-
     }
-}
 
+
+
+}
 
 app.collisionHandlerLevelThree = function(bullet, alien) {
 
     app.totalKillCount += 1;
 
-    smallAsteroidSpawn(app.smallAlienGroupCounter);
-    createTwo(alien);
+    app.smallAsteroidSpawn(app.smallAlienGroupCounter);
+    app.createTwo(alien);
 
     //  When a bullet hits an alien we kill them both
     bullet.kill();
@@ -122,7 +117,7 @@ app.collisionHandlerLevelThreeSmall = function(bullet, alien) {
     explosion.reset(alien.body.x, alien.body.y);
     explosion.play('kaboom', 30, false, true);
 
-  
+
 
 }
 
@@ -135,19 +130,7 @@ app.preloadLevelFour = function(){
 };
 
 
-///////// TEST CODE BELOW //////////////
-
-// var smallAliens = [];
-// var smallAlienGroupCounter = 1;
-
-// *****ADD TO COLLISION HANDLER ******
-
-//     smallAsteroidSpawn(smallAlienGroupCounter);
-//     createTwo(alien);
-
-// **************************************
-
-function createTwo (lastAlien) {
+app.createTwo = function(lastAlien) {
 
     var currentXPos = lastAlien.previousPosition.x
     var currentYPos = lastAlien.previousPosition.y
@@ -157,34 +140,24 @@ function createTwo (lastAlien) {
         alienInfo.enableBody = true;
         alienInfo.physicsBodyType = Phaser.Physics.ARCADE;
         app.smallAliens[ alienIndex ] = alienInfo;
-        // alien.anchor.setTo(0.5, 0.5);
 
     for (var y = 0; y < 1; y++)
     {
         for (var x = 0; x < 2; x++)
         {
-            // console.log(alienInfo)
             alienInfo.create(x * 50, 0, 'invader');
-
-            // alien.animations.add('fly', [ 0, 1, 2, 3 ], 20, true);
-            // alien.play('fly');
-            // alien.body.moves = false;
         }
     }
     alienInfo.x = currentXPos - 40;
     alienInfo.y = currentYPos;
 }
 
-var smallAsteroidSpawn = function(num){
+app.smallAsteroidSpawn = function(num){
 
      var alienObj = {alienGroup: 'smallAliens'}
     app.smallAliens.push(alienObj['alienGroup']+num)
-    // smallAliens = game.add.group();
-    // smallAliens.enableBody = true;
-    // smallAliens.physicsBodyType = Phaser.Physics.ARCADE;
+
     app.smallAlienGroupCounter ++;
 
-    // console.log(alienObj['alienGroup']+num)
 }
 
-///////TEST CODE ABOVE///////////

@@ -2,60 +2,12 @@ var app = app || {};
 
 app.createLevelFive = function() {
     app.player.loadTexture("shipLevel5", 0, false);
-    app.bulletVelocity = 400;
+    app.aliensSpawnTime = 25000;
 
     app.createAliensLevelFive();
     app.stateText.visible = false;
     app.levelCounter ++;
     // app.preloadLevelSix();
-
-}
-
-app.createAlienGroupTopBottom = function(x, y, num, alienMove) {
-
-    var alienArray = [];
-
-    for (var i = 0; i < num; i++) {
-
-        var alien = app.aliens.create(_.random(100, x), y, 'asteroidLargeLevelFour');
-        alien.anchor.setTo(0.5, 0.5);
-        // alien.animations.add('fly', [ 0, 1, 2, 3 ], 20, true);
-        // alien.play('fly');
-        alien.body.moves = false;
-        alienArray.push(alien);
-    }
-
-    _.each(alienArray, function(alien){
-
-        setTimeout(function() {
-            app.game.time.events.loop(Phaser.Timer.SECOND * .01, alienMove, this, alien);
-        }, _.random(1000, 25000) );
-
-    });
-
-}
-
-app.createAlienGroupLeftRight = function(x, y, num, alienMove) {
-
-    var alienArray = [];
-
-    for (var i = 0; i < num; i++) {
-
-        var alien = app.aliens.create(x, _.random(100, y), 'asteroidLargeLevelFour');
-        alien.anchor.setTo(0.5, 0.5);
-        // alien.animations.add('fly', [ 0, 1, 2, 3 ], 20, true);
-        // alien.play('fly');
-        alien.body.moves = false;
-        alienArray.push(alien);
-    }
-
-    _.each(alienArray, function(alien){
-
-        setTimeout(function() {
-            app.game.time.events.loop(Phaser.Timer.SECOND * .01, alienMove, this, alien);
-        }, _.random(1000, 25000) );
-
-    });
 
 }
 
@@ -65,7 +17,7 @@ app.createAliensLevelFive = function() {
     app.aliens.x = 0;
     app.aliens.y = 0;
 
-    asteroidNum = 15;
+    asteroidNum = 36;
     num = asteroidNum / 3;
 
     // Asteroid group moving from top to bottom
@@ -81,7 +33,7 @@ app.createAliensLevelFive = function() {
 
 app.descendLevelFive = function(alien) {
 
-    alien.position.y += 1;
+    alien.position.y += app.aliensVelocity;
 
     if (alien.worldPosition.y > app.game.world.bounds.bottom) {
         alien.kill();
@@ -91,7 +43,7 @@ app.descendLevelFive = function(alien) {
 
 app.moveRightLevelFive = function(alien) {
 
-    alien.position.x += 1;
+    alien.position.x += app.aliensVelocity;
 
     if (alien.worldPosition.x > app.game.world.bounds.right) {
         alien.kill();
@@ -101,7 +53,7 @@ app.moveRightLevelFive = function(alien) {
 
 app.moveLeftLevelFive = function(alien) {
 
-    alien.position.x -= 1;
+    alien.position.x -= app.aliensVelocity;
 
     if (alien.worldPosition.x < app.game.world.bounds.left) {
         alien.kill();
