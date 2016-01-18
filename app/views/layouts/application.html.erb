@@ -62,10 +62,14 @@
     <td> Highscores </td>
     <td> User </td>
     </tr>
-    <% h = Highscore.all.order :score  %>
+    <% h = Highscore.all.order(:score).reverse  %>
     <td><%= h.first['score']%></td>
     <td><%= h.first.user['name'] %></td> 
   </tr>
+    <tr>
+    <td><%= h.second['score']%></td>
+    <td><%= h.second.user['name'] %></td>
+    </tr>
 </table>
 
 <div id="user_nav">
