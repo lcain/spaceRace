@@ -1,6 +1,8 @@
 var app = app || {};
 
 app.createLevelSix = function() {
+    app.player.loadTexture("shipLevel5", 0, false);
+
     app.createAliensLevelThree();
     app.stateText.visible = false;
     app.levelCounter ++;
@@ -74,7 +76,7 @@ app.collisionHandlerLevelSix = function(bullet, alien) {
 
 app.preloadLevelSeven = function(){
 
-   
+
     app.game.load.start();
 
 };
