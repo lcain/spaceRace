@@ -45,26 +45,26 @@ app.update = function() {
         if (app.levelCounter >= 5 ) {
             if (app.cursors.down.isDown && app.cursors.left.isDown) {
                 // Diagonal down left movememnt
-                app.player.body.velocity.x = -200;
-                app.player.body.velocity.y = 200;
+                app.player.body.velocity.x = -150;
+                app.player.body.velocity.y = 150;
                 app.player.angle = 225;
             }
             else if (app.cursors.down.isDown && app.cursors.right.isDown) {
                 // Diagonal down right movement
-                app.player.body.velocity.x = 200;
-                app.player.body.velocity.y = 200;
+                app.player.body.velocity.x = 150;
+                app.player.body.velocity.y = 150;
                 app.player.angle = 135;
             }
             else if (app.cursors.up.isDown && app.cursors.left.isDown) {
                 // Diagonal up left movement
-                app.player.body.velocity.x = -200;
-                app.player.body.velocity.y = -200;
+                app.player.body.velocity.x = -150;
+                app.player.body.velocity.y = -150;
                 app.player.angle = 315;
             }
             else if (app.cursors.up.isDown && app.cursors.right.isDown) {
                 // Diagonal up right movement
-                app.player.body.velocity.x = 200;
-                app.player.body.velocity.y = -200;
+                app.player.body.velocity.x = 150;
+                app.player.body.velocity.y = -150;
                 app.player.angle = 45;
             }
             else if (app.cursors.up.isDown) {
