@@ -47,7 +47,9 @@ app.toNextLevel = function(createLevel){
           app.fireButton.onDown.addOnce(createLevel, this);
 
           var checkSpacePress = setInterval(function() {
+
             //console.log("waiting for space...");
+
             if (app.fireButton.isDown) {
               //console.log("space pressed!");
               clearInterval(checkSpacePress);
@@ -292,4 +294,23 @@ app.levelSixBulletDirection = function(bullet) {
       bullet.body.velocity.x = -app.bulletVelocity;
       bullet.body.velocity.y = -app.bulletVelocity;
   }
+
+
+app.areSmallAliensDead = function(){
+  var deathTest = 0;
+  for ( var i = 0; i < app.smallAliens.length; i++ ){
+    if (app.smallAliens[i].countLiving() === 0){
+      deathTest ++;
+    }
+  }
+
+
+  if (deathTest === app.smallAliens.length){
+    console.log("SECOND DEATH TEST " + deathTest)
+    console.log("SECOND SMALL ALIEN LOG " + app.smallAliens.length)
+
+    return true;
+  }
+
+
 }

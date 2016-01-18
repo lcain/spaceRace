@@ -66,18 +66,22 @@ app.update = function() {
 
             // Run collision for level three
         if ( app.levelCounter === 3 ) {
+            console.log(app.areSmallAliensDead())
+            if ( app.areSmallAliensDead() === true ) {
+                if (app.aliens.countLiving() === 0){
+                app.toNextLevel(app.createLevelFour);
+            } }
 
             app.game.physics.arcade.overlap(app.bullets, app.aliens, app.collisionHandlerLevelThree, null, this);
 
-             for(i = 0; i < app.smallAliens.length; i++){
+            for(i = 0; i < app.smallAliens.length; i++){
 
                 app.game.physics.arcade.overlap(app.bullets, app.smallAliens[i], app.collisionHandlerLevelThreeSmall, null, this);
                 app.game.physics.arcade.overlap(app.smallAliens[i], app.player, app.enemyHitsPlayerLevelOne, null, this);
             }
 
-            if ( app.aliens.countLiving() === 0 ) {
-                app.toNextLevel(app.createLevelFour);
-            }
+            // areSmallAliensDead();
+    
         }
 
               // Run collision for level four
@@ -85,7 +89,7 @@ app.update = function() {
 
             app.game.physics.arcade.overlap(app.bullets, app.aliens, app.collisionHandlerLevelFour, null, this);
 
-            if ( app.aliens.countLiving() === 0 ) {
+            if ( app.aliens.countDead() === 8 && areSmallAliensDead() === true ) {
                 app.toNextLevel(app.createLevelFive);
             }
         }
