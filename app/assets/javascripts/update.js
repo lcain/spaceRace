@@ -66,7 +66,7 @@ app.update = function() {
 
             // Run collision for level three
         if ( app.levelCounter === 3 ) {
-            console.log(app.areSmallAliensDead())
+            // console.log(app.areSmallAliensDead())
             if ( app.areSmallAliensDead() === true ) {
                 if (app.aliens.countLiving() === 0){
                 app.toNextLevel(app.createLevelFour);

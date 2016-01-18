@@ -71,8 +71,8 @@ app.collisionHandlerLevelThree = function(bullet, alien) {
 
     app.totalKillCount += 1;
 
-    smallAsteroidSpawn(app.smallAlienGroupCounter);
-    createTwo(alien);
+    app.smallAsteroidSpawn(app.smallAlienGroupCounter);
+    app.createTwo(alien);
 
     //  When a bullet hits an alien we kill them both
     bullet.kill();
@@ -133,19 +133,7 @@ app.preloadLevelFour = function(){
 };
 
 
-///////// TEST CODE BELOW //////////////
-
-// var smallAliens = [];
-// var smallAlienGroupCounter = 1;
-
-// *****ADD TO COLLISION HANDLER ******
-
-//     smallAsteroidSpawn(smallAlienGroupCounter);
-//     createTwo(alien);
-
-// **************************************
-
-function createTwo (lastAlien) {
+app.createTwo = function(lastAlien) {
 
     var currentXPos = lastAlien.previousPosition.x
     var currentYPos = lastAlien.previousPosition.y
@@ -155,34 +143,24 @@ function createTwo (lastAlien) {
         alienInfo.enableBody = true;
         alienInfo.physicsBodyType = Phaser.Physics.ARCADE;
         app.smallAliens[ alienIndex ] = alienInfo;
-        // alien.anchor.setTo(0.5, 0.5);
 
     for (var y = 0; y < 1; y++)
     {
         for (var x = 0; x < 2; x++)
         {
-            // console.log(alienInfo)
             alienInfo.create(x * 50, 0, 'invader');
-
-            // alien.animations.add('fly', [ 0, 1, 2, 3 ], 20, true);
-            // alien.play('fly');
-            // alien.body.moves = false;
         }
     }
     alienInfo.x = currentXPos - 40;
     alienInfo.y = currentYPos;
 }
 
-var smallAsteroidSpawn = function(num){
+app.smallAsteroidSpawn = function(num){
 
      var alienObj = {alienGroup: 'smallAliens'}
     app.smallAliens.push(alienObj['alienGroup']+num)
-    // smallAliens = game.add.group();
-    // smallAliens.enableBody = true;
-    // smallAliens.physicsBodyType = Phaser.Physics.ARCADE;
+   
     app.smallAlienGroupCounter ++;
 
-    // console.log(alienObj['alienGroup']+num)
 }
 
-///////TEST CODE ABOVE///////////

@@ -310,8 +310,8 @@ app.areSmallAliensDead = function(){
 
 
   if (deathTest === app.smallAliens.length){
-    console.log("SECOND DEATH TEST " + deathTest)
-    console.log("SECOND SMALL ALIEN LOG " + app.smallAliens.length)
+    // console.log("SECOND DEATH TEST " + deathTest)
+    // console.log("SECOND SMALL ALIEN LOG " + app.smallAliens.length)
 
     return true;
   }

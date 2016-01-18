@@ -114,6 +114,9 @@ app.moveLeftLevelFour = function(alien) {
 app.collisionHandlerLevelFour = function(bullet, alien) {
     app.totalKillCount += 1;
 
+    app.smallAsteroidSpawn(app.smallAlienGroupCounter);
+    app.createTwo(alien);
+    
     //  When a bullet hits an alien we kill them both
     bullet.kill();
     alien.kill();
