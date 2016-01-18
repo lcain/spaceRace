@@ -29,6 +29,19 @@
     </div>
   </div>
 </div>
+
+<div id="saveScore">
+  <button type="button" id="myButton" data-loading-text="Loading..." class="btn btn-primary" autocomplete="off">
+  Save Score!
+</button>
+
+<script>
+  $('#myButton').on('click', function () {
+   console.log(app.score)
+  })
+</script>
+</div>
+
 <div id="user_nav">
   <% if current_user %>
     Logged in as <%= current_user.name %>.
