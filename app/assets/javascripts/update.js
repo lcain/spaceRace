@@ -126,7 +126,7 @@ app.update = function() {
             app.game.physics.arcade.overlap(app.bullets, app.aliens, app.collisionHandlerLevelThree, null, this);
 
              for(i = 0; i < app.smallAliens.length; i++){
-               
+
                 app.game.physics.arcade.overlap(app.bullets, app.smallAliens[i], app.collisionHandlerLevelThreeSmall, null, this);
                 app.game.physics.arcade.overlap(app.smallAliens[i], app.player, app.enemyHitsPlayerLevelOne, null, this);
             }
@@ -167,7 +167,7 @@ app.update = function() {
 
             app.game.physics.arcade.overlap(app.enemyBullets, app.player, app.enemyHitsPlayerLevelOne, null, this);
             app.game.physics.arcade.overlap(app.aliens, app.player, app.enemyHitsPlayerLevelOne, null, this);
-        
+
 
         // SCORES AND LIVES: -KANE
 

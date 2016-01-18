@@ -40,22 +40,27 @@ app.toNextLevel = function(createLevel){
           //the "click to restart" handler
           app.game.time.events.events.pop();
 
-          app.game.input.onTap.addOnce(createLevel, this)
+          // app.game.input.onDown.addOnce(createLevel, this)
 
-          // var nextLevel = setInterval(function() {
-          //   if (app.cursors.up.isDown ||
-          //     app.cursors.left.isDown ||
-          //     app.cursors.down.isDown ||
-          //     app.cursors.right.isDown) {
-          //       createLevel();
-          //       clearInterval(nextLevel);
-          //       nextLevel = 0;
-          //   }
-          // }, 1000);
+          app.canFire = false;
+
+          app.fireButton.onDown.addOnce(createLevel, this);
+
+          var checkSpacePress = setInterval(function() {
+            console.log("waiting for space...")
+            if (app.fireButton.isDown) {
+              console.log("space pressed!");
+              clearInterval(checkSpacePress);
+              checkSpacePress = 0;
+
+              setTimeout(function() {
+                app.canFire = true;
+              }, 1000);
+
+            }
+
+          }, 100);
 
   }
 
 };
-
-
-// app.smallAliens[1].countDead()
