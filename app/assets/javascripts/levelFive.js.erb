@@ -48,6 +48,7 @@ app.descendLevelFive = function() {
 }
 
 app.collisionHandlerLevelFive = function(bullet, alien) {
+    app.totalKillCount += 1;
 
 
     //  When a bullet hits an alien we kill them both

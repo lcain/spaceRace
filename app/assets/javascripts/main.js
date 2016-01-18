@@ -34,7 +34,6 @@ app.toNextLevel = function(createLevel){
             app.stateText.visible = true;
           };
 
-
        
 
 
