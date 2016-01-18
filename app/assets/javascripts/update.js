@@ -11,7 +11,7 @@ app.update = function() {
         app.player.body.velocity.setTo(0, 0);
 
         //  Firing?
-        if (app.fireButton.isDown)
+        if (app.fireButton.isDown && app.canFire)
         {
             app.fireBulletLevelOne();
         }
@@ -81,7 +81,7 @@ app.update = function() {
             }
 
             // areSmallAliensDead();
-    
+
         }
 
               // Run collision for level four

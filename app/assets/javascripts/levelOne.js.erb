@@ -157,21 +157,19 @@ app.fireBulletLevelOne = function() {
             //  And fire it
             bullet.reset(app.player.x, app.player.y);
 
-            if (app.levelCounter <= 3) {
-                app.bulletVelocity = 200;
+            if (app.levelCounter <= 4) {
                 bullet.body.velocity.y = -app.bulletVelocity;
             }
 
-            if (app.levelCounter === 4) {
+            if (app.levelCounter > 4) {
                 app.bulletVelocity = 400;
-                bullet.body.velocity.y = -app.bulletVelocity;
             }
 
             if (app.levelCounter === 5) {
                 app.levelFiveBulletDirection(bullet);
             }
 
-            else if (app.levelCounter >= 6) {
+            if (app.levelCounter >= 6) {
                 app.levelSixBulletDirection(bullet);
             }
 

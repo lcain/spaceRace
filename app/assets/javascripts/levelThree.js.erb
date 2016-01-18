@@ -17,9 +17,6 @@ app.createAliensLevelThree = function() {
     {
         for (var x = 0; x < 4; x++) {
 
-
-
-
             var alien = app.aliens.create(x * 150, y * 200, 'asteroidLargeLevelThree');
             alien.anchor.setTo(0.5, 0.5);
             // alien.animations.add('fly', [ 0, 1, 2, 3 ], 20, true);
@@ -159,7 +156,7 @@ app.smallAsteroidSpawn = function(num){
 
      var alienObj = {alienGroup: 'smallAliens'}
     app.smallAliens.push(alienObj['alienGroup']+num)
-   
+
     app.smallAlienGroupCounter ++;
 
 }

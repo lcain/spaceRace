@@ -2,8 +2,7 @@ var app = app || {};
 
 app.createLevelFive = function() {
     app.player.loadTexture("shipLevel5", 0, false);
-    app.bulletVelocity = 400;
-    app.aliensVelocity = 2;
+    app.aliensSpawnTime = 25000;
 
     app.createAliensLevelFive();
     app.stateText.visible = false;
@@ -30,7 +29,7 @@ app.createAlienGroupTopBottom = function(x, y, num, alienMove) {
 
         setTimeout(function() {
             app.game.time.events.loop(Phaser.Timer.SECOND * .01, alienMove, this, alien);
-        }, _.random(1000, 30000) );
+        }, _.random(1000, app.aliensSpawnTime) );
 
     });
 
@@ -54,7 +53,7 @@ app.createAlienGroupLeftRight = function(x, y, num, alienMove) {
 
         setTimeout(function() {
             app.game.time.events.loop(Phaser.Timer.SECOND * .01, alienMove, this, alien);
-        }, _.random(1000, 30000) );
+        }, _.random(1000, app.aliensSpawnTime) );
 
     });
 

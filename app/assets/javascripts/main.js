@@ -30,6 +30,7 @@ app.toNextLevel = function(createLevel){
             app.stateText.text = " Lvl Five Done";
             app.stateText.visible = true;
           } else if ( app.levelCounter === 6 ) {
+            app.stateText.fill = '#fff';
             app.stateText.text = " Lvl Six Done";
             app.stateText.visible = true;
           };

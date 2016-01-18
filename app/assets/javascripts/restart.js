@@ -18,13 +18,21 @@ app.restart = function() {
     app.player.position.x = 400;
     app.player.position.y = 600;
 
-    //reset ship texture
+    // reset background texture
+    app.starfield.loadTexture("starfield", 0, false);
+
+    // reset ship texture
     app.player.loadTexture("ship", 0, false);
 
     // reset bullet texture
-    /*
-        insert reset bullet function(s)/code here
-    */
+    _.each(app.aliens.children, function(alien) {
+        alien.loadTexture("invader");
+    });
+
+    // reset asteroid texture
+    _.each(app.bullets.children, function(bullet) {
+        bullet.loadTexture("bullet");
+    });
 
     //hides the text
     app.stateText.visible = false;
