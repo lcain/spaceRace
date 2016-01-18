@@ -1,6 +1,7 @@
 var app = app || {};
 
 app.createLevelFive = function() {
+    app.player.loadTexture("shipLevel5", 0, false);
     app.createAliensLevelThree();
     app.stateText.visible = false;
     app.levelCounter ++;

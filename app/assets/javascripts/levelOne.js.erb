@@ -118,7 +118,7 @@ app.enemyFiresLevelOne = function() {
     //  Grab the first bullet we can from the pool
     app.enemyBullet = app.enemyBullets.getFirstExists(false);
 
-    app.livingEnemies.length=0;
+    app.livingEnemies.length = 0;
 
     app.aliens.forEachAlive(function(alien){
 
@@ -156,8 +156,126 @@ app.fireBulletLevelOne = function() {
         {
             //  And fire it
             bullet.reset(app.player.x, app.player.y);
-            bullet.body.velocity.y = -200;
-            app.bulletTime = app.game.time.now + 1000;
+
+            if (app.levelCounter <= 3) {
+                app.bulletVelocity = 200;
+                bullet.body.velocity.y = -app.bulletVelocity;
+            }
+
+            else if (app.levelCounter < 5) {
+                app.bulletVelocity = 400;
+                bullet.body.velocity.y = -app.bulletVelocity;
+            }
+
+            else {
+                app.bulletVelocity = 400;
+                if (app.cursors.down.isDown && app.cursors.left.isDown)
+                {
+                //  Diagonal down/left movement
+                    bullet.body.velocity.x = -app.bulletVelocity;
+                    bullet.body.velocity.y = app.bulletVelocity;
+                    bullet.angle = 225;
+                }
+                else if (app.cursors.left.isDown && app.cursors.up.isDown)
+                {
+                //  Diagonal up/left movement
+                    bullet.body.velocity.x = -app.bulletVelocity;
+                    bullet.body.velocity.y = -app.bulletVelocity;
+                    bullet.angle = 315;
+                }
+                else if (app.cursors.up.isDown && app.cursors.right.isDown)
+                {
+                //  Diagonal up/right movement
+                    bullet.body.velocity.x = app.bulletVelocity;
+                    bullet.body.velocity.y = -app.bulletVelocity;
+                    bullet.angle = 45;
+                }
+                else if (app.cursors.right.isDown && app.cursors.down.isDown)
+                {
+                //  Diagonal down/right movement
+                    bullet.body.velocity.x = app.bulletVelocity;
+                    bullet.body.velocity.y = app.bulletVelocity;
+                    bullet.angle = 135;
+                }
+                else if (app.cursors.left.isDown)
+                {
+                //  Left
+                    bullet.body.velocity.x = -app.bulletVelocity;
+                    bullet.angle = 270;
+                }
+                else if (app.cursors.right.isDown)
+                {
+                //  Right
+                    bullet.body.velocity.x = app.bulletVelocity;
+                    bullet.angle = 90;
+                }
+                else if (app.cursors.up.isDown)
+                {
+                //  Move up.
+                    bullet.body.velocity.y = -app.bulletVelocity;
+                    bullet.angle = 360;
+                }
+                else if (app.cursors.down.isDown)
+                {
+                //  Move down
+                    bullet.body.velocity.y = app.bulletVelocity;
+                    bullet.angle = 180;
+                }
+                else if (app.player.angle === 0)
+                {
+                //  Stand still up
+                    bullet.angle = app.player.angle
+                    bullet.body.velocity.y = -app.bulletVelocity;
+                }
+                else if (app.player.angle === 45)
+                {
+                //  Stand still diag up right
+                    bullet.angle = app.player.angle
+                    bullet.body.velocity.y = -app.bulletVelocity;
+                    bullet.body.velocity.x = app.bulletVelocity;
+                }
+                else if (app.player.angle === 90)
+                {
+                //  Stand still right
+                    bullet.angle = app.player.angle
+                    bullet.body.velocity.x = app.bulletVelocity;
+                }
+                else if (app.player.angle === 135)
+                {
+                //  Stand still diag down right
+                    bullet.angle = app.player.angle
+                    bullet.body.velocity.x = app.bulletVelocity;
+                    bullet.body.velocity.y = app.bulletVelocity;
+                }
+                else if (app.player.angle === -180)
+                {
+                //  Stand still down
+                    bullet.angle = app.player.angle
+                    bullet.body.velocity.y = app.bulletVelocity;
+                }
+                else if (app.player.angle === -135)
+                {
+                //  Stand still down/left
+                    bullet.angle = app.player.angle
+                    bullet.body.velocity.y = app.bulletVelocity;
+                    bullet.body.velocity.x = -app.bulletVelocity;
+                }
+                else if (app.player.angle === -90)
+                {
+                //  Stand still left
+                    bullet.angle = app.player.angle
+                    bullet.body.velocity.x = -app.bulletVelocity;
+                }
+                else if (app.player.angle === -45)
+                {
+                //  Stand still up/left
+                    bullet.angle = app.player.angle
+                    bullet.body.velocity.x = -app.bulletVelocity;
+                    bullet.body.velocity.y = -app.bulletVelocity;
+                }
+            }
+
+            app.bulletTime = app.game.time.now + 1000   ;
 
             //AUDIO Player PEWPEWPEW sounds etc. -K
             soundCall = new Howl({

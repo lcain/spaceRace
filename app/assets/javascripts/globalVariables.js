@@ -4,6 +4,7 @@ app.player;
 app.aliens;
 app.bullets;
 app.bulletTime = 0;
+app.bulletVelocity = 0;
 app.cursors;
 app.fireButton;
 app.explosions;

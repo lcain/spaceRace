@@ -31,7 +31,7 @@ app.update = function() {
 
         }
 
-        if ( app.levelCounter >= 4 && !app.cursors.left.isDown && !app.cursors.right.isDown ) {
+        if ( app.levelCounter === 4 && !app.cursors.left.isDown && !app.cursors.right.isDown ) {
             if (app.cursors.up.isDown)
             {
                 app.player.body.velocity.y = -200;
@@ -39,6 +39,53 @@ app.update = function() {
             else if (app.cursors.down.isDown)
             {
                 app.player.body.velocity.y = 200;
+            }
+        }
+
+        if (app.levelCounter >= 5 ) {
+            if (app.cursors.down.isDown && app.cursors.left.isDown) {
+                // Diagonal down left movememnt
+                app.player.body.velocity.x = -200;
+                app.player.body.velocity.y = 200;
+                app.player.angle = 225;
+            }
+            else if (app.cursors.down.isDown && app.cursors.right.isDown) {
+                // Diagonal down right movement
+                app.player.body.velocity.x = 200;
+                app.player.body.velocity.y = 200;
+                app.player.angle = 135;
+            }
+            else if (app.cursors.up.isDown && app.cursors.left.isDown) {
+                // Diagonal up left movement
+                app.player.body.velocity.x = -200;
+                app.player.body.velocity.y = -200;
+                app.player.angle = 315;
+            }
+            else if (app.cursors.up.isDown && app.cursors.right.isDown) {
+                // Diagonal up right movement
+                app.player.body.velocity.x = 200;
+                app.player.body.velocity.y = -200;
+                app.player.angle = 45;
+            }
+            else if (app.cursors.up.isDown) {
+                // Up movement
+                app.player.body.velocity.y = -200;
+                app.player.angle = 0;
+            }
+            else if (app.cursors.down.isDown) {
+                // Down movement
+                app.player.body.velocity.y = 200;
+                app.player.angle = 180;
+            }
+            else if (app.cursors.left.isDown) {
+                // Left movement
+                app.player.body.velocity.x = -200
+                app.player.angle = 270;
+            }
+            else if (app.cursors.right.isDown) {
+                // Right movement
+                app.player.body.velocity.x = 200
+                app.player.angle = 90;
             }
         }
 
