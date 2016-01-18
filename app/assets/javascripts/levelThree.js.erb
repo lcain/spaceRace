@@ -50,14 +50,6 @@ app.descendLevelThree = function() {
         // console.log(app.smallAliens[i])
         app.smallAliens[i].y += 1;
 
-<<<<<<< HEAD
-        for(j = 0; j < app.smallAliens[i].children.length; j++){
-            // console.log(app.smallAliens[i].children)
-            // app.smallAliens[i].children.y += 1;
-
-        }
-    }
-=======
         for (var j = 0; j < app.smallAliens[i].children.length; j++) {
 
             if (app.smallAliens[i].children[j].world.y > app.game.world.bounds.bottom) {
@@ -65,19 +57,10 @@ app.descendLevelThree = function() {
             }
         };
 
-        // if (app.smallAliens.y > app.game.world.bounds.bottom) {
-        //     app.smallAliens.kill();
-        // }        
->>>>>>> 03c7af6b69e4540d521afbc8f086833cb923c434
 
 
-    // app.smallAliens.y += 1;
 
-    // _.each(app.smallAliens, function(alien) {
-    //     if (alien.world.y > app.game.world.bounds.bottom) {
-    //         alien.kill();
-    //     }
-    // });
+
 }
 
 app.collisionHandlerLevelThree = function(bullet, alien) {
@@ -133,7 +116,7 @@ app.collisionHandlerLevelThreeSmall = function(bullet, alien) {
     explosion.reset(alien.body.x, alien.body.y);
     explosion.play('kaboom', 30, false, true);
 
-  
+
 
 }
 
