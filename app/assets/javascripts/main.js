@@ -36,6 +36,10 @@ app.toNextLevel = function(createLevel){
 
           //Destroys killed sprites from our count.
           app.aliens.children = [];
+          // Destroys killed sprites from our count.
+          app.smallAliens = [];
+          // Resets counter for next level.
+          app.smallAlienGroupCounter = 1;
 
           //the "click to restart" handler
           app.game.time.events.events.pop();
