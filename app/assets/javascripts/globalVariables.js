@@ -3,6 +3,7 @@ var app = app || {};
 app.player;
 app.playerVelocity = 200;
 app.aliens;
+app.aliensVelocity = 1;
 app.bullets;
 app.bulletTime = 0;
 app.bulletVelocity = 0;

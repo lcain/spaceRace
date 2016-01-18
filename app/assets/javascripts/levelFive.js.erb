@@ -3,6 +3,7 @@ var app = app || {};
 app.createLevelFive = function() {
     app.player.loadTexture("shipLevel5", 0, false);
     app.bulletVelocity = 400;
+    app.aliensVelocity = 2;
 
     app.createAliensLevelFive();
     app.stateText.visible = false;
@@ -29,7 +30,7 @@ app.createAlienGroupTopBottom = function(x, y, num, alienMove) {
 
         setTimeout(function() {
             app.game.time.events.loop(Phaser.Timer.SECOND * .01, alienMove, this, alien);
-        }, _.random(1000, 25000) );
+        }, _.random(1000, 30000) );
 
     });
 
@@ -53,7 +54,7 @@ app.createAlienGroupLeftRight = function(x, y, num, alienMove) {
 
         setTimeout(function() {
             app.game.time.events.loop(Phaser.Timer.SECOND * .01, alienMove, this, alien);
-        }, _.random(1000, 25000) );
+        }, _.random(1000, 30000) );
 
     });
 
@@ -65,7 +66,7 @@ app.createAliensLevelFive = function() {
     app.aliens.x = 0;
     app.aliens.y = 0;
 
-    asteroidNum = 15;
+    asteroidNum = 36;
     num = asteroidNum / 3;
 
     // Asteroid group moving from top to bottom
@@ -81,7 +82,7 @@ app.createAliensLevelFive = function() {
 
 app.descendLevelFive = function(alien) {
 
-    alien.position.y += 1;
+    alien.position.y += app.aliensVelocity;
 
     if (alien.worldPosition.y > app.game.world.bounds.bottom) {
         alien.kill();
@@ -91,7 +92,7 @@ app.descendLevelFive = function(alien) {
 
 app.moveRightLevelFive = function(alien) {
 
-    alien.position.x += 1;
+    alien.position.x += app.aliensVelocity;
 
     if (alien.worldPosition.x > app.game.world.bounds.right) {
         alien.kill();
@@ -101,7 +102,7 @@ app.moveRightLevelFive = function(alien) {
 
 app.moveLeftLevelFive = function(alien) {
 
-    alien.position.x -= 1;
+    alien.position.x -= app.aliensVelocity;
 
     if (alien.worldPosition.x < app.game.world.bounds.left) {
         alien.kill();

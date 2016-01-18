@@ -31,7 +31,7 @@ app.createAliensLevelThree = function() {
     app.aliens.x = 150;
     app.aliens.y = -300;
 
-    app.game.time.events.loop(Phaser.Timer.SECOND * .03, app.descendLevelThree, this);
+    app.game.time.events.loop(Phaser.Timer.SECOND * .02, app.descendLevelThree, this);
 
 }
 
@@ -48,6 +48,7 @@ app.descendLevelThree = function() {
 
     for(i = 0; i < app.smallAliens.length; i++){
         // console.log(app.smallAliens[i])
+
         app.smallAliens[i].y += 1.3;
         app.smallAliens[i].children[0].x += -0.07
         app.smallAliens[i].children[1].x += 0.07
@@ -60,14 +61,11 @@ app.descendLevelThree = function() {
             }
         };
 
-        // if (app.smallAliens.y > app.game.world.bounds.bottom) {
-        //     app.smallAliens.kill();
-        // }        
-
-
     }
-}
 
+
+
+}
 
 app.collisionHandlerLevelThree = function(bullet, alien) {
 
@@ -122,7 +120,7 @@ app.collisionHandlerLevelThreeSmall = function(bullet, alien) {
     explosion.reset(alien.body.x, alien.body.y);
     explosion.play('kaboom', 30, false, true);
 
-  
+
 
 }
 
