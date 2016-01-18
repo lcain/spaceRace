@@ -13,38 +13,52 @@ app.createLevelFour = function() {
 
 app.createAlienGroupTopBottom = function(x, y, num, alienMove) {
 
+    var alienArray = [];
+
     for (var i = 0; i < num; i++) {
-        setTimeout(function() {
-            var alien = app.aliens.create(_.random(100, x), y, 'asteroidLargeLevelFour');
-            alien.anchor.setTo(0.5, 0.5);
-            // alien.animations.add('fly', [ 0, 1, 2, 3 ], 20, true);
-            // alien.play('fly');
-            alien.body.moves = false;
 
-
-            app.game.time.events.loop(Phaser.Timer.SECOND * .01, alienMove, this, alien);
-        }, i * 1000);
+        var alien = app.aliens.create(_.random(100, x), y, 'asteroidLargeLevelFour');
+        alien.anchor.setTo(0.5, 0.5);
+        // alien.animations.add('fly', [ 0, 1, 2, 3 ], 20, true);
+        // alien.play('fly');
+        alien.body.moves = false;
+        alienArray.push(alien);
     }
+
+    _.each(alienArray, function(alien){
+
+        setTimeout(function() {
+            app.game.time.events.loop(Phaser.Timer.SECOND * .01, alienMove, this, alien);
+        }, _.random(1000, 25000) );
+
+    });
 
 }
 
 app.createAlienGroupLeftRight = function(x, y, num, alienMove) {
 
+    var alienArray = [];
+
     for (var i = 0; i < num; i++) {
-        setTimeout(function() {
-            var alien = app.aliens.create(x, _.random(100, y), 'asteroidLargeLevelFour');
-            alien.anchor.setTo(0.5, 0.5);
-            // alien.animations.add('fly', [ 0, 1, 2, 3 ], 20, true);
-            // alien.play('fly');
-            alien.body.moves = false;
 
-
-            app.game.time.events.loop(Phaser.Timer.SECOND * .01, alienMove, this, alien);
-        }, i * 1000);
+        var alien = app.aliens.create(x, _.random(100, y), 'asteroidLargeLevelFour');
+        alien.anchor.setTo(0.5, 0.5);
+        // alien.animations.add('fly', [ 0, 1, 2, 3 ], 20, true);
+        // alien.play('fly');
+        alien.body.moves = false;
+        alienArray.push(alien);
     }
 
-}
+    _.each(alienArray, function(alien){
 
+        setTimeout(function() {
+            app.game.time.events.loop(Phaser.Timer.SECOND * .01, alienMove, this, alien);
+        }, _.random(1000, 25000) );
+
+    });
+
+
+}
 
 app.createAliensLevelFour = function() {
 
@@ -55,8 +69,6 @@ app.createAliensLevelFour = function() {
     asteroidNum = 15;
     num = asteroidNum / 3;
 
-    // Create a new group of asteriods coming from the top and bottom of the screen
-
     // Asteroid group moving from top to bottom
     app.createAlienGroupTopBottom(700, -300, num, app.descendLevelFour);
 
@@ -64,7 +76,7 @@ app.createAliensLevelFour = function() {
     app.createAlienGroupLeftRight(-300, 550, num, app.moveRightLevelFour);
 
     // Asteroid group moving from right to left
-    app.createAlienGroupLeftRight(950, 550, num, app.moveLeftLevelFour);
+    app.createAlienGroupLeftRight(1200, 550, num, app.moveLeftLevelFour);
 
 }
 
@@ -100,7 +112,6 @@ app.moveLeftLevelFour = function(alien) {
 app.collisionHandlerLevelFour = function(bullet, alien) {
     app.totalKillCount += 1;
 
-
     //  When a bullet hits an alien we kill them both
     bullet.kill();
     alien.kill();
@@ -119,6 +130,8 @@ app.collisionHandlerLevelFour = function(bullet, alien) {
     var explosion = app.explosions.getFirstExists(false);
     explosion.reset(alien.body.x, alien.body.y);
     explosion.play('kaboom', 30, false, true);
+
+    app.toNextLevel(app.createLevelFive);
 
 }
 
