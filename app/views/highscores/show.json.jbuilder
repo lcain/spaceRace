@@ -1,1 +1,1 @@
-json.extract! @highscore, :id, :score, :created_at, :updated_at
+json.extract! @highscore, :id, :score, :user_id,  :created_at, :updated_at
