@@ -36,8 +36,9 @@
 </button>
 
 <script>
+  var user_id = <%= current_user ? current_user.id : "null" %>;
   $('#myButton').on('click', function () {
-   console.log(app.score)
+    console.log(app.score)
   })
 </script>
 </div>
