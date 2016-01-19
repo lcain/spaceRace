@@ -62,10 +62,13 @@
     <td> Highscores </td>
     <td> User </td>
     </tr>
- 
+    <tr><% h = Highscore.all.order(:score).reverse  %></tr>
+    <td><%= h.first['score']%></td>
+    <td><%= h.first.user['name'] %></td> 
     </tr>
     <tr>
-
+    <td><%= h.second['score']%></td>
+    <td><%= h.second.user['name'] %></td>
     </tr>
 </table>
 
