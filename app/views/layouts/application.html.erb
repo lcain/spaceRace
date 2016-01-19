@@ -38,15 +38,6 @@
 <script>
 var app = app || {}
 
-// var showButton = function (){
-//         if (app.lives.countLiving() > 1) {
-//             $("#saveScore").hide();
-//             } else {
-//                 $("#saveScore").show();
-//             }
-//     }
-
-
   var user_id = <%= current_user  ? current_user.id : "null" %>;
   $('#myButton').one('click', function () {
 
@@ -87,5 +78,5 @@ var app = app || {}
 </div>
 </body>
 </html>
-<!-- if (app.lives.countLiving() < 1) -->
+
 
