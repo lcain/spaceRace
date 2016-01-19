@@ -103,6 +103,9 @@ app.enemyHitsPlayerLevelOne = function(player,bullet) {
             explosion.play('kaboom', 30, false, true);
         }
     }
+    else {
+        explosion.play('kaboom', 30, false, true);
+    }
 
     // When the player dies
     if (app.lives.countLiving() < 1)

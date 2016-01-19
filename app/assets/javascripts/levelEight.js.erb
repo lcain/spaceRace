@@ -3,9 +3,12 @@ var app = app || {};
 app.createLevelEight = function() {
     app.starfield.loadTexture("levelEightBackground", 0, false);
     app.player.loadTexture("levelEightShip", 0, false);
+    app.player.animations.add('fly', [0, 1, 2]);
 
     _.each(app.bullets.children, function(bullet) {
         bullet.loadTexture("levelEightBullet", 0, false);
+        bullet.animations.add('pulse', [0, 1, 2]);
+        bullet.animations.play('pulse', 20, true);
     });
 
     app.aliensSpawnTime = 20000;
@@ -71,8 +74,8 @@ app.createAliensLevelEight = function() {
     app.aliens.x = 0;
     app.aliens.y = 0;
 
-    asteroidNum = 12;
-    num = asteroidNum / 4;
+    seekerNum = 12;
+    num = seekerNum / 4;
 
     // Asteroid group moving from top to bottom
     app.createAlienGroupTopBottomLevelSix(800, -300, num, app.descendLevelFour);

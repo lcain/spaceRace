@@ -3,7 +3,9 @@ var app = app || {};
 app.update = function() {
 
     //  Scroll the background
-    // app.starfield.tilePosition.y += 2;
+    if (app.levelCounter > 6) {
+        app.starfield.tilePosition.y += 2;
+    }
 
     if (app.player.alive) {
         // app.descendLevelOne();
@@ -117,7 +119,7 @@ app.update = function() {
             if ( app.aliens.countLiving() === 0 ) {
                 if ( (app.areSmallAliensDead(app.smallAliensLeft) === true) && (app.areSmallAliensDead(app.smallAliensRight) === true) && (app.areSmallAliensDead(app.smallAliensDown) === true) && (app.areSmallAliensDead(app.smallAliensUp) === true)){
                 app.toNextLevel(app.createLevelSix);
-                } 
+                }
             }
 
 
@@ -152,7 +154,7 @@ app.update = function() {
               if ( app.aliens.countLiving() === 0 ) {
                 if ( (app.areSmallAliensDead(app.smallAliensLeft) === true) && (app.areSmallAliensDead(app.smallAliensRight) === true) && (app.areSmallAliensDead(app.smallAliensDown) === true) && (app.areSmallAliensDead(app.smallAliensUp) === true)){
                 app.toNextLevel(app.createLevelSeven);
-                } 
+                }
             }
 
 
@@ -187,7 +189,7 @@ app.update = function() {
             app.game.physics.arcade.overlap(app.bullets, app.aliens, app.collisionHandlerLevelSeven, null, this);
 
             if ( app.aliens.countLiving() === 0 ) {
-                app.toNextLevel(app.createLevelSeven);
+                app.toNextLevel(app.createLevelEight);
             }
         }
 
