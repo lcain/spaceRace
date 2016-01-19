@@ -27,7 +27,7 @@ app.createAlienGroupTopBottomLevelSix = function(x, y, num, alienMove) {
 
     for (var i = 0; i < num; i++) {
 
-        var alien = app.aliens.create(_.random(100, x), y, 'levelSixAsteroidLarge');
+        var alien = app.aliens.create(_.random(0, x), y, 'levelSixAsteroidLarge');
         alien.anchor.setTo(0.5, 0.5);
         // alien.animations.add('fly', [ 0, 1, 2, 3 ], 20, true);
         // alien.play('fly');
@@ -51,7 +51,7 @@ app.createAlienGroupLeftRightLevelSix = function(x, y, num, alienMove) {
 
     for (var i = 0; i < num; i++) {
 
-        var alien = app.aliens.create(x, _.random(100, y), 'levelSixAsteroidLarge');
+        var alien = app.aliens.create(x, _.random(0, y), 'levelSixAsteroidLarge');
         alien.anchor.setTo(0.5, 0.5);
         // alien.animations.add('fly', [ 0, 1, 2, 3 ], 20, true);
         // alien.play('fly');
@@ -75,47 +75,22 @@ app.createAliensLevelSix = function() {
     app.aliens.x = 0;
     app.aliens.y = 0;
 
-    asteroidNum = 54;
-    num = asteroidNum / 3;
+    asteroidNum = 80;
+    num = asteroidNum / 4;
 
     // Asteroid group moving from top to bottom
-    app.createAlienGroupTopBottomLevelSix(700, -300, num, app.descendLevelSix);
+    app.createAlienGroupTopBottomLevelSix(800, -300, num, app.descendLevelFour);
+
+    // Asteroid group moving from bottom to top
+    app.createAlienGroupTopBottomLevelSix(800, 950, num, app.ascendLevelFive);
+    console.log("moveBottom");
 
     // Asteroid group moving from left to right
-    app.createAlienGroupLeftRightLevelSix(-300, 550, num, app.moveRightLevelSix);
+    app.createAlienGroupLeftRightLevelSix(-300, 650, num, app.moveRightLevelFour);
 
     // Asteroid group moving from right to left
-    app.createAlienGroupLeftRightLevelSix(1200, 550, num, app.moveLeftLevelSix);
+    app.createAlienGroupLeftRightLevelSix(1200, 650, num, app.moveLeftLevelFour);
 
-}
-
-app.descendLevelSix = function(alien) {
-
-    alien.position.y += app.aliensVelocity;
-
-    if (alien.worldPosition.y > app.game.world.bounds.bottom) {
-        alien.kill();
-    }
-
-}
-
-app.moveRightLevelSix = function(alien) {
-
-    alien.position.x += app.aliensVelocity;
-
-    if (alien.worldPosition.x > app.game.world.bounds.right) {
-        alien.kill();
-    }
-
-}
-
-app.moveLeftLevelSix = function(alien) {
-
-    alien.position.x -= app.aliensVelocity;
-
-    if (alien.worldPosition.x < app.game.world.bounds.left) {
-        alien.kill();
-    }
 }
 
 app.collisionHandlerLevelSix = function(bullet, alien) {

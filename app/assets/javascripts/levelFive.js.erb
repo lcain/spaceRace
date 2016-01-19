@@ -20,47 +20,32 @@ app.createAliensLevelFive = function() {
     app.aliens.x = 0;
     app.aliens.y = 0;
 
-    asteroidNum = 36;
-    num = asteroidNum / 3;
+    asteroidNum = 48;
+    num = asteroidNum / 4;
 
     // Asteroid group moving from top to bottom
-    app.createAlienGroupTopBottom(700, -300, num, app.descendLevelFive);
+    app.createAlienGroupTopBottom(800, -300, num, app.descendLevelFour);
+
+    // Asteroid group moving from bottom to top
+    app.createAlienGroupTopBottom(800, 950, num, app.ascendLevelFive);
+    console.log("moveBottom");
 
     // Asteroid group moving from left to right
-    app.createAlienGroupLeftRight(-300, 550, num, app.moveRightLevelFive);
+    app.createAlienGroupLeftRight(-300, 650, num, app.moveRightLevelFour);
 
     // Asteroid group moving from right to left
-    app.createAlienGroupLeftRight(1200, 550, num, app.moveLeftLevelFive);
+    app.createAlienGroupLeftRight(1200, 650, num, app.moveLeftLevelFour);
 
 }
 
-app.descendLevelFive = function(alien) {
+app.ascendLevelFive = function(alien) {
 
-    alien.position.y += app.aliensVelocity;
+    alien.position.y -= app.aliensVelocity;
 
-    if (alien.worldPosition.y > app.game.world.bounds.bottom) {
+    if (alien.worldPosition.y < app.game.world.bounds.top) {
         alien.kill();
     }
 
-}
-
-app.moveRightLevelFive = function(alien) {
-
-    alien.position.x += app.aliensVelocity;
-
-    if (alien.worldPosition.x > app.game.world.bounds.right) {
-        alien.kill();
-    }
-
-}
-
-app.moveLeftLevelFive = function(alien) {
-
-    alien.position.x -= app.aliensVelocity;
-
-    if (alien.worldPosition.x < app.game.world.bounds.left) {
-        alien.kill();
-    }
 }
 
 app.collisionHandlerLevelFive = function(bullet, alien) {
