@@ -39,7 +39,7 @@ app.restart = function() {
 
     app.score = 0;
     app.scoreText.destroy();
-    app.scoreText = app.game.add.text(10, 705, app.scoreString + app.score, { font: '25px Georgia', fill: app.gameLevelFontColor() });
+    app.scoreText = app.game.add.text(10, 705, app.scoreString + app.score, { font: '25px Georgia', fill: "#000" });
 
     //This is to prevent the enemies moving double time on restart.
     app.game.time.events.events.pop();

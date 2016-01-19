@@ -150,7 +150,6 @@ app.update = function() {
         }
                 //Run collision level six
         if ( app.levelCounter === 6 ) {
-
               if ( app.aliens.countLiving() === 0 ) {
                 if ( (app.areSmallAliensDead(app.smallAliensLeft) === true) && (app.areSmallAliensDead(app.smallAliensRight) === true) && (app.areSmallAliensDead(app.smallAliensDown) === true) && (app.areSmallAliensDead(app.smallAliensUp) === true)){
                 app.toNextLevel(app.createLevelSeven);
@@ -192,7 +191,6 @@ app.update = function() {
                 }
             }
 
-
             app.game.physics.arcade.overlap(app.bullets, app.aliens, app.collisionHandlerLevelSeven, null, this);
 
             for(i = 0; i < app.smallAliensLeft.length; i++){
@@ -221,7 +219,7 @@ app.update = function() {
 
         if ( app.levelCounter === 8 ) {
 
-            app.game.physics.arcade.overlap(app.bullets, app.aliens, app.collisionHandlerLevelSeven, null, this);
+            app.game.physics.arcade.overlap(app.bullets, app.aliens, app.collisionHandlerLevelEight, null, this);
 
             if ( app.aliens.countLiving() === 0 ) {
                 app.toNextLevel(app.createLevelEight);
