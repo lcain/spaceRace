@@ -1,23 +1,23 @@
 var app = app || {};
 
-app.createLevelSix = function() {
-    app.starfield.loadTexture("levelSixBackground", 0, false);
-    app.player.loadTexture("levelSixShip", 0, false);
+app.createLevelEight = function() {
+    app.starfield.loadTexture("levelEightBackground", 0, false);
+    app.player.loadTexture("levelEightShip", 0, false);
 
     _.each(app.bullets.children, function(bullet) {
-        bullet.loadTexture("levelSixBullet", 0, false);
+        bullet.loadTexture("levelEightBullet", 0, false);
     });
 
-    app.aliensSpawnTime = 22500;
+    app.aliensSpawnTime = 20000;
 
-    app.createAliensLevelSix();
+    app.createAliensLevelEight();
     app.stateText.visible = false;
     app.levelCounter ++;
     // app.preloadLevelSeven();
 
 }
 
-app.createAlienGroupTopBottomLevelSix = function(x, y, num, alienMove) {
+app.createAlienGroupTopBottomLevelEight = function(x, y, num, alienMove) {
 
     var alienArray = [];
 
@@ -41,7 +41,7 @@ app.createAlienGroupTopBottomLevelSix = function(x, y, num, alienMove) {
 
 }
 
-app.createAlienGroupLeftRightLevelSix = function(x, y, num, alienMove) {
+app.createAlienGroupLeftRightLevelEight = function(x, y, num, alienMove) {
 
     var alienArray = [];
 
@@ -65,13 +65,13 @@ app.createAlienGroupLeftRightLevelSix = function(x, y, num, alienMove) {
 
 }
 
-app.createAliensLevelSix = function() {
+app.createAliensLevelEight = function() {
 
     // Reset aliens position
     app.aliens.x = 0;
     app.aliens.y = 0;
 
-    asteroidNum = 80;
+    asteroidNum = 12;
     num = asteroidNum / 4;
 
     // Asteroid group moving from top to bottom

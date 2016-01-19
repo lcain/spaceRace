@@ -66,6 +66,14 @@ app.preload = function() {
     app.game.load.spritesheet('levelSevenSmallExplode4', '<%= image_path("LevelSeven/smallexplode4.png") %>', 128, 128);
     app.game.load.spritesheet('levelSevenSmallExplode5', '<%= image_path("LevelSeven/smallexplode5.png") %>', 128, 128);
 
+
+    // Preloaded images for level 8
+    app.game.load.spritesheet('levelEightAsteroidLarge', '<%= image_path("LevelSix/asteroidLarge.png") %>');
+    app.game.load.spritesheet('levelEightBullet', '<%= image_path("LevelSix/bullet.png") %>');
+    app.game.load.spritesheet('levelEightShip', '<%= image_path("LevelSix/ship.png") %>');
+    app.game.load.spritesheet('levelEightKaboom', '<%= image_path("LevelSix/explodeWhite.png") %>', 128, 128);
+    app.game.load.image('levelEightBackground', '<%= image_path("LevelSix/background.png") %>');
+
     // LEAVE THIS AT THE END - JQUERY ELEMENTS AND CLASS ASIGNMENTS. - KANE
     $('body canvas').addClass("gameWindow");
     $('<div class="gameStatus">'+'<p class="scoreText gameScore">'+app.score+'</p>'+'<p class="scoreText gameLives"> 3 </p>'+'</div>').appendTo('#container');
