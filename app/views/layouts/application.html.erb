@@ -46,7 +46,7 @@
       data: {
         highscore: {
           score: app.score,
-          id: user_id
+          user_id: user_id
         }
       },
       success:function(data){
@@ -56,6 +56,21 @@
   })
 </script>
 </div>
+<table border="1" style="width:100%">
+  <tr>
+    <tr>
+    <td> Highscores </td>
+    <td> User </td>
+    </tr>
+    <tr><% h = Highscore.all.order(:score).reverse  %></tr>
+    <td><%= h.first['score']%></td>
+    <td><%= h.first.user['name'] %></td> 
+    </tr>
+    <tr>
+    <td><%= h.second['score']%></td>
+    <td><%= h.second.user['name'] %></td>
+    </tr>
+</table>
 
 <div id="user_nav">
   <% if current_user %>
@@ -76,4 +91,4 @@
 </body>
 </html>
 <!-- if (app.lives.countLiving() < 1) -->
-    
+

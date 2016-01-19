@@ -24,7 +24,13 @@ class HighscoresController < ApplicationController
   # POST /highscores
   # POST /highscores.json
   def create
-    @highscore = Highscore.new(highscore_params)
+    # @highscore = Highscore.new(highscore_params)
+    @highscore = Highscore.find_by :user_id => params[:highscore][:user_id] 
+    if @highscore.nil?
+      @highscore = Highscore.new(highscore_params) 
+    else
+      @highscore.update highscore_params
+    end
 
     respond_to do |format|
       if @highscore.save
@@ -69,6 +75,6 @@ class HighscoresController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def highscore_params
-      params.require(:highscore).permit(:score, :user_id)
+      params.require(:highscore).permit(:score, :user_id, :name)
     end
 end
