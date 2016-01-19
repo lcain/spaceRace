@@ -2,7 +2,7 @@ var app = app || {};
 
 $(document).ready(function() {
 
-  app.game = new Phaser.Game(800, 650   , Phaser.AUTO, 'container', { preload: app.preload, create: app.create, update: app.update, render: app.render });
+  app.game = new Phaser.Game(800, 650, Phaser.AUTO, 'container', { preload: app.preload, create: app.create, update: app.update, render: app.render });
 
 });
 
@@ -65,6 +65,14 @@ app.preload = function() {
     app.game.load.spritesheet('levelSevenSmallExplode3', '<%= image_path("LevelSeven/smallexplode3.png") %>', 128, 128);
     app.game.load.spritesheet('levelSevenSmallExplode4', '<%= image_path("LevelSeven/smallexplode4.png") %>', 128, 128);
     app.game.load.spritesheet('levelSevenSmallExplode5', '<%= image_path("LevelSeven/smallexplode5.png") %>', 128, 128);
+
+
+    // Preloaded images for level 8
+    app.game.load.spritesheet('levelEightSeeker', '<%= image_path("LevelEight/enemySeeker.png") %>', 48, 44);
+    app.game.load.spritesheet('levelEightBullet', '<%= image_path("LevelEight/bullet.png") %>', 8, 8);
+    app.game.load.spritesheet('levelEightShip', '<%= image_path("LevelEight/ship.png") %>', 48, 44);
+    app.game.load.spritesheet('levelEightKaboom', '<%= image_path("LevelEight/explode.png") %>', 128, 128);
+    app.game.load.image('levelEightBackground', '<%= image_path("LevelEight/background.png") %>');
 
     // LEAVE THIS AT THE END - JQUERY ELEMENTS AND CLASS ASIGNMENTS. - KANE
     $('body canvas').addClass("gameWindow");
