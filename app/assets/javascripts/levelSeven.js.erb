@@ -5,10 +5,6 @@ app.createLevelSeven = function() {
     app.player.loadTexture("levelSevenShip", 0, false);
     app.player.animations.add('fly', [0, 1, 2]);
 
-    _.each(app.explosions.children, function(explosion) {
-        explosion.loadTexture("levelSixKaboom", 0, false);
-    });
-
     app.aliensSpawnTime = 22500;
 
     app.createAliensLevelSeven();
