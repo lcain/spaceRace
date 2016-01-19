@@ -19,6 +19,9 @@ app.createLevelSix = function() {
     app.levelCounter ++;
     // app.preloadLevelSeven();
 
+    app.game.time.events.events.pop();
+    app.game.time.events.loop(Phaser.Timer.SECOND * .02, app.descendLevelFourSmallAliens, this);
+
 }
 
 app.createAlienGroupTopBottomLevelSix = function(x, y, num, alienMove) {
@@ -94,6 +97,8 @@ app.createAliensLevelSix = function() {
 }
 
 app.collisionHandlerLevelSix = function(bullet, alien) {
+    app.loggingPositionsLvlSix(alien);
+
     app.totalKillCount += 1;
 
 
@@ -116,6 +121,158 @@ app.collisionHandlerLevelSix = function(bullet, alien) {
     explosion.reset(alien.body.x, alien.body.y);
     explosion.play('kaboom', 30, false, true);
 
+
+}
+
+app.collisionHandlerLevelSixSmall = function(bullet, alien) {
+
+    app.totalKillCount += 1;
+
+
+    //  When a bullet hits an alien we kill them both
+    bullet.kill();
+    alien.kill();
+
+    //AUDIO enemy is hit by bullet -K
+
+    soundCall = new Howl({
+    urls: [playSound("enemyHit")]
+    }).play();
+
+    //  Increase the score
+    app.score += 20;
+    app.scoreText.text = app.scoreString + app.score;
+
+    //  And create an explosion :)
+    var explosion = app.explosions.getFirstExists(false);
+    explosion.reset(alien.body.x, alien.body.y);
+    explosion.play('kaboom', 30, false, true);
+
+
+}
+
+
+app.loggingPositionsLvlSix = function(alien){
+    var prevPosX = alien.previousPosition.x
+    var prevPosY = alien.previousPosition.y
+    var currentPosX = alien.worldPosition.x
+    var currentPosY = alien.worldPosition.y
+
+    if ( prevPosX === currentPosX ){
+        if ( prevPosY < currentPosY ) {
+            app.smallAsteroidSpawnLvlFour(app.smallAliensDown, app.smallAlienGroupCounter);
+            app.createSmallDownLevelSix(alien);
+        }
+        if ( currentPosY < prevPosY ){
+            app.smallAsteroidSpawnLvlFour(app.smallAliensUp, app.smallAlienGroupCounter);
+            app.createSmallUpLevelSix(alien);
+        }
+    }
+
+    if ( prevPosY === currentPosY ) {
+        if(prevPosX > currentPosX){
+            app.smallAsteroidSpawnLvlFour(app.smallAliensLeft, app.smallAlienGroupCounter);
+            app.createSmallLeftLevelSix(alien);
+        }
+        if(currentPosX > prevPosX){
+             app.smallAsteroidSpawnLvlFour(app.smallAliensRight, app.smallAlienGroupCounter);
+            app.createSmallRightLevelSix(alien);
+        }
+    }
+
+};
+
+
+app.createSmallRightLevelSix = function(lastAlien) {
+
+    var currentXPos = lastAlien.previousPosition.x
+    var currentYPos = lastAlien.previousPosition.y
+    var alienName = _.last(app.smallAliensRight);
+    var alienIndex = app.smallAliensRight.indexOf(alienName);
+    var alienInfo = app.game.add.group();
+        alienInfo.enableBody = true;
+        alienInfo.physicsBodyType = Phaser.Physics.ARCADE;
+        app.smallAliensRight[ alienIndex ] = alienInfo;
+
+    for (var y = 0; y < 1; y++)
+    {
+        for (var x = 0; x < 2; x++)
+        {
+            alienInfo.create(x * 50, 0, 'levelSixAsteroidSmall');
+        }
+    }
+    alienInfo.x = currentXPos - 40;
+    alienInfo.y = currentYPos;
+
+}
+
+app.createSmallLeftLevelSix = function(lastAlien) {
+
+    var currentXPos = lastAlien.previousPosition.x
+    var currentYPos = lastAlien.previousPosition.y
+    var alienName = _.last(app.smallAliensLeft);
+    var alienIndex = app.smallAliensLeft.indexOf(alienName);
+    var alienInfo = app.game.add.group();
+        alienInfo.enableBody = true;
+        alienInfo.physicsBodyType = Phaser.Physics.ARCADE;
+        app.smallAliensLeft[ alienIndex ] = alienInfo;
+
+    for (var y = 0; y < 1; y++)
+    {
+        for (var x = 0; x < 2; x++)
+        {
+            alienInfo.create(x * 50, 0, 'levelSixAsteroidSmall');
+        }
+    }
+    alienInfo.x = currentXPos - 40;
+    alienInfo.y = currentYPos;
+}
+
+app.createSmallDownLevelSix = function(lastAlien) {
+
+    var currentXPos = lastAlien.previousPosition.x
+    var currentYPos = lastAlien.previousPosition.y
+    var alienName = _.last(app.smallAliensDown);
+    var alienIndex = app.smallAliensDown.indexOf(alienName);
+    var alienInfo = app.game.add.group();
+        alienInfo.enableBody = true;
+        alienInfo.physicsBodyType = Phaser.Physics.ARCADE;
+        app.smallAliensDown[ alienIndex ] = alienInfo;
+
+    for (var y = 0; y < 1; y++)
+    {
+        for (var x = 0; x < 2; x++)
+        {
+            alienInfo.create(x * 50, 0, 'levelSixAsteroidSmall');
+        }
+    }
+    alienInfo.x = currentXPos - 40;
+    alienInfo.y = currentYPos;
+
+
+
+}
+
+app.createSmallUpLevelSix = function(lastAlien) {
+
+    var currentXPos = lastAlien.previousPosition.x
+    var currentYPos = lastAlien.previousPosition.y
+    var alienName = _.last(app.smallAliensUp);
+    var alienIndex = app.smallAliensUp.indexOf(alienName);
+    var alienInfo = app.game.add.group();
+        alienInfo.enableBody = true;
+        alienInfo.physicsBodyType = Phaser.Physics.ARCADE;
+        app.smallAliensUp[ alienIndex ] = alienInfo;
+
+    for (var y = 0; y < 1; y++)
+    {
+        for (var x = 0; x < 2; x++)
+        {
+            alienInfo.create(x * 50, 0, 'levelSixAsteroidSmall');
+        }
+    }
+    alienInfo.x = currentXPos - 40;
+    alienInfo.y = currentYPos;
 
 }
 
