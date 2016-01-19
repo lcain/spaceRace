@@ -315,5 +315,12 @@ app.areSmallAliensDead = function(alien){
     return true;
   }
 
+}
 
+app.areAliensImage = function(alien){
+
+    if( alien.key === "levelSevenAsteroidLarge"){
+      console.log("In areAliensImage Function")
+      return true;
+    }
 }

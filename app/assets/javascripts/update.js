@@ -186,10 +186,36 @@ app.update = function() {
 
         if ( app.levelCounter === 7 ) {
 
+          if ( app.aliens.countLiving() === 0 ) {
+                if ( (app.areSmallAliensDead(app.smallAliensLeft) === true) && (app.areSmallAliensDead(app.smallAliensRight) === true) && (app.areSmallAliensDead(app.smallAliensDown) === true) && (app.areSmallAliensDead(app.smallAliensUp) === true)){
+                app.toNextLevel(app.createLevelEight);
+                }
+            }
+
+
             app.game.physics.arcade.overlap(app.bullets, app.aliens, app.collisionHandlerLevelSeven, null, this);
 
-            if ( app.aliens.countLiving() === 0 ) {
-                app.toNextLevel(app.createLevelEight);
+            for(i = 0; i < app.smallAliensLeft.length; i++){
+
+                app.game.physics.arcade.overlap(app.bullets, app.smallAliensLeft[i], app.collisionHandlerLevelFourSmall, null, this);
+                app.game.physics.arcade.overlap(app.smallAliensLeft[i], app.player, app.enemyHitsPlayerLevelOne, null, this);
+            }
+
+            for(i = 0; i < app.smallAliensRight.length; i++){
+
+                app.game.physics.arcade.overlap(app.bullets, app.smallAliensRight[i], app.collisionHandlerLevelFourSmall, null, this);
+                app.game.physics.arcade.overlap(app.smallAliensRight[i], app.player, app.enemyHitsPlayerLevelOne, null, this);
+            }
+
+            for(i = 0; i < app.smallAliensDown.length; i++){
+
+                app.game.physics.arcade.overlap(app.bullets, app.smallAliensDown[i], app.collisionHandlerLevelFourSmall, null, this);
+                app.game.physics.arcade.overlap(app.smallAliensDown[i], app.player, app.enemyHitsPlayerLevelOne, null, this);
+            }
+            for(i = 0; i < app.smallAliensUp.length; i++){
+
+                app.game.physics.arcade.overlap(app.bullets, app.smallAliensUp[i], app.collisionHandlerLevelFourSmall, null, this);
+                app.game.physics.arcade.overlap(app.smallAliensUp[i], app.player, app.enemyHitsPlayerLevelOne, null, this);
             }
         }
 
