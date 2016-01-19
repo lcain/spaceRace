@@ -56,19 +56,18 @@
   })
 </script>
 </div>
-<table border="1" style="width:100%">
+<table border="1" style="width:100%" class="table table-bordered">
   <tr>
     <tr>
-    <td> Highscores </td>
-    <td> User </td>
+    <td> <strong>Highscores</strong> </td>
+    <td> <strong>User</strong> </td>
     </tr>
-    <tr><% h = Highscore.all.order(:score).reverse  %></tr>
+    <tr><% h = Highscore.all.order(:score).reverse  %>
     <td><%= h.first['score']%></td>
     <td><%= h.first.user['name'] %></td> 
     </tr>
     <tr>
-    <td><%= h.second['score']%></td>
-    <td><%= h.second.user['name'] %></td>
+
     </tr>
 </table>
 
