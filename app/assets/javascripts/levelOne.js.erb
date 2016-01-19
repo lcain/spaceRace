@@ -89,7 +89,20 @@ app.enemyHitsPlayerLevelOne = function(player,bullet) {
     //  And create an explosion :)
     var explosion = app.explosions.getFirstExists(false);
     explosion.reset(app.player.body.x, app.player.body.y);
-    explosion.play('kaboom', 30, false, true);
+    if (app.levelCounter === 7) {
+        if (bullet.texture.baseTexture.source.name === "levelSevenAsteroidLarge") {
+            explosion.loadTexture( "levelSevenBigExplode" + (bullet.frame + 1) );
+            explosion.play('kaboom', 30, false, true);
+        }
+        else if (bullet.texture.baseTexture.source.name === "levelSevenAsteroid") {
+            explosion.loadTexture( "levelSevenExplode" + (bullet.frame + 1) );
+            explosion.play('kaboom', 30, false, true);
+        }
+        else {
+            explosion.loadTexture( "levelSevenSmallExplode" + (bullet.frame + 1) );
+            explosion.play('kaboom', 30, false, true);
+        }
+    }
 
     // When the player dies
     if (app.lives.countLiving() < 1)
