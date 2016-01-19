@@ -4,14 +4,6 @@ app.createLevelSix = function() {
     app.starfield.loadTexture("levelSixBackground", 0, false);
     app.player.loadTexture("levelSixShip", 0, false);
 
-    _.each(app.bullets.children, function(bullet) {
-        bullet.loadTexture("levelSixBullet", 0, false);
-    });
-
-    _.each(app.explosions.children, function(explosion) {
-        explosion.loadTexture("levelSixKaboom", 0, false);
-    });
-
     app.aliensSpawnTime = 30000;
 
     app.createAliensLevelSix();
