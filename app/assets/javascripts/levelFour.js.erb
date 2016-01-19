@@ -186,20 +186,22 @@ app.loggingPositionsLvlFour = function(alien){
     var currentPosY = alien.worldPosition.y
 
     if ( prevPosX === currentPosX ){
-        // console.log("X's are equal");
-        // console.log("Going Down")
-        app.smallAsteroidSpawnLvlFour(app.smallAliensDown, app.smallAlienGroupCounter);
-        app.createSmallDown(alien);
+        if ( prevPosY < currentPosY ) {
+            app.smallAsteroidSpawnLvlFour(app.smallAliensDown, app.smallAlienGroupCounter);
+            app.createSmallDown(alien);
+        }
+        if ( currentPosY < prevPosY ){
+            app.smallAsteroidSpawnLvlFour(app.smallAliensUp, app.smallAlienGroupCounter);
+            app.createSmallUp(alien);
+        }
     }
 
     if ( prevPosY === currentPosY ) {
         if(prevPosX > currentPosX){
-            // console.log("Going Left")
             app.smallAsteroidSpawnLvlFour(app.smallAliensLeft, app.smallAlienGroupCounter);
             app.createSmallLeft(alien);
         }
         if(currentPosX > prevPosX){
-            // console.log("Going Right")
              app.smallAsteroidSpawnLvlFour(app.smallAliensRight, app.smallAlienGroupCounter);
             app.createSmallRight(alien);
         }
@@ -281,6 +283,29 @@ app.createSmallDown = function(lastAlien) {
 
 }
 
+app.createSmallUp = function(lastAlien) {
+
+    var currentXPos = lastAlien.previousPosition.x
+    var currentYPos = lastAlien.previousPosition.y
+    var alienName = _.last(app.smallAliensUp);
+    var alienIndex = app.smallAliensUp.indexOf(alienName);
+    var alienInfo = app.game.add.group();
+        alienInfo.enableBody = true;
+        alienInfo.physicsBodyType = Phaser.Physics.ARCADE;
+        app.smallAliensUp[ alienIndex ] = alienInfo;
+
+    for (var y = 0; y < 1; y++)
+    {
+        for (var x = 0; x < 2; x++)
+        {
+            alienInfo.create(x * 50, 0, 'invader');
+        }
+    }
+    alienInfo.x = currentXPos - 40;
+    alienInfo.y = currentYPos;
+
+}
+
 
 app.smallAsteroidSpawnLvlFour = function(group, num){
 
@@ -306,7 +331,7 @@ app.descendLevelFourSmallAliens = function(){
         for (var j = 0; j < app.smallAliensDown[i].children.length; j++) {
 
             if (app.smallAliensDown[i].children[j].world.y > app.game.world.bounds.bottom) {
-                app.smallAliensDown[i].children[j].kill()
+                app.smallAliensDown[i].children[j].kill();
             }
         };
 
@@ -342,6 +367,24 @@ app.descendLevelFourSmallAliens = function(){
             if (app.smallAliensLeft[i].children[j].world.x < app.game.world.bounds.left) {
 
                 app.smallAliensLeft[i].children[j].kill()
+            }
+        };
+
+    }
+
+    for(i = 0; i < app.smallAliensUp.length; i++){
+
+
+    app.smallAliensUp[i].y -= 1.3;
+    app.smallAliensUp[i].children[0].x += -0.08
+    app.smallAliensUp[i].children[1].x += 0.08
+
+
+        for (var j = 0; j < app.smallAliensUp[i].children.length; j++) {
+
+            if (app.smallAliensUp[i].children[j].world.y < app.game.world.bounds.top) {
+
+                app.smallAliensUp[i].children[j].kill()
             }
         };
 
