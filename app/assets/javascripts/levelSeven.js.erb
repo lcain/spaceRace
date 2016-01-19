@@ -130,8 +130,20 @@ app.collisionHandlerLevelSeven = function(bullet, alien) {
     //  And create an explosion :)
     var explosion = app.explosions.getFirstExists(false);
     explosion.reset(alien.body.x, alien.body.y);
-    explosion.loadTexture( "levelSevenBigExplode" + (alien.frame + 1) );
-    explosion.play('kaboom', 30, false, true);
+
+    if (alien.texture.baseTexture.source.name === "levelSevenAsteroidLarge") {
+        explosion.loadTexture( "levelSevenBigExplode" + (alien.frame + 1) );
+        explosion.play('kaboom', 30, false, true);
+    }
+    else if (alien.texture.baseTexture.source.name === "levelSevenAsteroid") {
+        explosion.loadTexture( "levelSevenExplode" + (alien.frame + 1) );
+        explosion.play('kaboom', 30, false, true);
+    }
+    else {
+        explosion.loadTexture( "levelSevenSmallExplode" + (alien.frame + 1) );
+        explosion.play('kaboom', 30, false, true);
+    }
+
 
 
 }
