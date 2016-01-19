@@ -5,3 +5,19 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+# Table name: highscores
+#
+#  id         :integer          not null, primary key
+#  score      :integer
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#  highscore  :string
+#  name       :string
+
+
+#  id              :integer          not null, primary key
+#  name            :string
+#  password_digest :string
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+

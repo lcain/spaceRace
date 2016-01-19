@@ -187,19 +187,19 @@ app.loggingPositions = function(alien){
 
     if ( prevPosX === currentPosX ){
         // console.log("X's are equal");
-        // console.log("Going Down")
+        console.log("Going Down")
         app.smallAsteroidSpawnLvlFour(app.smallAliensDown, app.smallAlienGroupCounter);
         app.createSmallDown(alien);
     }
 
     if ( prevPosY === currentPosY ) {
         if(prevPosX > currentPosX){
-            // console.log("Going Left")
+            console.log("Going Left")
             app.smallAsteroidSpawnLvlFour(app.smallAliensLeft, app.smallAlienGroupCounter);
             app.createSmallLeft(alien);
         }
         if(currentPosX > prevPosX){
-            // console.log("Going Right")
+            console.log("Going Right")
              app.smallAsteroidSpawnLvlFour(app.smallAliensRight, app.smallAlienGroupCounter);
             app.createSmallRight(alien);
         }
@@ -332,15 +332,14 @@ app.descendLevelFourSmallAliens = function(){
       for(i = 0; i < app.smallAliensLeft.length; i++){
 
 
-    app.smallAliensLeft[i].x -= 1.3;
+    app.smallAliensLeft[i].x += 1.3;
     app.smallAliensLeft[i].children[0].y += -0.08
     app.smallAliensLeft[i].children[1].y += 0.08
   
 
         for (var j = 0; j < app.smallAliensLeft[i].children.length; j++) {
 
-            if (app.smallAliensLeft[i].children[j].world.x < app.game.world.bounds.left) {
-
+            if (app.smallAliensLeft[i].children[j].world.x > app.game.world.bounds.left) {
                 app.smallAliensLeft[i].children[j].kill()
             }
         };

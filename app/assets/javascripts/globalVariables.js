@@ -34,3 +34,10 @@ app.totalKillCount = 0;
 
 app.smallAliens = [];
 app.smallAlienGroupCounter = 1;
+
+// -- These are the small alien split for level four/five/six/seven.
+
+app.smallAliensLeft = [];
+app.smallAliensRight = [];
+app.smallAliensDown = [];
+app.smallAliensUp = [];

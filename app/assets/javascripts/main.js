@@ -39,6 +39,13 @@ app.toNextLevel = function(createLevel){
           app.aliens.children = [];
           // Destroys killed sprites from our count.
           app.smallAliens = [];
+
+          //Destroys killed sprites from our count.
+          app.smallAliensLeft = [];
+          app.smallAliensRight = [];
+          app.smallAliensDown = [];
+          app.smallAliensUp = [];
+          
           // Resets counter for next level.
           app.smallAlienGroupCounter = 1;
 
@@ -301,21 +308,19 @@ app.levelSixBulletDirection = function(bullet) {
   }
 }
 
-app.areSmallAliensDead = function(){
+app.areSmallAliensDead = function(group){
   var deathTest = 0;
-  for ( var i = 0; i < app.smallAliens.length; i++ ){
-    if (app.smallAliens[i].countLiving() === 0){
+  for ( var i = 0; i < group.length; i++ ){
+    if (group[i].countLiving() === 0){
       deathTest ++;
     }
   }
 
-
-  if (deathTest === app.smallAliens.length){
+  if (deathTest === group.length){
     // console.log("SECOND DEATH TEST " + deathTest)
     // console.log("SECOND SMALL ALIEN LOG " + app.smallAliens.length)
 
     return true;
   }
-
 
 }

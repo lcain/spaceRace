@@ -67,7 +67,7 @@ app.update = function() {
             // Run collision for level three
         if ( app.levelCounter === 3 ) {
             // console.log(app.areSmallAliensDead())
-            if ( app.areSmallAliensDead() === true ) {
+            if ( app.areSmallAliensDead(app.smallAliens) === true ) {
                 if (app.aliens.countLiving() === 0){
                 app.toNextLevel(app.createLevelFour);
             } }
@@ -80,17 +80,34 @@ app.update = function() {
                 app.game.physics.arcade.overlap(app.smallAliens[i], app.player, app.enemyHitsPlayerLevelOne, null, this);
             }
 
-            // areSmallAliensDead();
-
         }
 
               // Run collision for level four
         if ( app.levelCounter === 4 ) {
 
+            if ( app.aliens.countLiving() === 0 ) {
+                if ( (app.areSmallAliensDead(app.smallAliensLeft) === true) && (app.areSmallAliensDead(app.smallAliensRight) === true) && (app.areSmallAliensDead(app.smallAliensDown) === true) ){
+                app.toNextLevel(app.createLevelFive);
+            } }
+
             app.game.physics.arcade.overlap(app.bullets, app.aliens, app.collisionHandlerLevelFour, null, this);
 
-            if ( app.aliens.countLiving() === 0 ) {
-                app.toNextLevel(app.createLevelFive);
+            for(i = 0; i < app.smallAliensLeft.length; i++){
+
+                app.game.physics.arcade.overlap(app.bullets, app.smallAliensLeft[i], app.collisionHandlerLevelFourSmall, null, this);
+                app.game.physics.arcade.overlap(app.smallAliensLeft[i], app.player, app.enemyHitsPlayerLevelOne, null, this);
+            }
+
+            for(i = 0; i < app.smallAliensRight.length; i++){
+
+                app.game.physics.arcade.overlap(app.bullets, app.smallAliensRight[i], app.collisionHandlerLevelFourSmall, null, this);
+                app.game.physics.arcade.overlap(app.smallAliensRight[i], app.player, app.enemyHitsPlayerLevelOne, null, this);
+            }
+
+            for(i = 0; i < app.smallAliensDown.length; i++){
+
+                app.game.physics.arcade.overlap(app.bullets, app.smallAliensDown[i], app.collisionHandlerLevelFourSmall, null, this);
+                app.game.physics.arcade.overlap(app.smallAliensDown[i], app.player, app.enemyHitsPlayerLevelOne, null, this);
             }
         }
 
