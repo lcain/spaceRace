@@ -8,6 +8,10 @@ app.createLevelSix = function() {
         bullet.loadTexture("levelSixBullet", 0, false);
     });
 
+    _.each(app.explosions.children, function(explosion) {
+        explosion.loadTexture("levelSixKaboom", 0, false);
+    });
+
     app.aliensSpawnTime = 22500;
 
     app.createAliensLevelSix();
@@ -273,7 +277,6 @@ app.createSmallUpLevelSix = function(lastAlien) {
 }
 
 app.preloadLevelSeven = function(){
-
 
     app.game.load.start();
 

@@ -102,16 +102,19 @@ app.enemyHitsPlayerLevelOne = function(player,bullet) {
             explosion.loadTexture( "levelSevenSmallExplode" + (bullet.frame + 1) );
             explosion.play('kaboom', 30, false, true);
         }
-    }
-    else {
-        explosion.play('kaboom', 30, false, true);
-    }
+    } else { explosion.play('kaboom', 30, false, true) };
 
     // When the player dies
     if (app.lives.countLiving() < 1)
     {
         app.player.kill();
         app.enemyBullets.callAll('kill');
+
+        if ( app.levelCounter >= 5 ){
+            app.stateText.text="  GAME OVER \n Click to restart";
+            app.stateText.visible = true;
+            app.stateText.fill = '#fff';
+        }
 
         app.stateText.text="  GAME OVER \n Click to restart";
         app.stateText.visible = true;
