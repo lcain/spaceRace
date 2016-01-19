@@ -296,16 +296,16 @@ app.levelSixBulletDirection = function(bullet) {
   }
 }
 
-app.areSmallAliensDead = function(){
+app.areSmallAliensDead = function(alien){
   var deathTest = 0;
-  for ( var i = 0; i < app.smallAliens.length; i++ ){
-    if (app.smallAliens[i].countLiving() === 0){
+  for ( var i = 0; i < alien.length; i++ ){
+    if (alien[i].countLiving() === 0){
       deathTest ++;
     }
   }
 
 
-  if (deathTest === app.smallAliens.length){
+  if (deathTest === alien.length){
     // console.log("SECOND DEATH TEST " + deathTest)
     // console.log("SECOND SMALL ALIEN LOG " + app.smallAliens.length)
 
