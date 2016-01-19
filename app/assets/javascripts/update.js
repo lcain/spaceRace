@@ -126,7 +126,16 @@ app.update = function() {
             app.game.physics.arcade.overlap(app.bullets, app.aliens, app.collisionHandlerLevelSix, null, this);
 
             if ( app.aliens.countLiving() === 0 ) {
-                app.toNextLevel(app.createLevelSix);
+                app.toNextLevel(app.createLevelSeven);
+            }
+        }
+
+        if ( app.levelCounter === 7 ) {
+
+            app.game.physics.arcade.overlap(app.bullets, app.aliens, app.collisionHandlerLevelSeven, null, this);
+
+            if ( app.aliens.countLiving() === 0 ) {
+                app.toNextLevel(app.createLevelSeven);
             }
         }
 

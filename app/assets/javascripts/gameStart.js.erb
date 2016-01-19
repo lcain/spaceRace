@@ -40,6 +40,32 @@ app.preload = function() {
     app.game.load.spritesheet('levelSixKaboom', '<%= image_path("LevelSix/explodeWhite.png") %>', 128, 128);
     app.game.load.image('levelSixBackground', '<%= image_path("LevelSix/background.png") %>');
 
+
+    // Preloaded images for level 7:
+    app.game.load.spritesheet('levelSevenAsteroidLarge', '<%= image_path("LevelSeven/asteroidLargeSprite.png") %>', 36.5, 36);
+    app.game.load.spritesheet('levelSevenAsteroid', '<%= image_path("LevelSeven/asteroidSprite.png") %>', 22.8, 22);
+    app.game.load.spritesheet('levelSevenAsteroidSmall', '<%= image_path("LevelSeven/asteroidSmallSprite.png") %>', 15, 15);
+    app.game.load.spritesheet('levelSevenBullet', '<%= image_path("LevelSeven/bulletSprite.png") %>', 8.8, 8);
+    app.game.load.spritesheet('levelSevenShip', '<%= image_path("LevelSeven/ship.png") %>', 38, 44);
+
+    app.game.load.spritesheet('levelSevenBigExplode1', '<%= image_path("LevelSeven/bigexplode1.png") %>', 128, 128);
+    app.game.load.spritesheet('levelSevenBigExplode2', '<%= image_path("LevelSeven/bigexplode2.png") %>', 128, 128);
+    app.game.load.spritesheet('levelSevenBigExplode3', '<%= image_path("LevelSeven/bigexplode3.png") %>', 128, 128);
+    app.game.load.spritesheet('levelSevenBigExplode4', '<%= image_path("LevelSeven/bigexplode4.png") %>', 128, 128);
+    app.game.load.spritesheet('levelSevenBigExplode5', '<%= image_path("LevelSeven/bigexplode5.png") %>', 128, 128);
+
+    app.game.load.spritesheet('levelSevenExplode1', '<%= image_path("LevelSeven/explode1.png") %>', 128, 128);
+    app.game.load.spritesheet('levelSevenExplode2', '<%= image_path("LevelSeven/explode2.png") %>', 128, 128);
+    app.game.load.spritesheet('levelSevenExplode3', '<%= image_path("LevelSeven/explode3.png") %>', 128, 128);
+    app.game.load.spritesheet('levelSevenExplode4', '<%= image_path("LevelSeven/explode4.png") %>', 128, 128);
+    app.game.load.spritesheet('levelSevenExplode5', '<%= image_path("LevelSeven/explode5.png") %>', 128, 128);
+
+    app.game.load.spritesheet('levelSevenSmallExplode1', '<%= image_path("LevelSeven/smallexplode1.png") %>', 128, 128);
+    app.game.load.spritesheet('levelSevenSmallExplode2', '<%= image_path("LevelSeven/smallexplode2.png") %>', 128, 128);
+    app.game.load.spritesheet('levelSevenSmallExplode3', '<%= image_path("LevelSeven/smallexplode3.png") %>', 128, 128);
+    app.game.load.spritesheet('levelSevenSmallExplode4', '<%= image_path("LevelSeven/smallexplode4.png") %>', 128, 128);
+    app.game.load.spritesheet('levelSevenSmallExplode5', '<%= image_path("LevelSeven/smallexplode5.png") %>', 128, 128);
+
     // LEAVE THIS AT THE END - JQUERY ELEMENTS AND CLASS ASIGNMENTS. - KANE
     $('body canvas').addClass("gameWindow");
     $('<div class="gameStatus">'+'<p class="scoreText gameScore">'+app.score+'</p>'+'<p class="scoreText gameLives"> 3 </p>'+'</div>').appendTo('#container');

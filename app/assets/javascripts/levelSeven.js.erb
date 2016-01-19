@@ -1,0 +1,170 @@
+var app = app || {};
+
+app.createLevelSeven = function() {
+    app.starfield.loadTexture("levelSixBackground", 0, false);
+    app.player.loadTexture("levelSevenShip", 0, false);
+    app.player.animations.add('fly', [0, 1, 2]);
+
+    _.each(app.bullets.children, function(bullet) {
+        bullet.loadTexture("levelSixBullet", 0, false);
+    });
+
+    _.each(app.explosions.children, function(explosion) {
+        explosion.loadTexture("levelSixKaboom", 0, false);
+    });
+
+    app.aliensSpawnTime = 22500;
+
+    app.createAliensLevelSeven();
+    app.stateText.visible = false;
+    app.levelCounter ++;
+    // app.preloadLevelSeven();
+
+}
+
+app.createAlienGroupTopBottomLevelSeven = function(x, y, num, alienMove) {
+
+    var alienArray = [];
+
+    for (var i = 0; i < num; i++) {
+        var alien;
+        if (i % 2 === 0) {
+            alien = app.aliens.create(_.random(0, x), y, 'levelSevenAsteroid');
+        }
+        else {
+            alien = app.aliens.create(_.random(0, x), y, 'levelSevenAsteroidLarge');
+
+        }
+
+        alien.animations.add('colour', [ 0, 1, 2, 3, 4 ], 20, true);
+        alien.frame = _.random(0,4);
+
+        alien.anchor.setTo(0.5, 0.5);
+        alien.body.moves = false;
+        alienArray.push(alien);
+    }
+
+    _.each(alienArray, function(alien){
+
+        setTimeout(function() {
+            app.game.time.events.loop(Phaser.Timer.SECOND * .01, alienMove, this, alien);
+        }, _.random(1000, app.aliensSpawnTime) );
+
+    });
+
+}
+
+app.createAlienGroupLeftRightLevelSeven = function(x, y, num, alienMove) {
+
+    var alienArray = [];
+
+    for (var i = 0; i < num; i++) {
+        var alien;
+        if (i % 2 === 0) {
+            alien = app.aliens.create(x, _.random(0, y), 'levelSevenAsteroid');
+        }
+
+        else {
+            alien = app.aliens.create(x, _.random(0, y), 'levelSevenAsteroidLarge');
+        }
+
+        alien.animations.add('colour', [ 0, 1, 2, 3, 4 ], 20, true);
+            alien.frame = _.random(0,4);
+
+        alien.anchor.setTo(0.5, 0.5);
+        alien.body.moves = false;
+        alienArray.push(alien);
+    }
+
+    _.each(alienArray, function(alien){
+
+        setTimeout(function() {
+            app.game.time.events.loop(Phaser.Timer.SECOND * .01, alienMove, this, alien);
+        }, _.random(1000, app.aliensSpawnTime) );
+
+    });
+
+}
+
+app.createAliensLevelSeven = function() {
+
+    // Reset aliens position
+    app.aliens.x = 0;
+    app.aliens.y = 0;
+
+    asteroidNum = 72;
+    num = asteroidNum / 3;
+
+    // Asteroid group moving from top to bottom
+    app.createAlienGroupTopBottomLevelSeven(700, -300, num, app.descendLevelSix);
+
+    // Asteroid group moving from left to right
+    app.createAlienGroupLeftRightLevelSeven(-300, 550, num, app.moveRightLevelSix);
+
+    // Asteroid group moving from right to left
+    app.createAlienGroupLeftRightLevelSeven(1200, 550, num, app.moveLeftLevelSix);
+
+}
+
+app.descendLevelSix = function(alien) {
+
+    alien.position.y += app.aliensVelocity;
+
+    if (alien.worldPosition.y > app.game.world.bounds.bottom) {
+        alien.kill();
+    }
+
+}
+
+app.moveRightLevelSix = function(alien) {
+
+    alien.position.x += app.aliensVelocity;
+
+    if (alien.worldPosition.x > app.game.world.bounds.right) {
+        alien.kill();
+    }
+
+}
+
+app.moveLeftLevelSix = function(alien) {
+
+    alien.position.x -= app.aliensVelocity;
+
+    if (alien.worldPosition.x < app.game.world.bounds.left) {
+        alien.kill();
+    }
+}
+
+app.collisionHandlerLevelSeven = function(bullet, alien) {
+    app.totalKillCount += 1;
+
+
+    //  When a bullet hits an alien we kill them both
+    bullet.kill();
+    alien.kill();
+
+    //AUDIO enemy is hit by bullet -K
+
+    soundCall = new Howl({
+    urls: [playSound("enemyHit")]
+    }).play();
+
+    //  Increase the score
+    app.score += 20;
+    app.scoreText.text = app.scoreString + app.score;
+
+    //  And create an explosion :)
+    var explosion = app.explosions.getFirstExists(false);
+    explosion.reset(alien.body.x, alien.body.y);
+    explosion.loadTexture( "levelSevenBigExplode" + (alien.frame + 1) );
+    explosion.play('kaboom', 30, false, true);
+
+
+}
+
+app.preloadLevelSeven = function(){
+
+
+    app.game.load.start();
+
+};
