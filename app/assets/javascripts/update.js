@@ -172,6 +172,13 @@ app.update = function() {
         $('.gameLives').text( "Lives: "+lifeCalculator() );
         $('.gameScore').text("Score: "+app.score)
 
+        if (app.lives.countLiving() < 1) {
+            $("#saveScore").show();
+        }
+        else {
+            $("#saveScore").hide();
+        }
+
     }
 
 }

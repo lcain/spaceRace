@@ -36,7 +36,9 @@
 </button>
 
 <script>
-  var user_id = <%= current_user ? current_user.id : "null" %>;
+var app = app || {}
+
+  var user_id = <%= current_user  ? current_user.id : "null" %>;
   $('#myButton').one('click', function () {
 
     $.ajax({
@@ -76,5 +78,5 @@
 </div>
 </body>
 </html>
-<!-- if (app.lives.countLiving() < 1) -->
+
 
