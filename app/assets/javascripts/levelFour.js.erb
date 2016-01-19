@@ -97,6 +97,25 @@ app.descendLevelFour = function(alien) {
 
 }
 
+app.moveRightLevelFour = function(alien) {
+
+    alien.position.x += app.aliensVelocity;
+
+    if (alien.worldPosition.x > app.game.world.bounds.right) {
+        alien.kill();
+    }
+
+}
+
+app.moveLeftLevelFour = function(alien) {
+
+    alien.position.x -= app.aliensVelocity;
+
+    if (alien.worldPosition.x < app.game.world.bounds.left) {
+        alien.kill();
+    }
+}
+
 app.collisionHandlerLevelFour = function(bullet, alien) {
     app.loggingPositionsLvlFour(alien);
 

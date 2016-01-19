@@ -3,7 +3,7 @@ var app = app || {};
 app.update = function() {
 
     //  Scroll the background
-    if (app.levelCounter > 6) {
+    if (app.levelCounter > 7) {
         app.starfield.tilePosition.y += 2;
     }
 
