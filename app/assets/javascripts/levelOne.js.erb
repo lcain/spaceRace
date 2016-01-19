@@ -68,6 +68,53 @@ app.collisionHandlerLevelOne = function(bullet, alien) {
 
 }
 
+app.enemyCollidesPlayerLevelOne = function(player,alien) {
+
+
+    alien.kill();
+
+    //AUDIO Player is hit sound
+    soundCall = new Howl({
+    urls: [playSound("playerHit")]
+    }).play();
+
+
+    live = app.lives.getFirstAlive();
+
+    if (live)
+    {
+        live.kill();
+    }
+
+    //  And create an explosion :)
+    var explosion = app.explosions.getFirstExists(false);
+    explosion.reset(app.player.body.x, app.player.body.y);
+    if (app.levelCounter === 7) {
+        explosion.loadTexture( "levelSevenBigExplode" + (alien.frame + 1) );
+    }
+    explosion.play('kaboom', 30, false, true);
+
+    // When the player dies
+    if (app.lives.countLiving() < 1)
+    {
+        app.player.kill();
+        app.enemyBullets.callAll('kill');
+
+        app.stateText.text="  GAME OVER \n Click to restart";
+        app.stateText.visible = true;
+
+        //the "click to restart" handler
+        app.game.input.onTap.addOnce(app.restart,this);
+
+        //AUDIO - Game over -k
+
+        soundCall = new Howl({
+        urls: [playSound("gameOver")]
+        }).play();
+    }
+
+}
+
 app.enemyHitsPlayerLevelOne = function(player,bullet) {
 
 
@@ -171,6 +218,12 @@ app.fireBulletLevelOne = function() {
 
             if (app.levelCounter >= 6) {
                 app.levelSixBulletDirection(bullet);
+            }
+
+            if (app.levelCounter === 7) {
+                bullet.loadTexture("levelSevenBullet", 0, false);
+                bullet.animations.add('colour', [ 0, 1, 2, 3, 4 ], 20, true);
+                bullet.frame = _.random(0,4);
             }
 
             app.bulletTime = app.game.time.now + app.bulletFireRate;
