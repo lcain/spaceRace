@@ -123,20 +123,22 @@ app.collisionHandlerLevelSeven = function(bullet, alien) {
     var explosion = app.explosions.getFirstExists(false);
     explosion.reset(alien.body.x, alien.body.y);
 
-    if (alien.texture.baseTexture.source.name === "levelSevenAsteroidLarge") {
-        explosion.loadTexture( "levelSevenBigExplode" + (alien.frame + 1) );
-        explosion.play('kaboom', 30, false, true);
-    }
-    else if (alien.texture.baseTexture.source.name === "levelSevenAsteroid") {
-        explosion.loadTexture( "levelSevenExplode" + (alien.frame + 1) );
-        explosion.play('kaboom', 30, false, true);
-    }
-    else {
-        explosion.loadTexture( "levelSevenSmallExplode" + (alien.frame + 1) );
-        explosion.play('kaboom', 30, false, true);
+    if (app.levelCounter === 7) {
+        if (alien.texture.baseTexture.source.name === "levelSevenAsteroidLarge") {
+            explosion.loadTexture( "levelSevenBigExplode" + (alien.frame + 1) );
+        }
+        else if (alien.texture.baseTexture.source.name === "levelSevenAsteroid") {
+            explosion.loadTexture( "levelSevenExplode" + (alien.frame + 1) );
+        }
+        else if (alien.texture.baseTexture.source.name === "levelSevenAsteroidSmall") {
+            explosion.loadTexture( "levelSevenSmallExplode" + (alien.frame + 1) );
+        }
+        else {
+            explosion.loadTexture("levelSixKaboom");
+        }
     }
 
-
+    explosion.play('kaboom', 30, false, true);
 
 }
 

@@ -7,8 +7,12 @@ app.createLevelEight = function() {
 
     _.each(app.bullets.children, function(bullet) {
         bullet.loadTexture("levelEightBullet", 0, false);
-        bullet.animations.add('pulse', [0, 1, 2]);
+        bullet.animations.add('pulse', [0, 1]);
         bullet.animations.play('pulse', 20, true);
+    });
+
+    _.each(app.explosions.children, function(explosion) {
+        explosion.loadTexture("levelEightKaboom", 0, false);
     });
 
     app.aliensSpawnTime = 20000;
@@ -26,7 +30,7 @@ app.createAlienGroupTopBottomLevelEight = function(x, y, num, alienMove) {
 
     for (var i = 0; i < num; i++) {
 
-        var alien = app.aliens.create(_.random(0, x), y, 'levelSixAsteroidLarge');
+        var alien = app.aliens.create(_.random(0, x), y, 'levelEightSeeker');
         alien.anchor.setTo(0.5, 0.5);
         // alien.animations.add('fly', [ 0, 1, 2, 3 ], 20, true);
         // alien.play('fly');
@@ -38,6 +42,8 @@ app.createAlienGroupTopBottomLevelEight = function(x, y, num, alienMove) {
 
         setTimeout(function() {
             app.game.time.events.loop(Phaser.Timer.SECOND * .01, alienMove, this, alien);
+
+            //game.physics.arcade.moveToObject(alien, app.player, app.aliensVelocity);
         }, _.random(1000, app.aliensSpawnTime) );
 
     });
@@ -50,7 +56,7 @@ app.createAlienGroupLeftRightLevelEight = function(x, y, num, alienMove) {
 
     for (var i = 0; i < num; i++) {
 
-        var alien = app.aliens.create(x, _.random(0, y), 'levelSixAsteroidLarge');
+        var alien = app.aliens.create(x, _.random(0, y), 'levelEightSeeker');
         alien.anchor.setTo(0.5, 0.5);
         // alien.animations.add('fly', [ 0, 1, 2, 3 ], 20, true);
         // alien.play('fly');
@@ -62,6 +68,9 @@ app.createAlienGroupLeftRightLevelEight = function(x, y, num, alienMove) {
 
         setTimeout(function() {
             app.game.time.events.loop(Phaser.Timer.SECOND * .01, alienMove, this, alien);
+
+            //game.physics.arcade.moveToObject(alien, app.player, app.aliensVelocity);
+
         }, _.random(1000, app.aliensSpawnTime) );
 
     });
@@ -78,21 +87,20 @@ app.createAliensLevelEight = function() {
     num = seekerNum / 4;
 
     // Asteroid group moving from top to bottom
-    app.createAlienGroupTopBottomLevelSix(800, -300, num, app.descendLevelFour);
+    app.createAlienGroupTopBottomLevelEight(800, -300, num, app.descendLevelFour);
 
     // Asteroid group moving from bottom to top
-    app.createAlienGroupTopBottomLevelSix(800, 950, num, app.ascendLevelFive);
-    console.log("moveBottom");
+    app.createAlienGroupTopBottomLevelEight(800, 950, num, app.ascendLevelFive);
 
     // Asteroid group moving from left to right
-    app.createAlienGroupLeftRightLevelSix(-300, 650, num, app.moveRightLevelFour);
+    app.createAlienGroupLeftRightLevelEight(-300, 650, num, app.moveRightLevelFour);
 
     // Asteroid group moving from right to left
-    app.createAlienGroupLeftRightLevelSix(1200, 650, num, app.moveLeftLevelFour);
+    app.createAlienGroupLeftRightLevelEight(1200, 650, num, app.moveLeftLevelFour);
 
 }
 
-app.collisionHandlerLevelSix = function(bullet, alien) {
+app.collisionHandlerLevelEight = function(bullet, alien) {
     app.totalKillCount += 1;
 
 
