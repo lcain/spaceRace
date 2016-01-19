@@ -56,20 +56,7 @@
   })
 </script>
 </div>
-<table border="1" style="width:100%" class="table table-bordered">
-  <tr>
-    <tr>
-    <td> <strong>Highscores</strong> </td>
-    <td> <strong>User</strong> </td>
-    </tr>
-    <tr><% h = Highscore.all.order(:score).reverse  %>
-    <td><%= h.first['score']%></td>
-    <td><%= h.first.user['name'] %></td> 
-    </tr>
-    <tr>
 
-    </tr>
-</table>
 
 <div id="user_nav">
   <% if current_user %>
