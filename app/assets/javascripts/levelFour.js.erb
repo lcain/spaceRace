@@ -14,7 +14,7 @@ app.createLevelFour = function() {
     app.game.time.events.events.pop();
     app.game.time.events.loop(Phaser.Timer.SECOND * .02, app.descendLevelFourSmallAliens, this);
     
-
+ 
 }
 
 app.createAlienGroupTopBottom = function(x, y, num, alienMove) {
@@ -117,7 +117,7 @@ app.moveLeftLevelFour = function(alien) {
 }
 
 app.collisionHandlerLevelFour = function(bullet, alien) {
-    app.loggingPositions(alien);
+    app.loggingPositionsLvlFour(alien);
     
     app.totalKillCount += 1;
 
@@ -179,7 +179,7 @@ app.preloadLevelFive = function(){
 
 
 
-app.loggingPositions = function(alien){
+app.loggingPositionsLvlFour = function(alien){
     var prevPosX = alien.previousPosition.x
     var prevPosY = alien.previousPosition.y
     var currentPosX = alien.worldPosition.x
