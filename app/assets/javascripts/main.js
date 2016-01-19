@@ -33,19 +33,15 @@ app.toNextLevel = function(createLevel){
             app.stateText.fill = '#fff';
             app.stateText.text = " Lvl Six Done";
             app.stateText.visible = true;
+          } else if ( app.levelCounter === 7 ) {
+            app.stateText.text = " Lvl Seven Done";
+            app.stateText.visible = true;
           };
 
           //Destroys killed sprites from our count.
           app.aliens.children = [];
           // Destroys killed sprites from our count.
           app.smallAliens = [];
-
-          //Destroys killed sprites from our count.
-          app.smallAliensLeft = [];
-          app.smallAliensRight = [];
-          app.smallAliensDown = [];
-          app.smallAliensUp = [];
-          
           // Resets counter for next level.
           app.smallAlienGroupCounter = 1;
 
@@ -133,85 +129,77 @@ app.levelSixControls = function() {
       app.player.body.velocity.x = -app.playerVelocity * 0.75;
       app.player.body.velocity.y = app.playerVelocity * 0.75;
       app.player.angle = 225;
+      app.player.animations.play('fly', 20, true);
   }
   else if (app.cursors.down.isDown && app.cursors.right.isDown) {
       // Diagonal down right movement
       app.player.body.velocity.x = app.playerVelocity * 0.75;
       app.player.body.velocity.y = app.playerVelocity * 0.75;
       app.player.angle = 135;
+      app.player.animations.play('fly', 20, true);
   }
   else if (app.cursors.up.isDown && app.cursors.left.isDown) {
       // Diagonal up left movement
       app.player.body.velocity.x = -app.playerVelocity * 0.75;
       app.player.body.velocity.y = -app.playerVelocity * 0.75;
       app.player.angle = 315;
+      app.player.animations.play('fly', 20, true);
   }
   else if (app.cursors.up.isDown && app.cursors.right.isDown) {
       // Diagonal up right movement
       app.player.body.velocity.x = app.playerVelocity * 0.75;
       app.player.body.velocity.y = -app.playerVelocity * 0.75;
       app.player.angle = 45;
+      app.player.animations.play('fly', 20, true);
   }
   else if (app.cursors.up.isDown) {
       // Up movement
       app.player.body.velocity.y = -app.playerVelocity;
       app.player.angle = 0;
+      app.player.animations.play('fly', 20, true);
   }
   else if (app.cursors.down.isDown) {
       // Down movement
       app.player.body.velocity.y = app.playerVelocity;
       app.player.angle = 180;
+      app.player.animations.play('fly', 20, true);
   }
   else if (app.cursors.left.isDown) {
       // Left movement
       app.player.body.velocity.x = -app.playerVelocity
       app.player.angle = 270;
+      app.player.animations.play('fly', 20, true);
   }
   else if (app.cursors.right.isDown) {
       // Right movement
       app.player.body.velocity.x = app.playerVelocity
       app.player.angle = 90;
+      app.player.animations.play('fly', 20, true);
+  }
+  else {
+    app.player.animations.stop();
+    app.player.frame = 0;
   }
 }
 
 app.levelFiveBulletDirection = function(bullet) {
-  if (app.cursors.left.isDown) {
-  //  Left
-      bullet.body.velocity.x = -app.bulletVelocity;
-      bullet.angle = 270;
-  }
-  else if (app.cursors.right.isDown) {
-  //  Right
-      bullet.body.velocity.x = app.bulletVelocity;
-      bullet.angle = 90;
-  }
-  else if (app.cursors.up.isDown) {
-  //  Move up.
-      bullet.body.velocity.y = -app.bulletVelocity;
-      bullet.angle = 360;
-  }
-  else if (app.cursors.down.isDown) {
-  //  Move down
-      bullet.body.velocity.y = app.bulletVelocity;
-      bullet.angle = 180;
-  }
-  else if (app.player.angle === 0) {
-  //  Stand still up
+  if (app.player.angle === 0) {
+  //  Facing up
       bullet.angle = app.player.angle
       bullet.body.velocity.y = -app.bulletVelocity;
   }
   else if (app.player.angle === 90) {
-  //  Stand still right
+  //  Facing right
       bullet.angle = app.player.angle
       bullet.body.velocity.x = app.bulletVelocity;
   }
   else if (app.player.angle === -180) {
-  //  Stand still down
+  //  Facing down
       bullet.angle = app.player.angle
       bullet.body.velocity.y = app.bulletVelocity;
   }
   else if (app.player.angle === -90) {
-  //  Stand still left
+  //  Facing left
       bullet.angle = app.player.angle
       bullet.body.velocity.x = -app.bulletVelocity;
   }
@@ -308,19 +296,21 @@ app.levelSixBulletDirection = function(bullet) {
   }
 }
 
-app.areSmallAliensDead = function(group){
+app.areSmallAliensDead = function(){
   var deathTest = 0;
-  for ( var i = 0; i < group.length; i++ ){
-    if (group[i].countLiving() === 0){
+  for ( var i = 0; i < app.smallAliens.length; i++ ){
+    if (app.smallAliens[i].countLiving() === 0){
       deathTest ++;
     }
   }
 
-  if (deathTest === group.length){
+
+  if (deathTest === app.smallAliens.length){
     // console.log("SECOND DEATH TEST " + deathTest)
     // console.log("SECOND SMALL ALIEN LOG " + app.smallAliens.length)
 
     return true;
   }
+
 
 }
