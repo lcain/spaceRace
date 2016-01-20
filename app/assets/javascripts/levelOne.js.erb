@@ -115,16 +115,36 @@ app.enemyHitsPlayerLevelOne = function(player,bullet) {
         app.enemyBullets.callAll('kill');
 
         if ( app.levelCounter >= 5 ){
-            app.stateText.text="  GAME OVER \n Click to restart";
+            app.stateText.text="  GAME OVER \n Press space to restart";
             app.stateText.visible = true;
             app.stateText.fill = '#fff';
         }
 
-        app.stateText.text="  GAME OVER \n Click to restart";
+        app.stateText.text="  GAME OVER \n Press space restart";
         app.stateText.visible = true;
 
-        //the "click to restart" handler
-        app.game.input.onTap.addOnce(app.restart,this);
+        //the "press space to restart" handler
+
+        app.canFire = false;
+
+        app.fireButton.onDown.addOnce(app.restart, this);
+
+        var checkSpacePress = setInterval(function() {
+
+        //console.log("waiting for space...");
+
+            if (app.fireButton.isDown) {
+                  //console.log("space pressed!");
+                  clearInterval(checkSpacePress);
+                  checkSpacePress = 0;
+
+                  setTimeout(function() {
+                    app.canFire = true;
+                  }, 1000);
+
+            }
+
+        }, 100);
 
         //AUDIO - Game over -k
 

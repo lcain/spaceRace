@@ -3,7 +3,7 @@ var app = app || {};
 app.restart = function() {
 
     //  A new level starts
-    app.levelCounter = 0;
+    app.levelCounter = 1;
 
     //resets the life count
     app.lives.callAll('revive');
@@ -18,20 +18,28 @@ app.restart = function() {
     app.player.position.x = 400;
     app.player.position.y = 600;
 
+    // reset player facing angle
+    app.player.angle = 0;
+
     // reset background texture
     app.starfield.loadTexture("starfield", 0, false);
 
     // reset ship texture
     app.player.loadTexture("ship", 0, false);
 
-    // reset bullet texture
+    // reset asteroid texture
     _.each(app.aliens.children, function(alien) {
         alien.loadTexture("invader");
     });
 
-    // reset asteroid texture
+    // reset bullet texture
     _.each(app.bullets.children, function(bullet) {
         bullet.loadTexture("bullet");
+    });
+
+    // reset 'sploisions'
+    _.each(app.explosions.children, function(explosion) {
+        explosion.loadTexture("kaboom");
     });
 
     //hides the text
