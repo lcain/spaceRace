@@ -60,10 +60,29 @@ var app = app || {}
 </div>
 
 <div>
-<form action="/sign_up/">
+
 
 <button>signup</button>
-</form>
+<table border="1" style="width:100%" class="table table-bordered" id="tableDo">
+  <tr>
+    <tr>
+    <td> <strong>Highscores</strong> </td>
+    <td> <strong>User</strong> </td>
+    </tr>
+    <tr><% h = Highscore.all.order(:score).reverse  %>
+    <td><%= h.first['score']%></td>
+    <td><%= h.first.user['name'] %></td> 
+    </tr>
+    <tr>
+    <td><%= h.second['score']%></td>
+    <td><%= h.second.user['name']%></td>
+    </tr>
+    <tr>
+    <td><%= h.third['score']%></td>
+    <td><%= h.third.user['name']%></td>
+    </tr>
+
+</table>
 <script>
   var changePage = function (genericScore) {
     var newURL = "/sign_up";
