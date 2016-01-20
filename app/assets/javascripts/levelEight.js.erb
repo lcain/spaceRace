@@ -42,10 +42,17 @@ app.createAlienGroupTopBottomLevelEight = function(x, y, num, alienMove) {
     _.each(alienArray, function(alien){
 
         setTimeout(function() {
-            app.game.time.events.loop(Phaser.Timer.SECOND * .01, function() {
+            app.game.time.events.loop(Phaser.Timer.SECOND * .0166, function() {
+
                 app.game.physics.arcade.moveToObject(alien, app.player, 120);
-                alien.rotation = app.game.physics.arcade.angleToXY(alien, app.player.position.x, app.player.position.y);
-            }, this, alien);
+
+                var r = app.game.physics.arcade.angleToXY(alien, app.player.position.x, app.player.position.y);
+
+                var d = r * (180 / Math.PI);
+
+                alien.angle = d + 90;
+
+            }, this);
 
 
         }, _.random(1000, app.aliensSpawnTime) );
@@ -69,10 +76,17 @@ app.createAlienGroupLeftRightLevelEight = function(x, y, num, alienMove) {
     _.each(alienArray, function(alien){
 
         setTimeout(function() {
+            app.game.time.events.loop(Phaser.Timer.SECOND * .0166, function() {
 
-            app.game.time.events.loop(Phaser.Timer.SECOND * .01, function() {
                 app.game.physics.arcade.moveToObject(alien, app.player, 120);
-            }, this, alien);
+
+                var r = app.game.physics.arcade.angleToXY(alien, app.player.position.x, app.player.position.y);
+
+                var d = r * (180 / Math.PI);
+
+                alien.angle = d + 90;
+
+            }, this);
 
         }, _.random(1000, app.aliensSpawnTime) );
 
