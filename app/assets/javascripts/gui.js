@@ -74,3 +74,52 @@ var gameLevelFontSelect = function(){
   } else { return 'Georgia'}
 }
 
+//----------------------------------------------------------
+// DYNAMIC GENERATION TESTING
+//----------------------------------------------------------
+
+
+app.time = 10000
+
+
+
+// callTimer( seekerAlien, levelEightSeeker, 150, _.random(-150, 150) );
+
+app.callTimer = function(type, graphic, num, X, Y){
+
+  var count = 0;
+  var waveInterval = setInterval(function(type){
+
+    if(type === 'seekerAlien'){
+
+     app.createSeeker( X, Y, type)
+ 
+    } else if (type === 'shooterAlien') {
+
+     app.createAlienShooter(X,Y)
+
+    } else if (type === 'missileAlien') {
+
+     app.createAlienMissileShip(X,Y)
+
+    } else if (type === 'shotgunAlien') {
+
+     app.createAlienShotgunner(X,Y)
+
+    }
+
+
+
+  }, app.time)
+
+if ( count === num ){
+  clearInterval(waveInterval);
+}
+
+}
+
+// //----------------------------------------------------------
+// // DYNAMIC ALIEN GENERATION
+// //----------------------------------------------------------
+
+// var generate = 
