@@ -235,6 +235,15 @@ app.update = function() {
             }
         }
 
+        if ( app.levelCounter === 10 ) {
+
+            app.game.physics.arcade.overlap(app.bullets, app.aliens, app.collisionHandlerLevelTen, null, this);
+
+            if ( app.aliens.countLiving() === 0 ) {
+                app.toNextLevel(app.createLevelTen);
+            }
+        }
+
             app.game.physics.arcade.overlap(app.enemyBullets, app.player, app.enemyHitsPlayerLevelOne, null, this);
             app.game.physics.arcade.overlap(app.aliens, app.player, app.enemyHitsPlayerLevelOne, null, this);
 
