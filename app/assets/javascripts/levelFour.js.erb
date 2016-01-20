@@ -10,6 +10,11 @@ app.createLevelFour = function() {
     app.createAliensLevelFour();
     app.stateText.visible = false;
     app.levelCounter ++;
+
+    _.each(app.bullets.children, function(bullet) {
+        bullet.loadTexture("bulletLevelFour", 0, false);
+    });
+
     // app.preloadLevelFive();
     app.game.time.events.events.pop();
     app.game.time.events.loop(Phaser.Timer.SECOND * .02, app.descendLevelFourSmallAliens, this);
