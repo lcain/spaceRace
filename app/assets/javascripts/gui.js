@@ -85,38 +85,38 @@ app.time = 10000
 
 // callTimer( seekerAlien, levelEightSeeker, 150, _.random(-150, 150) );
 
-app.callTimer = function(type, graphic, num, X, Y){
+// app.callTimer = function(type, graphic, num, X, Y){
 
-  var count = 0;
-  var waveInterval = setInterval(function(type){
+//   var count = 0;
+//   var waveInterval = setInterval(function(type){
 
-    if(type === 'seekerAlien'){
+//     if(type === 'seekerAlien'){
 
-     app.createSeeker( X, Y, type)
+//      app.createSeeker( X, Y, type)
  
-    } else if (type === 'shooterAlien') {
+//     } else if (type === 'shooterAlien') {
 
-     app.createAlienShooter(X,Y)
+//      app.createAlienShooter(X,Y)
 
-    } else if (type === 'missileAlien') {
+//     } else if (type === 'missileAlien') {
 
-     app.createAlienMissileShip(X,Y)
+//      app.createAlienMissileShip(X,Y)
 
-    } else if (type === 'shotgunAlien') {
+//     } else if (type === 'shotgunAlien') {
 
-     app.createAlienShotgunner(X,Y)
+//      app.createAlienShotgunner(X,Y)
 
-    }
+//     }
 
 
 
-  }, app.time)
+//   }, app.time)
 
-if ( count === num ){
-  clearInterval(waveInterval);
-}
+// if ( count === num ){
+//   clearInterval(waveInterval);
+// }
 
-}
+// }
 
 // //----------------------------------------------------------
 // // DYNAMIC ALIEN GENERATION
