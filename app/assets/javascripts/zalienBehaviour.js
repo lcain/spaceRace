@@ -31,9 +31,11 @@ app.createSeeker = function(X, Y, graphicName){
    
     _.each(app.alienSeekerArray, function(alien){
 
-      // INCLUDE THIS GAME PHYSICS OR YOUR SHIT GETS WRECKED.
-      app.game.physics.enable(alien, Phaser.Physics.ARCADE);
-    app.game.time.events.loop(Phaser.Timer.SECOND * .01, function() {
+      // APPROPRIATE ALIEN BEHAVIOUR
+
+      // INCLUDE THIS GAME PHYSICS OR ALIENS WILL NOT FUNCTION.
+        app.game.physics.enable(alien, Phaser.Physics.ARCADE);
+        app.game.time.events.loop(Phaser.Timer.SECOND * .01, function() {
         app.game.physics.arcade.moveToObject(alien, app.player, 120);
         alien.rotation = app.game.physics.arcade.angleToXY(alien, app.player.position.x, app.player.position.y);
     }, this, alien);
@@ -117,3 +119,54 @@ app.createAlienShotgunner = function(X,Y){
   });
 
 }
+
+
+//----------------------------------------------------------
+// DYNAMIC GENERATION TESTING
+//----------------------------------------------------------
+
+
+// app.time = 10000
+
+
+
+// // callTimer( seekerAlien, levelEightSeeker, 150, _.random(-150, 150) );
+
+// app.callTimer = function(type, graphic, num, X, Y){
+
+//   var count = 0;
+//   var waveInterval = setInterval(function(type){
+
+//     if(type === 'seekerAlien'){
+
+//      app.createSeeker( X, Y, type)
+ 
+//     } else if (type === 'shooterAlien') {
+
+//      app.createAlienShooter(X,Y)
+
+//     } else if (type === 'missileAlien') {
+
+//      app.createAlienMissileShip(X,Y)
+
+//     } else if (type === 'shotgunAlien') {
+
+//      app.createAlienShotgunner(X,Y)
+
+//     }
+
+
+
+//   }, app.time)
+
+// if ( count === num ){
+//   clearInterval(waveInterval);
+// }
+
+// }
+
+// // //----------------------------------------------------------
+// // // DYNAMIC ALIEN GENERATION
+// // //----------------------------------------------------------
+
+// // var generate = 
