@@ -1,9 +1,10 @@
 var app = app || {};
 
 app.createLevelNine = function() {
-    app.starfield.loadTexture("levelEightBackground", 0, false);
+    app.starfield.loadTexture("levelNineBackground", 0, false);
     app.player.loadTexture("levelNineShip", 0, false);
     app.player.animations.add('fly', [0, 1, 2]);
+    app.player.animations.play('fly', 20, true);
 
     _.each(app.bullets.children, function(bullet) {
         bullet.loadTexture("levelNineBullet", 0, false);
@@ -100,7 +101,7 @@ app.createAliensLevelNine = function() {
 
 }
 
-app.collisionHandlerLevelEight = function(bullet, alien) {
+app.collisionHandlerLevelNine = function(bullet, alien) {
     app.totalKillCount += 1;
 
 
