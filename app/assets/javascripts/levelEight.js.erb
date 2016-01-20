@@ -33,18 +33,21 @@ app.createAlienGroupTopBottomLevelEight = function(x, y, num, alienMove) {
 
         var alien = app.aliens.create(_.random(0, x), y, 'levelEightSeeker');
         alien.anchor.setTo(0.5, 0.5);
-        // alien.animations.add('fly', [ 0, 1, 2, 3 ], 20, true);
-        // alien.play('fly');
-        // alien.body.moves = false;
+        alien.animations.add('fly', [ 0, 1, 2 ], 20, true);
+        alien.play('fly');
+        //alien.body.moves = false;
         alienArray.push(alien);
     }
 
     _.each(alienArray, function(alien){
 
         setTimeout(function() {
-            app.game.time.events.loop(Phaser.Timer.SECOND * .01, alienMove, this, alien);
+            app.game.time.events.loop(Phaser.Timer.SECOND * .01, function() {
+                app.game.physics.arcade.moveToObject(alien, app.player, 120);
+                alien.rotation = app.game.physics.arcade.angleToXY(alien, app.player.position.x, app.player.position.y);
+            }, this, alien);
 
-            // app.game.physics.arcade.moveToObject(alien, app.player, 120, 10000);
+
         }, _.random(1000, app.aliensSpawnTime) );
     });
 }
@@ -57,18 +60,19 @@ app.createAlienGroupLeftRightLevelEight = function(x, y, num, alienMove) {
 
         var alien = app.aliens.create(x, _.random(0, y), 'levelEightSeeker');
         alien.anchor.setTo(0.5, 0.5);
-        // alien.animations.add('fly', [ 0, 1, 2, 3 ], 20, true);
-        // alien.play('fly');
-        alien.body.moves = false;
+        alien.animations.add('fly', [ 0, 1, 2 ], 20, true);
+        alien.play('fly');
+        //alien.body.moves = false;
         alienArray.push(alien);
     }
 
     _.each(alienArray, function(alien){
 
         setTimeout(function() {
-            app.game.time.events.loop(Phaser.Timer.SECOND * .01, alienMove, this, alien);
 
-            // app.game.physics.arcade.moveToObject(alien, app.player, 120, 1000);
+            app.game.time.events.loop(Phaser.Timer.SECOND * .01, function() {
+                app.game.physics.arcade.moveToObject(alien, app.player, 120);
+            }, this, alien);
 
         }, _.random(1000, app.aliensSpawnTime) );
 
