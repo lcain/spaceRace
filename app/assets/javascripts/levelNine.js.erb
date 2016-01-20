@@ -100,7 +100,7 @@ app.createAliensLevelNine = function() {
 
 }
 
-app.collisionHandlerLevelEight = function(bullet, alien) {
+app.collisionHandlerLevelNine = function(bullet, alien) {
     app.totalKillCount += 1;
 
 
@@ -132,3 +132,73 @@ app.preloadLevelSeven = function(){
     app.game.load.start();
 
 };
+
+
+
+// app.enemySeeking = function(){
+
+//     app.livingEnemies.length=0;
+
+//     app.aliens.forEachAlive(function(alien){
+
+//         // put every living enemy in an array
+//         app.livingEnemies.push(alien);
+//     });
+
+//     var shooter=_.sample(app.livingEnemies);
+//         app.game.physics.arcade.moveToObject(shooter,app.player,120);
+//     app.enemySeekerTimer = app.game.time.now + 2000;
+
+// };
+
+// app.descendLevelEight = function(alien) {
+
+//     // alien.position.y += app.aliensVelocity;
+//      if (app.game.time.now > app.enemySeekerTimer) {
+//                     app.enemySeeking();
+//                 } 
+
+//     if (alien.worldPosition.y > app.game.world.bounds.bottom) {
+//         alien.kill();
+//     }
+
+// }
+
+// app.moveRightLevelEight = function(alien) {
+
+//     // alien.position.x += app.aliensVelocity;
+//      if (app.game.time.now > app.enemySeekerTimer) {
+//                     app.enemySeeking();
+//                 } 
+
+//     if (alien.worldPosition.x > app.game.world.bounds.right) {
+//         alien.kill();
+//     }
+
+// }
+
+// app.moveLeftLevelEight = function(alien) {
+
+//     // alien.position.x -= app.aliensVelocity;
+//      if (app.game.time.now > app.enemySeekerTimer) {
+//                     app.enemySeeking();
+//                 } 
+
+//     if (alien.worldPosition.x < app.game.world.bounds.left) {
+//         alien.kill();
+//     }
+// }
+
+
+// app.ascendLevelEight = function(alien) {
+
+//     // alien.position.y -= app.aliensVelocity;
+//      if (app.game.time.now > app.enemySeekerTimer) {
+//                     app.enemySeeking();
+//                 } 
+
+//     if (alien.worldPosition.y < app.game.world.bounds.top) {
+//         alien.kill();
+//     }
+
+// }

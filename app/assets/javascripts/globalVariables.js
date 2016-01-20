@@ -19,6 +19,7 @@ app.scoreText;
 app.lives;
 app.enemyBullet;
 app.firingTimer = 0;
+app.enemySeekerTimer = 0;
 app.stateText;
 app.livingEnemies = [];
 app.canFire = true;

@@ -35,7 +35,7 @@ app.createAlienGroupTopBottomLevelEight = function(x, y, num, alienMove) {
         alien.anchor.setTo(0.5, 0.5);
         // alien.animations.add('fly', [ 0, 1, 2, 3 ], 20, true);
         // alien.play('fly');
-        alien.body.moves = false;
+        // alien.body.moves = false;
         alienArray.push(alien);
     }
 
@@ -86,22 +86,21 @@ app.createAliensLevelEight = function() {
     num = seekerNum / 4;
 
     // Asteroid group moving from top to bottom
-    app.createAlienGroupTopBottomLevelEight(800, -300, num, app.descendLevelFour);
+    app.createAlienGroupTopBottomLevelEight(800, -300, num, app.descendLevelEight);
 
     // Asteroid group moving from bottom to top
-    app.createAlienGroupTopBottomLevelEight(800, 950, num, app.ascendLevelFive);
+    app.createAlienGroupTopBottomLevelEight(800, 950, num, app.ascendLevelEight);
 
     // Asteroid group moving from left to right
-    app.createAlienGroupLeftRightLevelEight(-300, 650, num, app.moveRightLevelFour);
+    app.createAlienGroupLeftRightLevelEight(-300, 650, num, app.moveRightLevelEight);
 
     // Asteroid group moving from right to left
-    app.createAlienGroupLeftRightLevelEight(1200, 650, num, app.moveLeftLevelFour);
+    app.createAlienGroupLeftRightLevelEight(1200, 650, num, app.moveLeftLevelEight);
 
 }
 
-app.collisionHandlerLevelNine = function(bullet, alien) {
+app.collisionHandlerLevelEight = function(bullet, alien) {
     app.totalKillCount += 1;
-
 
     //  When a bullet hits an alien we kill them both
     bullet.kill();
@@ -122,14 +121,11 @@ app.collisionHandlerLevelNine = function(bullet, alien) {
     explosion.reset(alien.body.x, alien.body.y);
     explosion.play('kaboom', 30, false, true);
 
-
 }
 
 app.preloadLevelSeven = function(){
 
-
     app.game.load.start();
 
 };
-
 
