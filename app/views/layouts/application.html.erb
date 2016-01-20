@@ -59,13 +59,41 @@ var app = app || {}
 </script>
 </div>
 
+<div>
+<form action="/sign_up/">
+
+<button>signup</button>
+</form>
+<script>
+  var changePage = function (genericScore) {
+    var newURL = "/sign_up";
+    window.location = newURL;
+  };
+
+  $('#container > div.formContain > div:nth-child(4) > form > button').on('click', function(event){
+    event.preventDefault()
+    $.ajax({
+      url: "/generics/" +app.score,
+      method: "PUT",
+      dataType: "JSON",
+      success: function(data){
+        changePage( app.score ); 
+      }
+    })
+  })
+</script>
+</div>
+<!-- omg -->
+<table border="1" style="width:100%" class="table table-bordered" id="tableDo">
+
+
+</table>
 
 <div id="user_nav">
   <% if current_user %>
     Logged in as <%= current_user.name %>.
     <%= link_to "Log out", log_out_path %>
   <% else %>
-    <%= link_to "Sign up", sign_up_path %> or
     <%= link_to "log in", log_in_path %>
   <% end %>
 </div>

@@ -237,11 +237,16 @@ app.update = function() {
 
         if (app.lives.countLiving() < 1) {
             $("#saveScore").show();
+            $("form").prepend(app.score)
         }
         else {
             $("#saveScore").hide();
         }
 
+    }   if (app.lives.countLiving() < 1 ){
+        $("#tableDo").show();
+    } else {
+        $("#tableDo").hide();
     }
 
 }
