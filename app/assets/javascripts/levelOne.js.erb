@@ -102,9 +102,6 @@ app.enemyHitsPlayerLevelOne = function(player,bullet) {
             explosion.loadTexture( "levelSevenSmallExplode" + (bullet.frame + 1) );
         }
     }
-    if (app.levelCounter > 7) {
-        explosion.loadTexture("levelSixKaboom");
-    };
 
     explosion.play('kaboom', 30, false, true);
 
@@ -120,7 +117,7 @@ app.enemyHitsPlayerLevelOne = function(player,bullet) {
             app.stateText.fill = '#fff';
         }
 
-        app.stateText.text="  GAME OVER \n Press space restart";
+        app.stateText.text="  GAME OVER \n Press space \n to restart";
         app.stateText.visible = true;
 
         //the "press space to restart" handler
