@@ -9,7 +9,7 @@
 <body>
 <div id="container">
 <div class="formContain">
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm">Lets Go!</button>
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm">Sign In</button>
   <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
   <div class="modal-dialog modal-sm">
     <div class="modal-content">
@@ -62,7 +62,7 @@ var app = app || {}
 <div>
 
 
-<button>signup</button>
+<button class="btn btn-primary">Sign Up</button>
 <table border="1" style="width:100%" class="table table-bordered" id="tableDo">
   <tr>
  
@@ -97,9 +97,7 @@ var app = app || {}
   <% if current_user %>
     Logged in as <%= current_user.name %>.
     <%= link_to "Log out", log_out_path %>
-  <% else %>
-    <%= link_to "log in", log_in_path %>
-  <% end %>
+ <%end %>
 </div>
 
 <% flash.each do |name, msg| %>
