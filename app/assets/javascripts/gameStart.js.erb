@@ -36,7 +36,6 @@ app.preload = function() {
     // Preloaded images for level 6:
     app.game.load.spritesheet('levelSixAsteroidLarge', '<%= image_path("LevelSix/asteroidLarge.png") %>');
     app.game.load.spritesheet('levelSixAsteroidSmall', '<%= image_path("LevelSix/asteroidSmall.png") %>');
-    app.game.load.spritesheet('levelSixAsteroidSplit', '<%= image_path("LevelSix/asteroidSplit.png") %>');
     app.game.load.spritesheet('levelSixBullet', '<%= image_path("LevelSix/bullet2.png") %>');
     app.game.load.spritesheet('levelSixShip', '<%= image_path("LevelSix/ship.png") %>');
     app.game.load.spritesheet('levelSixKaboom', '<%= image_path("LevelSix/explodeWhite.png") %>', 128, 128);
@@ -46,7 +45,7 @@ app.preload = function() {
     // Preloaded images for level 7:
     app.game.load.spritesheet('levelSevenAsteroidLarge', '<%= image_path("LevelSeven/asteroidLargeSprite2.png") %>', 36, 36);
     app.game.load.spritesheet('levelSevenAsteroid', '<%= image_path("LevelSeven/asteroidSprite2.png") %>', 22, 22);
-    app.game.load.spritesheet('levelSevenAsteroidSmall', '<%= image_path("LevelSeven/asteroidSmallSprite2.png") %>', 15, 15);
+    app.game.load.spritesheet('levelSevenAsteroidSmall', '<%= image_path("LevelSeven/asteroidSmallSprite2.png") %>', 15 , 15);
     app.game.load.spritesheet('levelSevenBullet', '<%= image_path("LevelSeven/bulletSprite2.png") %>', 8, 8);
     app.game.load.spritesheet('levelSevenShip', '<%= image_path("LevelSeven/ship.png") %>', 38, 44);
 
@@ -75,6 +74,28 @@ app.preload = function() {
     app.game.load.spritesheet('levelEightShip', '<%= image_path("LevelEight/ship2.png") %>', 33, 43);
     app.game.load.spritesheet('levelEightKaboom', '<%= image_path("LevelEight/explode.png") %>', 128, 128);
     app.game.load.image('levelEightBackground', '<%= image_path("LevelEight/background.png") %>');
+
+
+    // Preloaded images for level 9
+    app.game.load.spritesheet('levelNineSeeker', '<%= image_path("LevelNine/enemySeeker.png") %>', 27, 43);
+    app.game.load.spritesheet('levelNineBullet', '<%= image_path("LevelNine/bullet2.png") %>', 5, 25);
+    app.game.load.spritesheet('levelNineShip', '<%= image_path("LevelNine/ship.png") %>', 35, 69);
+    app.game.load.spritesheet('levelNineKaboom', '<%= image_path("LevelNine/explode.png") %>', 128, 128);
+    app.game.load.image('levelNineBackground', '<%= image_path("LevelNine/background.png") %>');
+
+
+    // Preloaded images for level 10
+    app.game.load.spritesheet('levelTenSeeker', '<%= image_path("LevelTen/enemySeeker.png") %>', 26, 34);
+
+    app.game.load.spritesheet('levelTenShotgunShip', '<%= image_path("LevelTen/basicalienShotgunShip.png") %>', 54, 50);
+    app.game.load.spritesheet('levelTenBasicAlien', '<%= image_path("LevelTen/basicAlien.png") %>', 43, 63);
+    app.game.load.spritesheet('levelTenBasicAlienBullet', '<%= image_path("LevelTen/basicAlienBullet.png") %>', 23.333, 39);
+    app.game.load.spritesheet('levelTenAlienShotgun', '<%= image_path("LevelTen/basicAlienShotgun.png") %>', 15, 15);
+
+    app.game.load.spritesheet('levelTenBullet', '<%= image_path("LevelTen/bullet.png") %>', 5.667, 26);
+    app.game.load.spritesheet('levelTenShip', '<%= image_path("LevelTen/ship.png") %>', 35, 69);
+    app.game.load.image('levelTenBackground', '<%= image_path("LevelTen/background.png") %>');
+
 
     // LEAVE THIS AT THE END - JQUERY ELEMENTS AND CLASS ASIGNMENTS. - KANE
     $('body canvas').addClass("gameWindow");

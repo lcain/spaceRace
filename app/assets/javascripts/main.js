@@ -34,10 +34,20 @@ app.toNextLevel = function(createLevel){
             app.stateText.text = " Lvl Six Done";
             app.stateText.visible = true;
           } else if ( app.levelCounter === 7 ) {
+            app.stateText.fill = '#fff';
             app.stateText.text = " Lvl Seven Done";
             app.stateText.visible = true;
           } else if ( app.levelCounter === 8 ) {
+            app.stateText.fill = '#fff';
             app.stateText.text = " Lvl Eight Done";
+            app.stateText.visible = true;
+          } else if ( app.levelCounter === 9 ) {
+            app.stateText.fill = '#fff';
+            app.stateText.text = " Lvl Nine Done";
+            app.stateText.visible = true;
+          } else if ( app.levelCounter === 10 ) {
+            app.stateText.fill = '#fff';
+            app.stateText.text = " Lvl Ten Done";
             app.stateText.visible = true;
           };
 

@@ -195,24 +195,24 @@ app.update = function() {
 
             for(i = 0; i < app.smallAliensLeft.length; i++){
 
-                app.game.physics.arcade.overlap(app.bullets, app.smallAliensLeft[i], app.collisionHandlerLevelFourSmall, null, this);
+                app.game.physics.arcade.overlap(app.bullets, app.smallAliensLeft[i], app.collisionHandlerLevelSevenSmall, null, this);
                 app.game.physics.arcade.overlap(app.smallAliensLeft[i], app.player, app.enemyHitsPlayerLevelOne, null, this);
             }
 
             for(i = 0; i < app.smallAliensRight.length; i++){
 
-                app.game.physics.arcade.overlap(app.bullets, app.smallAliensRight[i], app.collisionHandlerLevelFourSmall, null, this);
+                app.game.physics.arcade.overlap(app.bullets, app.smallAliensRight[i], app.collisionHandlerLevelSevenSmall, null, this);
                 app.game.physics.arcade.overlap(app.smallAliensRight[i], app.player, app.enemyHitsPlayerLevelOne, null, this);
             }
 
             for(i = 0; i < app.smallAliensDown.length; i++){
 
-                app.game.physics.arcade.overlap(app.bullets, app.smallAliensDown[i], app.collisionHandlerLevelFourSmall, null, this);
+                app.game.physics.arcade.overlap(app.bullets, app.smallAliensDown[i], app.collisionHandlerLevelSevenSmall, null, this);
                 app.game.physics.arcade.overlap(app.smallAliensDown[i], app.player, app.enemyHitsPlayerLevelOne, null, this);
             }
             for(i = 0; i < app.smallAliensUp.length; i++){
 
-                app.game.physics.arcade.overlap(app.bullets, app.smallAliensUp[i], app.collisionHandlerLevelFourSmall, null, this);
+                app.game.physics.arcade.overlap(app.bullets, app.smallAliensUp[i], app.collisionHandlerLevelSevenSmall, null, this);
                 app.game.physics.arcade.overlap(app.smallAliensUp[i], app.player, app.enemyHitsPlayerLevelOne, null, this);
             }
         }
@@ -222,7 +222,25 @@ app.update = function() {
             app.game.physics.arcade.overlap(app.bullets, app.aliens, app.collisionHandlerLevelEight, null, this);
 
             if ( app.aliens.countLiving() === 0 ) {
-                app.toNextLevel(app.createLevelEight);
+                app.toNextLevel(app.createLevelNine);
+            }
+        }
+
+        if ( app.levelCounter === 9 ) {
+
+            app.game.physics.arcade.overlap(app.bullets, app.aliens, app.collisionHandlerLevelNine, null, this);
+
+            if ( app.aliens.countLiving() === 0 ) {
+                app.toNextLevel(app.createLevelNine);
+            }
+        }
+
+        if ( app.levelCounter === 10 ) {
+
+            app.game.physics.arcade.overlap(app.bullets, app.aliens, app.collisionHandlerLevelTen, null, this);
+
+            if ( app.aliens.countLiving() === 0 ) {
+                app.toNextLevel(app.createLevelTen);
             }
         }
 

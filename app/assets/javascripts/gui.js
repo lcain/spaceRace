@@ -71,6 +71,9 @@ var gameLevelFontColor = function(){
 var gameLevelFontSelect = function(){
   if (app.levelCounter < 5){
       return '"Courier new"'
-  } else { return 'Georgia'}
+  // } else if (app.levelCounter === 7){
+  //   return'"Lucida Console"'
+  } else { return 'Impact'}
 }
+
 
