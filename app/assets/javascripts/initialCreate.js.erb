@@ -39,6 +39,12 @@ app.create = function() {
     app.aliens.physicsBodyType = Phaser.Physics.ARCADE;
 
 
+    //  SEEKER GROUP -K
+    app.seekerAlien = app.game.add.group();
+    app.seekerAlien.enableBody = true;
+    app.seekerAlien.physicsBodyType = Phaser.Physics.ARCADE;
+
+
     app.createAliensLevelOne();
 
 
