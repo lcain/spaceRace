@@ -3,7 +3,7 @@ var app = app || {};
 app.createLevelNine = function() {
     app.starfield.loadTexture("levelEightBackground", 0, false);
     app.player.loadTexture("levelNineShip", 0, false);
-    app.player.animations.add('fly', [0, 1, 2]);
+    app.player.animations.add('fly', [1, 2]);
 
     _.each(app.bullets.children, function(bullet) {
         bullet.loadTexture("levelNineBullet", 0, false);
@@ -51,7 +51,7 @@ app.createAlienGroupTopBottomLevelNine = function(x, y, num, alienMove) {
 }
 
 app.createAlienGroupLeftRightLevelNine = function(x, y, num, alienMove) {
-
+ 
     var alienArray = [];
 
     for (var i = 0; i < num; i++) {
