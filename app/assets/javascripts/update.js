@@ -222,6 +222,15 @@ app.update = function() {
             app.game.physics.arcade.overlap(app.bullets, app.aliens, app.collisionHandlerLevelEight, null, this);
 
             if ( app.aliens.countLiving() === 0 ) {
+                app.toNextLevel(app.createLevelNine);
+            }
+        }
+
+        if ( app.levelCounter === 9 ) {
+
+            app.game.physics.arcade.overlap(app.bullets, app.aliens, app.collisionHandlerLevelNine, null, this);
+
+            if ( app.aliens.countLiving() === 0 ) {
                 app.toNextLevel(app.createLevelEight);
             }
         }
