@@ -39,6 +39,9 @@ app.toNextLevel = function(createLevel){
           } else if ( app.levelCounter === 8 ) {
             app.stateText.text = " Lvl Eight Done";
             app.stateText.visible = true;
+          } else if ( app.levelCounter === 9 ) {
+            app.stateText.text = " Lvl Nine Done";
+            app.stateText.visible = true;
           };
 
           //Destroys killed sprites from our count.

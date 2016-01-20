@@ -26,26 +26,27 @@ app.preload = function() {
     app.game.load.spritesheet('shipLevel4', '<%= image_path("LevelFour/ship.png") %>');
 
     app.game.load.spritesheet('asteroidLargeLevelFour', '<%= image_path("LevelFour/asteroidLarge.png") %>');
+    app.game.load.spritesheet('bulletLevelFour', '<%= image_path("LevelFour/bullet2.png") %>');
 
     //Preloaded images for level 5:
      app.game.load.spritesheet('shipLevel5', '<%= image_path("LevelFive/ship.png") %>');
+     app.game.load.spritesheet('levelFiveBullet', '<%= image_path("LevelFive/bullet2.png") %>');
 
 
     // Preloaded images for level 6:
     app.game.load.spritesheet('levelSixAsteroidLarge', '<%= image_path("LevelSix/asteroidLarge.png") %>');
     app.game.load.spritesheet('levelSixAsteroidSmall', '<%= image_path("LevelSix/asteroidSmall.png") %>');
-    app.game.load.spritesheet('levelSixAsteroidSplit', '<%= image_path("LevelSix/asteroidSplit.png") %>');
-    app.game.load.spritesheet('levelSixBullet', '<%= image_path("LevelSix/bullet.png") %>');
+    app.game.load.spritesheet('levelSixBullet', '<%= image_path("LevelSix/bullet2.png") %>');
     app.game.load.spritesheet('levelSixShip', '<%= image_path("LevelSix/ship.png") %>');
     app.game.load.spritesheet('levelSixKaboom', '<%= image_path("LevelSix/explodeWhite.png") %>', 128, 128);
     app.game.load.image('levelSixBackground', '<%= image_path("LevelSix/background.png") %>');
 
 
     // Preloaded images for level 7:
-    app.game.load.spritesheet('levelSevenAsteroidLarge', '<%= image_path("LevelSeven/asteroidLargeSprite.png") %>', 36.5, 36);
-    app.game.load.spritesheet('levelSevenAsteroid', '<%= image_path("LevelSeven/asteroidSprite.png") %>', 22.8, 22);
-    app.game.load.spritesheet('levelSevenAsteroidSmall', '<%= image_path("LevelSeven/asteroidSmallSprite.png") %>', 15, 15);
-    app.game.load.spritesheet('levelSevenBullet', '<%= image_path("LevelSeven/bulletSprite.png") %>', 8.8, 8);
+    app.game.load.spritesheet('levelSevenAsteroidLarge', '<%= image_path("LevelSeven/asteroidLargeSprite2.png") %>', 36, 36);
+    app.game.load.spritesheet('levelSevenAsteroid', '<%= image_path("LevelSeven/asteroidSprite2.png") %>', 22, 22);
+    app.game.load.spritesheet('levelSevenAsteroidSmall', '<%= image_path("LevelSeven/asteroidSmallSprite2.png") %>', 15 , 15);
+    app.game.load.spritesheet('levelSevenBullet', '<%= image_path("LevelSeven/bulletSprite2.png") %>', 8, 8);
     app.game.load.spritesheet('levelSevenShip', '<%= image_path("LevelSeven/ship.png") %>', 38, 44);
 
     app.game.load.spritesheet('levelSevenBigExplode1', '<%= image_path("LevelSeven/bigexplode1.png") %>', 128, 128);
@@ -68,11 +69,19 @@ app.preload = function() {
 
 
     // Preloaded images for level 8
-    app.game.load.spritesheet('levelEightSeeker', '<%= image_path("LevelEight/enemySeeker.png") %>', 48, 44);
+    app.game.load.spritesheet('levelEightSeeker', '<%= image_path("LevelEight/enemySeeker2.png") %>', 37, 34);
     app.game.load.spritesheet('levelEightBullet', '<%= image_path("LevelEight/bullet.png") %>', 8, 8);
-    app.game.load.spritesheet('levelEightShip', '<%= image_path("LevelEight/ship.png") %>', 33.6667, 44);
+    app.game.load.spritesheet('levelEightShip', '<%= image_path("LevelEight/ship2.png") %>', 33, 43);
     app.game.load.spritesheet('levelEightKaboom', '<%= image_path("LevelEight/explode.png") %>', 128, 128);
     app.game.load.image('levelEightBackground', '<%= image_path("LevelEight/background.png") %>');
+
+
+    // Preloaded images for level 9
+    app.game.load.spritesheet('levelNineSeeker', '<%= image_path("LevelNine/enemySeeker.png") %>', 27, 43);
+    app.game.load.spritesheet('levelNineBullet', '<%= image_path("LevelNine/bullet.png") %>', 5, 26);
+    app.game.load.spritesheet('levelNineShip', '<%= image_path("LevelNine/ship.png") %>', 35, 70);
+    app.game.load.spritesheet('levelNineKaboom', '<%= image_path("LevelNine/explode.png") %>', 128, 128);
+    // app.game.load.image('levelNineBackground', '<%= image_path("LevelEight/background.png") %>');
 
     // LEAVE THIS AT THE END - JQUERY ELEMENTS AND CLASS ASIGNMENTS. - KANE
     $('body canvas').addClass("gameWindow");
