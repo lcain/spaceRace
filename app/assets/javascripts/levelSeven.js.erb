@@ -105,10 +105,7 @@ app.createAliensLevelSeven = function() {
 }
 
 app.collisionHandlerLevelSeven = function(bullet, alien) {
-    console.log(alien)
-    console.log(alien.key)
     if ( app.areAliensImage(alien) === true ){
-        console.log("in collisionHandlerLevelSeven")
         app.loggingPositionsLvlSeven(alien);
     };
 
