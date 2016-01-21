@@ -14,7 +14,7 @@ app.createLevelFour = function() {
     app.game.time.events.events.pop();
     app.game.time.events.loop(Phaser.Timer.SECOND * .02, app.descendLevelFourSmallAliens, this);
 
-
+    app.$stylise();
 }
 
 app.createAlienGroupTopBottom = function(x, y, num, alienMove) {

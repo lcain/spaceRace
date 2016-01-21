@@ -81,18 +81,23 @@ app.createAlienShooter2 = function(X,Y, graphicName){
    
 
       // Bullet creation here:
+      shooterBullet = app.alienShooterBullets.getFirstExists(false);
 
       var counter = 0;
       app.shotInterval = setInterval(function(){
       
-        if (counter < 15){
+        if (counter < 20){
+          console.log("logging")
+          console.log(counter)
           
-          shooterBullet = app.alienShooterBullets.getFirstExists(false);
-          shooterBullet.reset(alien.body.x + 15, alien.body.y +10);
+          
+          shooterBullet.reset(alien.body.x + 12, alien.body.y +10);
 
-                shooterBullet.angle = alien.angle;
-                app.game.physics.arcade.moveToObject(shooterBullet,alien,400);
-                // console.log(shooterBullet.x)
+          shooterBullet.angle = alien.angle;
+          
+          shooterBullet.body.velocity.x = alien.body.velocity.x * 6;
+          shooterBullet.body.velocity.y = alien.body.velocity.y * 6;
+               
           counter++;
         }   else {
           clearInterval(app.shotInterval)
@@ -108,7 +113,6 @@ app.createAlienShooter2 = function(X,Y, graphicName){
 }
  
 app.createAlienMissileShip2 = function(X, Y, graphicName){
-  
 
   app.alienMissileShip = app.game.add.group();
   // app.alienMissileShip.enableBody = true;
