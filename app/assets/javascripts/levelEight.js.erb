@@ -61,7 +61,7 @@ app.createAlienGroupTopBottomLevelEight = function(x, y, num, alienMove) {
         setTimeout(function() {
             app.game.time.events.loop(Phaser.Timer.SECOND * .0166, function() {
 
-                app.game.physics.arcade.moveToObject(alien, app.player, 120);
+                app.game.physics.arcade.moveToObject(alien, app.player, _.random(120, 200) );
 
                 var r = app.game.physics.arcade.angleToXY(alien, app.player.position.x, app.player.position.y);
 
@@ -95,7 +95,7 @@ app.createAlienGroupLeftRightLevelEight = function(x, y, num, alienMove) {
         setTimeout(function() {
             app.game.time.events.loop(Phaser.Timer.SECOND * .0166, function() {
 
-                app.game.physics.arcade.moveToObject(alien, app.player, 120);
+                app.game.physics.arcade.moveToObject(alien, app.player, _.random(120, 200) );
 
                 var r = app.game.physics.arcade.angleToXY(alien, app.player.position.x, app.player.position.y);
 
