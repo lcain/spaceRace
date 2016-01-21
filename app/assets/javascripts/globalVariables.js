@@ -42,3 +42,18 @@ app.smallAliensLeft = [];
 app.smallAliensRight = [];
 app.smallAliensDown = [];
 app.smallAliensUp = [];
+
+
+// -- Alien shooter bullets
+
+app.alienShooterbullets;
+app.alienShooterbulletTime = 0;
+app.alienShooterbulletVelocity = 200;
+app.alienShooterbulletFireRate = 1000;
+
+// Missiles
+
+app.alienMissilebullets;
+app.alienMissilebulletTime = 0;
+app.alienMissilebulletVelocity = 200;
+app.alienMissilebulletFireRate = 1000;

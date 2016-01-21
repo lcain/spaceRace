@@ -41,7 +41,7 @@ app.update = function() {
 
         // if (app.game.time.now > app.firingTimer)
         // {
-        //     app.enemyFiresLevelOne();
+        //     app.shooterAlienBullets();
         // }
 
 
