@@ -11,6 +11,18 @@ app.createLevelTen = function() {
         bullet.animations.play('pulse', 20, true);
     });
 
+     _.each(app.alienShooterBullets.children, function(bullet) {
+        bullet.loadTexture("levelTenBasicAlienBullet", 0, false);
+        bullet.animations.add('pulse', [0, 1, 2]);
+        bullet.animations.play('pulse', 20, true);
+    });
+
+     _.each(app.alienMissileBullets.children, function(bullet) {
+        bullet.loadTexture("levelTenAlienMissile", 0, false);
+        bullet.animations.add('pulse', [0, 1, 2, 3]);
+        bullet.animations.play('pulse', 20, true);
+    });
+
     _.each(app.explosions.children, function(explosion) {
         explosion.loadTexture("levelNineKaboom", 0, false);
     });
@@ -59,7 +71,8 @@ app.preloadLevelSeven = function(){
 
 app.createAliensLevelTen = function(){
 
-    app.callTimer( "seekerAlien", "levelEightSeeker", 3, 150, 0, 4000 );
-    app.callTimer( "shooterAlien", "levelEightSeeker", 3, 550, 0, 4000 );
+    app.callTimer( "seekerAlien", "levelNineSeeker", 3, 150, 0, 2000 );
+    app.callTimer( "shooterAlien", "levelTenBasicAlien", 3, 300, 0, 4000 );
+    app.callTimer( "missileAlien", "AlienMissileShip", 3, 450, 0, 4000 );
     
 };

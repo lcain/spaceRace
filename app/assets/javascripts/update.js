@@ -229,21 +229,29 @@ app.update = function() {
         if ( app.levelCounter === 9 ) {
 
             app.game.physics.arcade.overlap(app.bullets, app.seekerAlien, app.collisionHandlerLevelNine, null, this);
+            app.game.physics.arcade.overlap(app.bullets, app.alienShooter, app.collisionHandlerLevelNine, null, this);
             app.game.physics.arcade.overlap(app.seekerAlien, app.player, app.enemyHitsPlayerLevelOne, null, this);
+            app.game.physics.arcade.overlap(app.alienShooter, app.player, app.enemyHitsPlayerLevelOne, null, this);
+            app.game.physics.arcade.overlap(app.alienShooterBullets, app.player, app.enemyHitsPlayerLevelOne, null, this);
 
-            if ( (app.aliens.countLiving() === 0 ) && (app.seekerAlien.countLiving() === 0) && (app.generating === false) ) {
+            if ( (app.aliens.countLiving() === 0 ) && (app.seekerAlien.countLiving() === 0) && (app.alienShooter.countLiving() === 0 ) && (app.generating === false) ) {
                 app.toNextLevel(app.createLevelTen);
             }
         }
 
         if ( app.levelCounter === 10 ) {
 
-            app.game.physics.arcade.overlap(app.bullets, app.seekerAlien, app.collisionHandlerLevelNine, null, this);
+          app.game.physics.arcade.overlap(app.bullets, app.seekerAlien, app.collisionHandlerLevelNine, null, this);
             app.game.physics.arcade.overlap(app.bullets, app.alienShooter, app.collisionHandlerLevelNine, null, this);
+            app.game.physics.arcade.overlap(app.bullets, app.alienMissileShip, app.collisionHandlerLevelNine, null, this);
+            app.game.physics.arcade.overlap(app.bullets, app.alienMissileBullets, app.collisionHandlerLevelNine, null, this);
             app.game.physics.arcade.overlap(app.seekerAlien, app.player, app.enemyHitsPlayerLevelOne, null, this);
             app.game.physics.arcade.overlap(app.alienShooter, app.player, app.enemyHitsPlayerLevelOne, null, this);
+            app.game.physics.arcade.overlap(app.alienMissileShip, app.player, app.enemyHitsPlayerLevelOne, null, this);
+            app.game.physics.arcade.overlap(app.alienShooterBullets, app.player, app.enemyHitsPlayerLevelOne, null, this);
+            app.game.physics.arcade.overlap(app.alienMissileBullets, app.player, app.enemyHitsPlayerLevelOne, null, this);
 
-            if ( (app.aliens.countLiving() === 0 ) && (app.seekerAlien.countLiving() === 0) && (app.alienShooter.countLiving() === 0 ) && (app.generating === false) ) {
+            if ( (app.aliens.countLiving() === 0 ) && (app.seekerAlien.countLiving() === 0) && (app.alienShooter.countLiving() === 0 ) && (app.alienMissileShip.countLiving() === 0 ) && (app.generating === false) ) {
                 app.toNextLevel(app.createLevelEleven);
             }
         }
@@ -253,12 +261,18 @@ app.update = function() {
             app.game.physics.arcade.overlap(app.bullets, app.seekerAlien, app.collisionHandlerLevelNine, null, this);
             app.game.physics.arcade.overlap(app.bullets, app.alienShooter, app.collisionHandlerLevelNine, null, this);
             app.game.physics.arcade.overlap(app.bullets, app.alienMissileShip, app.collisionHandlerLevelNine, null, this);
+            app.game.physics.arcade.overlap(app.bullets, app.alienShotgunner, app.collisionHandlerLevelNine, null, this);
+            app.game.physics.arcade.overlap(app.bullets, app.alienMissileBullets, app.collisionHandlerLevelNine, null, this);
             app.game.physics.arcade.overlap(app.seekerAlien, app.player, app.enemyHitsPlayerLevelOne, null, this);
             app.game.physics.arcade.overlap(app.alienShooter, app.player, app.enemyHitsPlayerLevelOne, null, this);
             app.game.physics.arcade.overlap(app.alienMissileShip, app.player, app.enemyHitsPlayerLevelOne, null, this);
+            app.game.physics.arcade.overlap(app.alienShotgunner, app.player, app.enemyHitsPlayerLevelOne, null, this);
+            app.game.physics.arcade.overlap(app.alienShooterBullets, app.player, app.enemyHitsPlayerLevelOne, null, this);
+            app.game.physics.arcade.overlap(app.alienMissileBullets, app.player, app.enemyHitsPlayerLevelOne, null, this);
+            app.game.physics.arcade.overlap(app.alienShotgunBullets, app.player, app.enemyHitsPlayerLevelOne, null, this);
 
-            if ( (app.aliens.countLiving() === 0 ) && (app.seekerAlien.countLiving() === 0) && (app.alienShooter.countLiving() === 0 ) && (app.alienMissileShip.countLiving() === 0 ) && (app.generating === false) ) {
-                app.toNextLevel(app.createLevelEleven);
+            if ( (app.aliens.countLiving() === 0 ) && (app.seekerAlien.countLiving() === 0) && (app.alienShooter.countLiving() === 0 ) && (app.alienMissileShip.countLiving() === 0 ) && ( app.alienShotgunner.countLiving === 0 ) && (app.generating === false) ) {
+                app.toNextLevel(app.createLevelTwelve);
             }
         }
 
