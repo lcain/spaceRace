@@ -51,7 +51,7 @@ app.create = function() {
     app.alienMissileBullets.setAll('checkWorldBounds', true);
 
      // Alien Shotgun Bullets
-     
+
     app.alienShotgunBullets = app.game.add.group();
     app.alienShotgunBullets.enableBody = true;
     app.alienShotgunBullets.physicsBodyType = Phaser.Physics.ARCADE;
@@ -77,7 +77,7 @@ app.create = function() {
     app.seekerAlien = app.game.add.group();
     app.seekerAlien.enableBody = true;
     app.seekerAlien.physicsBodyType = Phaser.Physics.ARCADE;
-    
+
     //Shooter Group
     app.alienShooter = app.game.add.group();
     app.alienShooter.enableBody = true;
@@ -109,6 +109,10 @@ app.create = function() {
     app.stateText = app.game.add.text(app.game.world.centerX,app.game.world.centerY,' ', { font: '84px '+ gameLevelFontSelect() , fill: gameLevelFontColor() });
     app.stateText.anchor.setTo(0.5, 0.5);
     app.stateText.visible = false;
+
+    app.smallStateText = app.game.add.text(app.game.world.centerX,app.game.world.centerY,' ', { font: '30px '+ gameLevelFontSelect() , fill: gameLevelFontColor() });
+    app.smallStateText.anchor.setTo(0.5, 0.5);
+    app.smallStateText.visible = false;
 
 
     // SHIP LIVES GRAPHIC CHANGED TO RENDER OUT OF GAME WORLD BOUNDS AND MADE TRANSPARENT -ALEX

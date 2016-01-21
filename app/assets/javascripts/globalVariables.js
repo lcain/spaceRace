@@ -21,6 +21,7 @@ app.enemyBullet;
 app.firingTimer = 0;
 app.enemySeekerTimer = 0;
 app.stateText;
+app.smallStateText;
 app.livingEnemies = [];
 app.canFire = true;
 
