@@ -60,3 +60,6 @@ app.alienMissilebulletFireRate = 1000;
 
 app.alienMissileArray = [];
 app.alienMissileShipArray = [];
+
+app.alienShooterArray = [];
+app.alienShooterBulletsArray = [];

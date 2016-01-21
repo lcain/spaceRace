@@ -121,56 +121,58 @@ app.createAlienShotgunner = function(X,Y){
 }
 
 
-//----------------------------------------------------------
-// DYNAMIC GENERATION TESTING
-//----------------------------------------------------------
+// //----------------------------------------------------------
+// // DYNAMIC GENERATION TESTING
+// //----------------------------------------------------------
 
 
-app.time = 1000
+// app.time = 10000
+// app.generating = false
 
 
 
-// callTimer( seekerAlien, levelEightSeeker, 150, _.random(-150, 150) );
+// // app.callTimer( "seekerAlien", "levelEightSeeker", 3, 150, _.random(-150, 150) );
 
-app.callTimer = function(type, graphic, num, X, Y){
+// app.callTimer = function(type, graphic, num, X, Y, time){
+//   time = time || app.time
+//   app.count = app.count || 0
+//   var waveInterval = function(){
+//     app.generating = true
+//     var waveGen = setInterval(function(){
+//     // debugger
+//     if(type === 'seekerAlien'){
 
-  app.count = app.count || 0
-  var waveInterval = function(){
-
-    var waveGen = setInterval(function(){
-    // debugger
-    if(type === 'seekerAlien'){
-
-     app.createSeeker( X, Y, graphic)
+//      app.createSeeker2( X, Y, graphic)
  
-    } else if (type === 'shooterAlien') {
+//     } else if (type === 'shooterAlien') {
 
-     app.createAlienShooter(X,Y)
+//      app.createAlienShooter2(X,Y, graphic)
 
-    } else if (type === 'missileAlien') {
+//     } else if (type === 'missileAlien') {
 
-     app.createAlienMissileShip(X,Y)
+//      app.createAlienMissileShip(X,Y, graphic)
 
-    } else if (type === 'shotgunAlien') {
+//     } else if (type === 'shotgunAlien') {
 
-     app.createAlienShotgunner(X,Y)
+//      app.createAlienShotgunner2(X,Y, graphic)
 
-    }
+//     }
 
-    app.count += 1
-    if ( app.count === num ){
-    clearInterval(waveGen);
-    app.count = 0;
-    }
+//     app.count += 1
+//     if ( app.count === num ){
+//     app.generating = false
+//     clearInterval(waveGen);
+//     app.count = 0;
+//     }
 
 
 
-  }, app.time)
-  }
+//   }, time)
+//   }
 
-  waveInterval();
+//   waveInterval();
 
-}
+// }
 
 
 
