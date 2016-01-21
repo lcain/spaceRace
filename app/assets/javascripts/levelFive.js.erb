@@ -2,7 +2,8 @@ var app = app || {};
 
 app.createLevelFive = function() {
     app.player.loadTexture("shipLevel5", 0, false);
-    app.aliensSpawnTime = 22500;
+    app.aliensSpawnTime = 21000;
+    app.aliensVelocity = 2.5;
 
     app.createAliensLevelFive();
     app.stateText.visible = false;
@@ -24,7 +25,7 @@ app.createAliensLevelFive = function() {
     app.aliens.x = 0;
     app.aliens.y = 0;
 
-    asteroidNum = 48;
+    asteroidNum = 40;
     num = asteroidNum / 4;
 
     // Asteroid group moving from top to bottom

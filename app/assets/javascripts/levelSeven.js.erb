@@ -6,10 +6,11 @@ app.createLevelSeven = function() {
     app.player.animations.add('fly', [0, 1, 2]);
 
     app.aliensSpawnTime = 22500;
+    app.aliensVelocity = 3;
     // app.gameLevelFontSelect();
     app.createAliensLevelSeven();
     app.stateText.visible = false;
-    app.levelCounter ++;
+    app.levelCounter++;
     // app.preloadLevelSeven();
     app.$stylise();
     app.game.time.events.events.pop();
@@ -87,7 +88,7 @@ app.createAliensLevelSeven = function() {
     app.aliens.x = 0;
     app.aliens.y = 0;
 
-    asteroidNum = 100;
+    asteroidNum = 80;
     num = asteroidNum / 4;
 
     // Asteroid group moving from top to bottom

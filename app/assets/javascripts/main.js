@@ -21,13 +21,13 @@ app.toNextLevel = function(createLevel){
             app.stateText.text = " Lvl Two Done";
             app.stateText.visible = true;
           } else if ( app.levelCounter === 3 ) {
-            app.stateText.text = " Lvl Three Done ";
+            app.stateText.text = "   You can go \n  your own way \n   Use these: \n     ⍓   ⍔";
             app.stateText.visible = true;
           } else if ( app.levelCounter === 4 ) {
             app.stateText.text = " Lvl Four Done";
             app.stateText.visible = true;
           } else if ( app.levelCounter === 5 ) {
-            app.stateText.text = " Lvl Five Done";
+            app.stateText.text = " Achievement Get! \n   Go Diagonal!";
             app.stateText.visible = true;
           } else if ( app.levelCounter === 6 ) {
             app.stateText.fill = '#fff';
@@ -35,7 +35,7 @@ app.toNextLevel = function(createLevel){
             app.stateText.visible = true;
           } else if ( app.levelCounter === 7 ) {
             app.stateText.fill = '#fff';
-            app.stateText.text = " Lvl Seven Done";
+            app.stateText.text = " Lvl Seven Done \n  Come at me \n     bro!";
             app.stateText.visible = true;
           } else if ( app.levelCounter === 8 ) {
             app.stateText.fill = '#fff';

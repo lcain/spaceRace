@@ -14,6 +14,8 @@ app.createLevelSix = function() {
 
     app.aliensSpawnTime = 22500;
     app.bulletFireRate = 300;
+    app.alienVelocity = 2.75;
+    app.playerVelocity = 250;
 
     app.createAliensLevelSix();
     app.stateText.visible = false;
@@ -83,7 +85,7 @@ app.createAliensLevelSix = function() {
     app.aliens.x = 0;
     app.aliens.y = 0;
 
-    asteroidNum = 80;
+    asteroidNum = 56;
     num = asteroidNum / 4;
 
     // Asteroid group moving from top to bottom
