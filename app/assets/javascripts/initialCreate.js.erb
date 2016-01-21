@@ -78,6 +78,17 @@ app.create = function() {
     app.seekerAlien.enableBody = true;
     app.seekerAlien.physicsBodyType = Phaser.Physics.ARCADE;
 
+    app.alienShooter = app.game.add.group();
+    app.alienShooter.enableBody = true;
+    app.alienShooter.physicsBodyType = Phaser.Physics.ARCADE;
+
+    app.alienMissileShip = app.game.add.group();
+    app.alienMissileShip.enableBody = true;
+    app.alienMissileShip.physicsBodyType = Phaser.Physics.ARCADE;
+
+    app.alienShotgunner = app.game.add.group();
+    app.alienShotgunner.enableBody = true;
+    app.alienShotgunner.physicsBodyType = Phaser.Physics.ARCADE;
 
     app.createAliensLevelOne();
 

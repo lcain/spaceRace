@@ -16,9 +16,14 @@ app.callTimer = function(type, graphic, num, X, Y, time){
   time = time || app.time
   app.count = app.count || 0
   var waveInterval = function(){
-    app.generating = true
+  app.generating = true
+    
     var waveGen = setInterval(function(){
     // debugger
+
+    app.generating = true
+    console.log(app.generating)
+
     if(type === 'seekerAlien'){
 
      app.createSeeker2( X, Y, graphic)
@@ -102,9 +107,6 @@ app.createSeeker2 = function(X, Y, graphicName){
 app.createAlienShooter2 = function(X,Y, graphicName){
   
 
-  app.alienShooter = app.game.add.group();
-  // app.alienShooter.enableBody = true;
-  app.alienShooter.physicsBodyType = Phaser.Physics.ARCADE;
 
   var alien = app.alienShooter.create(X, Y, graphicName);
   alien.anchor.setTo(0.5, 0.5);
@@ -163,9 +165,7 @@ app.createAlienShooter2 = function(X,Y, graphicName){
  
 app.createAlienMissileShip2 = function(X, Y, graphicName){
 
-  app.alienMissileShip = app.game.add.group();
-  // app.alienMissileShip.enableBody = true;
-  app.alienMissileShip.physicsBodyType = Phaser.Physics.ARCADE;
+ 
 
   var alien = app.alienMissileShip.create(X, Y, graphicName);
   alien.anchor.setTo(0.5, 0.5);
@@ -229,13 +229,11 @@ app.createAlienMissileShip2 = function(X, Y, graphicName){
 
 }
 
-
+ app.alienShotgunnerArray = [];
 app.createAlienShotgunner2 = function(X,Y, graphicName){
-  app.alienShotgunnerArray = [];
+ 
 
-  app.alienShotgunner = app.game.add.group();
-  // app.alienShotgunner.enableBody = true;
-  app.alienShotgunner.physicsBodyType = Phaser.Physics.ARCADE;
+ 
 
   var alien = app.alienShotgunner.create(X, Y, graphicName);
   alien.anchor.setTo(0.5, 0.5);
