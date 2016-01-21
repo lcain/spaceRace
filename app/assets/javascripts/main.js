@@ -16,12 +16,14 @@ app.toNextLevel = function(createLevel){
 
           if ( app.levelCounter === 1 ) {
             app.stateText.text = " It's dangerous \n  to go alone. \n   Try these: \n     ⍃   ⍄";
+            app.smallStateText.text = "\n\n\n\n\n\n\n\n\n\n\n(Press Space to continue)"
+            app.smallStateText.visible = true;
             app.stateText.visible = true;
           } else if ( app.levelCounter === 2 ) {
             app.stateText.text = " Lvl Two Done";
             app.stateText.visible = true;
           } else if ( app.levelCounter === 3 ) {
-            app.stateText.text = "   You can go \n  your own way \n   Use these: \n     ⍓   ⍔";
+            app.stateText.text = "   You can go \n  your own way \n   Use these: \n     ⍓   ⍌";
             app.stateText.visible = true;
           } else if ( app.levelCounter === 4 ) {
             app.stateText.text = " Lvl Four Done";
@@ -34,11 +36,13 @@ app.toNextLevel = function(createLevel){
             app.stateText.text = " Lvl Six Done";
             app.stateText.visible = true;
           } else if ( app.levelCounter === 7 ) {
-            app.stateText.fill = '#fff';
-            app.stateText.text = " Lvl Seven Done \n  Come at me \n     bro!";
+            app.stateText.fill = 'yellow';
+            app.stateText.fontWeight = 'bold';
+            app.stateText.text = " Lvl Seven Done \n   Come at me \n      bro!";
             app.stateText.visible = true;
           } else if ( app.levelCounter === 8 ) {
             app.stateText.fill = '#fff';
+            app.stateText.font = "'Orbitron', sans-serif"
             app.stateText.text = " Lvl Eight Done";
             app.stateText.visible = true;
           } else if ( app.levelCounter === 9 ) {

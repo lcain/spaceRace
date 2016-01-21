@@ -1,8 +1,8 @@
 var app = app || {};
 
 app.restart = function() {
-
     //  A new level starts
+    location.reload();
     app.levelCounter = 1;
 
     //resets the life count

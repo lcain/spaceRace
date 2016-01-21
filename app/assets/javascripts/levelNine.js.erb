@@ -28,6 +28,7 @@ app.createLevelNine = function() {
     app.createAliensLevelNine();
     app.stateText.visible = false;
     app.levelCounter ++;
+    app.$stylise();
     app.levelEightLoop.fade(0.5, 0, 1800,function(){app.levelEightLoop.stop()})
     // app.preloadLevelSeven();
 

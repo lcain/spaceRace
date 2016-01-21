@@ -18,6 +18,10 @@ app.createAliensLevelOne = function() {
 
     app.game.time.events.loop(Phaser.Timer.SECOND * .01, app.descendLevelOne, this);
 
+    app.levelSevenLoop.stop()
+    app.levelEightLoop.stop()
+    app.levelNineLoop.stop()
+
 
 }
 
@@ -115,12 +119,12 @@ app.enemyHitsPlayerLevelOne = function(player,bullet) {
 
 
         if ( app.levelCounter > 5 ){
-            app.stateText.text="  GAME OVER \n  Press space to restart";
+            app.stateText.text="  GAME OVER \n Press space \n to  restart";
             app.stateText.visible = true;
             app.stateText.fill = '#fff';
         }
 
-        app.stateText.text="  GAME OVER \n  Press space \n to restart";
+        app.stateText.text="  GAME OVER \n Press space \n to  restart";
         app.stateText.visible = true;
 
         //the "press space to restart" handler
@@ -147,16 +151,19 @@ app.enemyHitsPlayerLevelOne = function(player,bullet) {
         }, 100);
 
         //AUDIO - Game over -k
-        if(app.levelCounter != 7){
-        soundCall = new Howl({
-        urls: [playSound("gameOver")]
-        }).play();
-        } else { 
-        soundCall = new Howl({
-        urls: [playSound("pacmandeath")]
-        }).play();
+        if(app.levelCounter < 7){
+            soundCall = new Howl({
+            urls: [playSound("gameOver")]
+            }).play();
+        } else if (app.levelCounter === 7){
+            soundCall = new Howl({
+            urls: [playSound("pacmandeath")]
+            }).play();
+        } else if (app.levelCounter > 7){
+            soundCall = new Howl({
+            urls: [playSound("gameover8")]
+            }).play();
         }
-
     }
 
 }
@@ -237,17 +244,30 @@ app.fireBulletLevelOne = function() {
                 volume: 0.5,
                 urls: [playSound("playerShot")]
                 }).play();
-                
+
             } else if (app.levelCounter === 6){
                 soundCall = new Howl({
                 urls: [playSound("babypew")]
                 }).play();
-                
+
             } else if (app.levelCounter === 7){
+                soundCall = new Howl({
+                volume: 0.5,
+                urls: [playSound("pew")]
+                }).play();
+
+            } else if (app.levelCounter === 8){
                 soundCall = new Howl({
                 volume: 0.5,
                 urls: [playSound("shortplayershot8")]
                 }).play();
+
+            } else if (app.levelCounter >= 8){
+                soundCall = new Howl({
+                volume: 0.5,
+                urls: [playSound("laserpew")]
+                }).play();
+
             }
         }
     }
