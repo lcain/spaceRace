@@ -34,7 +34,7 @@ app.callTimer = function(type, graphic, num, X, Y, time){
 
     } else if (type === 'missileAlien') {
 
-     app.createAlienMissileShip(X,Y, graphic)
+     app.createAlienMissileShip2(X,Y, graphic)
 
     } else if (type === 'shotgunAlien') {
 
