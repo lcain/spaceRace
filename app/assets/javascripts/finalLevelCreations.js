@@ -23,7 +23,6 @@ app.callTimer = function(type, graphic, num, X, Y, time){
 
     var waveGen = setInterval(function(){
     // debugger
-    console.log('waveGen', type, graphic, num, X, Y, time, waveGen);
 
 
       app.generating = true

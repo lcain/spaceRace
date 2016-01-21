@@ -1,19 +1,37 @@
 var app = app || {};
 
 app.createLevelTwelve = function() {
-    // app.starfield.loadTexture("levelTenBackground", 0, false);
-    // app.player.loadTexture("levelTenShip", 0, false);
-    // app.player.animations.add('fly', [0, 1, 2]);
+    app.starfield.loadTexture("levelTenBackground", 0, false);
+    app.player.loadTexture("levelTenShip", 0, false);
+    app.player.animations.add('fly', [0, 1, 2]);
 
-    // _.each(app.bullets.children, function(bullet) {
-    //     bullet.loadTexture("levelTenBullet", 0, false);
-    //     bullet.animations.add('pulse', [0, 1, 2]);
-    //     bullet.animations.play('pulse', 20, true);
-    // });
+    _.each(app.bullets.children, function(bullet) {
+        bullet.loadTexture("levelTenBullet", 0, false);
+        bullet.animations.add('pulse', [0, 1, 2]);
+        bullet.animations.play('pulse', 20, true);
+    });
 
-    // _.each(app.explosions.children, function(explosion) {
-    //     explosion.loadTexture("levelNineKaboom", 0, false);
-    // });
+    _.each(app.alienShooterBullets.children, function(bullet) {
+        bullet.loadTexture("levelTenBasicAlienBullet", 0, false);
+        bullet.animations.add('pulse', [0, 1, 2]);
+        bullet.animations.play('pulse', 20, true);
+    });
+
+    _.each(app.alienShotgunBullets.children, function(bullet) {
+        bullet.loadTexture("levelTenAlienShotgun", 0, false);
+        bullet.animations.add('pulse', [0, 1]);
+        bullet.animations.play('pulse', 20, true);
+    });
+
+    _.each(app.alienMissileBullets.children, function(bullet) {
+        bullet.loadTexture("levelTenAlienMissile", 0, false);
+        bullet.animations.add('pulse', [0, 1, 2, 3]);
+        bullet.animations.play('pulse', 20, true);
+    });
+
+    _.each(app.explosions.children, function(explosion) {
+        explosion.loadTexture("levelNineKaboom", 0, false);
+    });
 
     app.aliensSpawnTime = 20000;
 
@@ -24,28 +42,17 @@ app.createLevelTwelve = function() {
 
 }
 
-app.createAliensLevelTwelve = function() {
+app.createAliensLevelTwelve = function(){
 
-    // Reset aliens position
-    app.aliens.x = 0;
-    app.aliens.y = 0;
-
-    seekerNum = 12;
-    num = seekerNum / 4;
-
-    // Asteroid group moving from top to bottom
-    app.createAlienGroupTopBottomLevelNine(800, -300, num, app.descendLevelFour);
-
-    // Asteroid group moving from bottom to top
-    app.createAlienGroupTopBottomLevelNine(800, 950, num, app.ascendLevelFive);
-
-    // Asteroid group moving from left to right
-    app.createAlienGroupLeftRightLevelNine(-300, 650, num, app.moveRightLevelFour);
-
-    // Asteroid group moving from right to left
-    app.createAlienGroupLeftRightLevelNine(1200, 650, num, app.moveLeftLevelFour);
-
-}
+    app.callTimer( "seekerAlien", "levelNineSeeker", 2, 150, 0, 2000 );
+    app.callTimer( "seekerAlien", "levelNineSeeker", 1, 400, 650, 2000 );
+    app.callTimer( "shooterAlien", "levelTenBasicAlien", 1, 300, 0, 2000 );
+    app.callTimer( "shooterAlien", "levelTenBasicAlien", 1, 300, 650, 2000 );
+    app.callTimer( "missileAlien", "AlienMissileShip", 1, 450, 0, 2000 );
+    app.callTimer( "missileAlien", "AlienMissileShip", 1, 0, 600, 2000 );
+    app.callTimer( "shotgunAlien", "levelTenShotgunShip", 1, 800, 300, 2000 );
+    
+};
 
 app.collisionHandlerLevelTwelve = function(bullet, alien) {
     app.totalKillCount += 1;
