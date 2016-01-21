@@ -21,8 +21,19 @@ app.createLevelNine = function() {
     app.createAliensLevelNine();
     app.stateText.visible = false;
     app.levelCounter ++;
+    app.levelEightLoop.fade(0.5, 0, 1800,function(){app.levelEightLoop.stop()})
     // app.preloadLevelSeven();
 
+    app.levelNineLoop = new Howl({
+    urls: [playSound("level9music")],
+    autoplay: true,
+    loop: true,
+    volume: 0
+      // onend: function() {
+      //   console.log('Finished!');
+    })
+
+app.levelNineLoop.fade(0, 0.5, 2000)
 }
 
 app.createAlienGroupTopBottomLevelNine = function(x, y, num, alienMove) {

@@ -23,6 +23,23 @@ app.createLevelEight = function() {
     app.levelCounter ++;
     // app.preloadLevelSeven();
     app.$stylise();
+    soundCall = new Howl({
+    urls: [playSound("8bitupgrade")]
+    }).play();
+    
+    app.levelSevenLoop.fade(0.5, 0, 1800,function(){app.levelSevenLoop.stop()})
+
+
+    app.levelEightLoop = new Howl({
+      urls: [playSound("level8music")],
+      autoplay: true,
+      loop: true,
+      volume: 0.5,
+      // onend: function() {
+      //   console.log('Finished!');
+      })
+
+app.levelEightLoop.fade(0, 0.5, 2000)
 }
 
 app.createAlienGroupTopBottomLevelEight = function(x, y, num, alienMove) {
