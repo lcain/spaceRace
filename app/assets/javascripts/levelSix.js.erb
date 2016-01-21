@@ -13,12 +13,13 @@ app.createLevelSix = function() {
     });
 
     app.aliensSpawnTime = 22500;
+    app.bulletFireRate = 300;
 
     app.createAliensLevelSix();
     app.stateText.visible = false;
     app.levelCounter ++;
 
-  
+
     // app.preloadLevelSeven();
 
     app.game.time.events.events.pop();
@@ -90,7 +91,7 @@ app.createAliensLevelSix = function() {
 
     // Asteroid group moving from bottom to top
     app.createAlienGroupTopBottomLevelSix(800, 950, num, app.ascendLevelFive);
-    
+
 
     // Asteroid group moving from left to right
     app.createAlienGroupLeftRightLevelSix(-300, 650, num, app.moveRightLevelFour);
