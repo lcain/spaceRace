@@ -7,7 +7,7 @@ app.createLevelEleven = function() {
 
     _.each(app.bullets.children, function(bullet) {
         bullet.loadTexture("levelTenBullet", 0, false);
-        bullet.animations.add('pulse', [0, 1, 2]);
+        bullet.animations.add('pulse', [1, 2]);
         bullet.animations.play('pulse', 20, true);
     });
 
@@ -42,12 +42,14 @@ app.createLevelEleven = function() {
 
 }
 
+
 app.createAliensLevelEleven = function() {
-    app.callTimer( "seekerAlien", "levelNineSeeker", 3, 150, 0, 1000 );
+    app.callTimer( "seekerAlien", "levelTenSeeker", 3, 150, 0, 1000 );
     app.callTimer( "shooterAlien", "levelTenBasicAlien", 3, 300, 0, 2000 );
     app.callTimer( "shotgunAlien", "levelTenShotgunShip", 3, 450, 0, 3000 );
     app.callTimer( "missileAlien", "AlienMissileShip", 3, 450, 0, 4000 );
 }
+
 
 app.collisionHandlerLevelEleven = function(bullet, alien) {
     app.totalKillCount += 1;

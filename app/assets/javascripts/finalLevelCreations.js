@@ -23,7 +23,6 @@ app.callTimer = function(type, graphic, num, X, Y, time){
 
     var waveGen = setInterval(function(){
     // debugger
-    console.log('waveGen', type, graphic, num, X, Y, time, waveGen);
 
 
       app.generating = true
@@ -268,22 +267,22 @@ app.createAlienShotgunner2 = function(X,Y, graphicName){
         if (counter < 100 && alien.alive === true){
 
           shooterBullet = app.alienShotgunBullets.getFirstExists(false);
-          shooterBullet.reset(alien.body.x + 12, alien.body.y +10);
+          shooterBullet.reset(alien.body.x + 10, alien.body.y + 10);
           shooterBullet.angle = alien.angle;
 
           shooterBullet.angle = alien.angle;
-          shooterBullet.body.velocity.x = (alien.body.velocity.x * 6) + 110;
-          shooterBullet.body.velocity.y = (alien.body.velocity.y * 6) - 110;
+          shooterBullet.body.velocity.x = (alien.body.velocity.x * 6) + 90;
+          shooterBullet.body.velocity.y = (alien.body.velocity.y * 6) - 90;
 
           shooterBullet2 = app.alienShotgunBullets.getFirstExists(false);
-          shooterBullet2.reset(alien.body.x + 12, alien.body.y +10);
+          shooterBullet2.reset(alien.body.x + 10, alien.body.y + 10);
 
           shooterBullet2.angle = alien.angle;
-          shooterBullet2.body.velocity.x = (alien.body.velocity.x * 6) - 110;
-          shooterBullet2.body.velocity.y = (alien.body.velocity.y * 6) + 110;
+          shooterBullet2.body.velocity.x = (alien.body.velocity.x * 6) - 90;
+          shooterBullet2.body.velocity.y = (alien.body.velocity.y * 6) + 90;
 
           shooterBullet3 = app.alienShotgunBullets.getFirstExists(false);
-          shooterBullet3.reset(alien.body.x + 12, alien.body.y +10);
+          shooterBullet3.reset(alien.body.x + 10, alien.body.y + 10);
           shooterBullet3.angle = alien.angle;
 
           shooterBullet3.body.velocity.x = alien.body.velocity.x * 6;
