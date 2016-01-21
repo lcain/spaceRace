@@ -32,7 +32,7 @@ app.create = function() {
     app.alienShooterBullets = app.game.add.group();
     app.alienShooterBullets.enableBody = true;
     app.alienShooterBullets.physicsBodyType = Phaser.Physics.ARCADE;
-    app.alienShooterBullets.createMultiple(300, 'enemyBullet');
+    app.alienShooterBullets.createMultiple(300, 'levelTenBasicAlienBullet');
     app.alienShooterBullets.setAll('anchor.x', 0.5);
     app.alienShooterBullets.setAll('anchor.y', 1);
     app.alienShooterBullets.setAll('outOfBoundsKill', true);
@@ -40,14 +40,26 @@ app.create = function() {
 
 
     // Alien Missile Bullets
+
     app.alienMissileBullets = app.game.add.group();
     app.alienMissileBullets.enableBody = true;
     app.alienMissileBullets.physicsBodyType = Phaser.Physics.ARCADE;
-    app.alienMissileBullets.createMultiple(30, 'levelTenBasicAlienBullet');
+    app.alienMissileBullets.createMultiple(30, 'levelTenAlienMissile');
     app.alienMissileBullets.setAll('anchor.x', 0.5);
     app.alienMissileBullets.setAll('anchor.y', 1);
     app.alienMissileBullets.setAll('outOfBoundsKill', true);
     app.alienMissileBullets.setAll('checkWorldBounds', true);
+
+     // Alien Shotgun Bullets
+     
+    app.alienShotgunBullets = app.game.add.group();
+    app.alienShotgunBullets.enableBody = true;
+    app.alienShotgunBullets.physicsBodyType = Phaser.Physics.ARCADE;
+    app.alienShotgunBullets.createMultiple(30, 'levelTenAlienShotgun');
+    app.alienShotgunBullets.setAll('anchor.x', 0.5);
+    app.alienShotgunBullets.setAll('anchor.y', 1);
+    app.alienShotgunBullets.setAll('outOfBoundsKill', true);
+    app.alienShotgunBullets.setAll('checkWorldBounds', true);
 
     //  The hero!
     app.player = app.game.add.sprite(400, 600, 'ship');

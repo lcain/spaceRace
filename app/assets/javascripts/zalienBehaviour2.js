@@ -210,7 +210,7 @@ app.createAlienShotgunner2 = function(X,Y, graphicName){
       
         if (counter < 100){
           
-          shooterBullet = app.alienShooterBullets.getFirstExists(false);
+          shooterBullet = app.alienShotgunBullets.getFirstExists(false);
           shooterBullet.reset(alien.body.x + 12, alien.body.y +10);
           shooterBullet.angle = alien.angle;
 
@@ -218,14 +218,14 @@ app.createAlienShotgunner2 = function(X,Y, graphicName){
           shooterBullet.body.velocity.x = (alien.body.velocity.x * 6) + 110;
           shooterBullet.body.velocity.y = (alien.body.velocity.y * 6) - 110;
 
-          shooterBullet2 = app.alienShooterBullets.getFirstExists(false);
+          shooterBullet2 = app.alienShotgunBullets.getFirstExists(false);
           shooterBullet2.reset(alien.body.x + 12, alien.body.y +10);
 
           shooterBullet2.angle = alien.angle;
           shooterBullet2.body.velocity.x = (alien.body.velocity.x * 6) - 110;
           shooterBullet2.body.velocity.y = (alien.body.velocity.y * 6) + 110;
 
-          shooterBullet3 = app.alienShooterBullets.getFirstExists(false);
+          shooterBullet3 = app.alienShotgunBullets.getFirstExists(false);
           shooterBullet3.reset(alien.body.x + 12, alien.body.y +10);
           shooterBullet3.angle = alien.angle;
           
