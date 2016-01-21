@@ -65,8 +65,18 @@ app.$stylise = function(){
     // $('button').removeClass("btn btn-primary")
     $('button, input').css({
       "border" : "1px solid black",
-      "background-color" : "rgb(200,200,200)"
+      "background-color" : "rgb(200,200,200)",
+      "color" : "black",
+      "font-weight": "normal"
     })
+    $('.gameWindow').css("border", "1px solid black")
+    $('.scoreText, h1, label, #user_nav, a').css({
+      "font-weight": "normal",
+      "color": "black",
+      "font-family": '"Courier new"'
+    })
+    $('body').css('background-color', 'white')
+
   }
 
   if (app.levelCounter === 4){
@@ -75,47 +85,59 @@ app.$stylise = function(){
 
   if (app.levelCounter === 6){
     $('.gameWindow').css("border", "3px solid white")
+
     $('body').css('background-color', 'black')
+
     $('button, input').css({
       "border" : "1px solid white",
       "background-color" : "rgb(0,0,0)",
       "color" : "white"
     })
     $('#user_nav, a').css("color", "white")
-    $('.scoreText').css('color', 'white')
+
+    $('.scoreText, h1, label').css('color', 'white')
 
   }
 
   if (app.levelCounter === 7){
     $('.gameWindow').css("border", "5px solid blue")
+
     $('button, input').css({
       "border" : "3px solid blue",
       "background-color" : "rgb(0,0,0)",
       "color" : "yellow",
       "font-weight" : "bold"
     })
+
     $('#user_nav, a').css("color", "yellow")
-    $('.scoreText').css({
+
+    $('.scoreText, h1, label').css({
       'color' : 'yellow',
       'font-weight' : "bold"
       })
+
     $('.optionsBar').css('border-top', '3px solid yellow')
   }
 
   if (app.levelCounter === 8){
+
     $('.gameWindow').css("border", "3px solid white")
+
     $('button, input').css({
-      "border" : "3px solid blue",
+      "border" : "3px solid white",
       "background-color" : "rgb(0,0,0)",
-      "color" : "yellow",
+      "color" : "white",
       "font-weight" : "bold"
     })
-    $('#user_nav, a').css("color", "yellow")
-    $('.scoreText').css({
-      'color' : 'yellow',
+
+    $('#user_nav, a').css("color", "white")
+
+    $('.scoreText, h1, label').css({
+      'color' : 'white',
       'font-weight' : "bold"
       })
-    $('.optionsBar').css('border-top', '3px solid yellow')
+
+    $('.optionsBar').css('border-top', '3px solid white')
     $('body').css({
       "background": " rgba(25,3,53,1)",
       "background": "-moz-linear-gradient(top, rgba(25,3,53,1) 0%, rgba(25,3,53,1) 8%, rgba(27,17,40,1) 23%, rgba(14,3,27,1) 39%, rgba(17,11,25,1) 53%, rgba(16,4,32,1) 65%, rgba(22,14,32,1) 80%, rgba(31,17,50,1) 97%, rgba(31,17,50,1) 100%)",
@@ -124,7 +146,8 @@ app.$stylise = function(){
       "background": "-ms-linear-gradient(top, rgba(25,3,53,1) 0%, rgba(25,3,53,1) 8%, rgba(27,17,40,1) 23%, rgba(14,3,27,1) 39%, rgba(17,11,25,1) 53%, rgba(16,4,32,1) 65%, rgba(22,14,32,1) 80%, rgba(31,17,50,1) 97%, rgba(31,17,50,1) 100%)",
       "background": "linear-gradient(to bottom, rgba(25,3,53,1) 0%, rgba(25,3,53,1) 8%, rgba(27,17,40,1) 23%, rgba(14,3,27,1) 39%, rgba(17,11,25,1) 53%, rgba(16,4,32,1) 65%, rgba(22,14,32,1) 80%, rgba(31,17,50,1) 97%, rgba(31,17,50,1) 100%)",
       "filter": "progid:DXImageTransform.Microsoft.gradient( startColorstr='#190335', endColorstr='#1f1132', GradientType=0 )"    })
-
+    $('*').css("font-family", "'Orbitron', sans-serif")
+    $('.gameStatus').css("border", "3px solid white")
   }
 
 }
