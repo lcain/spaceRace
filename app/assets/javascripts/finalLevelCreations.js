@@ -77,8 +77,8 @@ app.createSeeker2 = function(X, Y, graphicName){
     alien.anchor.setTo(0.5, 0.5);
     app.seekerAlien.setAll('outOfBoundsKill', true);
     app.seekerAlien.setAll('checkWorldBounds', true);
-    // alien.animations.add('fly', [ 0, 1, 2 ], 20, true);
-    // alien.play('fly');
+    alien.animations.add('fly', [ 0, 1, 2 ], 20, true);
+    alien.play('fly');
 
   // app.seekerAlien.x = X;
   // app.seekerAlien.y = Y;

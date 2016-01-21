@@ -1,19 +1,20 @@
 var app = app || {};
 
 app.createLevelEleven = function() {
-    // app.starfield.loadTexture("levelTenBackground", 0, false);
-    // app.player.loadTexture("levelTenShip", 0, false);
-    // app.player.animations.add('fly', [0, 1, 2]);
+    app.starfield.loadTexture("levelTenBackground", 0, false);
+    app.player.loadTexture("levelTenShip", 0, false);
+    app.player.animations.add('fly', [0, 1, 2]);
 
-    // _.each(app.bullets.children, function(bullet) {
-    //     bullet.loadTexture("levelTenBullet", 0, false);
-    //     bullet.animations.add('pulse', [0, 1, 2]);
-    //     bullet.animations.play('pulse', 20, true);
-    // });
+    _.each(app.bullets.children, function(bullet) {
+        bullet.loadTexture("levelTenBullet", 0, false);
+        bullet.animations.add('pulse', [0, 1, 2]);
+        bullet.animations.play('pulse', 20, true);
+    });
 
-    // _.each(app.explosions.children, function(explosion) {
-    //     explosion.loadTexture("levelNineKaboom", 0, false);
-    // });
+
+    _.each(app.explosions.children, function(explosion) {
+        explosion.loadTexture("levelNineKaboom", 0, false);
+    });
 
     app.aliensSpawnTime = 20000;
 
