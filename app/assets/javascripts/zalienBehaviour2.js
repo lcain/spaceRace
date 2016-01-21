@@ -87,9 +87,6 @@ app.createAlienShooter2 = function(X,Y, graphicName){
       app.shotInterval = setInterval(function(){
       
         if (counter < 20){
-          console.log("logging")
-          console.log(counter)
-          
           
           shooterBullet.reset(alien.body.x + 12, alien.body.y +10);
 
@@ -211,19 +208,29 @@ app.createAlienShotgunner2 = function(X,Y, graphicName){
       var counter = 0;
       app.shotInterval = setInterval(function(){
       
-        if (counter < 15){
+        if (counter < 100){
           
           shooterBullet = app.alienShooterBullets.getFirstExists(false);
-          shooterBullet.reset(alien.body.x + 15, alien.body.y +10);
+          shooterBullet.reset(alien.body.x + 12, alien.body.y +10);
+          shooterBullet.angle = alien.angle;
 
-                shooterBullet.angle = alien.angle;
-                app.game.physics.arcade.moveToObject(shooterBullet,app.player,400);
+          shooterBullet.angle = alien.angle;
+          shooterBullet.body.velocity.x = (alien.body.velocity.x * 6) + 110;
+          shooterBullet.body.velocity.y = (alien.body.velocity.y * 6) - 110;
 
           shooterBullet2 = app.alienShooterBullets.getFirstExists(false);
-          shooterBullet2.reset(alien.body.x + 15, alien.body.y +10);
+          shooterBullet2.reset(alien.body.x + 12, alien.body.y +10);
 
-                shooterBullet2.angle = alien.angle;
-                app.game.physics.arcade.moveToObject(shooterBullet2,app.player,400);
+          shooterBullet2.angle = alien.angle;
+          shooterBullet2.body.velocity.x = (alien.body.velocity.x * 6) - 110;
+          shooterBullet2.body.velocity.y = (alien.body.velocity.y * 6) + 110;
+
+          shooterBullet3 = app.alienShooterBullets.getFirstExists(false);
+          shooterBullet3.reset(alien.body.x + 12, alien.body.y +10);
+          shooterBullet3.angle = alien.angle;
+          
+          shooterBullet3.body.velocity.x = alien.body.velocity.x * 6;
+          shooterBullet3.body.velocity.y = alien.body.velocity.y * 6;
                 
           counter++;
         }   else {
