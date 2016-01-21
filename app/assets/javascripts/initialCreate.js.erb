@@ -46,7 +46,7 @@ app.create = function() {
     app.alienMissileBullets.physicsBodyType = Phaser.Physics.ARCADE;
     app.alienMissileBullets.createMultiple(300, 'levelTenAlienMissile');
     app.alienMissileBullets.setAll('anchor.x', 0.5);
-    app.alienMissileBullets.setAll('anchor.y', 1);
+    app.alienMissileBullets.setAll('anchor.y', 0.5);
     app.alienMissileBullets.setAll('outOfBoundsKill', true);
     app.alienMissileBullets.setAll('checkWorldBounds', true);
 

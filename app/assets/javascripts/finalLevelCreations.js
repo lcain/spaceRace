@@ -141,8 +141,8 @@ app.createAlienShooter2 = function(X,Y, graphicName){
 
       var counter = 0;
       app.shotInterval = setInterval(function(){
-      
-        if (counter < 20){
+      console.log(alien)
+        if (counter < 20 && alien.alive === true){
           shooterBullet = app.alienShooterBullets.getFirstExists(false);
           shooterBullet.reset(alien.body.x + 12, alien.body.y +10);
 
@@ -201,7 +201,7 @@ app.createAlienMissileShip2 = function(X, Y, graphicName){
     var counter = 0;
     app.shotInterval = setInterval(function(){
       
-      if (counter < 2){
+      if (counter < 2 && alien.alive === true){
 
        
           
@@ -266,7 +266,7 @@ app.createAlienShotgunner2 = function(X,Y, graphicName){
       var counter = 0;
       app.shotInterval = setInterval(function(){
       
-        if (counter < 100){
+        if (counter < 100 && alien.alive === true){
           
           shooterBullet = app.alienShotgunBullets.getFirstExists(false);
           shooterBullet.reset(alien.body.x + 12, alien.body.y +10);
