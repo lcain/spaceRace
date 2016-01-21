@@ -4,16 +4,4 @@
   <strong>Name:</strong>
   <%= @user.name %>
 </p>
-<table border="1" style="width:100%" class="table table-bordered">
-  <tr>
-    <tr>
-    <td> <strong>Score</strong> </td>
-    </tr>
-    <tr><% h = Highscore.where(user_id: current_user ) %>
-    <td><%= h.first['score'] %></td> 
-    </tr>
 
-
-
-
-</table>
