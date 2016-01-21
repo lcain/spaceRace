@@ -75,7 +75,12 @@ app.$stylise = function(){
       "color": "black",
       "font-family": '"Courier new"'
     })
-    $('body').css('background-color', 'white')
+    $('body').css({
+      'background-color': 'white',
+      'background': 'white',
+      'background-image': 'none'
+
+    })
 
   }
 

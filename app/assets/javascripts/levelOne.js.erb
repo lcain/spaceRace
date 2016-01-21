@@ -18,6 +18,10 @@ app.createAliensLevelOne = function() {
 
     app.game.time.events.loop(Phaser.Timer.SECOND * .01, app.descendLevelOne, this);
 
+    app.levelSevenLoop.stop()
+    app.levelEightLoop.stop()
+    app.levelNineLoop.stop()
+
 
 }
 
@@ -147,16 +151,19 @@ app.enemyHitsPlayerLevelOne = function(player,bullet) {
         }, 100);
 
         //AUDIO - Game over -k
-        if(app.levelCounter != 7){
-        soundCall = new Howl({
-        urls: [playSound("gameOver")]
-        }).play();
-        } else { 
-        soundCall = new Howl({
-        urls: [playSound("pacmandeath")]
-        }).play();
+        if(app.levelCounter < 7){
+            soundCall = new Howl({
+            urls: [playSound("gameOver")]
+            }).play();
+        } else if (app.levelCounter === 7){ 
+            soundCall = new Howl({
+            urls: [playSound("pacmandeath")]
+            }).play();
+        } else if (app.levelCounter > 7){
+            soundCall = new Howl({
+            urls: [playSound("gameover8")]
+            }).play();
         }
-
     }
 
 }
@@ -246,8 +253,21 @@ app.fireBulletLevelOne = function() {
             } else if (app.levelCounter === 7){
                 soundCall = new Howl({
                 volume: 0.5,
+                urls: [playSound("pew")]
+                }).play();
+
+            } else if (app.levelCounter === 8){
+                soundCall = new Howl({
+                volume: 0.5,
                 urls: [playSound("shortplayershot8")]
                 }).play();
+                
+            } else if (app.levelCounter >= 8){
+                soundCall = new Howl({
+                volume: 0.5,
+                urls: [playSound("laserpew")]
+                }).play();
+                
             }
         }
     }
