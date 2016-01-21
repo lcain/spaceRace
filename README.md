@@ -1,4 +1,13 @@
-# SpaceRace Evolution
+  ________  ________  ________  ________  _______   ________  ________  ________  _______      
+|\   ____\|\   __  \|\   __  \|\   ____\|\  ___ \ |\   __  \|\   __  \|\   ____\|\  ___ \     
+\ \  \___|\ \  \|\  \ \  \|\  \ \  \___|\ \   __/|\ \  \|\  \ \  \|\  \ \  \___|\ \   __/|    
+ \ \_____  \ \   ____\ \   __  \ \  \    \ \  \_|/_\ \   _  _\ \   __  \ \  \    \ \  \_|/__  
+  \|____|\  \ \  \___|\ \  \ \  \ \  \____\ \  \_|\ \ \  \\  \\ \  \ \  \ \  \____\ \  \_|\ \ 
+    ____\_\  \ \__\    \ \__\ \__\ \_______\ \_______\ \__\\ _\\ \__\ \__\ \_______\ \_______\
+   |\_________\|__|     \|__|\|__|\|_______|\|_______|\|__|\|__|\|__|\|__|\|_______|\|_______|
+   \|_________|                                                                               
+                                                                                              
+                                                                                              
 
 With mind altering visual affects comes the critically acclaimed SPACE RACE.  
 
@@ -6,7 +15,7 @@ With mind altering visual affects comes the critically acclaimed SPACE RACE.
   - Changing gameplay mechanics
   - Bosses to battle
 
-In construction ... 
+Use the SPACEBAR
 
 Built on Phaiser.js 
 With a Ruby on Rails Backend
