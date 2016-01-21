@@ -240,9 +240,29 @@ app.update = function() {
             app.game.physics.arcade.overlap(app.bullets, app.aliens, app.collisionHandlerLevelTen, null, this);
 
             if ( app.aliens.countLiving() === 0 ) {
-                app.toNextLevel(app.createLevelTen);
+                app.toNextLevel(app.createLevelEleven);
             }
         }
+
+         if ( app.levelCounter === 11 ) {
+
+            app.game.physics.arcade.overlap(app.bullets, app.aliens, app.collisionHandlerLevelEleven, null, this);
+
+            if ( app.aliens.countLiving() === 0 ) {
+                app.toNextLevel(app.createLevelTwelve);
+            }
+        }
+
+
+         if ( app.levelCounter === 12 ) {
+
+            app.game.physics.arcade.overlap(app.bullets, app.aliens, app.collisionHandlerLevelTwelve, null, this);
+
+            if ( app.aliens.countLiving() === 0 ) {
+                app.toNextLevel(app.createLevelTwelve);
+            }
+        }
+
 
             app.game.physics.arcade.overlap(app.enemyBullets, app.player, app.enemyHitsPlayerLevelOne, null, this);
             app.game.physics.arcade.overlap(app.aliens, app.player, app.enemyHitsPlayerLevelOne, null, this);

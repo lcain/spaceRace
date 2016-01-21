@@ -111,6 +111,8 @@ app.enemyHitsPlayerLevelOne = function(player,bullet) {
         app.player.kill();
         app.enemyBullets.callAll('kill');
 
+
+
         if ( app.levelCounter >= 5 ){
             app.stateText.text="  GAME OVER \n Press space to restart";
             app.stateText.visible = true;

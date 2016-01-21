@@ -49,6 +49,14 @@ app.toNextLevel = function(createLevel){
             app.stateText.fill = '#fff';
             app.stateText.text = " Lvl Ten Done";
             app.stateText.visible = true;
+          } else if ( app.levelCounter === 11 ) {
+            app.stateText.fill = '#fff';
+            app.stateText.text = " Lvl Eleven Done";
+            app.stateText.visible = true;
+          } else if ( app.levelCounter === 12 ) {
+            app.stateText.fill = '#fff';
+            app.stateText.text = " Lvl Twelve Done";
+            app.stateText.visible = true;
           };
 
           //Destroys killed sprites from our count.
@@ -333,4 +341,12 @@ app.areAliensImage = function(alien){
       console.log("In areAliensImage Function")
       return true;
     }
+}
+
+app.killSmallAliens = function(smallAlienGroup) {
+  for (var i = 0; i < smallAlienGroup.length; i++) {
+    for (var j = 0; j < smallAlienGroup[i].children.length; j++) {
+      smallAlienGroup[i].children[j].kill();
+    }
+  }
 }
