@@ -93,6 +93,10 @@ var app = app || {}
   <% if current_user %>
     <%= link_to "Log out", log_out_path %>
     <% end %>
+    <% if current_user %>
+    <%= current_user.name %>.
+    <%= link_to "Stats", "users/#{current_user.id}" %>
+    <% end %>
 </div>
 
 <% flash.each do |name, msg| %>
