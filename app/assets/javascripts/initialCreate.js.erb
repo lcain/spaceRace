@@ -32,7 +32,7 @@ app.create = function() {
     app.alienShooterBullets = app.game.add.group();
     app.alienShooterBullets.enableBody = true;
     app.alienShooterBullets.physicsBodyType = Phaser.Physics.ARCADE;
-    app.alienShooterBullets.createMultiple(30, 'enemyBullet');
+    app.alienShooterBullets.createMultiple(300, 'enemyBullet');
     app.alienShooterBullets.setAll('anchor.x', 0.5);
     app.alienShooterBullets.setAll('anchor.y', 1);
     app.alienShooterBullets.setAll('outOfBoundsKill', true);
