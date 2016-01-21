@@ -15,43 +15,43 @@ app.generating = false
 app.callTimer = function(type, graphic, num, X, Y, time){
   time = time || app.time
   app.count = app.count || 0
+  // console.log('callTimer', type, graphic, num, X, Y, time);
   var waveInterval = function(){
-  app.generating = true
-    
+    app.generating = true
+    var count = 0;
     var waveGen = setInterval(function(){
     // debugger
+    console.log('waveGen', type, graphic, num, X, Y, time, waveGen);
 
-    app.generating = true
-    // console.log(app.generating)
+      app.generating = true
+      // console.log(app.generating)
 
-    if(type === 'seekerAlien'){
+      if(type === 'seekerAlien'){
 
-     app.createSeeker2( X, Y, graphic)
- 
-    } else if (type === 'shooterAlien') {
+       app.createSeeker2( X, Y, graphic)
+   
+      } else if (type === 'shooterAlien') {
 
-     app.createAlienShooter2(X,Y, graphic)
+       app.createAlienShooter2(X,Y, graphic)
 
-    } else if (type === 'missileAlien') {
+      } else if (type === 'missileAlien') {
 
-     app.createAlienMissileShip2(X,Y, graphic)
+       app.createAlienMissileShip2(X,Y, graphic)
 
-    } else if (type === 'shotgunAlien') {
+      } else if (type === 'shotgunAlien') {
 
-     app.createAlienShotgunner2(X,Y, graphic)
+       app.createAlienShotgunner2(X,Y, graphic)
 
-    }
+      }
 
-    app.count += 1
-    if ( app.count === num ){
-    app.generating = false
-    clearInterval(waveGen);
-    app.count = 0;
-    }
-
-
-
+      count += 1
+      if ( count === num ){
+        app.generating = false
+        clearInterval(waveGen);
+        count = 0;
+      }
   }, time)
+    // console.log('timerID', waveGen);
   }
 
   waveInterval();
@@ -63,7 +63,7 @@ app.callTimer = function(type, graphic, num, X, Y, time){
 
 app.createSeeker2 = function(X, Y, graphicName){
 
-
+console.log("Create Seeker")
   // DEFINED IN INITIALCREATE.JS
 
     // //  The baddies! - Seeker.
@@ -108,7 +108,7 @@ app.createSeeker2 = function(X, Y, graphicName){
 
 app.createAlienShooter2 = function(X,Y, graphicName){
   
-
+console.log("Create Shooter")
 
   var alien = app.alienShooter.create(X, Y, graphicName);
   alien.anchor.setTo(0.5, 0.5);
@@ -169,7 +169,7 @@ app.createAlienShooter2 = function(X,Y, graphicName){
  
 app.createAlienMissileShip2 = function(X, Y, graphicName){
 
- 
+ console.log("create Missile")
 
   var alien = app.alienMissileShip.create(X, Y, graphicName);
   alien.anchor.setTo(0.5, 0.5);
@@ -239,7 +239,7 @@ app.createAlienMissileShip2 = function(X, Y, graphicName){
 app.createAlienShotgunner2 = function(X,Y, graphicName){
  
 
- 
+ console.log("create Shotgunner")
 
   var alien = app.alienShotgunner.create(X, Y, graphicName);
   alien.anchor.setTo(0.5, 0.5);
