@@ -1,5 +1,9 @@
 /*----------------------------------------------Universal/Main elements----------------------------------------------*/
 
+* {
+  font-family: "Courier new";
+}
+
 #container {
 padding-left: 200px;
 padding-top: 20px;
@@ -47,6 +51,19 @@ padding-top: 20px;
   float: right;
 }
 
+ /*----------------------------------------------Buttons----------------------------------------------*/
+
+/*button {
+  background-color: white;
+  color: black;
+  border-color: black;
+  border-radius: 0;
+}
+
+button:hover, button:active, button:focus {
+  background-color: grey;
+}*/
+
  /*----------------------------------------------Settings----------------------------------------------*/
 
 
@@ -56,24 +73,24 @@ padding-top: 20px;
   width: 48px;
   height: 18px;
   text-align: center;
-  background-color: darkgreen;
+  background-color: white;
   margin-left: 2em;
   display: inline-block;
+  border: 1px solid black;
 }
 
 .userButtonDisable {
-  background-color: red;
+  background-color: black;
   color: white;
 }
 
 .userButton p {
   cursor: pointer;
-  font-weight: bold;
-  font-family: "Courier new";
-}
+/*  font-weight: bold;
+*/}
 
 .userButton p:hover {
-  color: white;
+  color: grey;
 }
 
 /* Stats window */

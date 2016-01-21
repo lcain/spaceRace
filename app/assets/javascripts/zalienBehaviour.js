@@ -126,44 +126,54 @@ app.createAlienShotgunner = function(X,Y){
 //----------------------------------------------------------
 
 
-// app.time = 10000
+app.time = 1000
 
 
 
-// // callTimer( seekerAlien, levelEightSeeker, 150, _.random(-150, 150) );
+// callTimer( seekerAlien, levelEightSeeker, 150, _.random(-150, 150) );
 
-// app.callTimer = function(type, graphic, num, X, Y){
+app.callTimer = function(type, graphic, num, X, Y){
 
-//   var count = 0;
-//   var waveInterval = setInterval(function(type){
+  app.count = app.count || 0
+  var waveInterval = function(){
 
-//     if(type === 'seekerAlien'){
+    var waveGen = setInterval(function(){
+    // debugger
+    if(type === 'seekerAlien'){
 
-//      app.createSeeker( X, Y, type)
+     app.createSeeker( X, Y, graphic)
  
-//     } else if (type === 'shooterAlien') {
+    } else if (type === 'shooterAlien') {
 
-//      app.createAlienShooter(X,Y)
+     app.createAlienShooter(X,Y)
 
-//     } else if (type === 'missileAlien') {
+    } else if (type === 'missileAlien') {
 
-//      app.createAlienMissileShip(X,Y)
+     app.createAlienMissileShip(X,Y)
 
-//     } else if (type === 'shotgunAlien') {
+    } else if (type === 'shotgunAlien') {
 
-//      app.createAlienShotgunner(X,Y)
+     app.createAlienShotgunner(X,Y)
 
-//     }
+    }
+
+    app.count += 1
+    if ( app.count === num ){
+    clearInterval(waveGen);
+    app.count = 0;
+    }
 
 
 
-//   }, app.time)
+  }, app.time)
+  }
 
-// if ( count === num ){
-//   clearInterval(waveInterval);
-// }
+  waveInterval();
 
-// }
+}
+
+
+
 
 // // //----------------------------------------------------------
 // // // DYNAMIC ALIEN GENERATION
