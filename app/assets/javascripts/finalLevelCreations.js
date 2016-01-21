@@ -22,7 +22,7 @@ app.callTimer = function(type, graphic, num, X, Y, time){
     // debugger
 
     app.generating = true
-    console.log(app.generating)
+    // console.log(app.generating)
 
     if(type === 'seekerAlien'){
 
@@ -75,6 +75,8 @@ app.createSeeker2 = function(X, Y, graphicName){
 
     var alien = app.seekerAlien.create(X, Y, graphicName);
     alien.anchor.setTo(0.5, 0.5);
+    app.seekerAlien.setAll('outOfBoundsKill', true);
+    app.seekerAlien.setAll('checkWorldBounds', true);
     // alien.animations.add('fly', [ 0, 1, 2 ], 20, true);
     // alien.play('fly');
 
@@ -110,6 +112,8 @@ app.createAlienShooter2 = function(X,Y, graphicName){
 
   var alien = app.alienShooter.create(X, Y, graphicName);
   alien.anchor.setTo(0.5, 0.5);
+  app.alienShooter.setAll('outOfBoundsKill', true);
+  app.alienShooter.setAll('checkWorldBounds', true);
   // alien.animations.add('fly', [ 0, 1, 2 ], 20, true);
   // alien.play('fly');
   app.alienShooterArray.push(alien);
@@ -169,6 +173,8 @@ app.createAlienMissileShip2 = function(X, Y, graphicName){
 
   var alien = app.alienMissileShip.create(X, Y, graphicName);
   alien.anchor.setTo(0.5, 0.5);
+  app.alienMissileShip.setAll('outOfBoundsKill', true);
+  app.alienMissileShip.setAll('checkWorldBounds', true);
   // alien.animations.add('fly', [ 0, 1, 2 ], 20, true);
   // alien.play('fly');
   app.alienMissileShipArray.push(alien);
@@ -237,6 +243,8 @@ app.createAlienShotgunner2 = function(X,Y, graphicName){
 
   var alien = app.alienShotgunner.create(X, Y, graphicName);
   alien.anchor.setTo(0.5, 0.5);
+  app.alienShotgunner.setAll('outOfBoundsKill', true);
+  app.alienShotgunner.setAll('checkWorldBounds', true);
   // alien.animations.add('fly', [ 0, 1, 2 ], 20, true);
   // alien.play('fly');
   app.alienShotgunnerArray.push(alien);

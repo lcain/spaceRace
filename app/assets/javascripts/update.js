@@ -244,7 +244,7 @@ app.update = function() {
             app.game.physics.arcade.overlap(app.alienShooter, app.player, app.enemyHitsPlayerLevelOne, null, this);
 
             if ( (app.aliens.countLiving() === 0 ) && (app.seekerAlien.countLiving() === 0) && (app.alienShooter.countLiving() === 0 ) && (app.generating === false) ) {
-                app.toNextLevel(app.createLevelTen);
+                app.toNextLevel(app.createLevelEleven);
             }
         }
 

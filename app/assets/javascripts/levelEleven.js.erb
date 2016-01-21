@@ -26,24 +26,11 @@ app.createLevelEleven = function() {
 
 app.createAliensLevelEleven = function() {
 
-    // Reset aliens position
-    app.aliens.x = 0;
-    app.aliens.y = 0;
-
-    seekerNum = 12;
-    num = seekerNum / 4;
-
-    // Asteroid group moving from top to bottom
-    app.createAlienGroupTopBottomLevelNine(800, -300, num, app.descendLevelFour);
-
-    // Asteroid group moving from bottom to top
-    app.createAlienGroupTopBottomLevelNine(800, 950, num, app.ascendLevelFive);
-
-    // Asteroid group moving from left to right
-    app.createAlienGroupLeftRightLevelNine(-300, 650, num, app.moveRightLevelFour);
-
-    // Asteroid group moving from right to left
-    app.createAlienGroupLeftRightLevelNine(1200, 650, num, app.moveLeftLevelFour);
+    console.log("Yes??")
+    app.callTimer( "seekerAlien", "levelEightSeeker", 1, 150, 0, 4000 );
+    app.callTimer( "shooterAlien", "levelEightSeeker", 1, 550, 0, 4000 );
+    app.callTimer( "missileAlien", "levelEightSeeker", 1, 550, 0, 4000 );
+    
 
 }
 
