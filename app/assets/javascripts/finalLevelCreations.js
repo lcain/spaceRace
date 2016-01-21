@@ -17,7 +17,7 @@ app.callTimer = function(type, graphic, num, X, Y, time){
   app.count = app.count || 0
   var waveInterval = function(){
   app.generating = true
-    
+
     var waveGen = setInterval(function(){
     // debugger
 
@@ -27,7 +27,7 @@ app.callTimer = function(type, graphic, num, X, Y, time){
     if(type === 'seekerAlien'){
 
      app.createSeeker2( X, Y, graphic)
- 
+
     } else if (type === 'shooterAlien') {
 
      app.createAlienShooter2(X,Y, graphic)
@@ -84,7 +84,7 @@ app.createSeeker2 = function(X, Y, graphicName){
   // app.seekerAlien.y = Y;
 
     app.alienSeekerArray.push(alien);
-   
+
     _.each(app.alienSeekerArray, function(alien){
 
       // APPROPRIATE ALIEN BEHAVIOUR
@@ -98,7 +98,7 @@ app.createSeeker2 = function(X, Y, graphicName){
         alien.angle = d + 90;
     }, this, alien);
 
-        
+
 
     });
 
@@ -107,7 +107,7 @@ app.createSeeker2 = function(X, Y, graphicName){
 }
 
 app.createAlienShooter2 = function(X,Y, graphicName){
-  
+
 
 
   var alien = app.alienShooter.create(X, Y, graphicName);
@@ -117,7 +117,7 @@ app.createAlienShooter2 = function(X,Y, graphicName){
   // alien.animations.add('fly', [ 0, 1, 2 ], 20, true);
   // alien.play('fly');
   app.alienShooterArray.push(alien);
-   
+
   _.each(app.alienShooterArray, function(alien){
 
 //-----------------------------------------------------
@@ -133,11 +133,11 @@ app.createAlienShooter2 = function(X,Y, graphicName){
 
         app.enemySeekerTimer = app.game.time.now + 2000;
 
-   
+
 
       // Bullet creation here:
-      
-      
+
+
 
       var counter = 0;
       app.shotInterval = setInterval(function(){
@@ -146,29 +146,29 @@ app.createAlienShooter2 = function(X,Y, graphicName){
           shooterBullet.reset(alien.body.x + 12, alien.body.y +10);
 
           shooterBullet.angle = alien.angle;
-          
+
           shooterBullet.body.velocity.x = alien.body.velocity.x * 3;
           shooterBullet.body.velocity.y = alien.body.velocity.y * 3;
 
-          
-               
+
+
           counter++;
         }   else {
           clearInterval(app.shotInterval)
         }
       }, 500)
 
-   
+
 //-----------------------------------------------------
 
   });
 
 
 }
- 
+
 app.createAlienMissileShip2 = function(X, Y, graphicName){
 
- 
+
 
   var alien = app.alienMissileShip.create(X, Y, graphicName);
   alien.anchor.setTo(0.5, 0.5);
@@ -177,7 +177,7 @@ app.createAlienMissileShip2 = function(X, Y, graphicName){
   // alien.animations.add('fly', [ 0, 1, 2 ], 20, true);
   // alien.play('fly');
   app.alienMissileShipArray.push(alien);
-   
+
   _.each(app.alienMissileShipArray, function(alien){
 
 //-----------------------------------------------------
@@ -190,7 +190,7 @@ app.createAlienMissileShip2 = function(X, Y, graphicName){
         alien.angle = d + 90;
     }, this, alien);
 
-   
+
 
     var d = alien.rotation * (180/ Math.PI);
     alien.angle = d + 90;
@@ -199,11 +199,11 @@ app.createAlienMissileShip2 = function(X, Y, graphicName){
 
     var counter = 0;
     app.shotInterval = setInterval(function(){
-      
+
       if (counter < 2 && alien.alive === true){
 
-       
-          
+
+
         shooterBullet = app.alienMissileBullets.getFirstExists(false);
         shooterBullet.reset(alien.body.x + 15, alien.body.y +10);
         shooterBullet.angle = alien.angle;
@@ -219,10 +219,10 @@ app.createAlienMissileShip2 = function(X, Y, graphicName){
             shooterBullet.angle = d + 90;
           }, this, shooterBullet);
 
-        })       
-                
+        })
+
           counter++;
-        
+
       }   else {
           clearInterval(app.shotInterval)
           }
@@ -236,9 +236,9 @@ app.createAlienMissileShip2 = function(X, Y, graphicName){
 
  app.alienShotgunnerArray = [];
 app.createAlienShotgunner2 = function(X,Y, graphicName){
- 
 
- 
+
+
 
   var alien = app.alienShotgunner.create(X, Y, graphicName);
   alien.anchor.setTo(0.5, 0.5);
@@ -247,7 +247,7 @@ app.createAlienShotgunner2 = function(X,Y, graphicName){
   // alien.animations.add('fly', [ 0, 1, 2 ], 20, true);
   // alien.play('fly');
   app.alienShotgunnerArray.push(alien);
-   
+
   _.each(app.alienShotgunnerArray, function(alien){
 
 //-----------------------------------------------------
@@ -264,9 +264,9 @@ app.createAlienShotgunner2 = function(X,Y, graphicName){
 
       var counter = 0;
       app.shotInterval = setInterval(function(){
-      
+
         if (counter < 100 && alien.alive === true){
-          
+
           shooterBullet = app.alienShotgunBullets.getFirstExists(false);
           shooterBullet.reset(alien.body.x + 12, alien.body.y +10);
           shooterBullet.angle = alien.angle;
@@ -285,10 +285,10 @@ app.createAlienShotgunner2 = function(X,Y, graphicName){
           shooterBullet3 = app.alienShotgunBullets.getFirstExists(false);
           shooterBullet3.reset(alien.body.x + 12, alien.body.y +10);
           shooterBullet3.angle = alien.angle;
-          
+
           shooterBullet3.body.velocity.x = alien.body.velocity.x * 6;
           shooterBullet3.body.velocity.y = alien.body.velocity.y * 6;
-                
+
           counter++;
         }   else {
           clearInterval(app.shotInterval)
