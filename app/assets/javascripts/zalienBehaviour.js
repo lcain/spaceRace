@@ -130,7 +130,7 @@ app.time = 1000
 
 
 
-// callTimer( seekerAlien, levelEightSeeker, 150, _.random(-150, 150) );
+// callTimer( "seekerAlien", "levelEightSeeker", 3, 150, _.random(-150, 150) );
 
 app.callTimer = function(type, graphic, num, X, Y){
 
@@ -141,19 +141,19 @@ app.callTimer = function(type, graphic, num, X, Y){
     // debugger
     if(type === 'seekerAlien'){
 
-     app.createSeeker( X, Y, graphic)
+     app.createSeeker2( X, Y, graphic)
  
     } else if (type === 'shooterAlien') {
 
-     app.createAlienShooter(X,Y)
+     app.createAlienShooter2(X,Y, graphic)
 
     } else if (type === 'missileAlien') {
 
-     app.createAlienMissileShip(X,Y)
+     app.createAlienMissileShip(X,Y, graphic)
 
     } else if (type === 'shotgunAlien') {
 
-     app.createAlienShotgunner(X,Y)
+     app.createAlienShotgunner2(X,Y, graphic)
 
     }
 

@@ -51,7 +51,7 @@ app.createSeeker2 = function(X, Y, graphicName){
 }
 
 app.createAlienShooter2 = function(X,Y, graphicName){
-  app.alienShooterArray = [];
+  
 
   app.alienShooter = app.game.add.group();
   // app.alienShooter.enableBody = true;
@@ -81,19 +81,22 @@ app.createAlienShooter2 = function(X,Y, graphicName){
    
 
       // Bullet creation here:
-      shooterBullet = app.alienShooterBullets.getFirstExists(false);
+      
+      
 
       var counter = 0;
       app.shotInterval = setInterval(function(){
       
         if (counter < 20){
-          
+          shooterBullet = app.alienShooterBullets.getFirstExists(false);
           shooterBullet.reset(alien.body.x + 12, alien.body.y +10);
 
           shooterBullet.angle = alien.angle;
           
-          shooterBullet.body.velocity.x = alien.body.velocity.x * 6;
-          shooterBullet.body.velocity.y = alien.body.velocity.y * 6;
+          shooterBullet.body.velocity.x = alien.body.velocity.x * 3;
+          shooterBullet.body.velocity.y = alien.body.velocity.y * 3;
+
+          
                
           counter++;
         }   else {

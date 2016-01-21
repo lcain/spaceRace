@@ -21,7 +21,7 @@ app.create = function() {
     app.enemyBullets = app.game.add.group();
     app.enemyBullets.enableBody = true;
     app.enemyBullets.physicsBodyType = Phaser.Physics.ARCADE;
-    app.enemyBullets.createMultiple(30, 'enemyBullet');
+    app.enemyBullets.createMultiple(100, 'enemyBullet');
     app.enemyBullets.setAll('anchor.x', 0.5);
     app.enemyBullets.setAll('anchor.y', 1);
     app.enemyBullets.setAll('outOfBoundsKill', true);
@@ -44,7 +44,7 @@ app.create = function() {
     app.alienMissileBullets = app.game.add.group();
     app.alienMissileBullets.enableBody = true;
     app.alienMissileBullets.physicsBodyType = Phaser.Physics.ARCADE;
-    app.alienMissileBullets.createMultiple(30, 'levelTenAlienMissile');
+    app.alienMissileBullets.createMultiple(300, 'levelTenAlienMissile');
     app.alienMissileBullets.setAll('anchor.x', 0.5);
     app.alienMissileBullets.setAll('anchor.y', 1);
     app.alienMissileBullets.setAll('outOfBoundsKill', true);
@@ -55,7 +55,7 @@ app.create = function() {
     app.alienShotgunBullets = app.game.add.group();
     app.alienShotgunBullets.enableBody = true;
     app.alienShotgunBullets.physicsBodyType = Phaser.Physics.ARCADE;
-    app.alienShotgunBullets.createMultiple(30, 'levelTenAlienShotgun');
+    app.alienShotgunBullets.createMultiple(300, 'levelTenAlienShotgun');
     app.alienShotgunBullets.setAll('anchor.x', 0.5);
     app.alienShotgunBullets.setAll('anchor.y', 1);
     app.alienShotgunBullets.setAll('outOfBoundsKill', true);
