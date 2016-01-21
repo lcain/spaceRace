@@ -9,6 +9,15 @@ app.restart = function() {
     app.lives.callAll('revive');
     //  And brings the aliens back from the dead :)
     app.aliens.removeAll();
+
+    app.killSmallAliens(app.smallAliensUp);
+    app.killSmallAliens(app.smallAliensDown);
+    app.killSmallAliens(app.smallAliensLeft);
+    app.killSmallAliens(app.smallAliensRight);
+
+    //This is to prevent the enemies moving double time on restart.
+    app.game.time.events.removeAll();
+
     app.createAliensLevelOne();
 
     //revives the player
@@ -44,16 +53,9 @@ app.restart = function() {
 
     //hides the text
     app.stateText.visible = false;
+    app.stateText.fill = '#000';
 
     app.score = 0;
     app.scoreText.destroy();
     app.scoreText = app.game.add.text(10, 705, app.scoreString + app.score, { font: '25px Georgia', fill: "#000" });
-
-    //This is to prevent the enemies moving double time on restart.
-    app.game.time.events.events.pop();
 }
-
-
-
-
-

@@ -19,6 +19,7 @@ app.scoreText;
 app.lives;
 app.enemyBullet;
 app.firingTimer = 0;
+app.enemySeekerTimer = 0;
 app.stateText;
 app.livingEnemies = [];
 app.canFire = true;
@@ -41,3 +42,18 @@ app.smallAliensLeft = [];
 app.smallAliensRight = [];
 app.smallAliensDown = [];
 app.smallAliensUp = [];
+
+
+// -- Alien shooter bullets
+
+app.alienShooterbullets;
+app.alienShooterbulletTime = 0;
+app.alienShooterbulletVelocity = 200;
+app.alienShooterbulletFireRate = 1000;
+
+// Missiles
+
+app.alienMissilebullets;
+app.alienMissilebulletTime = 0;
+app.alienMissilebulletVelocity = 200;
+app.alienMissilebulletFireRate = 1000;

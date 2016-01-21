@@ -15,8 +15,9 @@ class UsersController < ApplicationController
 
   # GET /users/new
   def new
-    @user = User.new
+    @user = User.find_by( :id => session[:user_id] ) || User.new
   end
+
 
   # GET /users/1/edit
   def edit
@@ -25,7 +26,7 @@ class UsersController < ApplicationController
   # POST /users
   # POST /users.json
   def create
-    @user = User.new(user_params)
+    @user = User.find_by( :id => session[:user_id] ) || User.new(user_params)
 
     respond_to do |format|
       if @user.save
