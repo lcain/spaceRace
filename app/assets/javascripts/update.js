@@ -228,10 +228,10 @@ app.update = function() {
 
         if ( app.levelCounter === 9 ) {
 
-a
             app.game.physics.arcade.overlap(app.bullets, app.seekerAlien, app.collisionHandlerLevelNine, null, this);
+            app.game.physics.arcade.overlap(app.seekerAlien, app.player, app.enemyHitsPlayerLevelOne, null, this);
 
-            if ( app.seekerAlien.countLiving() === 0 ) {
+            if ( app.seekerAlien.countLiving() === 0 && app.generating === false ) {
                 app.toNextLevel(app.createLevelTen);
             }
         }
