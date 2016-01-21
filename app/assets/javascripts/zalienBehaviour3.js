@@ -80,21 +80,25 @@ app.createAlienShooter3 = function(X,Y, graphicName){
 
         app.enemySeekerTimer = app.game.time.now + 2000;
 
+      // Bullet creation here:
+      shooterBullet = app.alienShooterBullets.getFirstExists(false);
+
       var counter = 0;
       app.shotInterval = setInterval(function(){
 
-        if (counter < 15){
+        if (counter < 20){
+          console.log("logging")
+          console.log(counter)
 
-          shooterBullet = app.alienShooterBullets.getFirstExists(false);
-          //shooterBullet.reset(alien.body.x + 15, alien.body.y +10);
-          shooterBullet.reset(alien.body.x, alien.body.y);
 
-                shooterBullet.angle = alien.angle;
-                //app.game.physics.arcade.moveToObject(shooterBullet,alien,400);
-                app.game.physics.arcade.moveToXY(shooterBullet, alien.x + 400, alien.y + 400, 400);
+          shooterBullet.reset(alien.body.x + 12, alien.body.y +10);
+
+          shooterBullet.angle = alien.angle;
+
+          shooterBullet.body.velocity.x = alien.body.velocity.x * 6;
+          shooterBullet.body.velocity.y = alien.body.velocity.y * 6;
 
           counter++;
-          // console.log (counter)
         }   else {
           clearInterval(app.shotInterval)
         }
