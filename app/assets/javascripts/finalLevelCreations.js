@@ -141,7 +141,6 @@ app.createAlienShooter2 = function(X,Y, graphicName){
 
       var counter = 0;
       app.shotInterval = setInterval(function(){
-      console.log(alien)
         if (counter < 20 && alien.alive === true){
           shooterBullet = app.alienShooterBullets.getFirstExists(false);
           shooterBullet.reset(alien.body.x + 12, alien.body.y +10);

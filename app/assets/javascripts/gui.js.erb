@@ -75,12 +75,12 @@ app.$stylise = function(){
       "color": "black",
       "font-family": '"Courier new"'
     })
-    $('body').css({
-      'background-color': 'white',
-      'background': 'white',
-      'background-image': 'none'
+    // $('body').css({
+    //   'background-color': 'white',
+    //   'background': 'white',
+    //   'background-image': 'none'
 
-    })
+    // })
 
   }
 
@@ -141,10 +141,11 @@ app.$stylise = function(){
 
     $('#user_nav, a').css("color", "white")
 
-    $('.scoreText, h1, label').css({
+    $('.scoreText').css({
       'color' : 'white',
       'font-weight' : "bold"
       })
+    $('h1, label').css("color", "black")
 
     $('.optionsBar').css('border-top', '3px solid white')
     $('body').css({
@@ -164,10 +165,13 @@ app.$stylise = function(){
   })
   }
 
-  // if (app.levelCounter === 9){
-  //   $('body').css("background-image", "url('<%= asset_path("spacescape.jpg") %>')");
-    
-  // }
+  if (app.levelCounter === 9){
+    $('body').css({
+      "background-image":"url("+"'"+'<%= image_path("LevelNine/spacescape.jpg") %>'+"')"
+    });
+        console.log(" LEvel Nine CSS")
+
+  }
 }
 
 
