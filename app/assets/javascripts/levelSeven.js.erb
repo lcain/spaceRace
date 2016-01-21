@@ -16,6 +16,25 @@ app.createLevelSeven = function() {
     app.game.time.events.events.pop();
     app.game.time.events.loop(Phaser.Timer.SECOND * .02, app.descendLevelFourSmallAliens, this);
 
+
+
+
+    // app.preloadLevelSeven();
+
+    app.levelSevenLoop = new Howl({
+    urls: [playSound("level7music")],
+    autoplay: true,
+    loop: true,
+    volume: 0
+      // onend: function() {
+      //   console.log('Finished!');
+    })
+
+app.levelSevenLoop.fade(0, 0.5, 15000)
+
+
+
+
 }
 
 app.createAlienGroupTopBottomLevelSeven = function(x, y, num, alienMove) {
@@ -121,7 +140,7 @@ app.collisionHandlerLevelSeven = function(bullet, alien) {
     //AUDIO enemy is hit by bullet -K
 
     soundCall = new Howl({
-    urls: [playSound("enemyHit")]
+    urls: [playSound("bassrumbleexplode")]
     }).play();
 
     //  Increase the score
@@ -163,7 +182,7 @@ app.collisionHandlerLevelSevenSmall = function(bullet, alien) {
     //AUDIO enemy is hit by bullet -K
 
     soundCall = new Howl({
-    urls: [playSound("enemyHit")]
+    urls: [playSound("bassrumbleexplode")]
     }).play();
 
     //  Increase the score

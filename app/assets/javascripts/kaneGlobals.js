@@ -4,12 +4,12 @@ app.alienSeekerArray = [];
 app.seekerAlien;
 
 app.alienShooterArray = [];
-app.alienShooter;
+// app.alienShooter;
 
 app.alienMissileShipArray = [];
-app.alienMissileShip;
+// app.alienMissileShip;
 
 app.alienShotgunnerArray = [];
-app.alienShotgunner;
+// app.alienShotgunner;
 
 app.godMode = false;

@@ -63,3 +63,7 @@ app.alienMissileShipArray = [];
 
 app.alienShooterArray = [];
 app.alienShooterBulletsArray = [];
+
+app.alienShooter;
+app.alienMissileShip;
+app.alienShotgunner;

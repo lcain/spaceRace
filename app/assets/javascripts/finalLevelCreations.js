@@ -16,9 +16,14 @@ app.callTimer = function(type, graphic, num, X, Y, time){
   time = time || app.time
   app.count = app.count || 0
   var waveInterval = function(){
-    app.generating = true
+  app.generating = true
+    
     var waveGen = setInterval(function(){
     // debugger
+
+    app.generating = true
+    // console.log(app.generating)
+
     if(type === 'seekerAlien'){
 
      app.createSeeker2( X, Y, graphic)
@@ -29,7 +34,7 @@ app.callTimer = function(type, graphic, num, X, Y, time){
 
     } else if (type === 'missileAlien') {
 
-     app.createAlienMissileShip(X,Y, graphic)
+     app.createAlienMissileShip2(X,Y, graphic)
 
     } else if (type === 'shotgunAlien') {
 
@@ -70,8 +75,10 @@ app.createSeeker2 = function(X, Y, graphicName){
 
     var alien = app.seekerAlien.create(X, Y, graphicName);
     alien.anchor.setTo(0.5, 0.5);
-    // alien.animations.add('fly', [ 0, 1, 2 ], 20, true);
-    // alien.play('fly');
+    app.seekerAlien.setAll('outOfBoundsKill', true);
+    app.seekerAlien.setAll('checkWorldBounds', true);
+    alien.animations.add('fly', [ 0, 1, 2 ], 20, true);
+    alien.play('fly');
 
   // app.seekerAlien.x = X;
   // app.seekerAlien.y = Y;
@@ -102,12 +109,11 @@ app.createSeeker2 = function(X, Y, graphicName){
 app.createAlienShooter2 = function(X,Y, graphicName){
   
 
-  app.alienShooter = app.game.add.group();
-  // app.alienShooter.enableBody = true;
-  app.alienShooter.physicsBodyType = Phaser.Physics.ARCADE;
 
   var alien = app.alienShooter.create(X, Y, graphicName);
   alien.anchor.setTo(0.5, 0.5);
+  app.alienShooter.setAll('outOfBoundsKill', true);
+  app.alienShooter.setAll('checkWorldBounds', true);
   // alien.animations.add('fly', [ 0, 1, 2 ], 20, true);
   // alien.play('fly');
   app.alienShooterArray.push(alien);
@@ -163,12 +169,12 @@ app.createAlienShooter2 = function(X,Y, graphicName){
  
 app.createAlienMissileShip2 = function(X, Y, graphicName){
 
-  app.alienMissileShip = app.game.add.group();
-  // app.alienMissileShip.enableBody = true;
-  app.alienMissileShip.physicsBodyType = Phaser.Physics.ARCADE;
+ 
 
   var alien = app.alienMissileShip.create(X, Y, graphicName);
   alien.anchor.setTo(0.5, 0.5);
+  app.alienMissileShip.setAll('outOfBoundsKill', true);
+  app.alienMissileShip.setAll('checkWorldBounds', true);
   // alien.animations.add('fly', [ 0, 1, 2 ], 20, true);
   // alien.play('fly');
   app.alienMissileShipArray.push(alien);
@@ -229,16 +235,16 @@ app.createAlienMissileShip2 = function(X, Y, graphicName){
 
 }
 
-
+ app.alienShotgunnerArray = [];
 app.createAlienShotgunner2 = function(X,Y, graphicName){
-  app.alienShotgunnerArray = [];
+ 
 
-  app.alienShotgunner = app.game.add.group();
-  // app.alienShotgunner.enableBody = true;
-  app.alienShotgunner.physicsBodyType = Phaser.Physics.ARCADE;
+ 
 
   var alien = app.alienShotgunner.create(X, Y, graphicName);
   alien.anchor.setTo(0.5, 0.5);
+  app.alienShotgunner.setAll('outOfBoundsKill', true);
+  app.alienShotgunner.setAll('checkWorldBounds', true);
   // alien.animations.add('fly', [ 0, 1, 2 ], 20, true);
   // alien.play('fly');
   app.alienShotgunnerArray.push(alien);

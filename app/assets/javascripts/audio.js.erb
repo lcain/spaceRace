@@ -13,10 +13,75 @@ var playSound = function(play){
     return '<%= asset_path("enemyHit.wav") %>'
 
     case "gameOver":
-    return '<%= asset_path("gameOver") %>'
+    return '<%= asset_path("gameOver.wav") %>'
+
+    case "8bitexplosion":
+    return '<%= asset_path("8bitexplosion.wav") %>'
+
+    case "missile":
+    return '<%= asset_path("missile.wav") %>'
+
+    case "bassrumbleexplode":
+    return '<%= asset_path("bassrumbleexplode.wav") %>'
+
+    case "8bitupgrade":
+    return '<%= asset_path("8bitupgrade.wav") %>'
+
+    case "babypew":
+    return '<%= asset_path("babypew.wav") %>'
+
+    case "laserpew2":
+    return '<%= asset_path("laserpew2.wav") %>'
+
+    case "pacmandeath":
+    return '<%= asset_path("pacmandeath.wav") %>'
+
+    case "shortplayershot8":
+    return '<%= asset_path("shortplayershot8.wav") %>'
+
+
+// -----------MUSIC----------
+
+    case "level7music":
+    return '<%= asset_path("level7music.mp3") %>'
+
+    case "level8music":
+    return '<%= asset_path("level8music.wav") %>'
+
+    case "level9music":
+    return '<%= asset_path("level9music.wav") %>'
+
+
   }
 
 }
 
 var soundCall = new Howl({})
 
+app.levelEightLoop = new Howl({})
+app.levelNineLoop = new Howl({})
+
+        // soundCall = new Howl({
+        // urls: [playSound("gameOver")]
+        // }).play();
+
+// var levelEightLoop = new Howl({
+//   urls: [playSound("level8music")],
+//   autoplay: true,
+//   loop: true,
+//   volume: 0.5,
+//   // onend: function() {
+//   //   console.log('Finished!');
+//   })
+
+
+
+// fade: Fade a currently playing sound between two volumes.
+// from: Number Volume to fade from (0.0 to 1.0).
+// to: Number Volume to fade to (0.0 to 1.0).
+// duration: Number Time in milliseconds to fade.
+// callback: Function (optional) Fires when fade is complete.
+// id: Number (optional) The play instance ID.
+
+
+// .fade(0.5, 0, 1800,function(){app.levelEightLoop.stop()})

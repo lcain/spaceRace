@@ -21,8 +21,19 @@ app.createLevelNine = function() {
     app.createAliensLevelNine();
     app.stateText.visible = false;
     app.levelCounter ++;
+    app.levelEightLoop.fade(0.5, 0, 1800,function(){app.levelEightLoop.stop()})
     // app.preloadLevelSeven();
 
+    app.levelNineLoop = new Howl({
+    urls: [playSound("level9music")],
+    autoplay: true,
+    loop: true,
+    volume: 0
+      // onend: function() {
+      //   console.log('Finished!');
+    })
+
+app.levelNineLoop.fade(0, 0.5, 2000)
 }
 
 
@@ -62,7 +73,8 @@ app.preloadLevelSeven = function(){
 
 app.createAliensLevelNine = function(){
 
-    app.callTimer( "seekerAlien", "levelEightSeeker", 3, 150, 0, 4000 );
-    app.callTimer( "seekerAlien", "levelEightSeeker", 3, 550, 0, 4000 );
+    app.callTimer( "seekerAlien", "levelNineSeeker", 3, 150, 0, 2000 );
+    app.callTimer( "shooterAlien", "levelEightSeeker", 3, 550, 0, 4000 );
+ 
     
 };
