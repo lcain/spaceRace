@@ -130,7 +130,7 @@ app.time = 1000
 
 
 
-// callTimer( "seekerAlien", "levelEightSeeker", 3, 150, _.random(-150, 150) );
+// app.callTimer( "seekerAlien", "levelEightSeeker", 3, 150, _.random(-150, 150) );
 
 app.callTimer = function(type, graphic, num, X, Y){
 

@@ -11,7 +11,7 @@ app.createLevelSeven = function() {
     app.stateText.visible = false;
     app.levelCounter ++;
     // app.preloadLevelSeven();
-
+    app.$stylise();
     app.game.time.events.events.pop();
     app.game.time.events.loop(Phaser.Timer.SECOND * .02, app.descendLevelFourSmallAliens, this);
 
