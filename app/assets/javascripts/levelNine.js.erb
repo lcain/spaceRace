@@ -18,7 +18,7 @@ app.createLevelNine = function() {
         bullet.animations.play('pulse', 20, true);
     });
 
-   
+
     _.each(app.explosions.children, function(explosion) {
         explosion.loadTexture("levelNineKaboom", 0, false);
     });
@@ -83,6 +83,5 @@ app.createAliensLevelNine = function(){
 
     app.callTimer( "seekerAlien", "levelNineSeeker", 3, 150, 0, 2000 );
     app.callTimer( "shooterAlien", "levelTenBasicAlien", 3, 550, 0, 2000 );
- 
-    
+
 };
