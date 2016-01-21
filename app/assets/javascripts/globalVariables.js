@@ -57,3 +57,6 @@ app.alienMissilebullets;
 app.alienMissilebulletTime = 0;
 app.alienMissilebulletVelocity = 200;
 app.alienMissilebulletFireRate = 1000;
+
+app.alienMissileArray = [];
+app.alienMissileShipArray = [];

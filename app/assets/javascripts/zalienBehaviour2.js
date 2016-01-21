@@ -68,8 +68,6 @@ app.createAlienShooter2 = function(X,Y, graphicName){
 //-----------------------------------------------------
     // INSERT APPROPRIATE ALIEN BEHAVIOUR HERE.
 
-        // APPROPRIATE ALIEN BEHAVIOUR
-
         // INCLUDE THIS GAME PHYSICS OR ALIENS WILL NOT FUNCTION.
         app.game.physics.enable(alien, Phaser.Physics.ARCADE);
         app.game.physics.arcade.moveToObject(alien,app.player,120);
@@ -79,6 +77,10 @@ app.createAlienShooter2 = function(X,Y, graphicName){
         alien.angle = d + 90;
 
         app.enemySeekerTimer = app.game.time.now + 2000;
+
+   
+
+      // Bullet creation here:
 
       var counter = 0;
       app.shotInterval = setInterval(function(){
@@ -90,9 +92,8 @@ app.createAlienShooter2 = function(X,Y, graphicName){
 
                 shooterBullet.angle = alien.angle;
                 app.game.physics.arcade.moveToObject(shooterBullet,alien,400);
-                
+                // console.log(shooterBullet.x)
           counter++;
-          // console.log (counter)
         }   else {
           clearInterval(app.shotInterval)
         }
@@ -105,10 +106,9 @@ app.createAlienShooter2 = function(X,Y, graphicName){
 
 
 }
-
-
+ 
 app.createAlienMissileShip2 = function(X, Y, graphicName){
-  app.alienMissileShipArray = [];
+  
 
   app.alienMissileShip = app.game.add.group();
   // app.alienMissileShip.enableBody = true;
@@ -142,8 +142,9 @@ app.createAlienMissileShip2 = function(X, Y, graphicName){
     var counter = 0;
     app.shotInterval = setInterval(function(){
       
-      if (counter < 15){
-        app.alienMissileArray = [];
+      if (counter < 2){
+
+       
           
         shooterBullet = app.alienMissileBullets.getFirstExists(false);
         shooterBullet.reset(alien.body.x + 15, alien.body.y +10);
@@ -163,7 +164,7 @@ app.createAlienMissileShip2 = function(X, Y, graphicName){
         })       
                 
           counter++;
-          console.log (counter)
+        
       }   else {
           clearInterval(app.shotInterval)
           }
@@ -221,7 +222,6 @@ app.createAlienShotgunner2 = function(X,Y, graphicName){
                 app.game.physics.arcade.moveToObject(shooterBullet2,app.player,400);
                 
           counter++;
-          console.log (counter)
         }   else {
           clearInterval(app.shotInterval)
         }
