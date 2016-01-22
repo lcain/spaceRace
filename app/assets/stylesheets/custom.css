@@ -12,6 +12,10 @@ padding-left: 200px;
   display: none;
 }
 
+body {
+  background-color: white;
+}
+
 button {
   width: 80px;
 }
