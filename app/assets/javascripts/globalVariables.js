@@ -1,7 +1,7 @@
 var app = app || {};
 
 app.player;
-app.playerVelocity = 0;
+app.playerVelocity = 200;
 app.aliens;
 app.aliensVelocity = 1;
 app.aliensSpawnTime;
