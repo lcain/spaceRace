@@ -21,3 +21,6 @@
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 
+# user1 = User.create({name: 'Placeholder'})
+
+# highscore1 = Highscore.create( [ {score: 0}, {user_id: 1} ] )
