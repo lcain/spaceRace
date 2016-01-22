@@ -10,6 +10,13 @@ app.restart = function() {
     //  And brings the aliens back from the dead :)
     app.aliens.removeAll();
 
+    app.alienMissileShip.destroy();
+    app.alienShooter.destroy();
+    app.seekerAlien.destroy();
+    app.alienShotgunner.destroy();
+
+
+
     app.killSmallAliens(app.smallAliensUp);
     app.killSmallAliens(app.smallAliensDown);
     app.killSmallAliens(app.smallAliensLeft);
