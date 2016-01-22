@@ -70,6 +70,9 @@ app.alienMissileShip;
 app.alienShotgunner;
 
 
+app.alienShotgunnerArray = [];
+
+
 app.topX = _.random(0, 800);
 app.topY = 0;
 app.leftX = 0;
@@ -86,3 +89,4 @@ app.diagonalBottomLeftX = 0;
 app.diagonalBottomLeftY = 650;
 app.diagonalBottomRightX = 800;
 app.diagonalBottomRightY = 650;
+
