@@ -95,7 +95,7 @@ app.createSeeker2 = function(X, Y, graphicName){
       // INCLUDE THIS GAME PHYSICS OR ALIENS WILL NOT FUNCTION.
         app.game.physics.enable(alien, Phaser.Physics.ARCADE);
         app.game.time.events.loop(Phaser.Timer.SECOND * .01, function() {
-        app.game.physics.arcade.moveToObject(alien, app.player, 120);
+        app.game.physics.arcade.moveToObject(alien, app.player, _.random(120, 200) );
         alien.rotation = app.game.physics.arcade.angleToXY(alien, app.player.position.x, app.player.position.y);
         var d = alien.rotation * (180/ Math.PI);
         alien.angle = d + 90;
@@ -116,8 +116,8 @@ app.createAlienShooter2 = function(X,Y, graphicName){
   alien.anchor.setTo(0.5, 0.5);
   app.alienShooter.setAll('outOfBoundsKill', true);
   app.alienShooter.setAll('checkWorldBounds', true);
-  // alien.animations.add('fly', [ 0, 1, 2 ], 20, true);
-  // alien.play('fly');
+  alien.animations.add('fly', [ 0, 1, 2 ], 20, true);
+  alien.play('fly');
   app.alienShooterArray.push(alien);
 
   _.each(app.alienShooterArray, function(alien){
@@ -175,8 +175,8 @@ app.createAlienMissileShip2 = function(X, Y, graphicName){
   alien.anchor.setTo(0.5, 0.5);
   app.alienMissileShip.setAll('outOfBoundsKill', true);
   app.alienMissileShip.setAll('checkWorldBounds', true);
-  // alien.animations.add('fly', [ 0, 1, 2 ], 20, true);
-  // alien.play('fly');
+  alien.animations.add('fly', [ 0, 1, 2 ], 20, true);
+  alien.play('fly');
   app.alienMissileShipArray.push(alien);
 
   _.each(app.alienMissileShipArray, function(alien){
@@ -243,8 +243,8 @@ app.createAlienShotgunner2 = function(X,Y, graphicName){
   alien.anchor.setTo(0.5, 0.5);
   app.alienShotgunner.setAll('outOfBoundsKill', true);
   app.alienShotgunner.setAll('checkWorldBounds', true);
-  // alien.animations.add('fly', [ 0, 1, 2 ], 20, true);
-  // alien.play('fly');
+  alien.animations.add('fly', [ 0, 1, 2 ], 20, true);
+  alien.play('fly');
   app.alienShotgunnerArray.push(alien);
 
   _.each(app.alienShotgunnerArray, function(alien){
@@ -264,7 +264,7 @@ app.createAlienShotgunner2 = function(X,Y, graphicName){
       var counter = 0;
       app.shotInterval = setInterval(function(){
 
-        if (alien.alive === true){
+        if (counter < 10 && alien.alive === true){
 
           shooterBullet = app.alienShotgunBullets.getFirstExists(false);
           shooterBullet.reset(alien.body.x + 10, alien.body.y + 10);
@@ -286,14 +286,14 @@ app.createAlienShotgunner2 = function(X,Y, graphicName){
           shooterBullet3.reset(alien.body.x + 10, alien.body.y + 10);
           shooterBullet3.angle = alien.angle;
 
-          shooterBullet3.body.velocity.x = alien.body.velocity.x * 4;
-          shooterBullet3.body.velocity.y = alien.body.velocity.y * 4;
+          shooterBullet3.body.velocity.x = alien.body.velocity.x * 2;
+          shooterBullet3.body.velocity.y = alien.body.velocity.y * 2;
 
           counter++;
         }   else {
           clearInterval(app.shotInterval)
         }
-      }, 1000)
+      }, 500)
 
 //-----------------------------------------------------
 
