@@ -7,7 +7,7 @@ app.createLevelTwelve = function() {
 
     _.each(app.bullets.children, function(bullet) {
         bullet.loadTexture("levelTenBullet", 0, false);
-        bullet.animations.add('pulse', [0, 1, 2]);
+        bullet.animations.add('pulse', [0, 1, 2, 3, 4, 5]);
         bullet.animations.play('pulse', 20, true);
     });
 
