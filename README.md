@@ -1,4 +1,11 @@
-# SpaceRace Evolution
+███████╗██████╗  █████╗  ██████╗███████╗██████╗  █████╗  ██████╗███████╗
+██╔════╝██╔══██╗██╔══██╗██╔════╝██╔════╝██╔══██╗██╔══██╗██╔════╝██╔════╝
+███████╗██████╔╝███████║██║     █████╗  ██████╔╝███████║██║     █████╗  
+╚════██║██╔═══╝ ██╔══██║██║     ██╔══╝  ██╔══██╗██╔══██║██║     ██╔══╝  
+███████║██║     ██║  ██║╚██████╗███████╗██║  ██║██║  ██║╚██████╗███████╗
+╚══════╝╚═╝     ╚═╝  ╚═╝ ╚═════╝╚══════╝╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝╚══════╝
+                                                                        
+
 
 With mind altering visual affects comes the critically acclaimed SPACE RACE.  
 
@@ -6,7 +13,7 @@ With mind altering visual affects comes the critically acclaimed SPACE RACE.
   - Changing gameplay mechanics
   - Bosses to battle
 
-In construction ... 
+Use the SPACEBAR
 
 Built on Phaiser.js 
 With a Ruby on Rails Backend
