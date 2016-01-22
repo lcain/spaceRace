@@ -8,7 +8,7 @@ With mind altering visual affects comes the critically acclaimed SPACE RACE.
 
 Use the SPACEBAR to shoot enemies and ARROWKEYS to move about!
 
-Built on Phaiser.js 
+Built on Phaser.js 
 With a Ruby on Rails Backend
 
 The game begins very primitive with limited mobility, as you progress through each level you are giving more and more abilities e.g (movement direction). 
