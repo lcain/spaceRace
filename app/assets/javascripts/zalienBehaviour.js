@@ -1,5 +1,45 @@
 // // KANE'S FILE OF WITCHCRAFT AND WIZARDRY. DON'T TOUCH OR I WILL BREAK YOURFINGERS.
 
+var nameArray = ["shooterAlien", "missileAlien", "shotgunAlien"];
+
+var waveSpeed = 5000
+
+app.alienGenerator = function(X, Y, name){
+
+    if(type === 'seekerAlien'){
+
+     app.createSeeker2( X, Y)
+ 
+    } else if (type === 'shooterAlien') {
+
+     app.createAlienShooter2(X,Y)
+
+    } else if (type === 'missileAlien') {
+
+     app.createAlienMissileShip(X,Y)
+
+    } else if (type === 'shotgunAlien') {
+
+     app.createAlienShotgunner2(X,Y)
+
+    }
+
+}
+
+app.timerKill = function( X, Y ){
+  var playerKiller = setInterval(function(){
+     app.alienGenerator( X, Y, _.sample(nameArray) );
+
+     if (waveSpeed > 300){ waveSpeed -= 100 }
+
+  }, waveSpeed)
+   
+if (app.player.alive === false) {
+  clearInterval(playerKiller)
+};
+
+}
+
 // var app = app || {};
 
 
