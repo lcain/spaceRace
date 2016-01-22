@@ -42,7 +42,7 @@ app.callTimer = function(type, graphic, num, X, Y, time){
        app.createAlienMissileShip2(X,Y, graphic)
 
       } else if (type === 'shotgunAlien') {
-
+        console.log("Shotgunner called")
        app.createAlienShotgunner2(X,Y, graphic)
 
       }
@@ -120,7 +120,7 @@ app.createAlienShooter2 = function(X,Y, graphicName){
   alien.play('fly');
   app.alienShooterArray.push(alien);
 
-  _.each(app.alienShooterArray, function(alien){
+ 
 
 //-----------------------------------------------------
     // INSERT APPROPRIATE ALIEN BEHAVIOUR HERE.
@@ -142,7 +142,7 @@ app.createAlienShooter2 = function(X,Y, graphicName){
 
 
       var counter = 0;
-      app.shotInterval = setInterval(function(){
+      var shotInterval = setInterval(function(){
         if (alien.alive === true){
           shooterBullet = app.alienShooterBullets.getFirstExists(false);
           shooterBullet.reset(alien.body.x + 12, alien.body.y +10);
@@ -156,14 +156,14 @@ app.createAlienShooter2 = function(X,Y, graphicName){
 
           counter++;
         }   else {
-          clearInterval(app.shotInterval)
+          clearInterval(shotInterval)
         }
       }, 500)
 
 
 //-----------------------------------------------------
 
-  });
+
 
 
 }
@@ -179,7 +179,7 @@ app.createAlienMissileShip2 = function(X, Y, graphicName){
   alien.play('fly');
   app.alienMissileShipArray.push(alien);
 
-  _.each(app.alienMissileShipArray, function(alien){
+ 
 
 //-----------------------------------------------------
         //ALIEN BEHAVIOUR
@@ -199,7 +199,7 @@ app.createAlienMissileShip2 = function(X, Y, graphicName){
     app.enemySeekerTimer = app.game.time.now + 2000;
 
     var counter = 0;
-    app.shotInterval = setInterval(function(){
+    var shotInterval = setInterval(function(){
 
       if (alien.alive === true){
 
@@ -225,21 +225,23 @@ app.createAlienMissileShip2 = function(X, Y, graphicName){
           counter++;
 
       }   else {
-          clearInterval(app.shotInterval)
+          clearInterval(shotInterval)
           }
     }, 5000)
 //-----------------------------------------------------
 
 
-  });
+
 
 }
 
- app.alienShotgunnerArray = [];
+ 
+
 app.createAlienShotgunner2 = function(X,Y, graphicName){
 
 
   var alien = app.alienShotgunner.create(X, Y, graphicName);
+  console.log("Alien Created")
   alien.anchor.setTo(0.5, 0.5);
   app.alienShotgunner.setAll('outOfBoundsKill', true);
   app.alienShotgunner.setAll('checkWorldBounds', true);
@@ -247,58 +249,60 @@ app.createAlienShotgunner2 = function(X,Y, graphicName){
   alien.play('fly');
   app.alienShotgunnerArray.push(alien);
 
-  _.each(app.alienShotgunnerArray, function(alien){
+ 
 
 //-----------------------------------------------------
     // INSERT APPROPRIATE ALIEN BEHAVIOUR HERE.
 
-         app.game.physics.enable(alien, Phaser.Physics.ARCADE);
+        app.game.physics.enable(alien, Phaser.Physics.ARCADE);
         app.game.physics.arcade.moveToObject(alien,app.player,120);
         alien.rotation = app.game.physics.arcade.angleToXY(alien, app.player.position.x, app.player.position.y);
 
         var d = alien.rotation * (180/ Math.PI);
         alien.angle = d + 90;
-
         app.enemySeekerTimer = app.game.time.now + 2000;
 
-      var counter = 0;
-      app.shotInterval = setInterval(function(){
 
-        if (counter < 10 && alien.alive === true){
+
+      var counter = 0;
+      console.log("Just before setInterval for Bullets")
+      var shotInterval = setInterval(function(){
+
+        if (alien.alive === true){
+          console.log("Creating bullets")
 
           shooterBullet = app.alienShotgunBullets.getFirstExists(false);
           shooterBullet.reset(alien.body.x + 10, alien.body.y + 10);
-          shooterBullet.angle = alien.angle;
 
-          shooterBullet.angle = alien.angle;
-          shooterBullet.body.velocity.x = (alien.body.velocity.x * 2) + 110;
-          shooterBullet.body.velocity.y = (alien.body.velocity.y * 2) - 110;
+          
+          shooterBullet.angle = alien.angle + 60;
+          shooterBullet.body.velocity.x = (alien.body.velocity.x * 3);
+          shooterBullet.body.velocity.y = (alien.body.velocity.y * 2);
 
           shooterBullet2 = app.alienShotgunBullets.getFirstExists(false);
           shooterBullet2.reset(alien.body.x + 10, alien.body.y + 10);
 
           shooterBullet2.angle = alien.angle;
-
-          shooterBullet2.body.velocity.x = (alien.body.velocity.x * 2) - 110;
-          shooterBullet2.body.velocity.y = (alien.body.velocity.y * 2) + 110;
+          shooterBullet2.body.velocity.x = (alien.body.velocity.x * 2.5);
+          shooterBullet2.body.velocity.y = (alien.body.velocity.y * 2.5);
 
           shooterBullet3 = app.alienShotgunBullets.getFirstExists(false);
           shooterBullet3.reset(alien.body.x + 10, alien.body.y + 10);
-          shooterBullet3.angle = alien.angle;
-
+          
+          shooterBullet3.angle = alien.angle - 60;
           shooterBullet3.body.velocity.x = alien.body.velocity.x * 2;
-          shooterBullet3.body.velocity.y = alien.body.velocity.y * 2;
+          shooterBullet3.body.velocity.y = alien.body.velocity.y * 3;
 
           counter++;
         }   else {
-          clearInterval(app.shotInterval)
+          clearInterval(shotInterval)
         }
-      }, 500)
+      }, 800)
 
 //-----------------------------------------------------
 
 
-  });
+ 
 
 }
 

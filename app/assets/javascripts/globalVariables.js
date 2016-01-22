@@ -68,3 +68,25 @@ app.alienShooterBulletsArray = [];
 app.alienShooter;
 app.alienMissileShip;
 app.alienShotgunner;
+
+
+app.alienShotgunnerArray = [];
+
+
+app.topX = _.random(0, 800);
+app.topY = 0;
+app.leftX = 0;
+app.leftY = _.random(0, 650);
+app.rightX = 650;
+app.rightY = _.random(0, 650);
+app.bottomX = _.random(0, 800);
+app.bottomY = 800;
+app.diagonalTopLeftX = 0;
+app.diagonalTopLeftY = 0;
+app.diagonalTopRightX = 0;
+app.diagonalTopRightY = 650;
+app.diagonalBottomLeftX = 0;
+app.diagonalBottomLeftY = 650;
+app.diagonalBottomRightX = 800;
+app.diagonalBottomRightY = 650;
+
