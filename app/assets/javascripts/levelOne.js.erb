@@ -111,7 +111,7 @@ app.enemyHitsPlayerLevelOne = function(player,bullet) {
     explosion.play('kaboom', 30, false, true);
 
     // When the player dies
-    if (app.lives.countLiving() < 1)
+    if (app.lives.countLiving() < 1 && app.godMode === false)
     {
         app.player.kill();
         app.enemyBullets.callAll('kill');
