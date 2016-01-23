@@ -48,21 +48,23 @@ app.createAliensLevelTwelve = function(){
     app.callTimer( "seekerAlien", "levelNineSeeker", 2, app.bottomX, app.bottomY, 4000 );
     app.callTimer( "seekerAlien", "levelNineSeeker", 2, app.leftX, app.leftY, 4000 );
     app.callTimer( "shooterAlien", "levelTenBasicAlien", 2, app.rightX, app.rightY, 4000 );
+    app.callTimer( "shotgunAlien", "levelTenShotgunShip", 2, app.bottomX, app.bottomY, 5000 );
+    app.callTimer( "shotgunAlien", "levelTenShotgunShip", 2, app.rightX, app.rightY, 4000 );
 
     app.callTimer( "seekerAlien", "levelNineSeeker", 2, app.topX, app.topY, 9000 );
     app.callTimer( "seekerAlien", "levelNineSeeker", 2, app.bottomX, app.bottomY, 9000 );
-    app.callTimer( "seekerAlien", "levelNineSeeker", 2, app.rightX, app.rightY, 9000 );
+    app.callTimer( "shotgunAlien", "levelTenShotgunShip", 2, app.rightX, app.rightY, 9000 );
 
     app.callTimer( "seekerAlien", "levelNineSeeker", 2, app.topX, app.topY, 16000 );
     app.callTimer( "seekerAlien", "levelNineSeeker", 2, app.bottomX, app.bottomY, 16000 );
     app.callTimer( "seekerAlien", "levelNineSeeker", 2, app.rightX, app.rightY, 16000 );
 
-    app.callTimer( "shooterAlien", "levelTenBasicAlien", 2, app.leftX, app.leftY, 9000 );
+    app.callTimer( "shooterAlien", "levelTenBasicAlien", 2, app.diagonalBottomRightX, app.leftY, 9000 );
 
     app.callTimer( "missileAlien", "AlienMissileShip", 2, app.diagonalTopLeftX, app.diagonalTopLeftY, 8000 );
     app.callTimer( "missileAlien", "AlienMissileShip", 2, app.diagonalTopRightX, app.diagonalTopRightY, 5000 );
     app.callTimer( "missileAlien", "AlienMissileShip", 2, app.diagonalBottomLeftX, app.diagonalBottomLeftY, 4000 );
-    app.callTimer( "missileAlien", "AlienMissileShip", 2, app.diagonalBottomRightX, app.diagonalBottomRightY, 8000 );
+    app.callTimer( "shotgunAlien", "levelTenShotgunShip", 2, app.diagonalBottomRightX, app.diagonalBottomRightY, 8000 );
     app.callTimer( "missileAlien", "AlienMissileShip", 1, app.topX, app.topY, 2000 );
     app.callTimer( "missileAlien", "AlienMissileShip", 1, app.bottomX, app.bottomY, 1000 );
 };
