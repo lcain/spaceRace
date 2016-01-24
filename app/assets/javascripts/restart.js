@@ -15,6 +15,10 @@ app.restart = function() {
     app.seekerAlien.destroy();
     app.alienShotgunner.destroy();
 
+    // app.alienShooterBullets.destroy();
+    // app.alienMissileBullets.destroy();
+    // app.alienShotgunBullets.destroy();
+
 
 
     app.killSmallAliens(app.smallAliensUp);

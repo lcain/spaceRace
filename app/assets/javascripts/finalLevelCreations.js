@@ -42,7 +42,7 @@ app.callTimer = function(type, graphic, num, X, Y, time){
        app.createAlienMissileShip2(X,Y, graphic)
 
       } else if (type === 'shotgunAlien') {
-        console.log("Shotgunner called")
+        // console.log("Shotgunner called")
        app.createAlienShotgunner2(X,Y, graphic)
 
       }
