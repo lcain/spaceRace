@@ -1,244 +1,244 @@
-// KANE'S FILE OF WITCHCRAFT AND WIZARDRY. DON'T TOUCH OR I WILL BREAK YOURFINGERS.
+// // KANE'S FILE OF WITCHCRAFT AND WIZARDRY. DON'T TOUCH OR I WILL BREAK YOURFINGERS.
 
-var app = app || {};
+// var app = app || {};
 
 
-// GRAPHIC NAME DENOTES THE MODEL PASSED TO THE ALIEN, FOR INSTANCE 'levelEightSeeker'.
-//  X & Y DENOTES WHERE EXACTLY WE WANT THIS INSTANCE TO SPAWN.
+// // GRAPHIC NAME DENOTES THE MODEL PASSED TO THE ALIEN, FOR INSTANCE 'levelEightSeeker'.
+// //  X & Y DENOTES WHERE EXACTLY WE WANT THIS INSTANCE TO SPAWN.
 
 
-app.createSeeker3 = function(X, Y, graphicName){
+// app.createSeeker3 = function(X, Y, graphicName){
 
 
-  // DEFINED IN INITIALCREATE.JS
+//   // DEFINED IN INITIALCREATE.JS
 
-    // //  The baddies! - Seeker.
-    // app.seekerAlien = app.game.add.group();
-    // app.seekerAlien.enableBody = true;
-    // app.seekerAlien.physicsBodyType = Phaser.Physics.ARCADE;
+//     // //  The baddies! - Seeker.
+//     // app.seekerAlien = app.game.add.group();
+//     // app.seekerAlien.enableBody = true;
+//     // app.seekerAlien.physicsBodyType = Phaser.Physics.ARCADE;
 
 
 
-    var alien = app.seekerAlien.create(X, Y, graphicName);
-    alien.anchor.setTo(0.5, 0.5);
-    // alien.animations.add('fly', [ 0, 1, 2 ], 20, true);
-    // alien.play('fly');
+//     var alien = app.seekerAlien.create(X, Y, graphicName);
+//     alien.anchor.setTo(0.5, 0.5);
+//     // alien.animations.add('fly', [ 0, 1, 2 ], 20, true);
+//     // alien.play('fly');
 
-  // app.seekerAlien.x = X;
-  // app.seekerAlien.y = Y;
+//   // app.seekerAlien.x = X;
+//   // app.seekerAlien.y = Y;
 
-    app.alienSeekerArray.push(alien);
+//     app.alienSeekerArray.push(alien);
 
-    _.each(app.alienSeekerArray, function(alien){
+//     _.each(app.alienSeekerArray, function(alien){
 
-      // APPROPRIATE ALIEN BEHAVIOUR
+//       // APPROPRIATE ALIEN BEHAVIOUR
 
-      // INCLUDE THIS GAME PHYSICS OR ALIENS WILL NOT FUNCTION.
-        app.game.physics.enable(alien, Phaser.Physics.ARCADE);
-        app.game.time.events.loop(Phaser.Timer.SECOND * .01, function() {
-        app.game.physics.arcade.moveToObject(alien, app.player, 120);
-        alien.rotation = app.game.physics.arcade.angleToXY(alien, app.player.position.x, app.player.position.y);
-        var d = alien.rotation * (180/ Math.PI);
-        alien.angle = d + 90;
-    }, this, alien);
+//       // INCLUDE THIS GAME PHYSICS OR ALIENS WILL NOT FUNCTION.
+//         app.game.physics.enable(alien, Phaser.Physics.ARCADE);
+//         app.game.time.events.loop(Phaser.Timer.SECOND * .01, function() {
+//         app.game.physics.arcade.moveToObject(alien, app.player, 120);
+//         alien.rotation = app.game.physics.arcade.angleToXY(alien, app.player.position.x, app.player.position.y);
+//         var d = alien.rotation * (180/ Math.PI);
+//         alien.angle = d + 90;
+//     }, this, alien);
 
 
 
-    });
+//     });
 
 
 
-}
+// }
 
-app.createAlienShooter3 = function(X,Y, graphicName){
-  app.alienShooterArray = [];
+// app.createAlienShooter3 = function(X,Y, graphicName){
+//   app.alienShooterArray = [];
 
-  app.alienShooter = app.game.add.group();
-  // app.alienShooter.enableBody = true;
-  app.alienShooter.physicsBodyType = Phaser.Physics.ARCADE;
+//   app.alienShooter = app.game.add.group();
+//   // app.alienShooter.enableBody = true;
+//   app.alienShooter.physicsBodyType = Phaser.Physics.ARCADE;
 
-  var alien = app.alienShooter.create(X, Y, graphicName);
-  alien.anchor.setTo(0.5, 0.5);
-  // alien.animations.add('fly', [ 0, 1, 2 ], 20, true);
-  // alien.play('fly');
-  app.alienShooterArray.push(alien);
+//   var alien = app.alienShooter.create(X, Y, graphicName);
+//   alien.anchor.setTo(0.5, 0.5);
+//   // alien.animations.add('fly', [ 0, 1, 2 ], 20, true);
+//   // alien.play('fly');
+//   app.alienShooterArray.push(alien);
 
-  _.each(app.alienShooterArray, function(alien){
+//   _.each(app.alienShooterArray, function(alien){
 
-//-----------------------------------------------------
-    // INSERT APPROPRIATE ALIEN BEHAVIOUR HERE.
+// //-----------------------------------------------------
+//     // INSERT APPROPRIATE ALIEN BEHAVIOUR HERE.
 
-        // APPROPRIATE ALIEN BEHAVIOUR
+//         // APPROPRIATE ALIEN BEHAVIOUR
 
-        // INCLUDE THIS GAME PHYSICS OR ALIENS WILL NOT FUNCTION.
-        app.game.physics.enable(alien, Phaser.Physics.ARCADE);
-        app.game.physics.arcade.moveToObject(alien,app.player,120);
-        alien.rotation = app.game.physics.arcade.angleToXY(alien, app.player.position.x, app.player.position.y);
+//         // INCLUDE THIS GAME PHYSICS OR ALIENS WILL NOT FUNCTION.
+//         app.game.physics.enable(alien, Phaser.Physics.ARCADE);
+//         app.game.physics.arcade.moveToObject(alien,app.player,120);
+//         alien.rotation = app.game.physics.arcade.angleToXY(alien, app.player.position.x, app.player.position.y);
 
-        var d = alien.rotation * (180/ Math.PI);
-        alien.angle = d + 90;
+//         var d = alien.rotation * (180/ Math.PI);
+//         alien.angle = d + 90;
 
-        app.enemySeekerTimer = app.game.time.now + 2000;
+//         app.enemySeekerTimer = app.game.time.now + 2000;
 
-      // Bullet creation here:
-      shooterBullet = app.alienShooterBullets.getFirstExists(false);
+//       // Bullet creation here:
+//       shooterBullet = app.alienShooterBullets.getFirstExists(false);
 
-      var counter = 0;
-      app.shotInterval = setInterval(function(){
+//       var counter = 0;
+//       app.shotInterval = setInterval(function(){
 
-        if (counter < 20){
-          console.log("logging")
-          console.log(counter)
+//         if (counter < 20){
+//           console.log("logging")
+//           console.log(counter)
 
 
-          shooterBullet.reset(alien.body.x + 12, alien.body.y +10);
+//           shooterBullet.reset(alien.body.x + 12, alien.body.y +10);
 
-          shooterBullet.angle = alien.angle;
+//           shooterBullet.angle = alien.angle;
 
-          shooterBullet.body.velocity.x = alien.body.velocity.x * 6;
-          shooterBullet.body.velocity.y = alien.body.velocity.y * 6;
+//           shooterBullet.body.velocity.x = alien.body.velocity.x * 6;
+//           shooterBullet.body.velocity.y = alien.body.velocity.y * 6;
 
-          counter++;
-        }   else {
-          clearInterval(app.shotInterval)
-        }
-      }, 500)
+//           counter++;
+//         }   else {
+//           clearInterval(app.shotInterval)
+//         }
+//       }, 500)
 
 
-//-----------------------------------------------------
+// //-----------------------------------------------------
 
-  });
+//   });
 
 
-}
+// }
 
 
-app.createAlienMissileShip3 = function(X, Y, graphicName){
-  app.alienMissileShipArray = [];
+// app.createAlienMissileShip3 = function(X, Y, graphicName){
+//   app.alienMissileShipArray = [];
 
-  app.alienMissileShip = app.game.add.group();
-  // app.alienMissileShip.enableBody = true;
-  app.alienMissileShip.physicsBodyType = Phaser.Physics.ARCADE;
+//   app.alienMissileShip = app.game.add.group();
+//   // app.alienMissileShip.enableBody = true;
+//   app.alienMissileShip.physicsBodyType = Phaser.Physics.ARCADE;
 
-  var alien = app.alienMissileShip.create(X, Y, graphicName);
-  alien.anchor.setTo(0.5, 0.5);
-  // alien.animations.add('fly', [ 0, 1, 2 ], 20, true);
-  // alien.play('fly');
-  app.alienMissileShipArray.push(alien);
+//   var alien = app.alienMissileShip.create(X, Y, graphicName);
+//   alien.anchor.setTo(0.5, 0.5);
+//   // alien.animations.add('fly', [ 0, 1, 2 ], 20, true);
+//   // alien.play('fly');
+//   app.alienMissileShipArray.push(alien);
 
-  _.each(app.alienMissileShipArray, function(alien){
+//   _.each(app.alienMissileShipArray, function(alien){
 
-//-----------------------------------------------------
-        //ALIEN BEHAVIOUR
-        app.game.physics.enable(alien, Phaser.Physics.ARCADE);
-        app.game.time.events.loop(Phaser.Timer.SECOND * .01, function() {
-        app.game.physics.arcade.moveToObject(alien, app.player, 10);
-        alien.rotation = app.game.physics.arcade.angleToXY(alien, app.player.position.x, app.player.position.y);
-        var d = alien.rotation * (180/ Math.PI);
-        alien.angle = d + 90;
-    }, this, alien);
+// //-----------------------------------------------------
+//         //ALIEN BEHAVIOUR
+//         app.game.physics.enable(alien, Phaser.Physics.ARCADE);
+//         app.game.time.events.loop(Phaser.Timer.SECOND * .01, function() {
+//         app.game.physics.arcade.moveToObject(alien, app.player, 10);
+//         alien.rotation = app.game.physics.arcade.angleToXY(alien, app.player.position.x, app.player.position.y);
+//         var d = alien.rotation * (180/ Math.PI);
+//         alien.angle = d + 90;
+//     }, this, alien);
 
 
 
-    var d = alien.rotation * (180/ Math.PI);
-    alien.angle = d + 90;
+//     var d = alien.rotation * (180/ Math.PI);
+//     alien.angle = d + 90;
 
-    app.enemySeekerTimer = app.game.time.now + 2000;
+//     app.enemySeekerTimer = app.game.time.now + 2000;
 
-    var counter = 0;
-    app.shotInterval = setInterval(function(){
+//     var counter = 0;
+//     app.shotInterval = setInterval(function(){
 
-      if (counter < 15){
-        app.alienMissileArray = [];
+//       if (counter < 15){
+//         app.alienMissileArray = [];
 
-        shooterBullet = app.alienMissileBullets.getFirstExists(false);
-        shooterBullet.reset(alien.body.x + 15, alien.body.y +10);
-        shooterBullet.angle = alien.angle;
-        app.alienMissileArray.push(shooterBullet);
+//         shooterBullet = app.alienMissileBullets.getFirstExists(false);
+//         shooterBullet.reset(alien.body.x + 15, alien.body.y +10);
+//         shooterBullet.angle = alien.angle;
+//         app.alienMissileArray.push(shooterBullet);
 
-        _.each(app.alienMissileArray, function(shooterBullet){
+//         _.each(app.alienMissileArray, function(shooterBullet){
 
-          app.game.physics.enable(shooterBullet, Phaser.Physics.ARCADE);
-          app.game.time.events.loop(Phaser.Timer.SECOND * .01, function() {
-            app.game.physics.arcade.moveToObject(shooterBullet, app.player, 40);
-            shooterBullet.rotation = app.game.physics.arcade.angleToXY(shooterBullet, app.player.position.x, app.player.position.y);
-            var d = shooterBullet.rotation * (180/ Math.PI);
-            shooterBullet.angle = d + 90;
-          }, this, shooterBullet);
+//           app.game.physics.enable(shooterBullet, Phaser.Physics.ARCADE);
+//           app.game.time.events.loop(Phaser.Timer.SECOND * .01, function() {
+//             app.game.physics.arcade.moveToObject(shooterBullet, app.player, 40);
+//             shooterBullet.rotation = app.game.physics.arcade.angleToXY(shooterBullet, app.player.position.x, app.player.position.y);
+//             var d = shooterBullet.rotation * (180/ Math.PI);
+//             shooterBullet.angle = d + 90;
+//           }, this, shooterBullet);
 
-        })
+//         })
 
-          counter++;
-          console.log (counter)
-      }   else {
-          clearInterval(app.shotInterval)
-          }
-    }, 4000)
-//-----------------------------------------------------
+//           counter++;
+//           console.log (counter)
+//       }   else {
+//           clearInterval(app.shotInterval)
+//           }
+//     }, 4000)
+// //-----------------------------------------------------
 
 
-  });
+//   });
 
-}
+// }
 
 
-app.createAlienShotgunner3 = function(X,Y, graphicName){
-  app.alienShotgunnerArray = [];
+// app.createAlienShotgunner3 = function(X,Y, graphicName){
+//   app.alienShotgunnerArray = [];
 
-  app.alienShotgunner = app.game.add.group();
-  // app.alienShotgunner.enableBody = true;
-  app.alienShotgunner.physicsBodyType = Phaser.Physics.ARCADE;
+//   app.alienShotgunner = app.game.add.group();
+//   // app.alienShotgunner.enableBody = true;
+//   app.alienShotgunner.physicsBodyType = Phaser.Physics.ARCADE;
 
-  var alien = app.alienShotgunner.create(X, Y, graphicName);
-  alien.anchor.setTo(0.5, 0.5);
-  // alien.animations.add('fly', [ 0, 1, 2 ], 20, true);
-  // alien.play('fly');
-  app.alienShotgunnerArray.push(alien);
+//   var alien = app.alienShotgunner.create(X, Y, graphicName);
+//   alien.anchor.setTo(0.5, 0.5);
+//   // alien.animations.add('fly', [ 0, 1, 2 ], 20, true);
+//   // alien.play('fly');
+//   app.alienShotgunnerArray.push(alien);
 
-  _.each(app.alienShotgunnerArray, function(alien){
+//   _.each(app.alienShotgunnerArray, function(alien){
 
-//-----------------------------------------------------
-    // INSERT APPROPRIATE ALIEN BEHAVIOUR HERE.
+// //-----------------------------------------------------
+//     // INSERT APPROPRIATE ALIEN BEHAVIOUR HERE.
 
-         app.game.physics.enable(alien, Phaser.Physics.ARCADE);
-        app.game.physics.arcade.moveToObject(alien,app.player,120);
-        alien.rotation = app.game.physics.arcade.angleToXY(alien, app.player.position.x, app.player.position.y);
+//          app.game.physics.enable(alien, Phaser.Physics.ARCADE);
+//         app.game.physics.arcade.moveToObject(alien,app.player,120);
+//         alien.rotation = app.game.physics.arcade.angleToXY(alien, app.player.position.x, app.player.position.y);
 
-        var d = alien.rotation * (180/ Math.PI);
-        alien.angle = d + 90;
+//         var d = alien.rotation * (180/ Math.PI);
+//         alien.angle = d + 90;
 
-        app.enemySeekerTimer = app.game.time.now + 2000;
+//         app.enemySeekerTimer = app.game.time.now + 2000;
 
-      var counter = 0;
-      app.shotInterval = setInterval(function(){
+//       var counter = 0;
+//       app.shotInterval = setInterval(function(){
 
-        if (counter < 15){
+//         if (counter < 15){
 
-          shooterBullet = app.alienShooterBullets.getFirstExists(false);
-          shooterBullet.reset(alien.body.x + 15, alien.body.y +10);
+//           shooterBullet = app.alienShooterBullets.getFirstExists(false);
+//           shooterBullet.reset(alien.body.x + 15, alien.body.y +10);
 
-                shooterBullet.angle = alien.angle;
-                app.game.physics.arcade.moveToObject(shooterBullet,app.player,400);
+//                 shooterBullet.angle = alien.angle;
+//                 app.game.physics.arcade.moveToObject(shooterBullet,app.player,400);
 
-          shooterBullet2 = app.alienShooterBullets.getFirstExists(false);
-          shooterBullet2.reset(alien.body.x + 15, alien.body.y +10);
+//           shooterBullet2 = app.alienShooterBullets.getFirstExists(false);
+//           shooterBullet2.reset(alien.body.x + 15, alien.body.y +10);
 
-                shooterBullet2.angle = alien.angle;
-                app.game.physics.arcade.moveToObject(shooterBullet2,app.player,400);
+//                 shooterBullet2.angle = alien.angle;
+//                 app.game.physics.arcade.moveToObject(shooterBullet2,app.player,400);
 
-          counter++;
-          console.log (counter)
-        }   else {
-          clearInterval(app.shotInterval)
-        }
-      }, 1000)
+//           counter++;
+//           console.log (counter)
+//         }   else {
+//           clearInterval(app.shotInterval)
+//         }
+//       }, 1000)
 
-//-----------------------------------------------------
+// //-----------------------------------------------------
 
 
-  });
+//   });
 
-}
+// }
 
 
 
