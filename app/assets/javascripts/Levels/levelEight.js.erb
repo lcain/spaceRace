@@ -23,13 +23,13 @@ app.createLevelEight = function() {
     app.levelCounter ++;
     // app.preloadLevelSeven();
     app.$stylise();
-    soundCall = new Howl({
-    urls: [playSound("8bitupgrade")]
+    app.soundCall = new Howl({
+    urls: [app.playSound("8bitupgrade")]
     }).play();
 
 
     app.levelEightLoop = new Howl({
-      urls: [playSound("level8music")],
+      urls: [app.playSound("level8music")],
       autoplay: true,
       loop: true,
       volume: 0.0,
@@ -145,8 +145,8 @@ app.collisionHandlerLevelEight = function(bullet, alien) {
 
     //AUDIO enemy is hit by bullet -K
 
-    soundCall = new Howl({
-    urls: [playSound("missile")]
+    app.soundCall = new Howl({
+    urls: [app.playSound("missile")]
     }).play();
 
     //  Increase the score

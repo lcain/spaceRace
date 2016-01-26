@@ -33,7 +33,7 @@ app.createLevelNine = function() {
     // app.preloadLevelSeven();
 
     app.levelNineLoop = new Howl({
-    urls: [playSound("level9music")],
+    urls: [app.playSound("level9music")],
     autoplay: true,
     loop: true,
     volume: 0
@@ -55,8 +55,8 @@ app.collisionHandlerLevelNine = function(bullet, alien) {
 
     //AUDIO enemy is hit by bullet -K
 
-    soundCall = new Howl({
-    urls: [playSound("enemyHit")]
+    app.soundCall = new Howl({
+    urls: [app.playSound("enemyHit")]
     }).play();
 
     //  Increase the score

@@ -78,8 +78,8 @@ app.collisionHandlerLevelEleven = function(bullet, alien) {
 
     //AUDIO enemy is hit by bullet -K
 
-    soundCall = new Howl({
-    urls: [playSound("enemyHit")]
+    app.soundCall = new Howl({
+    urls: [app.playSound("enemyHit")]
     }).play();
 
     //  Increase the score

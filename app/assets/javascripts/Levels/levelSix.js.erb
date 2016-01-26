@@ -115,8 +115,8 @@ app.collisionHandlerLevelSix = function(bullet, alien) {
 
     //AUDIO enemy is hit by bullet -K
 
-    soundCall = new Howl({
-    urls: [playSound("bassrumbleexplode")]
+    app.soundCall = new Howl({
+    urls: [app.playSound("bassrumbleexplode")]
     }).play();
 
     //  Increase the score
@@ -142,8 +142,8 @@ console.log("Level Six Collision Handler")
 
     //AUDIO enemy is hit by bullet -K
 
-    soundCall = new Howl({
-    urls: [playSound("bassrumbleexplode")]
+    app.soundCall = new Howl({
+    urls: [app.playSound("bassrumbleexplode")]
     }).play();
 
     //  Increase the score

@@ -22,7 +22,7 @@ app.createLevelSeven = function() {
     // app.preloadLevelSeven();
 
     app.levelSevenLoop = new Howl({
-    urls: [playSound("level7music")],
+    urls: [app.playSound("level7music")],
     autoplay: true,
     loop: true,
     volume: 0
@@ -139,8 +139,8 @@ app.collisionHandlerLevelSeven = function(bullet, alien) {
 
     //AUDIO enemy is hit by bullet -K
 
-    soundCall = new Howl({
-    urls: [playSound("bassrumbleexplode")]
+    app.soundCall = new Howl({
+    urls: [app.playSound("bassrumbleexplode")]
     }).play();
 
     //  Increase the score
@@ -181,8 +181,8 @@ app.collisionHandlerLevelSevenSmall = function(bullet, alien) {
 
     //AUDIO enemy is hit by bullet -K
 
-    soundCall = new Howl({
-    urls: [playSound("bassrumbleexplode")]
+    app.soundCall = new Howl({
+    urls: [app.playSound("bassrumbleexplode")]
     }).play();
 
     //  Increase the score

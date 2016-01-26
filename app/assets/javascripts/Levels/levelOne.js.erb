@@ -56,8 +56,8 @@ app.collisionHandlerLevelOne = function(bullet, alien) {
 
     //AUDIO enemy is hit by bullet -K
 
-    soundCall = new Howl({
-    urls: [playSound("enemyHit")]
+    app.soundCall = new Howl({
+    urls: [app.playSound("enemyHit")]
     }).play();
 
     //  Increase the score
@@ -78,10 +78,7 @@ app.enemyHitsPlayerLevelOne = function(player,bullet) {
     bullet.kill();
 
     //AUDIO Player is hit sound
-    soundCall = new Howl({
-    volume: 0.5,
-    urls: [playSound("playerHit")]
-    }).play();
+    app.playPlayerIsHit();
 
 
     live = app.lives.getFirstAlive();
@@ -151,19 +148,7 @@ app.enemyHitsPlayerLevelOne = function(player,bullet) {
         }, 100);
 
         //AUDIO - Game over -k
-        if(app.levelCounter < 7){
-            soundCall = new Howl({
-            urls: [playSound("gameOver")]
-            }).play();
-        } else if (app.levelCounter === 7){
-            soundCall = new Howl({
-            urls: [playSound("pacmandeath")]
-            }).play();
-        } else if (app.levelCounter > 7){
-            soundCall = new Howl({
-            urls: [playSound("gameover8")]
-            }).play();
-        }
+        app.playGameOverSound();
     }
 
 }
@@ -237,38 +222,8 @@ app.fireBulletLevelOne = function() {
 
             app.bulletTime = app.game.time.now + app.bulletFireRate;
 
-            //AUDIO Player PEWPEWPEW sounds etc. -K
-
-            if (app.levelCounter <= 5){
-                soundCall = new Howl({
-                volume: 0.5,
-                urls: [playSound("playerShot")]
-                }).play();
-
-            } else if (app.levelCounter === 6){
-                soundCall = new Howl({
-                urls: [playSound("babypew")]
-                }).play();
-
-            } else if (app.levelCounter === 7){
-                soundCall = new Howl({
-                volume: 0.5,
-                urls: [playSound("pew")]
-                }).play();
-
-            } else if (app.levelCounter === 8){
-                soundCall = new Howl({
-                volume: 0.5,
-                urls: [playSound("shortplayershot8")]
-                }).play();
-
-            } else if (app.levelCounter >= 8){
-                soundCall = new Howl({
-                volume: 0.5,
-                urls: [playSound("laserpew")]
-                }).play();
-
-            }
+            //AUDIO Player shooting bullets -k
+            app.playerShotSound();
         }
     }
 
