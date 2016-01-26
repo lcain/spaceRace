@@ -1,30 +1,30 @@
 // // KANE'S FILE OF WITCHCRAFT AND WIZARDRY. DON'T TOUCH OR I WILL BREAK YOURFINGERS.
 
-var nameArray = ["shooterAlien", "missileAlien", "shotgunAlien", "seekerAlien"];
+// var nameArray = ["shooterAlien", "missileAlien", "shotgunAlien", "seekerAlien"];
 
-var waveSpeed = 5000
+// var waveSpeed = 5000
 
-app.alienGenerator = function(X, Y, name){
+// app.alienGenerator = function(X, Y, name){
 
-    if(name === 'seekerAlien'){
+//     if(name === 'seekerAlien'){
 
-     app.createSeeker2( X, Y, "levelTenSeeker")
+//      app.createSeeker2( X, Y, "levelTenSeeker")
  
-    } else if (name === 'shooterAlien') {
+//     } else if (name === 'shooterAlien') {
 
-     app.createAlienShooter2(X,Y, "levelTenBasicAlien" )
+//      app.createAlienShooter2(X,Y, "levelTenBasicAlien" )
 
-    } else if (name === 'missileAlien') {
+//     } else if (name === 'missileAlien') {
 
-     app.createAlienMissileShip2(X,Y, "AlienMissileShip")
+//      app.createAlienMissileShip2(X,Y, "AlienMissileShip")
 
-    } else if (name === 'shotgunAlien') {
+//     } else if (name === 'shotgunAlien') {
 
-     app.createAlienShotgunner2(X,Y, "levelTenShotgunShip")
+//      app.createAlienShotgunner2(X,Y, "levelTenShotgunShip")
 
-    }
+//     }
 
-}
+// }
 
 app.timerKill = function( X, Y ){
   var playerKiller = setInterval(function(){
