@@ -39,8 +39,8 @@ app.createAlienGroupTopBottomLevelSix = function(x, y, num, alienMove) {
 
         var alien = app.aliens.create(_.random(0, x), y, 'levelSixAsteroidLarge');
         alien.anchor.setTo(0.5, 0.5);
-        // alien.animations.add('fly', [ 0, 1, 2, 3 ], 20, true);
-        // alien.play('fly');
+        alien.animations.add('fly', [ 0, 1, 2, 3 ], 4, true);
+        alien.play('fly');
         alien.body.moves = false;
         alienArray.push(alien);
     }
@@ -63,8 +63,8 @@ app.createAlienGroupLeftRightLevelSix = function(x, y, num, alienMove) {
 
         var alien = app.aliens.create(x, _.random(0, y), 'levelSixAsteroidLarge');
         alien.anchor.setTo(0.5, 0.5);
-        // alien.animations.add('fly', [ 0, 1, 2, 3 ], 20, true);
-        // alien.play('fly');
+        alien.animations.add('fly', [ 0, 1, 2, 3 ], 4, true);
+        alien.play('fly');
         alien.body.moves = false;
         alienArray.push(alien);
     }
