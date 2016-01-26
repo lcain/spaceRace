@@ -131,18 +131,13 @@ app.enemyHitsPlayerLevelOne = function(player,bullet) {
         app.fireButton.onDown.addOnce(app.restart, this);
 
         var checkSpacePress = setInterval(function() {
-
-        //console.log("waiting for space...");
-
             if (app.fireButton.isDown) {
-                  //console.log("space pressed!");
                   clearInterval(checkSpacePress);
                   checkSpacePress = 0;
 
                   setTimeout(function() {
                     app.canFire = true;
                   }, 1000);
-
             }
 
         }, 100);

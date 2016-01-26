@@ -7,17 +7,12 @@ app.createLevelSeven = function() {
 
     app.aliensSpawnTime = 22500;
     app.aliensVelocity = 3;
-    // app.gameLevelFontSelect();
     app.createAliensLevelSeven();
     app.stateText.visible = false;
     app.levelCounter++;
-    // app.preloadLevelSeven();
     app.$stylise();
     app.game.time.events.events.pop();
     app.game.time.events.loop(Phaser.Timer.SECOND * .02, app.descendLevelFourSmallAliens, this);
-
-
-
 
     // app.preloadLevelSeven();
 
@@ -26,14 +21,9 @@ app.createLevelSeven = function() {
     autoplay: true,
     loop: true,
     volume: 0
-      // onend: function() {
-      //   console.log('Finished!');
     })
 
 app.levelSevenLoop.fade(0, 0.5, 15000)
-
-
-
 
 }
 

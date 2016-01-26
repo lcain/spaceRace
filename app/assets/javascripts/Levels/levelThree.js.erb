@@ -45,13 +45,9 @@ app.descendLevelThree = function() {
 
 
     for(i = 0; i < app.smallAliens.length; i++){
-        // console.log(app.smallAliens[i])
-
         app.smallAliens[i].y += 1.3;
         app.smallAliens[i].children[0].x += -0.08
         app.smallAliens[i].children[1].x += 0.08
-        // console.log("what")
-
         for (var j = 0; j < app.smallAliens[i].children.length; j++) {
 
             if (app.smallAliens[i].children[j].world.y > app.game.world.bounds.bottom) {

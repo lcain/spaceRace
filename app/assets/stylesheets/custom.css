@@ -100,11 +100,3 @@ button:hover, button:active, button:focus {
 .userButton p:hover {
   color: grey;
 }
-
-/* Stats window */
-
-.statsWindow {
-  border: 3px solid black;
-  margin: auto;
-  width: 400px;
-}

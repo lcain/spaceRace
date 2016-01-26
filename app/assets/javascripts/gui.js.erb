@@ -8,7 +8,7 @@ var lifeCalculator = function(){
   return livesRemaining;
 }
 
-// Temporary mute
+// Mute button 
 
 var isMuted = true;
 $(document).ready(function(){
@@ -27,36 +27,7 @@ $(document).ready(function(){
   })
 });
 
-// var showStats = true;
-// $(document).ready(function(){
 
-//   $('body').on('click','.toggleStats',function(){
-
-//     if (showStats === true){
-//       $('.toggleStats').removeClass("userButtonDisable")
-//       $('.statsWindow').removeClass("hidden")
-//       showStats = false;
-
-//     } else {
-//       $('.toggleStats').addClass("userButtonDisable")
-//       $('.statsWindow').addClass("hidden")
-//       showStats = true;
-//     }
-//   })
-// });
-
-$(document).ready(function(){
-   //    // --------
-   //      // DIAGNOSTIC WINDOW TEXT.
-   //  setInterval(function(){
-   //   $('.statsWindow').html(
-   //    "Aliens alive: "+app.aliens.countLiving()+
-   //    " Aliens dead: "+app.aliens.countDead()+"</br>"+
-   //    "Level counter: "+app.levelCounter+
-   //    " Total kills: "+app.totalKillCount
-   //    )
-   // }, 500)
-})
 
 $(document).ready(function(){$('button').removeClass("btn btn-primary")})
 
@@ -75,12 +46,6 @@ app.$stylise = function(){
       "color": "black",
       "font-family": '"Courier new"'
     })
-    // $('body').css({
-    //   'background-color': 'white',
-    //   'background': 'white',
-    //   'background-image': 'none'
-
-    // })
 
   }
 
@@ -169,7 +134,6 @@ app.$stylise = function(){
     $('body').css({
       "background-image":"url("+"'"+'<%= image_path("LevelNine/spacescape.jpg") %>'+"')"
     });
-        console.log(" LEvel Nine CSS")
 
   }
 }

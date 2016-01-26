@@ -81,10 +81,8 @@ app.toNextLevel = function(createLevel){
 
           var checkSpacePress = setInterval(function() {
 
-            //console.log("waiting for space...");
 
             if (app.fireButton.isDown) {
-              //console.log("space pressed!");
               clearInterval(checkSpacePress);
               checkSpacePress = 0;
 
@@ -328,12 +326,7 @@ app.areSmallAliensDead = function(alien){
       deathTest ++;
     }
   }
-
-
   if (deathTest === alien.length){
-    // console.log("SECOND DEATH TEST " + deathTest)
-    // console.log("SECOND SMALL ALIEN LOG " + app.smallAliens.length)
-
     return true;
   }
 
@@ -342,7 +335,6 @@ app.areSmallAliensDead = function(alien){
 app.areAliensImage = function(alien){
 
     if( alien.key === "levelSevenAsteroidLarge"){
-      console.log("In areAliensImage Function")
       return true;
     }
 }

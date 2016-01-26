@@ -36,15 +36,6 @@ app.update = function() {
             app.levelSixControls();
         }
 
-
-        // THIS STARTS THE ENEMY FIRING
-
-        // if (app.game.time.now > app.firingTimer)
-        // {
-        //     app.shooterAlienBullets();
-        // }
-
-
         //  Run collision for level one
 
         if ( app.levelCounter === 1 ) {
@@ -68,7 +59,6 @@ app.update = function() {
 
             // Run collision for level three
         if ( app.levelCounter === 3 ) {
-            // console.log(app.areSmallAliensDead())
             if ( app.areSmallAliensDead(app.smallAliens) === true ) {
                 if (app.aliens.countLiving() === 0){
                 app.toNextLevel(app.createLevelFour);
