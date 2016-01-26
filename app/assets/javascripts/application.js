@@ -9,14 +9,14 @@
 //
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
-//= require ./phaser.min
+//= require ./Resources/phaser.min
 //= require jquery
 //= require jquery_ujs
-//= require bootstrap.min
-//= require ./underscore
+//= require ./Resources/bootstrap.min
+//= require ./Resources/underscore
 //= require ./globalVariables
 //= require ./initialCreate
-//= require ./howler
+//= require ./Resources/howler
 //= require ./audio
 //= require ./gui
 //= require_tree .

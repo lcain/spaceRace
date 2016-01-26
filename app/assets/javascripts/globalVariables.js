@@ -24,6 +24,7 @@ app.stateText;
 app.smallStateText;
 app.livingEnemies = [];
 app.canFire = true;
+app.godMode = false;
 
 
 //----- Use this to count every level transition, this will be what any Jquery dynamic styles will base themselves on. -Kane
@@ -68,6 +69,10 @@ app.alienShooterBulletsArray = [];
 app.alienShooter;
 app.alienMissileShip;
 app.alienShotgunner;
+
+
+app.alienSeekerArray = [];
+app.seekerAlien;
 
 
 app.alienShotgunnerArray = [];
