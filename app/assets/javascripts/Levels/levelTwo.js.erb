@@ -45,14 +45,16 @@ app.descendLevelTwo = function() {
 
 app.collisionHandlerLevelTwo = function(bullet, alien) {
 
+    app.totalKillCount += 1;
+
     //  When a bullet hits an alien we kill them both
     bullet.kill();
     alien.kill();
 
     //AUDIO enemy is hit by bullet -K
 
-    soundCall = new Howl({
-    urls: [playSound("enemyHit")]
+    app.soundCall = new Howl({
+    urls: [app.playSound("enemyHit")]
     }).play();
 
     //  Increase the score

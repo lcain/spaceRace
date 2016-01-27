@@ -241,7 +241,7 @@ app.createAlienShotgunner2 = function(X,Y, graphicName){
 
 
   var alien = app.alienShotgunner.create(X, Y, graphicName);
-  console.log("Alien Created")
+  // console.log("Alien Created")
   alien.anchor.setTo(0.5, 0.5);
   app.alienShotgunner.setAll('outOfBoundsKill', true);
   app.alienShotgunner.setAll('checkWorldBounds', true);
@@ -265,11 +265,11 @@ app.createAlienShotgunner2 = function(X,Y, graphicName){
 
 
       var counter = 0;
-      console.log("Just before setInterval for Bullets")
+      // console.log("Just before setInterval for Bullets")
       var shotInterval = setInterval(function(){
 
         if (alien.alive === true){
-          console.log("Creating bullets")
+          // console.log("Creating bullets")
 
           shooterBullet = app.alienShotgunBullets.getFirstExists(false);
           shooterBullet.reset(alien.body.x + 10, alien.body.y + 10);

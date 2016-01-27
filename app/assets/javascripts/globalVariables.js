@@ -25,6 +25,7 @@ app.smallStateText;
 app.livingEnemies = [];
 app.canFire = true;
 app.godMode = false;
+app.waveTimer = 7000
 
 
 //----- Use this to count every level transition, this will be what any Jquery dynamic styles will base themselves on. -Kane
