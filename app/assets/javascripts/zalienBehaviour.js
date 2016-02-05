@@ -1,8 +1,7 @@
 // // KANE'S FILE OF WITCHCRAFT AND WIZARDRY. DON'T TOUCH OR I WILL BREAK YOUR FINGERS.
 
 
-var generateRandomAlien = function(location, type){
- // console.log("Generated.") 
+var generateAlien = function(location, type){
       if ( type === "random"|| type === "" || type === undefined ){
         type = _.random(1,4)
       }
@@ -51,80 +50,19 @@ var waveSpawn = function(num, spawnLocation, type){
   }
 
     for (var i = 0; i <= num; i++){
-        setTimeout(function(){generateRandomAlien(spawnLocation, type)}, 1000*i*2)
+          setTimeout(function(){generateAlien(spawnLocation, type)}, 1000*i*2)
 
-    if (i === num){
+      if (i === num){
 
-      if(app.game.paused === false){
-        app.waveTimer -= 50;
+        if(app.game.paused === false){
+          app.waveTimer -= 50;
+        }
+
+      setTimeout(function(){waveSpawn( _.random(1,8), "Random Spawn", type )}, app.waveTimer+i*1000*2);
+
       }
-
-    setTimeout(function(){waveSpawn( _.random(1,8), "Random Spawn", type )}, app.waveTimer+i*1000*2);
-
-    }
 
     }
   }
 
 
-
-// //-----------------------------------------------------
-//     // INSERT APPROPRIATE ALIEN BEHAVIOUR HERE.
-// //-----------------------------------------------------
-
-//   });
-
-
-// }
-
-
-// app.createAlienMissileShip = function(X,Y){
-//   app.alienMissileShipArray = [];
-
-//   app.alienMissileShip = app.game.add.group();
-//   // app.alienMissileShip.enableBody = true;
-//   app.alienMissileShip.physicsBodyType = Phaser.Physics.ARCADE;
-
-//   var alien = app.alienMissileShip.create(X, Y, graphicName);
-//   alien.anchor.setTo(0.5, 0.5);
-//   // alien.animations.add('fly', [ 0, 1, 2 ], 20, true);
-//   // alien.play('fly');
-//   app.alienMissileShipArray.push(alien);
-   
-//   _.each(app.alienMissileShipArray, function(alien){
-
-// //-----------------------------------------------------
-//     // INSERT APPROPRIATE ALIEN BEHAVIOUR HERE.
-// //-----------------------------------------------------
-
-
-//   });
-
-// }
-
-
-// app.createAlienShotgunner = function(X,Y){
-//   app.alienShotgunnerArray = [];
-
-//   app.alienShotgunner = app.game.add.group();
-//   // app.alienShotgunner.enableBody = true;
-//   app.alienShotgunner.physicsBodyType = Phaser.Physics.ARCADE;
-
-//   var alien = app.alienShotgunner.create(X, Y, graphicName);
-//   alien.anchor.setTo(0.5, 0.5);
-//   // alien.animations.add('fly', [ 0, 1, 2 ], 20, true);
-//   // alien.play('fly');
-//   app.alienShotgunnerArray.push(alien);
-   
-//   _.each(app.alienShotgunnerArray, function(alien){
-
-// //-----------------------------------------------------
-//     // INSERT APPROPRIATE ALIEN BEHAVIOUR HERE.
-// //-----------------------------------------------------
-
-
-// // // //----------------------------------------------------------
-// // // // DYNAMIC ALIEN GENERATION
-// // // //----------------------------------------------------------
-
-// // // var generate = 

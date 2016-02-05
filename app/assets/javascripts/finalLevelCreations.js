@@ -1,33 +1,23 @@
 var app = app || {};
 
-//----------------------------------------------------------
-// DYNAMIC GENERATION TESTING
-//----------------------------------------------------------
-
-
 app.time = 10000
 app.generating = false
 
 
-
-// app.callTimer( "seekerAlien", "levelEightSeeker", 3, 150, _.random(-150, 150) );
-
 app.callTimer = function(type, graphic, num, X, Y, time){
+
   time = time || app.time
   app.count = app.count || 0
-  // console.log('callTimer', type, graphic, num, X, Y, time);
+
   var waveInterval = function(){
 
     app.generating = true
     var count = 0;
 
     var waveGen = setInterval(function(){
-    // debugger
 
 
       app.generating = true
-      // console.log(app.generating)
-
 
       if(type === 'seekerAlien'){
 
@@ -53,8 +43,8 @@ app.callTimer = function(type, graphic, num, X, Y, time){
         clearInterval(waveGen);
         count = 0;
       }
-  }, time)
-    // console.log('timerID', waveGen);
+  }, time);
+
   }
 
   waveInterval();
@@ -249,10 +239,6 @@ app.createAlienShotgunner2 = function(X,Y, graphicName){
   alien.play('fly');
   app.alienShotgunnerArray.push(alien);
 
- 
-
-//-----------------------------------------------------
-    // INSERT APPROPRIATE ALIEN BEHAVIOUR HERE.
 
         app.game.physics.enable(alien, Phaser.Physics.ARCADE);
         app.game.physics.arcade.moveToObject(alien,app.player,120);
@@ -265,11 +251,10 @@ app.createAlienShotgunner2 = function(X,Y, graphicName){
 
 
       var counter = 0;
-      // console.log("Just before setInterval for Bullets")
+
       var shotInterval = setInterval(function(){
 
         if (alien.alive === true){
-          // console.log("Creating bullets")
 
           shooterBullet = app.alienShotgunBullets.getFirstExists(false);
           shooterBullet.reset(alien.body.x + 10, alien.body.y + 10);
@@ -297,12 +282,7 @@ app.createAlienShotgunner2 = function(X,Y, graphicName){
         }   else {
           clearInterval(shotInterval)
         }
-      }, 800)
-
-//-----------------------------------------------------
-
-
- 
+      }, 800);
 
 }
 
